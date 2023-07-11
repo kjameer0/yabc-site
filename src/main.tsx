@@ -128,16 +128,20 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
     min-width: 375px;
     max-width: 1440px;
     min-height: 667px;
+    color: white;
     --primary-bg: red;
+    --main-bg: #A1D537;
   }
   body {
-
+    background: black;
+    margin: 0;
   }
 
 `;
 
-ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
+    <GlobalStyle />
     <RouterProvider router={router} />
   </React.StrictMode>
 );
