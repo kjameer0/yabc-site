@@ -51,7 +51,7 @@ const router = createBrowserRouter([
       },
       // ADD in props for contact forms!!!
       {
-        path: baseUrl + 'site-admin-contact-form',
+        path: baseUrl + 'site-administrator-contact-form',
         element: <ContactForm />,
         errorElement: <ErrorPage />,
         children: [],
@@ -69,13 +69,13 @@ const router = createBrowserRouter([
         children: [],
       },
       {
-        path: baseUrl + 'info-request-form',
+        path: baseUrl + 'information-request-form',
         element: <InfoRequestForm />,
         errorElement: <ErrorPage />,
         children: [],
       },
       {
-        path: baseUrl + 'mission-society',
+        path: baseUrl + 'mission-society-of-new-york',
         element: <MissionSociety />,
         errorElement: <ErrorPage />,
         children: [],
