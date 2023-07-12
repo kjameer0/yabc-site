@@ -81,9 +81,14 @@ export const studentCornerLinks: NavListItemType[] = [
       { label: `Student Handbook`, path: makeHashLink(`Student Handbook`) },
     ],
   },
-  {label: 'Mission Society of New York', path: makeLink('Mission Society of New York'), anchors: [
-
-  ]}
+  {
+    label: 'Mission Society of New York',
+    path: makeLink('Mission Society of New York'),
+    anchors: [
+      { label: 'What is Mission Society?', path: makeHashLink('What is Mission Society?') },
+      {label: 'Learn to Work Program', path: makeHashLink('Learn to Work Program')}
+    ],
+  },
 ];
 export function handleDrawerSwitch(
   e: React.MouseEvent<HTMLButtonElement>,
