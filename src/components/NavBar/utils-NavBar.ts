@@ -1,5 +1,5 @@
 export type OpenOptions = '' | 'open' | 'close';
-export const links = ['home', 'about', 'services', 'specialties', 'resources', 'contact'];
+export const links = [{ label: 'Home', path: '' }, 'About', 'Admissions', 'Student Corner'];
 //makeHashLink takes a label string
 //for a pathname and converts it to
 //a hash link
@@ -29,26 +29,26 @@ export type NavListItemType = {
   path: string;
   anchors?: NavListItemType[];
 };
-export const yabcNavLinkList: NavListItemType[] = [{ label: 'Home', path: '', anchors: [] }];
+
 export const aboutLinks = [
   {
     label: 'Open house',
     path: 'about',
     anchors: [
-      { label: 'Openhouse', path: '#openhouse' },
-      { label: 'Are we a fit?', path: '#are-we-a-fit' },
-      { label: 'Meet past graduates', path: '#meet-past-graduates' },
+      { label: 'Openhouse', path: '#openhouse', anchors: [] },
+      { label: 'Are we a fit?', path: '#are-we-a-fit', anchors: [] },
+      { label: 'Meet past graduates', path: '#meet-past-graduates', anchors: [] },
     ],
   },
   {
     label: 'Staff Directory',
     path: 'staff-directory',
     anchors: [
-      { label: 'Staff directory', path: '#staff-directory' },
-      { label: 'School Counselors', path: '#school-counselors' },
-      { label: 'Mission Society of New York', path: '#mission-society-of-new-york' },
-      { label: 'Faculty', path: '#faculty' },
-      { label: 'Support Staff', path: '#support-staff' },
+      { label: 'Staff directory', path: '#staff-directory', anchors: [] },
+      { label: 'School Counselors', path: '#school-counselors', anchors: [] },
+      { label: 'Mission Society of New York', path: '#mission-society-of-new-york', anchors: [] },
+      { label: 'Faculty', path: '#faculty', anchors: [] },
+      { label: 'Support Staff', path: '#support-staff', anchors: [] },
     ],
   },
   { label: `Counselor's Corner`, path: 'counselor-corner', anchors: [] },
@@ -58,15 +58,15 @@ export const admissionsLinks = [
     label: 'Admissions',
     path: 'admissions',
     anchors: [
-      { label: 'Academic Requirements', path: '#academic-requirements' },
-      { label: 'Enrollment Process', path: '#enrollment-process' },
-      { label: 'FAQs', path: '#frequently-asked-questions' },
+      { label: 'Academic Requirements', path: '#academic-requirements', anchors: [] },
+      { label: 'Enrollment Process', path: '#enrollment-process', anchors: [] },
+      { label: 'FAQs', path: '#frequently-asked-questions', anchors: [] },
     ],
   },
   {
     label: 'Shared Instruction',
     path: '#shared-instruction',
-    anchors: [{ label: 'How to Enroll', path: '#how-to-enroll' }],
+    anchors: [{ label: 'How to Enroll', path: '#how-to-enroll', anchors: [] }],
   },
   { label: 'Enrollment Forms', path: makeLink('Enrollment Forms'), anchors: [] },
 ];
@@ -75,20 +75,30 @@ export const studentCornerLinks: NavListItemType[] = [
     label: 'Resources',
     path: makeLink('Resources'),
     anchors: [
-      { label: 'Student Resources', path: makeHashLink('Student Resources') },
-      { label: `What's Happening?`, path: makeHashLink(`What's Happening?`) },
-      { label: `School Library`, path: makeHashLink(`School Library`) },
-      { label: `Student Handbook`, path: makeHashLink(`Student Handbook`) },
+      { label: 'Student Resources', path: makeHashLink('Student Resources'), anchors: [] },
+      { label: `What's Happening?`, path: makeHashLink(`What's Happening?`), anchors: [] },
+      { label: `School Library`, path: makeHashLink(`School Library`), anchors: [] },
+      { label: `Student Handbook`, path: makeHashLink(`Student Handbook`), anchors: [] },
     ],
   },
   {
     label: 'Mission Society of New York',
     path: makeLink('Mission Society of New York'),
     anchors: [
-      { label: 'What is Mission Society?', path: makeHashLink('What is Mission Society?') },
-      {label: 'Learn to Work Program', path: makeHashLink('Learn to Work Program')}
+      {
+        label: 'What is Mission Society?',
+        path: makeHashLink('What is Mission Society?'),
+        anchors: [],
+      },
+      { label: 'Learn to Work Program', path: makeHashLink('Learn to Work Program'), anchors: [] },
     ],
   },
+];
+export const yabcNavLinkList: NavListItemType[] = [
+  { label: 'Home', path: '', anchors: [] },
+  { label: 'About', path: 'about', anchors: aboutLinks },
+  { label: 'Admissions', path: 'admissions', anchors: admissionsLinks },
+  { label: 'Student Corner', path: 'student-corner', anchors: studentCornerLinks },
 ];
 export function handleDrawerSwitch(
   e: React.MouseEvent<HTMLButtonElement>,
