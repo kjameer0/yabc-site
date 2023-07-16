@@ -10,7 +10,7 @@ const StyledNavBar = styled.nav<{ $isTransparent: boolean }>`
   .logo {
     visibility: ${(props) => (props.$isTransparent ? 'hidden' : 'visible')};
     visibility: 'visible';
-    margin-left: 3%;
+    margin-left: 1%;
     margin-top: 5px;
     width: calc(169px / 1.5);
     height: calc(128px / 1.5);
@@ -26,6 +26,9 @@ const StyledNavBar = styled.nav<{ $isTransparent: boolean }>`
     margin-bottom: 10px;
     .logo {
       visibility: visible;
+      width: calc(169px / 1);
+      height: calc(128px / 1);
+      z-index: 0;
     }
     .hamburger {
       display: none;

@@ -136,6 +136,20 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
     background: black;
     margin: 0;
   }
+  #root {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  main {
+    flex-basis: 100%;
+  }
+  @media screen and (min-width: 700px) {
+    main {
+      margin-top: -90px;
+      flex-basis: 75%;
+    }
+  }
 
 `;
 
