@@ -115,6 +115,26 @@ const router = createBrowserRouter([
 ]);
 
 const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?: boolean }>`
+@font-face {
+  font-family: Inter-bold;
+  src: url('/fonts/Inter/static/Inter-Bold.ttf');
+}
+@font-face {
+  font-family: Inter-black;
+  src: url('/fonts/Inter/static/Inter-Black.ttf');
+}
+@font-face {
+  font-family: Inria-serif-light;
+  src: url('/fonts/Inria_Serif/InriaSerif-Light.ttf');
+}
+@font-face {
+  font-family: Inria-serif-light-ital;
+  src: url('/fonts/Inria_Serif/InriaSerif-LightItalic.ttf');
+}
+@font-face {
+  font-family: Inria-serif-bold-ital;
+  src: url('/fonts/Inria_Serif/InriaSerif-BoldItalic.ttf');
+}
   :root {
     font-family: sans-serif;
     font-size: 16px;
@@ -135,6 +155,7 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
   body {
     background: black;
     margin: 0;
+    text-align: center;
   }
   #root {
     display: flex;
@@ -143,6 +164,17 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
   }
   main {
     flex-basis: 100%;
+  }
+  h1 {
+    font-family: Inter-black;
+    font-size: 30px;
+  }
+  h2 {
+    font-family: Inter-bold;
+    font-size: 17px;
+  }
+  p{
+    font-family: inria-serif-light;
   }
   @media screen and (min-width: 700px) {
     main {
