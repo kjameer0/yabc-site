@@ -89,7 +89,7 @@ export default styled.main`
     font-family: Inria-serif-light-italic;
     font-size: clamp(1.5rem, 3vw, 2rem);
     letter-spacing: -0.05rem;
-    width: 80%;
+    width: clamp(270px, 75%,);
   }
   @media screen and (min-width: 700px) {
     .home-grad-wrapper {

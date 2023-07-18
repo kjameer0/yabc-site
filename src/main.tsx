@@ -175,6 +175,7 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
   }
   main {
     flex-basis: 90%;
+    max-width: 1160px;
   }
   .major-heading {
     font-family: Inter-black, sans-serif;
@@ -206,16 +207,33 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
     font-family: Inria-serif-bold-italic;
     font-size: clamp(1.1rem, 2vw, 1.6rem);
   }
+  .logo {
+    margin-top: 30px;
+    margin-left: 40px;
+    min-width: 169px;
+    max-width: 174px;
+    width: 169px;
+    height: auto;
+  }
   @media screen and (min-width: 700px) {
     #root {
       justify-content: flex-end;
+      /* border: 10px solid red; */
     }
     main {
       margin-top: -90px;
-      flex-basis: calc(100% - 200px);
+      flex-basis: 90%;
+    }
+    .spacer {
+      display: none;
+      background: red;
+      flex-basis: 20%;
+      z-index: 2;
+      height: 400px;
     }
   }
 `;
+//min 465 max 90vw
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
