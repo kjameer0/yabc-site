@@ -3,7 +3,7 @@ import HeroImage from 'components/HeroImage';
 import { StyledContentSection } from 'components/ContentSection';
 //images
 import { SchoolImg } from 'assets/images/Header-Images';
-import { HomeGradImg } from 'assets/images/HomePage-images';
+import { HomeGradImg, HomeClassImg } from 'assets/images/HomePage-images';
 export default function HomePage() {
   return (
     <StyledHomePage>
@@ -53,15 +53,17 @@ export default function HomePage() {
           src={HomeGradImg}
           alt="principal of the school shaking hands with a graduating student"
         />
-        <p className="para-content ital-para-text">
-          At Washington Irving YABC, we care and want to serve all learners irrespective of their
-          socio-economic and/or academic background. We are committed to giving students a renewed
-          energy and motivated spirit that will propel them through high school and beyond.
-        </p>
-        <p className="para-content ital-para-text-bold">
-          We specialize in helping students with IEPs, 504s, and English As New Language Learners
-          (ELL).
-        </p>
+        <div className="grad-aside-p-wrapper">
+          <p className="para-content ital-para-text">
+            At Washington Irving YABC, we care and want to serve all learners irrespective of their
+            socio-economic and/or academic background. We are committed to giving students a renewed
+            energy and motivated spirit that will propel them through high school and beyond.
+          </p>
+          <p className="para-content ital-para-text-bold">
+            We specialize in helping students with IEPs, 504s, and English As New Language Learners
+            (ELL).
+          </p>
+        </div>
       </aside>
       <aside className="our-wrapper our-mission">
         <h2 className="med-heading">Our Mission</h2>
@@ -70,6 +72,10 @@ export default function HomePage() {
           responsible citizens
         </p>
       </aside>
+      <div>
+        <img src={HomeClassImg} alt="home class at Washington Irving" />
+        <div className="separate-line"></div>
+      </div>
     </StyledHomePage>
   );
 }

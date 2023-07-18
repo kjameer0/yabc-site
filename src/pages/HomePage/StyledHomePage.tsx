@@ -41,12 +41,13 @@ export default styled.main`
     width: 75%;
   }
   .our-mission {
-    position: absolute;
+    position: relative;
+    right: -27%;
     border-top: 1px solid var(--main-bg);
     border-bottom: 1px solid var(--main-bg);
     text-align: right;
-    right: -20px;
     padding-right: 20px;
+    margin-bottom: 50px;
   }
   .our-wrapper .med-heading {
     font-family: Inter-bold, sans-serif;
@@ -57,15 +58,40 @@ export default styled.main`
     font-family: Inria-serif-light-italic, sans-serif;
     margin-top: 10px;
   }
+  .our-wrapper p {
+    font-size: clamp(1.5rem, 3vw, 3rem);
+  }
   .home-grad-wrapper img {
-    width: clamp(197px, 25vw, 400px);
+    width: clamp(197px, 26vw, 400px);
     height: auto;
     border: 8px solid white;
   }
+  .separate-line {
+    display: none;
+  }
   @media screen and (min-width: 700px) {
-   
-    .home-grad-wrapper img {
-      float: left;
+    .home-grad-wrapper {
+      display: flex;
+      justify-content: space-evenly;
+      margin-bottom: 30px;
+    }
+    .grad-aside-p-wrapper {
+      flex-basis: 50%;
+    }
+    .our-mission {
+      right: -8%;
+    }
+    .our-wrapper {
+      width: 90%;
+    }
+    .separate-line {
+      display: block;
+      width: 90%;
+      position: relative;
+      left: 10%;
+      height: 1px;
+      background-color: var(--main-bg);
+      margin-bottom: 30px;
     }
   }
 `;
