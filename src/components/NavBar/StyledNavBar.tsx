@@ -11,10 +11,12 @@ const StyledNavBar = styled.nav<{ $isTransparent: boolean }>`
   .logo {
     visibility: ${(props) => (props.$isTransparent ? 'hidden' : 'visible')};
     visibility: 'visible';
-    margin-left: 1%;
+    margin-left: -1%;
     margin-top: 5px;
-    width: calc(169px / 1.5);
-    height: calc(128px / 1.5);
+    min-width: 169px;
+    max-width: 265px;
+    width: 169px;
+    height: auto;
   }
   .hamburger {
     position: absolute;
@@ -24,12 +26,11 @@ const StyledNavBar = styled.nav<{ $isTransparent: boolean }>`
     color: var(--main-bg);
   }
   @media screen and (min-width: 700px) {
-    margin-bottom: 10px;
+    margin-bottom: -5%;
     background-color: transparent;
     .logo {
+      width: 22%;
       visibility: visible;
-      width: calc(169px / 1);
-      height: calc(128px / 1);
       z-index: 0;
     }
     .hamburger {
