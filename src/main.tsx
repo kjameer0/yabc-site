@@ -124,21 +124,33 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
   src: url('/fonts/Inter/static/Inter-Black.ttf');
 }
 @font-face {
+  font-family: Inter-extra-bold;
+  src: url('/fonts/Inter/static/Inter-ExtraBold.ttf');
+}
+@font-face {
+  font-family: Inter-regular;
+  src: url('/fonts/Inter/static/Inter-Regular.ttf');
+}
+
+@font-face {
   font-family: Inria-serif-light;
   src: url('/fonts/Inria_Serif/InriaSerif-Light.ttf');
 }
 @font-face {
-  font-family: Inria-serif-light-ital;
+  font-family: Inria-serif-light-italic;
   src: url('/fonts/Inria_Serif/InriaSerif-LightItalic.ttf');
 }
 @font-face {
-  font-family: Inria-serif-bold-ital;
+  font-family: Inria-serif-bold-italic;
   src: url('/fonts/Inria_Serif/InriaSerif-BoldItalic.ttf');
+}
+@font-face {
+  font-family: hind-guntur-regular;
+  src: url('/fonts/Hind_Guntur/HindGuntur-Regular.ttf');
 }
   :root {
     font-family: sans-serif;
     font-size: 16px;
-    line-height: 24px;
     font-weight: 400;
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -149,7 +161,6 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
     max-width: 1440px;
     min-height: 667px;
     color: white;
-    --primary-bg: red;
     --main-bg: #A1D537;
   }
   body {
@@ -160,29 +171,50 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
   #root {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-end;
+    justify-content: center;
   }
   main {
-    flex-basis: 100%;
+    flex-basis: 90%;
   }
-  h1 {
-    font-family: Inter-black;
-    font-size: 30px;
+  .major-heading {
+    font-family: Inter-black, sans-serif;
+    font-size: clamp(2rem, 5vw, 5rem);
   }
-  h2 {
-    font-family: Inter-bold;
-    font-size: 17px;
+  .sub-heading {
+    font-family: Inter-bold, sans-serif;
+    font-size: clamp(1rem, 3vw, 3rem);
   }
-  p{
-    font-family: inria-serif-light;
+  .med-heading {
+    font-family: Inter-bold, sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+  }
+  .smaller-med-heading {
+    font-family: Inter-bold, sans-serif;
+    font-size: clamp(1.5rem, 4vw, 3rem);
+  }
+  .para-content {
+    font-family: hind-guntur-regular, sans-serif;
+    width: 99%;
+    line-height: calc(22/16px);
+    font-size: clamp(14px, 2vw, 1.5rem);
+  }
+  .ital-para-text {
+    font-family: Inria-serif-light-italic;
+    font-size: clamp(1.1rem, 2vw, 1.6rem);
+  }
+  .ital-para-text-bold {
+    font-family: Inria-serif-bold-italic;
+    font-size: clamp(1.1rem, 2vw, 1.6rem);
   }
   @media screen and (min-width: 700px) {
+    #root {
+      justify-content: flex-end;
+    }
     main {
       margin-top: -90px;
       flex-basis: 75%;
     }
   }
-
 `;
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(

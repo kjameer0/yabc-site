@@ -4,6 +4,7 @@ const StyledNavBar = styled.nav<{ $isTransparent: boolean }>`
   display: flex;
   z-index: 2;
   top: 0px;
+  background-color: black;
   min-height: 70px;
   height: auto;
   width: 100%;
@@ -24,6 +25,7 @@ const StyledNavBar = styled.nav<{ $isTransparent: boolean }>`
   }
   @media screen and (min-width: 700px) {
     margin-bottom: 10px;
+    background-color: transparent;
     .logo {
       visibility: visible;
       width: calc(169px / 1);
