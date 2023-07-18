@@ -5,9 +5,9 @@ export default styled.main`
   h1 {
     margin-bottom: 25px;
   }
-  .reg-date{
+  .reg-date {
     font-family: Inter-regular, sans-serif;
-    font-size: clamp(1rem, 3vw, 2rem)
+    font-size: clamp(1rem, 3vw, 2rem);
   }
   .info-box {
     color: rgb(0, 0, 0);
@@ -61,13 +61,35 @@ export default styled.main`
   .our-wrapper p {
     font-size: clamp(1.5rem, 3vw, 3rem);
   }
-  .home-grad-wrapper img {
+  .home-grad-wrapper img,
+  .home-class-wrapper img {
     width: clamp(197px, 26vw, 400px);
     height: auto;
     border: 8px solid white;
   }
+  .home-class-wrapper {
+    width: 100%;
+  }
+  .home-class-wrapper img {
+  }
   .separate-line {
-    display: none;
+    display: block;
+    position: relative;
+    right: 20%;
+    width: 90%;
+    height: 1px;
+    background-color: var(--main-bg);
+    margin: 30px 0 0 30px;
+  }
+  .our-vision {
+    text-align: left;
+    width: 100%;
+  }
+  .our-vision p {
+    font-family: Inria-serif-light-italic;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    letter-spacing: -0.05rem;
+    width: 80%;
   }
   @media screen and (min-width: 700px) {
     .home-grad-wrapper {
@@ -85,13 +107,10 @@ export default styled.main`
       width: 90%;
     }
     .separate-line {
-      display: block;
-      width: 90%;
-      position: relative;
-      left: 10%;
-      height: 1px;
-      background-color: var(--main-bg);
-      margin-bottom: 30px;
+      display: none;
+    }
+    .home-class-wrapper img {
+      float: right;
     }
   }
 `;

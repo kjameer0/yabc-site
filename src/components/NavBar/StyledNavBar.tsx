@@ -11,10 +11,10 @@ const StyledNavBar = styled.nav<{ $isTransparent: boolean }>`
   .logo {
     visibility: ${(props) => (props.$isTransparent ? 'hidden' : 'visible')};
     visibility: 'visible';
-    margin-left: -1%;
     margin-top: 5px;
+    margin-left: 10px;
     min-width: 169px;
-    max-width: 265px;
+    max-width: 174px;
     width: 169px;
     height: auto;
   }

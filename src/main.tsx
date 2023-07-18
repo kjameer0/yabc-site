@@ -212,7 +212,7 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
     }
     main {
       margin-top: -90px;
-      flex-basis: 75%;
+      flex-basis: calc(100% - 200px);
     }
   }
 `;

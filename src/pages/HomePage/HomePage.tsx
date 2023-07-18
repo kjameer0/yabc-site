@@ -72,9 +72,22 @@ export default function HomePage() {
           responsible citizens
         </p>
       </aside>
-      <div>
+      <div className="home-class-wrapper">
         <img src={HomeClassImg} alt="home class at Washington Irving" />
         <div className="separate-line"></div>
+        <div className="our-wrapper our-vision">
+          <h2 className="med-heading ">Our Vision</h2>
+          <p>
+            At the Washington Irving YABC, we envision a program that bridges the gap between the
+            high school experience and adulthood.
+          </p>
+          <p>
+            It is our wish that students learn to take advantage of all opportunities afforded to
+            them; Therefore, we desire for them to gain work experience and career readiness skills
+            through an internship program sponsored by The NYC Mission Society, our Community Based
+            Organization (C.B.O.).
+          </p>
+        </div>
       </div>
     </StyledHomePage>
   );
