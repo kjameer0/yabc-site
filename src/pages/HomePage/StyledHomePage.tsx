@@ -2,9 +2,6 @@ import { styled } from 'styled-components';
 
 export default styled.main`
   position: relative;
-  h1 {
-    margin-bottom: 25px;
-  }
   .reg-date {
     font-family: Inter-regular, sans-serif;
     font-size: clamp(1rem, 3vw, 2rem);
@@ -62,7 +59,9 @@ export default styled.main`
   .our-wrapper p {
     font-size: clamp(1.5rem, 3vw, 3rem);
   }
-  .home-class-wrapper img, .homepage-img, .home-grad-wrapper img {
+  .home-class-wrapper img,
+  .homepage-img,
+  .home-grad-wrapper img {
     width: clamp(197px, 20vw, 400px);
     height: auto;
     border: 8px solid white;
@@ -94,6 +93,10 @@ export default styled.main`
     width: clamp(270px, 75%);
   }
   @media screen and (min-width: 700px) {
+    .restore-margin, #school-facade {
+      margin-left: 0 !important;
+      margin-right: 0;
+    }
     .home-grad-wrapper {
       display: flex;
       justify-content: space-evenly;

@@ -148,6 +148,10 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
   font-family: hind-guntur-regular;
   src: url('/fonts/Hind_Guntur/HindGuntur-Regular.ttf');
 }
+@font-face {
+  font-family: hind-guntur-bold;
+  src: url('/fonts/Hind_Guntur/HindGuntur-Bold.ttf');
+}
   :root {
     font-family: sans-serif;
     font-size: 16px;
@@ -176,6 +180,9 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
   main {
     flex-basis: 90%;
     max-width: 1160px;
+  }
+  h1 {
+    margin-bottom: 25px;
   }
   .major-heading {
     font-family: Inter-black, sans-serif;
@@ -219,7 +226,10 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
     #root {
       justify-content: flex-start;
       overflow-x: hidden;
-
+    }
+    .home-main > * {
+      margin-left: 20px;
+      margin-right: 20px;
     }
     main {
       /* border: 1px solid red; */

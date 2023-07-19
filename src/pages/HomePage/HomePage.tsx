@@ -6,11 +6,10 @@ import { HomePageHero } from "assets/images/Hero-Images";
 import { HomeGradImg, HomeClassImg, NewGradImg } from 'assets/images/HomePage-images';
 export default function HomePage() {
   return (
-    <StyledHomePage>
+    <StyledHomePage className="home-main">
       <HeroImage id="school-facade" imgLink={HomePageHero} text={[]} color="white" />
-      <h1 className="major-heading">WASHINGTON IRVING YABC</h1>
-      <StyledContentSection className="registration-date-section">
-        <div className="pre-reg-box info-box">
+      <h1 className="major-heading restore-margin">WASHINGTON IRVING YABC</h1>
+        <div className="pre-reg-box info-box restore-margin">
           <h2 className="sub-heading">
             <u>PRE-REGISTRATION FOR FALL CLASSES</u>
           </h2>
@@ -21,12 +20,13 @@ export default function HomePage() {
             <b>END:</b> MONDAY, SEPTEMBER 5
           </p>
         </div>
-        <div className="class-start-box info-box">
+        <div className="class-start-box info-box restore-margin">
           <h2 className="sub-heading">
             <u>FALL CLASSES BEGIN</u>
           </h2>
           <p className="reg-date">THURSDAY, SEPTEMBER 7</p>
         </div>
+      <StyledContentSection className="registration-date-section">
         <p className="registration-range smaller-med-heading">
           In-Person Registration for Summer Classes will continue through September
         </p>
