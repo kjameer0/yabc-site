@@ -17,6 +17,7 @@ const StyledNavBar = styled.nav<{ $isTransparent: boolean }>`
     color: var(--main-bg);
   }
   @media screen and (min-width: 700px) {
+    display: none;
     margin-bottom: -5%;
     background-color: transparent;
     .logo {

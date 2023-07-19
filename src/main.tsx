@@ -208,8 +208,8 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
     font-size: clamp(1.1rem, 2vw, 1.6rem);
   }
   .logo {
-    margin-top: 30px;
-    margin-left: 40px;
+    margin-top: 40px;
+    margin-bottom: 20px;
     min-width: 169px;
     max-width: 174px;
     width: 169px;
@@ -218,17 +218,19 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
   @media screen and (min-width: 700px) {
     #root {
       justify-content: flex-start;
+      overflow-x: hidden;
+
     }
     main {
+      /* border: 1px solid red; */
       position: relative;
-      margin-top: -90px;
+      margin-top: 10px;
       margin-left: 10px;
-      flex-basis: 90%;
+      flex-basis: calc(90% - 150px);
       left: clamp(200px, 20vw, 255px);
     }
   }
 `;
-//min 465 max 90vw
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>

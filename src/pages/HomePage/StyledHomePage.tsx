@@ -42,13 +42,14 @@ export default styled.main`
   }
   .our-mission {
     position: relative;
-    right: -27%;
+    right: -25%;
     border-top: 1px solid var(--main-bg);
     border-bottom: 1px solid var(--main-bg);
     text-align: right;
     padding-right: 20px;
     margin-bottom: 50px;
   }
+
   .our-wrapper .med-heading {
     font-family: Inter-bold, sans-serif;
     margin-top: 15px;
@@ -61,16 +62,17 @@ export default styled.main`
   .our-wrapper p {
     font-size: clamp(1.5rem, 3vw, 3rem);
   }
-  .home-grad-wrapper img,
-  .home-class-wrapper img {
-    width: clamp(197px, 26vw, 400px);
+  .home-class-wrapper img, .homepage-img, .home-grad-wrapper img {
+    width: clamp(197px, 20vw, 400px);
     height: auto;
     border: 8px solid white;
   }
+  .home-grad-wrapper img {
+    align-self: flex-start;
+    margin-top: 5%;
+  }
   .home-class-wrapper {
     width: 100%;
-  }
-  .home-class-wrapper img {
   }
   .separate-line {
     display: block;
@@ -89,7 +91,7 @@ export default styled.main`
     font-family: Inria-serif-light-italic;
     font-size: clamp(1.5rem, 3vw, 2rem);
     letter-spacing: -0.05rem;
-    width: clamp(270px, 75%,);
+    width: clamp(270px, 75%);
   }
   @media screen and (min-width: 700px) {
     .home-grad-wrapper {

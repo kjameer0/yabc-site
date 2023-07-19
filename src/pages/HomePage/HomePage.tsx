@@ -3,7 +3,7 @@ import HeroImage from 'components/HeroImage';
 import { StyledContentSection } from 'components/ContentSection';
 //images
 import { SchoolImg } from 'assets/images/Header-Images';
-import { HomeGradImg, HomeClassImg } from 'assets/images/HomePage-images';
+import { HomeGradImg, HomeClassImg, NewGradImg } from 'assets/images/HomePage-images';
 export default function HomePage() {
   return (
     <StyledHomePage>
@@ -89,6 +89,7 @@ export default function HomePage() {
           </p>
         </div>
       </div>
+      <img src={NewGradImg} className="homepage-img" alt="students at graduation ceremony" />
     </StyledHomePage>
   );
 }
