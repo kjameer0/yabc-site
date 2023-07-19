@@ -2,12 +2,12 @@ import StyledHomePage from "./StyledHomePage";
 import HeroImage from 'components/HeroImage';
 import { StyledContentSection } from 'components/ContentSection';
 //images
-import { SchoolImg } from 'assets/images/Header-Images';
+import { HomePageHero } from "assets/images/Hero-Images";
 import { HomeGradImg, HomeClassImg, NewGradImg } from 'assets/images/HomePage-images';
 export default function HomePage() {
   return (
     <StyledHomePage>
-      <HeroImage id="school-facade" imgLink={SchoolImg} text={[]} color="white" />
+      <HeroImage id="school-facade" imgLink={HomePageHero} text={[]} color="white" />
       <h1 className="major-heading">WASHINGTON IRVING YABC</h1>
       <StyledContentSection className="registration-date-section">
         <div className="pre-reg-box info-box">

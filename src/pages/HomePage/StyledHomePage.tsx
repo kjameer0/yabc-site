@@ -69,7 +69,7 @@ export default styled.main`
   }
   .home-grad-wrapper img {
     align-self: flex-start;
-    margin-top: 5%;
+    margin-top: 4%;
   }
   .home-class-wrapper {
     width: 100%;
