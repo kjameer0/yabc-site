@@ -217,19 +217,14 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
   }
   @media screen and (min-width: 700px) {
     #root {
-      justify-content: flex-end;
-      /* border: 10px solid red; */
+      justify-content: flex-start;
     }
     main {
+      position: relative;
       margin-top: -90px;
+      margin-left: 10px;
       flex-basis: 90%;
-    }
-    .spacer {
-      display: none;
-      background: red;
-      flex-basis: 20%;
-      z-index: 2;
-      height: 400px;
+      left: clamp(200px, 20vw, 255px);
     }
   }
 `;
