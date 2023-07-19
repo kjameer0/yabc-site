@@ -94,7 +94,7 @@ export default styled.main`
   }
   @media screen and (min-width: 700px) {
     .restore-margin, #school-facade {
-      margin-left: 0 !important;
+      margin-left: 0;
       margin-right: 0;
     }
     .home-grad-wrapper {
