@@ -26,7 +26,7 @@ import WeberImg from './weber.webp';
 import WeinerImg from './weiner.webp';
 import WhitfieldImg from './whitfield.webp';
 import SantaCattarinaImg from './santa_cattarina.webp';
-import DefaultTeacherIcon from './Teacher_Icon.svg';
+import DefaultTeacherIcon from './Teacher_Icon.webp';
 
 //types
 import { StaffImageType } from 'components/StaffImage/StaffImage';
@@ -241,7 +241,7 @@ export const yabcStaffList: StaffInfoType[] = [
     imgLink: DefaultTeacherIcon,
   },
 ];
-export const SupportStaff: StaffInfoType[] = [
+export const supportStaffList: StaffInfoType[] = [
   { name: 'Mr. Fanfan', imgLink: FanFanImg },
   { name: 'Ms. Ambrose', imgLink: AmbroseImg },
   { name: 'Ms. Pierre-Lys', imgLink: DefaultTeacherIcon },

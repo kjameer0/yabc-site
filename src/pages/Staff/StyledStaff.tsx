@@ -22,6 +22,7 @@ export default styled.main`
     border: 1px solid white;
     position: relative;
     left: 45%;
+    margin-bottom: 30px;
   }
   @media screen and (min-width: 700px) {
     .staff-flex-wrapper {

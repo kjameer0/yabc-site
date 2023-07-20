@@ -3,6 +3,7 @@ import { styled } from 'styled-components';
 export default styled.div<{ $direction: 'left' | 'right' }>`
   display: flex;
   .staff-img {
+    min-width: 124px;
     width: 124px;
     border: 2px solid var(--main-bg);
     border-radius: 100%;

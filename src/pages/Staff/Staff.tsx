@@ -7,7 +7,13 @@ import { AyetiwaImg } from 'assets/images/Staff-Photos';
 //types
 import { StaffImageType } from 'components/StaffImage/StaffImage';
 //data
-import { adminList } from 'assets/images/Staff-Photos';
+import {
+  adminList,
+  schoolCounselorList,
+  yabcStaffList,
+  missionSocietyList,
+  supportStaffList,
+} from 'assets/images/Staff-Photos';
 const mockImage: StaffImageType = {
   direction: 'left',
   name: 'Mr. B Ermaine',
@@ -36,10 +42,80 @@ export default function Staff() {
         </div>
       </StyledContentSection>
       <StyledContentSection className="staff-section">
-        <div className='white-line-long'></div>
-        <h2 className='major-heading counselor-heading'>SCHOOL COUNSELORS</h2>
-        <div className='white-line-short'></div>
-        <div className="staff-flex-wrapper"></div>
+        <div className="white-line-long"></div>
+        <h2 className="major-heading counselor-heading">SCHOOL COUNSELORS</h2>
+        <div className="white-line-short"></div>
+        <div className="staff-flex-wrapper">
+          {schoolCounselorList.map((counselor, index) => {
+            return (
+              <StaffImage
+                key={counselor.name}
+                name={counselor.name.toUpperCase()}
+                role={counselor.role || ''}
+                email={counselor.email || ''}
+                imgLink={counselor.imgLink}
+                direction={index % 2 === 0 ? 'left' : 'right'}
+              />
+            );
+          })}
+        </div>
+      </StyledContentSection>
+      <StyledContentSection className="staff-section">
+        <div className="white-line-long"></div>
+        <h2 className="major-heading counselor-heading">MISSION SOCIETY OF NEW YORK</h2>
+        <div className="white-line-short"></div>
+        <div className="staff-flex-wrapper">
+          {missionSocietyList.map((staff, index) => {
+            return (
+              <StaffImage
+                key={staff.name}
+                name={staff.name.toUpperCase()}
+                role={staff.role || ''}
+                email={staff.email || ''}
+                imgLink={staff.imgLink}
+                direction={index % 2 === 0 ? 'left' : 'right'}
+              />
+            );
+          })}
+        </div>
+      </StyledContentSection>
+      <StyledContentSection className="staff-section">
+        <div className="white-line-long"></div>
+        <h2 className="major-heading counselor-heading">STAFF AND FACULTY</h2>
+        <div className="white-line-short"></div>
+        <div className="staff-flex-wrapper">
+          {yabcStaffList.map((staff, index) => {
+            return (
+              <StaffImage
+                key={staff.name}
+                name={staff.name.toUpperCase()}
+                role={staff.role || ''}
+                email={staff.email || ''}
+                imgLink={staff.imgLink}
+                direction={index % 2 === 0 ? 'left' : 'right'}
+              />
+            );
+          })}
+        </div>
+        <StyledContentSection className="staff-section">
+          <div className="white-line-long"></div>
+          <h2 className="major-heading counselor-heading">SUPPORT STAFF</h2>
+          <div className="white-line-short"></div>
+          <div className="staff-flex-wrapper">
+            {supportStaffList.map((staff, index) => {
+              return (
+                <StaffImage
+                  key={staff.name}
+                  name={staff.name.toUpperCase()}
+                  role={staff.role || ''}
+                  email={staff.email || ''}
+                  imgLink={staff.imgLink}
+                  direction={index % 2 === 0 ? 'left' : 'right'}
+                />
+              );
+            })}
+          </div>
+        </StyledContentSection>
       </StyledContentSection>
     </StyledStaff>
   );
