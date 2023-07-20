@@ -128,6 +128,10 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
   src: url('/fonts/Inter/static/Inter-ExtraBold.ttf');
 }
 @font-face {
+  font-family: Inter-semi-bold;
+  src: url('/fonts/Inter/static/Inter-SemiBold.ttf');
+}
+@font-face {
   font-family: Inter-regular;
   src: url('/fonts/Inter/static/Inter-Regular.ttf');
 }
@@ -143,6 +147,10 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
 @font-face {
   font-family: Inria-serif-bold-italic;
   src: url('/fonts/Inria_Serif/InriaSerif-BoldItalic.ttf');
+}
+@font-face {
+  font-family: hind-guntur-light;
+  src: url('/fonts/Hind_Guntur/HindGuntur-Light.ttf');
 }
 @font-face {
   font-family: hind-guntur-regular;
@@ -171,6 +179,7 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
     background: black;
     margin: 0;
     text-align: center;
+    letter-spacing: -0.05rem;
   }
   #root {
     display: flex;
@@ -232,7 +241,6 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
       margin-right: 20px;
     }
     main {
-      /* border: 1px solid red; */
       position: relative;
       margin-top: 10px;
       margin-left: 10px;
