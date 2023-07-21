@@ -1,6 +1,9 @@
 import { styled } from 'styled-components';
 
 export default styled.main`
+section {
+  scroll-margin-top: 100px;
+}
   .requirements-wrapper {
     display: flex;
     justify-content: center;

@@ -38,7 +38,7 @@ export default function SharedAdmissions() {
           about our values, academics, community and more at any time by using the Contact US form.
         </p>
       </StyledContentSection>
-      <StyledContentSection className="enroll-section">
+      <StyledContentSection className="enroll-section" id="how-to-enroll">
         <h2 className="enroll-section-h2">
           SHARED INSTRUCTION <br />
           HOW TO ENROLL

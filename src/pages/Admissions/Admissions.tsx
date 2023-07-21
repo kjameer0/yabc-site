@@ -1,14 +1,32 @@
-import StyledAdmissions from "./StyledAdmissions";
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 //components
-import HeroImage from "components/HeroImage";
-import { StyledContentSection } from "components/ContentSection";
-import StyledMainButton from "components/MainButton.tsx";
+import { NavLink } from 'react-router-dom';
+import StyledAdmissions from './StyledAdmissions';
+import HeroImage from 'components/HeroImage';
+import { StyledContentSection } from 'components/ContentSection';
+import StyledMainButton from 'components/MainButton.tsx';
 //images
-import { AdmissionsHero } from "assets/images/Hero-Images";
+import { AdmissionsHero } from 'assets/images/Hero-Images';
 
 export default function Admissions() {
+  const location = useLocation();
+  useEffect(() => {
+    console.log(location.hash);
+    const currentPage = document.getElementById('admissions-hero');
+    const elementScrolledTo = document.getElementById(location.hash);
+    if (currentPage) {
+      document.body.scrollIntoView({ behavior: 'smooth' });
+    }
+    if (location.hash.length > 0 && elementScrolledTo) {
+      elementScrolledTo.scroll({
+        top: 1000,
+        behavior: 'smooth',
+      });
+    }
+  }, [location]);
   return (
-    <StyledAdmissions>
+    <StyledAdmissions id="admissions-page">
       <HeroImage text={[]} color="white" imgLink={AdmissionsHero} id="admissions-hero" />
       <h1 className="major-heading">ADMISSIONS</h1>
       <StyledContentSection className="register-section" id="open-enrollment">
@@ -50,9 +68,9 @@ export default function Admissions() {
           </p>
         </StyledContentSection>
       </div>
-      <StyledContentSection className="enroll-section">
+      <StyledContentSection className="enroll-section" id="how-to-enroll">
         <h2 className="enroll-section-h2">
-          SHARED INSTRUCTION <br />
+          REGULAR ENROLLMENT <br />
           HOW TO ENROLL
         </h2>
         <h3 className="enroll-step-h3">Step 1:</h3>
@@ -122,11 +140,11 @@ export default function Admissions() {
             responsibilities that make it hard to attend school during the day. Students attend
             Washington Irving YABC part-time in the afternoon or evening to earn a high school
             diploma. Additionally, they will be given an opportunity to complete an internship.
-            <p>
-              Students graduate with a diploma from their home day school after they have earned all
-              their credits and passed all the required exams while attending the Washington Irving
-              YABC.
-            </p>
+          </p>
+          <p>
+            Students graduate with a diploma from their home day school after they have earned all
+            their credits and passed all the required exams while attending the Washington Irving
+            YABC.
           </p>
         </section>
         <section className="faq-question-section shared-instruction">
@@ -148,6 +166,11 @@ export default function Admissions() {
             affiliated schools after shared instruction has ended. Shared instruction also means
             shared responsibility.
           </p>
+          <StyledMainButton>
+            <NavLink to="/shared-admissions/#how-to-enroll">
+              LEARN HOW TO ENROLL IN SHARED INSTRUCTION
+            </NavLink>
+          </StyledMainButton>
         </section>
       </StyledContentSection>
     </StyledAdmissions>
