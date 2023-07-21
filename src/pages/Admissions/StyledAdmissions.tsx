@@ -111,4 +111,16 @@ export default styled.main`
   .shared-instruction {
     background: white;
   }
+  .faq-section button {
+    background-color: transparent;
+    border: 2px solid black;
+  }
+  .faq-section button:hover {
+    cursor: pointer;
+    background-color: #d0ea9b;
+  }
+  .faq-section button a {
+    text-decoration: none;
+    color: black;
+  }
 `;
