@@ -11,7 +11,6 @@ import {
   Contact,
   ContactForm,
   CounselorCorner,
-  Enrollment,
   HomePage,
   InfoRequestForm,
   MissionSociety,
@@ -59,12 +58,6 @@ const router = createBrowserRouter([
       {
         path: baseUrl + 'counselor-corner',
         element: <CounselorCorner />,
-        errorElement: <ErrorPage />,
-        children: [],
-      },
-      {
-        path: baseUrl + 'enrollment',
-        element: <Enrollment />,
         errorElement: <ErrorPage />,
         children: [],
       },
