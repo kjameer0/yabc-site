@@ -13,6 +13,7 @@ export default styled.main`
     flex-wrap: wrap;
     justify-content: center;
     max-width: 734px;
+    border: 1px solid white;
     background-color: white;
     color: black;
   }

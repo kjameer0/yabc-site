@@ -52,7 +52,7 @@ export const adminList: StaffInfoType[] = [
 export const schoolCounselorList: StaffInfoType[] = [
   {
     name: 'Ms. A Mclaughlin',
-    email: 'amclaughlin' + emailDomain,
+    email: 'amclaughlin2' + emailDomain,
     role: 'Guidance Counselor',
     imgLink: McLaughlinImg,
   },
