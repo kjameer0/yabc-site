@@ -12,15 +12,16 @@ import { AdmissionsHero } from 'assets/images/Hero-Images';
 export default function Admissions() {
   const location = useLocation();
   useEffect(() => {
-    console.log(location.hash);
+    console.log(location)
     const currentPage = document.getElementById('admissions-hero');
-    const elementScrolledTo = document.getElementById(location.hash);
-    if (currentPage) {
+    const elementScrolledTo = document.getElementById(location.hash.slice(1));
+    if (currentPage && !elementScrolledTo) {
+      console.log(currentPage)
       document.body.scrollIntoView({ behavior: 'smooth' });
     }
     if (location.hash.length > 0 && elementScrolledTo) {
       elementScrolledTo.scroll({
-        top: 1000,
+        top:0,
         behavior: 'smooth',
       });
     }

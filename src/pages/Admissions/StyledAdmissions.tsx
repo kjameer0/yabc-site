@@ -1,9 +1,6 @@
 import { styled } from 'styled-components';
 
 export default styled.main`
-section {
-  scroll-margin-top: 100px;
-}
   .requirements-wrapper {
     display: flex;
     justify-content: center;
@@ -74,7 +71,7 @@ section {
     margin-bottom: 10px;
   }
   .enroll-step-h3 {
-    font-size: clamp(.75rem, 3vw, 1.5rem);
+    font-size: clamp(0.75rem, 3vw, 1.5rem);
     font-family: Inter-bold;
     margin: 0;
   }
@@ -89,7 +86,7 @@ section {
   }
   .enroll-step-bold-p {
     font-family: Inter-bold;
-    font-size: clamp(1rem , 3vw, 1.3rem);
+    font-size: clamp(1rem, 3vw, 1.3rem);
   }
   .faq-section {
     display: flex;
