@@ -28,7 +28,7 @@ export default function About() {
       </StyledMainButton>
       <StyledMainButton>LEARN MORE ABOUT OUR ADMISSIONS PROCESS</StyledMainButton>
       <div className="line-separate"></div>
-      <StyledContentSection className="good-fit-section">
+      <StyledContentSection id='are-we-a-fit' className="good-fit-section">
         <h2 className="major-heading">ARE WE A FIT FOR YOU?</h2>
         <h3 className="sub-heading good-fit-h3">
           PROVIDING EDUCATION THAT
@@ -53,7 +53,7 @@ export default function About() {
           their own jobs.
         </p>
       </StyledContentSection>
-      <StyledContentSection className="requirements">
+      <StyledContentSection className="requirements" id='eligibility-requirements'>
         <h4 className="requirements-h4 sub-heading">To be eligible, you should:</h4>
         <ul className="requirements-ul">
           <li className="para-content">Be 17.5-21 years old</li>
@@ -62,7 +62,8 @@ export default function About() {
         </ul>
       </StyledContentSection>
       <div className="line-separate"></div>
-      <StyledContentSection className="meet-graduates">
+      <StyledContentSection className="meet-graduates"
+      id='meet-our-graduates'>
         <h2 className="major-heading">MEET SOME OF OUR GRADUATES!</h2>
         <img src={GraduateImg} alt="new graduate" />
       </StyledContentSection>

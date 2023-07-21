@@ -2,8 +2,6 @@
 import StyledStaff from './StyledStaff';
 import StaffImage from 'components/StaffImage';
 import { StyledContentSection } from 'components/ContentSection';
-//images
-import { AyetiwaImg } from 'assets/images/Staff-Photos';
 //types
 import { StaffImageType } from 'components/StaffImage/StaffImage';
 //data
@@ -14,13 +12,7 @@ import {
   missionSocietyList,
   supportStaffList,
 } from 'assets/images/Staff-Photos';
-const mockImage: StaffImageType = {
-  direction: 'left',
-  name: 'Mr. B Ermaine',
-  role: 'Weasel administrator',
-  email: 'kmoynihan@toobad.net',
-  imgLink: AyetiwaImg,
-};
+
 export default function Staff() {
   return (
     <StyledStaff className="staff-main">
@@ -41,7 +33,7 @@ export default function Staff() {
           })}
         </div>
       </StyledContentSection>
-      <StyledContentSection className="staff-section">
+      <StyledContentSection className="staff-section" id="school-counselors">
         <div className="white-line-long"></div>
         <h2 className="major-heading counselor-heading">SCHOOL COUNSELORS</h2>
         <div className="white-line-short"></div>
@@ -60,7 +52,7 @@ export default function Staff() {
           })}
         </div>
       </StyledContentSection>
-      <StyledContentSection className="staff-section">
+      <StyledContentSection className="staff-section" id="mission-society-of-new-york">
         <div className="white-line-long"></div>
         <h2 className="major-heading counselor-heading">MISSION SOCIETY OF NEW YORK</h2>
         <div className="white-line-short"></div>
@@ -79,7 +71,7 @@ export default function Staff() {
           })}
         </div>
       </StyledContentSection>
-      <StyledContentSection className="staff-section">
+      <StyledContentSection className="staff-section" id="staff-faculty">
         <div className="white-line-long"></div>
         <h2 className="major-heading counselor-heading">STAFF AND FACULTY</h2>
         <div className="white-line-short"></div>
@@ -97,25 +89,25 @@ export default function Staff() {
             );
           })}
         </div>
-        <StyledContentSection className="staff-section">
-          <div className="white-line-long"></div>
-          <h2 className="major-heading counselor-heading">SUPPORT STAFF</h2>
-          <div className="white-line-short"></div>
-          <div className="staff-flex-wrapper">
-            {supportStaffList.map((staff, index) => {
-              return (
-                <StaffImage
-                  key={staff.name}
-                  name={staff.name.toUpperCase()}
-                  role={staff.role || ''}
-                  email={staff.email || ''}
-                  imgLink={staff.imgLink}
-                  direction={index % 2 === 0 ? 'left' : 'right'}
-                />
-              );
-            })}
-          </div>
-        </StyledContentSection>
+      </StyledContentSection>
+      <StyledContentSection className="staff-section" id="support-staff">
+        <div className="white-line-long"></div>
+        <h2 className="major-heading counselor-heading">SUPPORT STAFF</h2>
+        <div className="white-line-short"></div>
+        <div className="staff-flex-wrapper">
+          {supportStaffList.map((staff, index) => {
+            return (
+              <StaffImage
+                key={staff.name}
+                name={staff.name.toUpperCase()}
+                role={staff.role || ''}
+                email={staff.email || ''}
+                imgLink={staff.imgLink}
+                direction={index % 2 === 0 ? 'left' : 'right'}
+              />
+            );
+          })}
+        </div>
       </StyledContentSection>
     </StyledStaff>
   );

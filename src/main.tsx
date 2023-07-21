@@ -197,6 +197,9 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
   h1 {
     margin-bottom: 25px;
   }
+  a:hover {
+    cursor: pointer;
+  }
   .major-heading {
     font-family: Inter-black, sans-serif;
     font-size: clamp(2rem, 5vw, 5rem);

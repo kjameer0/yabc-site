@@ -11,7 +11,7 @@ export default function Admissions() {
     <StyledAdmissions>
       <HeroImage text={[]} color="white" imgLink={AdmissionsHero} id="admissions-hero" />
       <h1 className="major-heading">ADMISSIONS</h1>
-      <StyledContentSection className="register-section">
+      <StyledContentSection className="register-section" id='open-enrollment'>
         <h2 className="sub-heading">OPEN ENROLLMENT</h2>
         <p className="para-content">
           Students who wish to register at Washington Irving YABC should contact the guidance
@@ -23,7 +23,7 @@ export default function Admissions() {
           Monday-Thursday from 4-7 pm. Students can walk-in parent or guardian.
         </p>
       </StyledContentSection>
-      <StyledContentSection className="admissions-info-section">
+      <StyledContentSection className="admissions-info-section" id='admissions-information'>
         <h2 className="sub-heading">IMPORTANT ADMISSIONS INFORMATION</h2>
         <p className="para-content">
           at Washington Irving YABC, we believe education transforms lives. That&apos;s why we
@@ -32,7 +32,7 @@ export default function Admissions() {
         </p>
       </StyledContentSection>
       <div className="requirements-wrapper">
-        <StyledContentSection className="requirements">
+        <StyledContentSection className="requirements" id='academic-requirements'>
           <h3 className="requirements-h3">ACADEMIC REQUIREMENTS</h3>
           <h4 className="requirements-h4">To be eligible for Full Time, a student should:</h4>
           <ul className="requirements-ul">
@@ -50,7 +50,7 @@ export default function Admissions() {
           </p>
         </StyledContentSection>
       </div>
-      <StyledContentSection className="enrollment-process">
+      <StyledContentSection className="enrollment-process" id='enrollment-process'>
         <div className="green-separator"></div>
         <h2 className="sub-heading">
           <u>ENROLLMENT PROCESS</u>
@@ -71,7 +71,7 @@ export default function Admissions() {
         </div>
         <div className="green-separator"></div>
       </StyledContentSection>
-      <StyledContentSection className="faq-section">
+      <StyledContentSection className="faq-section" id='frequently-asked-questions'>
         <h2 className="sub-heading">FREQUENTLY ASKED QUESTIONS</h2>
         <section className="faq-question-section regular-instruction">
           <h3 className="faq-h3">What is Regular Instruction?</h3>

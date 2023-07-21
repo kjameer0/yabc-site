@@ -21,14 +21,14 @@ export default function CounselorCorner() {
         <p className="para-content">Don&apos;t hesitate to reach out with any questions.</p>
       </StyledContentSection>
       <div className="reminder-wrapper">
-        <StyledContentSection className="reminder-section">
+        <StyledContentSection className="reminder-section" id="reminders">
           <h2 className="major-heading">REMINDERS</h2>
           <p>WASHINGTON IRVING YABC IS LOCATED AT 40 IRVING PLACE NEW YORK, NY 10003</p>
           <p>WE HAVE ROLLING ADMISSIONS</p>
         </StyledContentSection>
       </div>
       <div className="reminder-wrapper">
-        <StyledContentSection className="remote-learning-section">
+        <StyledContentSection className="remote-learning-section" id='remote-learning-tips'>
           <h2 className="sub-heading">REMOTE LEARNING TIPS</h2>
           <img src={RemoteLearningImg} alt="remote learning tips for students" />
         </StyledContentSection>
