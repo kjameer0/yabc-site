@@ -5,6 +5,9 @@ import { SharedAdmissionsHero } from "assets/images/Hero-Images";
 import { NavLink } from "react-router-dom";
 import HeroImage from "components/HeroImage";
 import { StyledContentSection } from "components/ContentSection";
+import StyledMainButton from 'components/MainButton.tsx';
+//forms
+import { S1PDF, S2PDF } from 'assets/images/Forms';
 
 export default function SharedAdmissions() {
   return (
@@ -98,6 +101,27 @@ export default function SharedAdmissions() {
           requirement.
         </p>
       </StyledContentSection>
+      <div className="form-buttons-wrapper">
+        <StyledMainButton>
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSeKpoGEg-Uwg3zh4BVKIn9KhoCRm0V-yssN7B_1z7kPmEvwlQ/viewform"
+            target="_blank"
+            rel="noreferrer"
+          >
+            COUNSELOR REFERRAL FORM
+          </a>
+        </StyledMainButton>
+        <StyledMainButton>
+          <a download="S1-form" href={S1PDF}>
+            S1 FORM
+          </a>
+        </StyledMainButton>
+        <StyledMainButton>
+          <a download="S2-form" href={S2PDF}>
+            S2 FORM
+          </a>
+        </StyledMainButton>
+      </div>
     </StyledSharedAdmissions>
   );
 }

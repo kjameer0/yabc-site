@@ -8,4 +8,11 @@ export default styled.button`
   background-color: black;
   font-size: clamp(1rem, 3vw, 1.5rem);
   font-family: Inter-semi-bold, sans-serif;
+  &:hover {
+    cursor: pointer;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 `;

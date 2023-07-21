@@ -1,12 +1,18 @@
 import { styled } from 'styled-components';
 
 export default styled.main`
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+
   .enroll-section {
     display: flex;
     flex-direction: column;
     background-color: white;
     align-items: center;
     color: black;
+    max-width: 950px;
   }
   .enroll-section p {
     margin-top: 0;
@@ -23,7 +29,7 @@ export default styled.main`
     margin-bottom: 10px;
   }
   .enroll-step-h3 {
-    font-size: clamp(.75rem, 3vw, 1.5rem);
+    font-size: clamp(0.75rem, 3vw, 1.5rem);
     font-family: Inter-bold;
     margin: 0;
   }
@@ -38,6 +44,22 @@ export default styled.main`
   }
   .enroll-step-bold-p {
     font-family: Inter-bold;
-    font-size: clamp(1rem , 3vw, 1.3rem);
+    font-size: clamp(1rem, 3vw, 1.3rem);
+  }
+  .form-buttons-wrapper {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .form-buttons-wrapper button {
+    width: 50%;
+    margin: 10px auto;
+    padding: 5px 0px;
+  }
+  @media screen and (min-width: 700px) {
+    .shared-elaboration-section {
+      width: 90%;
+    }
   }
 `;
