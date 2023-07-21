@@ -1,3 +1,4 @@
 import AboutHero from './open-house.webp'
 import HomePageHero from './School_Facade.webp';
-export {AboutHero, HomePageHero}
+import CounselorCornerHero from './counselors_corner.webp'
+export {AboutHero, HomePageHero, CounselorCornerHero}

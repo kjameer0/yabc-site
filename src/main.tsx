@@ -160,6 +160,10 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
   font-family: hind-guntur-bold;
   src: url('/fonts/Hind_Guntur/HindGuntur-Bold.ttf');
 }
+@font-face {
+  font-family: hind-guntur-medium;
+  src: url('/fonts/Hind_Guntur/HindGuntur-Medium.ttf');
+}
   :root {
     font-family: sans-serif;
     font-size: 16px;

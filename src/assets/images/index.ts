@@ -1,3 +1,3 @@
 import MainLogo from './WIYABC_Logo_cropped.png';
-
-export {MainLogo}
+import ReactLogo from '../react.svg'
+export {MainLogo, ReactLogo}
