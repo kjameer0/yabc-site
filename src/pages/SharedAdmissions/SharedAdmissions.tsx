@@ -44,20 +44,59 @@ export default function SharedAdmissions() {
           HOW TO ENROLL
         </h2>
         <h3 className="enroll-step-h3">Step 1:</h3>
-        <p className="para-content">Students should meet with with the guidance counselor at their current high school to determine eligibility and appropriateness.</p>
+        <p className="para-content">
+          Students should meet with with the guidance counselor at their current high school to
+          determine eligibility and appropriateness.
+        </p>
         <h3 className="enroll-step-h3">Step 2:</h3>
-        <p className="enroll-step-bold-p">The student&apos;s guidance counselors should complete the following:</p>
+        <p className="enroll-step-bold-p">
+          The student&apos;s guidance counselors should complete and submit the following:
+        </p>
         <ul className="step-ul">
-          <li className="para-content">Complete the S-1 and S-2 Forms (See Below)</li>
-          <li className="para-content">Provide copies of the Student&apos;s School Program</li>
           <li className="para-content">Counselor referral form (See Below)</li>
-          <li className="para-content">Provide copies of any IEP or 504 Documents (if applicable)</li>
+          <li className="para-content">S-1 and S-2 Forms (See Below)</li>
+          <li className="para-content">Student&apos;s day school program</li>
+          <li className="para-content">Up-to-date IEP or 504 Documents (if applicable)</li>
         </ul>
-        <p className="para-content">Application materials may be submitted to amclaughlin2@schools.nyc.gov.</p>
-        <p className=""></p>
+        <p className="para-content">
+          Application materials may be submitted to <u>amclaughlin2@schools.nyc.gov</u>.
+        </p>
+        <p className="enroll-step-bold-p">
+          If you do not understand the enrollment process, please contact us and someone will
+          respond to you within 24 hours.
+        </p>
         <h3 className="enroll-step-h3">Step 3:</h3>
+        <p className="enroll-step-bold-p">
+          Student or Guidance Counselor must call to schedule an interview with Site Administrators
+          or Guidance Counselors at Washington Irving YABC.
+        </p>
+        <p className="para-content">Admission is pending approval on interview.</p>
+        <ul className="step-ul">
+          <li className="para-content">
+            Site Administrator: <u>929-359-3750</u>
+          </li>
+          <li className="para-content">
+            Guidance Counselor: <u>347-941-3313</u>
+          </li>
+        </ul>
+        <p className="para-content">
+          Call or Text either of these numbers and someone will respond to you within 24 hours. If
+          you leave a voicemail or text, please state, &quot;My name is ____________, and I would
+          like to schedule an interview. I can be reached at ____________________.&quot;
+        </p>
         <h3 className="enroll-step-h3">Step 4:</h3>
-
+        <p className="enroll-step-bold-p">
+          Upon acceptance, student reviews, completes, and signs the following forms:
+        </p>
+        <ul className="step-ul">
+          <li className="para-content">shared instruction intake form</li>
+          <li className="para-content">media release form</li>
+          <li className="para-content">school rules form</li>
+        </ul>
+        <p className="enroll-step-bold-p">
+          For Shared Instruction, a student must be enrolled in a NYC public school. There is no age
+          requirement.
+        </p>
       </StyledContentSection>
     </StyledSharedAdmissions>
   );

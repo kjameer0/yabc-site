@@ -11,7 +11,7 @@ export default function Admissions() {
     <StyledAdmissions>
       <HeroImage text={[]} color="white" imgLink={AdmissionsHero} id="admissions-hero" />
       <h1 className="major-heading">ADMISSIONS</h1>
-      <StyledContentSection className="register-section" id='open-enrollment'>
+      <StyledContentSection className="register-section" id="open-enrollment">
         <h2 className="sub-heading">OPEN ENROLLMENT</h2>
         <p className="para-content">
           Students who wish to register at Washington Irving YABC should contact the guidance
@@ -23,7 +23,7 @@ export default function Admissions() {
           Monday-Thursday from 4-7 pm. Students can walk-in parent or guardian.
         </p>
       </StyledContentSection>
-      <StyledContentSection className="admissions-info-section" id='admissions-information'>
+      <StyledContentSection className="admissions-info-section" id="admissions-information">
         <h2 className="sub-heading">IMPORTANT ADMISSIONS INFORMATION</h2>
         <p className="para-content">
           at Washington Irving YABC, we believe education transforms lives. That&apos;s why we
@@ -32,7 +32,7 @@ export default function Admissions() {
         </p>
       </StyledContentSection>
       <div className="requirements-wrapper">
-        <StyledContentSection className="requirements" id='academic-requirements'>
+        <StyledContentSection className="requirements" id="academic-requirements">
           <h3 className="requirements-h3">ACADEMIC REQUIREMENTS</h3>
           <h4 className="requirements-h4">To be eligible for Full Time, a student should:</h4>
           <ul className="requirements-ul">
@@ -50,28 +50,69 @@ export default function Admissions() {
           </p>
         </StyledContentSection>
       </div>
-      <StyledContentSection className="enrollment-process" id='enrollment-process'>
-        <div className="green-separator"></div>
-        <h2 className="sub-heading">
-          <u>ENROLLMENT PROCESS</u>
+      <StyledContentSection className="enroll-section">
+        <h2 className="enroll-section-h2">
+          SHARED INSTRUCTION <br />
+          HOW TO ENROLL
         </h2>
+        <h3 className="enroll-step-h3">Step 1:</h3>
         <p className="para-content">
-          Please click the appropriate icon button for the program your student is enrolling in at
-          Washington Irving YABC at Fashion Industries.
+          Students should meet with with the guidance counselor at their current high school to
+          determine eligibility and appropriateness.
         </p>
+        <h3 className="enroll-step-h3">Step 2:</h3>
+        <p className="enroll-step-bold-p">
+          The student&apos;s guidance counselors should complete and submit the following:
+        </p>
+        <ul className="step-ul">
+          <li className="para-content">Counselor referral form (See Below)</li>
+          <li className="para-content">YABC Referral Form (Y-1) (See Below)</li>
+          <li className="para-content">YABC Course Requirements Form (Y-2) (See Below)</li>
+          <li className="para-content">Immunization Records</li>
+          <li className="para-content">Official Transcripts</li>
+          <li className="para-content">Up-to-date IEP or 504 Documents (if applicable)</li>
+        </ul>
         <p className="para-content">
-          Please follow all directions. Download, complete, and email all application materials to
-          amclaughlin2@schools.nyc.gov. If you need assistance with the enrollment process, you may
-          call or text the following cell phone number 347-941-3313. Someone will respond to you
-          within 24 hours.
+          Application materials may be submitted to <u>amclaughlin2@schools.nyc.gov</u>.
         </p>
-        <div className="enrollment-button-wrapper">
-          <StyledMainButton>REGULAR ADMISSIONS</StyledMainButton>
-          <StyledMainButton>SHARED INSTRUCTIONS</StyledMainButton>
-        </div>
-        <div className="green-separator"></div>
+        <p className="enroll-step-bold-p">
+          If you do not understand the enrollment process, please contact us and someone will
+          respond to you within 24 hours.
+        </p>
+        <h3 className="enroll-step-h3">Step 3:</h3>
+        <p className="enroll-step-bold-p">
+          Student or Guidance Counselor must call to schedule an interview with Site Administrators
+          or Guidance Counselors at Washington Irving YABC.
+        </p>
+        <p className="para-content">Admission is pending approval on interview.</p>
+        <ul className="step-ul">
+          <li className="para-content">
+            Site Administrator: <u>929-359-3750</u>
+          </li>
+          <li className="para-content">
+            Guidance Counselor: <u>347-941-3313</u>
+          </li>
+        </ul>
+        <p className="para-content">
+          Call or Text either of these numbers and someone will respond to you within 24 hours. If
+          you leave a voicemail or text, please state, &quot;My name is ____________, and I would
+          like to schedule an interview. I can be reached at ____________________.&quot;
+        </p>
+        <h3 className="enroll-step-h3">Step 4:</h3>
+        <p className="enroll-step-bold-p">
+          Upon acceptance, student reviews, completes, and signs the following forms:
+        </p>
+        <ul className="step-ul">
+          <li className="para-content">shared instruction intake form</li>
+          <li className="para-content">media release form</li>
+          <li className="para-content">school rules form</li>
+        </ul>
+        <p className="enroll-step-bold-p">
+          Students wishing to work with the Mission Society of NYC must complete all online waivers
+          found on the Mission Society of NYC tab.
+        </p>
       </StyledContentSection>
-      <StyledContentSection className="faq-section" id='frequently-asked-questions'>
+      <StyledContentSection className="faq-section" id="frequently-asked-questions">
         <h2 className="sub-heading">FREQUENTLY ASKED QUESTIONS</h2>
         <section className="faq-question-section regular-instruction">
           <h3 className="faq-h3">What is Regular Instruction?</h3>

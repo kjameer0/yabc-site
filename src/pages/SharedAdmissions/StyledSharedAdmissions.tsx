@@ -5,7 +5,17 @@ export default styled.main`
     display: flex;
     flex-direction: column;
     background-color: white;
+    align-items: center;
     color: black;
+  }
+  .enroll-section p {
+    margin-top: 0;
+    margin-bottom: 10px;
+    width: 80%;
+  }
+  .enroll-section li {
+    margin: 0px auto;
+    width: 100%;
   }
   .enroll-section-h2 {
     font-size: clamp(1.2rem, 3vw, 2rem);
