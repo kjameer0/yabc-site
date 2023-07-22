@@ -3,7 +3,6 @@ import Admissions from './Admissions';
 import Contact from './Contact';
 import ContactForm from './ContactForm';
 import CounselorCorner from './CounselorCorner';
-import Enrollment from './Enrollment';
 import HomePage from './HomePage';
 import InfoRequestForm from './InfoRequestForm';
 import MissionSociety from './MissionSociety';
@@ -18,7 +17,6 @@ export {
   Contact,
   ContactForm,
   CounselorCorner,
-  Enrollment,
   HomePage,
   InfoRequestForm,
   MissionSociety,

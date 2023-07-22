@@ -44,14 +44,14 @@ const router = createBrowserRouter([
       },
       {
         path: baseUrl + 'counselor-contact-form',
-        element: <ContactForm />,
+        element: <ContactForm version="counselor"/>,
         errorElement: <ErrorPage />,
         children: [],
       },
       // ADD in props for contact forms!!!
       {
         path: baseUrl + 'site-administrator-contact-form',
-        element: <ContactForm />,
+        element: <ContactForm version="admin"/>,
         errorElement: <ErrorPage />,
         children: [],
       },
