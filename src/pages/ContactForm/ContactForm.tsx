@@ -9,7 +9,7 @@ const COUNSELOR_FORM_ENDPOINT =
   'https://public.herotofu.com/v1/1bd822b0-27fe-11ee-adc8-15d0255d3cef';
 const SITE_ADMIN_FORM_ENDPOINT =
   'https://public.herotofu.com/v1/50bf2530-2846-11ee-8058-515da3888232';
-function useContactForm(ENDPOINT: string) {
+export function useContactForm(ENDPOINT: string) {
   const [status, setStatus] = useState<string>();
   const handleFormSubmit: React.FormEventHandler = (e) => {
     e.preventDefault();
