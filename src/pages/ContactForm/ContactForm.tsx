@@ -109,6 +109,7 @@ export default function ContactForm({ version }: { version: 'counselor' | 'admin
             <span className="form-label-text form-textarea-label">Message*</span>
             <textarea name="message" required placeholder="Send a message" />
           </label>
+          <p className="para-content">PLEASE ALLOW AT LEAST 24 HOURS FOR A RESPONSE.</p>
           <button type="submit" className="submit-button">
             Send Message
           </button>

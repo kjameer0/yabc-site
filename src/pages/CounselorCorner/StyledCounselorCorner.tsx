@@ -4,6 +4,9 @@ export default styled.main`
   .transform-p-first {
     font-family: hind-guntur-bold;
   }
+  .remote-learning-section {
+    padding-bottom: 30px;
+  }
   .reminder-wrapper {
     display: flex;
     justify-content: center;

@@ -3,10 +3,10 @@ import StyledCounselorCorner from "./StyledCounselorCorner";
 import HeroImage from "components/HeroImage";
 import { StyledContentSection } from "components/ContentSection";
 import StyledMainButton from "components/MainButton.tsx";
+import { NavLink } from 'react-router-dom';
 //images
-import { CounselorCornerHero } from "assets/images/Hero-Images";
-import { RemoteLearningImg } from "assets/images/Counselor-Corner-images";
-
+import { CounselorCornerHero } from 'assets/images/Hero-Images';
+import { RemoteLearningImg } from 'assets/images/Counselor-Corner-images';
 
 export default function CounselorCorner() {
   return (
@@ -28,19 +28,21 @@ export default function CounselorCorner() {
         </StyledContentSection>
       </div>
       <div className="reminder-wrapper">
-        <StyledContentSection className="remote-learning-section" id='remote-learning-tips'>
+        <StyledContentSection className="remote-learning-section" id="remote-learning-tips">
           <h2 className="sub-heading">REMOTE LEARNING TIPS</h2>
           <img src={RemoteLearningImg} alt="remote learning tips for students" />
         </StyledContentSection>
       </div>
       <div className="buttons-wrapper">
         <StyledMainButton className="contact-school-button">
-          <p>CONTACT YOUR SCHOOL COUNSELOR</p>
+          <NavLink to="/counselor-contact-form">CONTACT YOUR SCHOOL COUNSELOR</NavLink>
         </StyledMainButton>
         <StyledMainButton className="contact-admin-button">
-          <p>CONTACT THE SITE ADMINISTRATOR</p>
+          <NavLink to="/site-administrator-contact-form">CONTACT THE SITE ADMINISTRATOR</NavLink>
         </StyledMainButton>
-        <StyledMainButton className="attend-button"><p>ATTEND OUR NEXT OPEN HOUSE</p></StyledMainButton>
+        <StyledMainButton className="attend-button">
+          <NavLink to="/about">ATTEND OUR NEXT OPEN HOUSE</NavLink>
+        </StyledMainButton>
       </div>
     </StyledCounselorCorner>
   );
