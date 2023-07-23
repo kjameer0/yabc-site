@@ -1,12 +1,13 @@
 import StyledContact from './StyledContact';
 //images
 import { AdmissionsHero } from 'assets/images/Hero-Images';
+import { MapImg } from 'assets/images/Contact-Images';
 //components
 import HeroImage from 'components/HeroImage';
 //utils
 import { useContactForm } from 'pages/ContactForm/ContactForm';
 
-const ENDPOINT = '';
+const ENDPOINT = 'https://public.herotofu.com/v1/6d309f10-28c7-11ee-8058-515da3888232';
 export default function Contact() {
   const { status, handleFormSubmit } = useContactForm(ENDPOINT);
   return (
@@ -49,6 +50,13 @@ export default function Contact() {
           </button>
         </fieldset>
       </form>
+      <p className="para-content address-p">
+        40 Irving Place NY, NY 10003
+        <br />
+        Site Administrator Cell: 929-359-3750 OFFICE PH: 212-674-5000 ext 11491/11420 or
+        646-654-9671
+      </p>
+      <img className="location-img" src={MapImg} alt="Washington Irving YABC location" />
     </StyledContact>
   );
 }

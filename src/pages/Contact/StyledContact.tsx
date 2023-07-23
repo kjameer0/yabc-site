@@ -1,6 +1,10 @@
 import { styled } from 'styled-components';
 
 export default styled.main`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   fieldset {
     display: flex;
     flex-direction: column;
@@ -12,7 +16,7 @@ export default styled.main`
     width: 70%;
     display: flex;
     align-items: center;
-    margin-right: 9%;
+    margin-right: 8%;
     max-width: 960px;
     margin-bottom: 3%;
   }
@@ -24,17 +28,16 @@ export default styled.main`
     text-align: right;
     flex-basis: 20%;
     margin-right: 10px;
-  }
-  textarea ~ span {
-    background: red;
-    align-items: flex-start;
+    min-width: 64px;
   }
   .form-textarea-label {
     align-self: flex-start;
   }
   textarea,
   .input-field {
-    width: 70%;
+    min-width: 160px;
+    width: 100%;
+    flex-basis: 100%;
   }
   textarea {
     height: clamp(130px, 10vw, 520px);
@@ -42,6 +45,15 @@ export default styled.main`
   }
   .submit-button {
     font-size: clamp(1rem, 3vw, 2rem);
+  }
+  .address-p {
+    flex-basis: 50%;
+    width: 60%;
+    justify-self: center;
+  }
+  .location-img {
+    width: clamp(334px, 20vw, 911px);
+    height: auto;
   }
   @media screen and (min-width: 700px) {
     .input-field {
