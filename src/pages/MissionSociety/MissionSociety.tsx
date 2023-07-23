@@ -23,7 +23,7 @@ export default function MissionSociety() {
         to assist him/her with any needs. The Youth Advisors are committed to assisting all students
         in achieving their goals!
       </p>
-      <StyledContentSection className="forms-section">
+      <StyledContentSection id='forms' className="forms-section">
         <HeroImage
           imgLink={LearnToWorkHero}
           text={['LEARN TO WORK', 'PROGRAM', 'BY THE MISSION', 'SOCIETY OF NEW YORK']}
@@ -111,14 +111,14 @@ export default function MissionSociety() {
           </div>
         </div>
       </StyledContentSection>
-      <StyledContentSection className="services">
+      <StyledContentSection id='services' className="services">
         <HeroImage
           imgLink={ServicesHero}
           text={['SERVICES', 'FROM THE MISSION', 'SOCIETY OF NEW YORK']}
           color="white"
           id="services-hero"
         />
-        <StyledContentSection className="service-list-section">
+        <StyledContentSection className="service-list-section" id='college-and-career-readiness'>
           <h3 className="sub-heading">COLLEGE AND CAREEER READINESS</h3>
           <ul className="service-list">
             <li className="service-list-li para-content">Resume and cover letter writing</li>
@@ -136,7 +136,7 @@ export default function MissionSociety() {
           </ul>
         </StyledContentSection>
         <div className="green-separator"></div>
-        <StyledContentSection className="service-list-section">
+        <StyledContentSection id='activities'className="service-list-section">
           <h3 className="sub-heading">ACTIVITIES</h3>
           <ul className="service-list">
             <li className="service-list-li para-content">Town hall meetings</li>
@@ -147,7 +147,7 @@ export default function MissionSociety() {
           </ul>
         </StyledContentSection>
         <div className="green-separator"></div>
-        <StyledContentSection className="service-list-section">
+        <StyledContentSection id='academic-family-outreach'className="service-list-section">
           <h3 className="sub-heading">ACADEMIC/FAMILY OUTREACH</h3>
           <ul className="service-list">
             <li className="service-list-li para-content">Transcript review</li>
@@ -167,7 +167,7 @@ export default function MissionSociety() {
           </ul>
         </StyledContentSection>
         <div className="green-separator"></div>
-        <StyledContentSection className="service-list-section">
+        <StyledContentSection id='student-outreach'className="service-list-section">
           <h3 className="sub-heading">STUDENT OUTREACH</h3>
           <ul className="service-list">
             <li className="service-list-li para-content">Job experience</li>
