@@ -73,8 +73,8 @@ export default function ContactForm({ version }: { version: 'counselor' | 'admin
     return (
       <div className="md:w-96 md:max-w-full w-full mx-auto">
         <div className="sm:rounded-md p-6 border border-gray-300">
-          <div className="text-2xl">Thank you!</div>
-          <div className="text-md">{status}</div>
+          <div className="major-heading">Thank you!</div>
+          <div className="sub-heading">{status}</div>
         </div>
       </div>
     );
@@ -86,6 +86,13 @@ export default function ContactForm({ version }: { version: 'counselor' | 'admin
       <h1 className="major-heading">
         {version === 'counselor' ? 'COUNSELOR' : 'SITE ADMINISTRATOR'} CONTACT FORM
       </h1>
+      <input
+        type="text"
+        name="_gotcha"
+        tabIndex={-1}
+        autoComplete="off"
+        style={{ display: 'none' }}
+      />
       <form
         action={version === 'counselor' ? COUNSELOR_FORM_ENDPOINT : SITE_ADMIN_FORM_ENDPOINT}
         method="POST"
@@ -93,21 +100,21 @@ export default function ContactForm({ version }: { version: 'counselor' | 'admin
         acceptCharset="UTF-8"
       >
         <fieldset>
-          <label className="form-label" htmlFor="name">
+          <label className="form-label" htmlFor="Name">
             <span className="form-label-text">Name*</span>
-            <input className="input-field" required type="text" name="name" placeholder="Name" />
+            <input className="input-field" required type="text" name="Name" placeholder="Name" />
           </label>
-          <label className="form-label" htmlFor="email">
+          <label className="form-label" htmlFor="Email">
             <span className="form-label-text">Email*</span>
-            <input required name="email" placeholder="Email" className="input-field" />
+            <input required name="Email" placeholder="Email" className="input-field" />
           </label>
-          <label className="form-label" htmlFor="phone">
+          <label className="form-label" htmlFor="Phone">
             <span className="form-label-text">Phone:</span>
-            <input className="input-field" name="phone" placeholder="Phone(optional)" />
+            <input className="input-field" name="Phone" placeholder="Phone(optional)" />
           </label>
-          <label className="form-label" htmlFor="message">
+          <label className="form-label" htmlFor="Message">
             <span className="form-label-text form-textarea-label">Message*</span>
-            <textarea name="message" required placeholder="Send a message" />
+            <textarea name="Message" required placeholder="Send a message" />
           </label>
           <p className="para-content">PLEASE ALLOW AT LEAST 24 HOURS FOR A RESPONSE.</p>
           <button type="submit" className="submit-button">
