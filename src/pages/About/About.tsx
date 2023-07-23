@@ -5,7 +5,7 @@ import { GraduateImg } from 'assets/images/About-images';
 import StyledAbout from './StyledAbout';
 import HeroImage from 'components/HeroImage';
 import { StyledContentSection } from 'components/ContentSection';
-import StyledMainButton from 'components/MainButton.tsx';
+import StyledMainButton from 'components/MainButton';
 export default function About() {
   return (
     <StyledAbout>

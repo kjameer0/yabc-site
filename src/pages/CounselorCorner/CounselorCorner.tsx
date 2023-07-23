@@ -2,7 +2,7 @@ import StyledCounselorCorner from "./StyledCounselorCorner";
 //components
 import HeroImage from "components/HeroImage";
 import { StyledContentSection } from "components/ContentSection";
-import StyledMainButton from "components/MainButton.tsx";
+import StyledMainButton from 'components/MainButton';
 import { NavLink } from 'react-router-dom';
 //images
 import { CounselorCornerHero } from 'assets/images/Hero-Images';

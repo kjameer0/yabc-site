@@ -5,7 +5,7 @@ import { SharedAdmissionsHero } from "assets/images/Hero-Images";
 import { NavLink } from "react-router-dom";
 import HeroImage from "components/HeroImage";
 import { StyledContentSection } from "components/ContentSection";
-import StyledMainButton from 'components/MainButton.tsx';
+import StyledMainButton from 'components/MainButton';
 //forms
 import { S1PDF, S2PDF } from 'assets/images/Forms';
 

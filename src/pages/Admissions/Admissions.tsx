@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import StyledAdmissions from './StyledAdmissions';
 import HeroImage from 'components/HeroImage';
 import { StyledContentSection } from 'components/ContentSection';
-import StyledMainButton from 'components/MainButton.tsx';
+import StyledMainButton from 'components/MainButton';
 //images
 import { AdmissionsHero } from 'assets/images/Hero-Images';
 
