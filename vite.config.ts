@@ -5,5 +5,7 @@ import svgrPlugin from 'vite-plugin-svgr';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/yabc-site/',
+  envDir: './env',
   plugins: [react(), tsconfigPaths(), svgrPlugin()],
 });
