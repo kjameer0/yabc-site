@@ -1,3 +1,5 @@
+import { useLocation, } from 'react-router-dom';
+import { useEffect } from 'react';
 //images
 import { AboutHero } from 'assets/images/Hero-Images';
 import { GraduateImg } from 'assets/images/About-images';
@@ -7,6 +9,19 @@ import HeroImage from 'components/HeroImage';
 import { StyledContentSection } from 'components/ContentSection';
 import StyledMainButton from 'components/MainButton';
 export default function About() {
+  const location = useLocation();
+  useEffect(() => {
+    const currentPage = document.getElementById('students-sitting-hero');
+    const elementScrolledTo = document.getElementById(location.hash.slice(1));
+    if (currentPage) {
+      document.body.scrollIntoView({ behavior: 'smooth' });
+    }
+    if (location.hash.length > 0 && elementScrolledTo) {
+      elementScrolledTo.scrollIntoView({
+        behavior: 'smooth',
+      });
+    }
+  }, [location]);
   return (
     <StyledAbout>
       <HeroImage id="students-sitting-hero" imgLink={AboutHero} text={[]} color="white" />

@@ -1,3 +1,5 @@
+import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 import StyledMissionSociety from './StyledMissionSociety';
 //images
 import { MissionSocietyHero } from 'assets/images/Hero-Images';
@@ -7,6 +9,19 @@ import { StyledContentSection } from 'components/ContentSection';
 import StyledMainButton from 'components/MainButton';
 import HeroImage from 'components/HeroImage';
 export default function MissionSociety() {
+  const location = useLocation();
+  useEffect(() => {
+    const currentPage = document.getElementById('forms');
+    const elementScrolledTo = document.getElementById(location.hash.slice(1));
+    if (currentPage) {
+      document.body.scrollIntoView({ behavior: 'smooth' });
+    }
+    if (location.hash.length > 0 && elementScrolledTo) {
+      elementScrolledTo.scrollIntoView({
+        behavior: 'smooth',
+      });
+    }
+  }, [location]);
   return (
     <StyledMissionSociety>
       <HeroImage text={[]} imgLink={MissionSocietyHero} id="mission-society-hero" color="white" />

@@ -1,12 +1,26 @@
 import StyledParents from "./StyledParents";
+import { useEffect } from "react";
 //images
 import { ParentImg } from "assets/images/Parents-images";
 import { VoteIcon, MealIcon, MentalIcon, ChildrenIcon, HeartIcon } from "assets/Icons";
 //components
 import { StyledContentSection } from "components/ContentSection";
-import { NavLink } from "react-router-dom";
+import { useLocation, NavLink } from 'react-router-dom';
 import StyledMainButton from "components/MainButton";
 export default function Parents() {
+  const location = useLocation();
+  useEffect(() => {
+    const currentPage = document.getElementById('tips-for-parents');
+    const elementScrolledTo = document.getElementById(location.hash.slice(1));
+    if (currentPage) {
+      document.body.scrollIntoView({ behavior: 'smooth' });
+    }
+    if (location.hash.length > 0 && elementScrolledTo) {
+      elementScrolledTo.scrollIntoView({
+        behavior: 'smooth',
+      });
+    }
+  }, [location]);
   return (
     <StyledParents>
       <h1 className="major-heading">PARENTS & FAMILIES</h1>

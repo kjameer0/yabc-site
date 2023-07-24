@@ -1,9 +1,11 @@
+import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 //components
 import StyledStaff from './StyledStaff';
 import StaffImage from 'components/StaffImage';
 import { StyledContentSection } from 'components/ContentSection';
 //types
-import { StaffImageType } from 'components/StaffImage/StaffImage';
+
 //data
 import {
   adminList,
@@ -14,9 +16,22 @@ import {
 } from 'assets/images/Staff-Photos';
 
 export default function Staff() {
+  const location = useLocation();
+  useEffect(() => {
+    const currentPage = document.getElementById('administrators');
+    const elementScrolledTo = document.getElementById(location.hash.slice(1));
+    if (currentPage) {
+      document.body.scrollIntoView({ behavior: 'smooth' });
+    }
+    if (location.hash.length > 0 && elementScrolledTo) {
+      elementScrolledTo.scrollIntoView({
+        behavior: 'smooth',
+      });
+    }
+  }, [location]);
   return (
     <StyledStaff className="staff-main">
-      <h1 className="major-heading">STAFF DIRECTORY</h1>
+      <h1 className="major-heading" id='administrators'>STAFF DIRECTORY</h1>
       <StyledContentSection className="staff-section">
         <div className="staff-flex-wrapper">
           {adminList.map((admin, index) => {
