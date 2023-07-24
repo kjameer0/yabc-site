@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import { useLocation,NavLink } from 'react-router-dom';
 import StyledStudentCorner from './StyledStudentCorner';
+//forms
+import { StudentHandbook } from 'assets/images/Forms';
 //images
 import { RemoteLearningStudentsIcon, BabyCarriageIcon, VoteIcon } from 'assets/Icons';
 import {
@@ -14,6 +16,7 @@ import { StyledContentSection } from 'components/ContentSection';
 import StyledMainButton from 'components/MainButton';
 export default function StudentCorner() {
   const location = useLocation();
+
   useEffect(() => {
     const currentPage = document.getElementById('student-corner');
     const elementScrolledTo = document.getElementById(location.hash.slice(1));
@@ -27,7 +30,7 @@ export default function StudentCorner() {
     }
   }, [location]);
   return (
-    <StyledStudentCorner id='student-corner'>
+    <StyledStudentCorner id="student-corner">
       <h1 className="major-heading">STUDENT&apos;S CORNER</h1>
       <div className="reminder-wrapper">
         <StyledContentSection className="remote-learning-section" id="remote-learning-tips">
@@ -133,7 +136,11 @@ export default function StudentCorner() {
           all students are responsible for acquainting themselves with the contents of the Student
           Handbook.
         </p>
-        <StyledMainButton>DOWNLOAD STUDENT HANDBOOK(NOT UP YET)</StyledMainButton>
+        <StyledMainButton>
+          <a href={StudentHandbook} download={'student-handbook'}>
+            DOWNLOAD STUDENT HANDBOOK
+          </a>
+        </StyledMainButton>
       </StyledContentSection>
     </StyledStudentCorner>
   );
