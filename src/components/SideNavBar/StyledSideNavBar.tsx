@@ -56,6 +56,7 @@ export default styled.nav`
     margin: 0 0 0 10px;
     text-align: left;
     color: black;
+    flex-basis: 100%;
   }
   .mission-logo-container {
     display: flex;
