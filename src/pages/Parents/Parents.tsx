@@ -129,7 +129,6 @@ export default function Parents() {
           </button>
         </div>
         </div>
-
       </StyledContentSection>
     </StyledParents>
   );
