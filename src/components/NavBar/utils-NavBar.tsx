@@ -15,7 +15,7 @@ export function makeLink(label: string): string {
 export function makeHashLink(label: string): string {
   return '#' + makeLink(label);
 }
-
+import { baseUrl } from 'project-constants';
 
 export type NavListItemType = {
   label: string;
@@ -23,42 +23,45 @@ export type NavListItemType = {
   anchors?: NavListItemType[];
 };
 export const aboutPaths: NavListItemType[] = [
-  { label: 'Open House', path: '/about' },
-  { label: 'Eligibility requirements', path: '/about/#are-we-a-fit' },
-  { label: 'Meet past graduates', path: '/about/#meet-our-graduates' },
+  { label: 'Open House', path: baseUrl + '/about' },
+  { label: 'Eligibility requirements', path: baseUrl + '/about/#are-we-a-fit' },
+  { label: 'Meet past graduates', path: baseUrl + '/about/#meet-our-graduates' },
 ];
 export const admissionsPaths: NavListItemType[] = [
-  { label: 'Academic Requirements', path: '/admissions/#open-enrollment' },
-  { label: 'Admissions Information', path: '/admissions/#admissions-information' },
-  { label: 'FAQs', path: 'admissions/#frequently-asked-questions' },
+  { label: 'Academic Requirements', path: baseUrl + '/admissions/#open-enrollment' },
+  { label: 'Admissions Information', path: baseUrl + '/admissions/#admissions-information' },
+  { label: 'FAQs', path: baseUrl + 'admissions/#frequently-asked-questions' },
 ];
 export const staffPaths: NavListItemType[] = [
-  { label: 'Administrators', path: '/staff-directory/' },
-  { label: 'School Counselors', path: '/staff-directory/#school-counselors' },
-  { label: 'Mission Society of New York', path: '/staff-directory/#mission-society-of-new-york' },
-  { label: 'Faculty', path: '/staff-directory/#staff-faculty' },
-  { label: 'Support Staff', path: '/staff-directory/#support-staff' },
+  { label: 'Administrators', path: baseUrl + '/staff-directory/' },
+  { label: 'School Counselors', path: baseUrl + '/staff-directory/#school-counselors' },
+  {
+    label: 'Mission Society of New York',
+    path: baseUrl + '/staff-directory/#mission-society-of-new-york',
+  },
+  { label: 'Faculty', path: baseUrl + '/staff-directory/#staff-faculty' },
+  { label: 'Support Staff', path: baseUrl + '/staff-directory/#support-staff' },
 ];
 export const studentCornerPaths: NavListItemType[] = [
-  { label: 'Remote Learning Tips', path: '/student-corner/' },
-  { label: 'Student Resources', path: '/student-corner/#student-resources' },
-  { label: "What's Happening", path: '/student-corner/#whats-happening' },
-  { label: 'School Library', path: '/student-corner/#school-library' },
+  { label: 'Remote Learning Tips', path: baseUrl + '/student-corner/' },
+  { label: 'Student Resources', path: baseUrl + '/student-corner/#student-resources' },
+  { label: "What's Happening", path: baseUrl + '/student-corner/#whats-happening' },
+  { label: 'School Library', path: baseUrl + '/student-corner/#school-library' },
 ];
 export const teacherHubPaths: NavListItemType[] = [
-  { label: 'Classroom Expectations', path: '/teacher-hub/' },
-  { label: 'Teacher Resources', path: '/teacher-hub/#teacher-resources' },
+  { label: 'Classroom Expectations', path: baseUrl + '/teacher-hub/' },
+  { label: 'Teacher Resources', path: baseUrl + '/teacher-hub/#teacher-resources' },
 ];
 export const parentsFamiliesPaths: NavListItemType[] = [
-  { label: 'Tips for Parents', path: '/parents-families/' },
-  { label: 'Your Involvement', path: '/parents-families/#your-involvement' },
-  { label: 'Teacher Resources', path: '/parents-families/#family-resources' },
+  { label: 'Tips for Parents', path: baseUrl + '/parents-families/' },
+  { label: 'Your Involvement', path: baseUrl + '/parents-families/#your-involvement' },
+  { label: 'Teacher Resources', path: baseUrl + '/parents-families/#family-resources' },
 ];
 export const missionPaths: NavListItemType[] = [
-  { label: 'About Mission Society', path: '/mission-society-of-new-york/' },
-  { label: 'Forms', path: '/mission-society-of-new-york/#forms' },
-  { label: 'Services', path: '/mission-society-of-new-york/#services' },
-]
+  { label: 'About Mission Society', path: baseUrl + '/mission-society-of-new-york/' },
+  { label: 'Forms', path: baseUrl + '/mission-society-of-new-york/#forms' },
+  { label: 'Services', path: baseUrl + '/mission-society-of-new-york/#services' },
+];
 export const aboutLinks = [
   {
     label: 'ABOUT',
