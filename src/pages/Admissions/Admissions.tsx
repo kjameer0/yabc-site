@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
 import { useLocation, NavLink } from 'react-router-dom';
+//forms
+import { FillableY1Form, FillableY2Form } from 'assets/images/Forms';
 //components
 import StyledAdmissions from './StyledAdmissions';
 import HeroImage from 'components/HeroImage';
@@ -127,6 +129,14 @@ export default function Admissions() {
           found on the Mission Society of NYC tab.
         </p>
       </StyledContentSection>
+      <div className="y-forms">
+        <StyledMainButton className="y-forms-button">
+          <a href={FillableY1Form}>FILLABLE Y1 FORM DOWNLOAD</a>
+        </StyledMainButton>
+        <StyledMainButton className="y-forms-button">
+          <a href={FillableY2Form}>FILLABLE Y2 FORM DOWNLOAD</a>
+        </StyledMainButton>
+      </div>
       <StyledContentSection className="faq-section" id="frequently-asked-questions">
         <h2 className="sub-heading">FREQUENTLY ASKED QUESTIONS</h2>
         <section className="faq-question-section regular-instruction">

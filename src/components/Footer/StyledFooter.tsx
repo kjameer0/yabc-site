@@ -3,7 +3,8 @@ import { styled } from 'styled-components';
 export default styled.footer`
   /* display: none; */
   width: 100vw;
-  height: 100px;
+  z-index: -1;
+  height: 80px;
   background-color: var(--main-bg);
   font-size: 0.75rem;
   position: relative;
@@ -26,13 +27,15 @@ export default styled.footer`
   .info-wrapper-p {
     margin: 5px 5px 5px 5px;
     text-align: right;
+    line-height: 1;
+
   }
   @media screen and (min-width: 700px) {
     .logo-wrapper {
       display: none;
     }
     .info-wrapper-p {
-      text-align: left;
+      text-align: right;
       font-size: 1rem;
     }
   }

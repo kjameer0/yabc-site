@@ -236,7 +236,7 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
       color: red;
       background: var(--main-bg);
       width: 100vw;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
     }
   @media screen and (min-width: 700px) {
     #root {

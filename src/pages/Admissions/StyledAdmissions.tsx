@@ -99,7 +99,13 @@ export default styled.main`
     font-size: clamp(1.3rem, 3vw, 2rem);
     margin: 20px;
   }
-
+  .y-forms {
+    margin: 20px 0;
+  }
+  .y-forms button {
+    margin-top: 15px;
+    width: 60%;
+  }
   .faq-section section {
     color: black;
     width: 75%;

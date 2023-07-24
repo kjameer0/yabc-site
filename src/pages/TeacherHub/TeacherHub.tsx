@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 //images
 import { TeacherInfluenceImg } from 'assets/images/Teacher-Hub-Images';
 //download
-import { TimesheetDownload } from 'assets/images/Forms';
+import { TimesheetDownload, StaffHanbook } from 'assets/images/Forms';
 //components
 import StyledTeacherHub from './StyledTeacherHub';
 import StyledMainButton from 'components/MainButton';
@@ -53,7 +53,7 @@ export default function TeacherHub() {
         <StyledMainButton className='resource-button'><a target='_blank' rel='noreferrer' href='https://www.schools.nyc.gov/employees'>NYC INFOHUB</a></StyledMainButton>
         <StyledMainButton className='resource-button'><a target='_blank' rel='noreferrer' href='https://payrollportal.nycboe.net/'>PAYROLL PORTAL</a></StyledMainButton>
         <StyledMainButton className='resource-button'><a target='_blank' rel='noreferrer' download='per-session-timesheet' href={TimesheetDownload}>FILLABLE PER SESSION TIMESHEET</a></StyledMainButton>
-        {/* <StyledMainButton className='resource-button'><a target='_blank' rel='noreferrer' href=''>STAFF HANDBOOK</a></StyledMainButton> */}
+        <StyledMainButton className='resource-button'><a target='_blank' rel='noreferrer' href={StaffHanbook}>STAFF HANDBOOK</a></StyledMainButton>
         </div>
       </StyledContentSection>
     </StyledTeacherHub>

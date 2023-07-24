@@ -127,7 +127,7 @@ export const yabcStaffList: StaffInfoType[] = [
   },
   {
     name: 'Ms. Venner',
-    role: 'PD Teacher',
+    role: 'COSA/PD Teacher',
     imgLink: DefaultTeacherIcon,
   },
   {
@@ -191,8 +191,8 @@ export const yabcStaffList: StaffInfoType[] = [
     imgLink: DefaultTeacherIcon,
   },
   {
-    name: 'Ms. S. Lee',
-    role: 'Health Teacher',
+    name: 'Ms. S Lee',
+    role: 'COSA/Health Teacher',
     imgLink: StachaLeeImg,
   },
   {
@@ -242,12 +242,13 @@ export const yabcStaffList: StaffInfoType[] = [
   },
 ];
 export const supportStaffList: StaffInfoType[] = [
-  { name: 'Mr. Fanfan', imgLink: FanFanImg },
-  { name: 'Ms. Ambrose', imgLink: AmbroseImg },
-  { name: 'Ms. Pierre-Lys', imgLink: DefaultTeacherIcon },
-  { name: 'Mr. Landatta', imgLink: DefaultTeacherIcon },
-  { name: 'Mr. Abdallah', imgLink: DefaultTeacherIcon },
-  { name: 'Ms. Wade', imgLink: WadeImg },
+  { name: 'Mr. Fanfan', imgLink: FanFanImg, role: 'Attendance Teacher' },
+  { name: 'Ms. Ambrose', imgLink: AmbroseImg, role: 'Secretary' },
+  { name: 'Ms. Pierre-Lys', imgLink: DefaultTeacherIcon, role: 'Paraprofessional' },
+  { name: 'Ms. Gomez', imgLink: DefaultTeacherIcon, role: 'School Aide' },
+  { name: 'Mr. Abdallah', imgLink: DefaultTeacherIcon, role: 'School Aide' },
+  { name: 'Ms. Mcloughlin', imgLink: DefaultTeacherIcon, role: 'School Aide' },
+  { name: 'Ms. Fiallos', imgLink: DefaultTeacherIcon, role: 'Paraprofessional' },
 ];
 
 export { DefaultTeacherIcon };

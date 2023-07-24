@@ -30,23 +30,17 @@ export default function Parents() {
           We understand this is a very trying time for all. Please do the best you can to support
           your student. We know the dynamics in the family may have drastically changed with some
           parents at home, some working the front lines, and some are stepping in as caretakers for
-          others,. We ask that you do the best you can to support learning in this new era.
+          others. We ask that you do the best you can to support learning in this new era.
         </p>
         <ol>
           <li className="parent-tip-li para-content">
-            Check our school websites for updates and resources.
+            Check our school website for updates and resources.
           </li>
           <li className="parent-tip-li para-content">
-            Please check Pupilpath on a regular basis. Click here for Pupilpath.
+            Please communicate with YABC and teachers whenever you have a question or concern.
           </li>
           <li className="parent-tip-li para-content">
-            Please communicate with teachers whenever you have a question or concern.
-          </li>
-          <li className="parent-tip-li para-content">
-            Please support your children with rituals and routines to complete the assignments.
-          </li>
-          <li className="parent-tip-li para-content">
-            Please encourage your students to pick up covid testing kits.
+            Encourage your student to complete their assignmnets on time.
           </li>
         </ol>
       </StyledContentSection>
@@ -77,71 +71,83 @@ export default function Parents() {
       <StyledContentSection id="family-resources">
         <h2 className="major-heading">FAMILY RESOURCES</h2>
         <div className="resources-flex-container">
-        <div className="resources-icon-wrapper">
-          <img src={MealIcon} alt="spoon fork icon" className="resource-icon" />
-          <button className="resources-icon-button">
-            <a
-              href={'https://www.opt-osfns.org/schoolfoodny/meals/default.aspx'}
-              className="icon-button-text"
-              target="_blank"
-              rel={'noreferrer'}
-            >
-              GRAB AND GO MEALS
-            </a>
-          </button>
-        </div>
-        <div className="resources-icon-wrapper">
-          <img src={MentalIcon} alt="outline of human head with heart in it" className="resource-icon" />
-          <button className="resources-icon-button">
-            <a
-              href={'https://mentalhealth.cityofnewyork.us/#intro'}
-              className="icon-button-text"
-              target="_blank"
-              rel={'noreferrer'}
-            >
-              NYC WELL - MENTAL HEALTH
-            </a>
-          </button>
-        </div>
-        <div className="resources-icon-wrapper">
-          <img src={HeartIcon} alt="heart icon with a plus sign in it" className="resource-icon" />
-          <button className="resources-icon-button">
-            <a
-              href={'https://hitesite.org/about'}
-              className="icon-button-text"
-              target="_blank"
-              rel={'noreferrer'}
-            >
-              HEALTH INFORMATION TOOL FOR EMPOWERMENT (HITE)
-            </a>
-          </button>
-        </div>
-        <div className="resources-icon-wrapper">
-          <img src={ChildrenIcon} alt="children being held up by hands" className="resource-icon" />
-          <button className="resources-icon-button">
-            <a
-              href={'https://childmind.org/'}
-              className="icon-button-text"
-              target="_blank"
-              rel={'noreferrer'}
-            >
-              MENTAL HEALTH RESOURCES FOR CHILDREN
-            </a>
-          </button>
-        </div>
-        <div className="resources-icon-wrapper">
-          <img src={VoteIcon} alt="vote icon" className="resource-icon" />
-          <button className="resources-icon-button">
-            <a
-              href={'https://www.nyc.gov/nyc-resources/voter-registration-forms.page'}
-              className="icon-button-text"
-              target="_blank"
-              rel={'noreferrer'}
-            >
-              REGISTER TO VOTE / GET ABSENTEE BALLOT
-            </a>
-          </button>
-        </div>
+          <div className="resources-icon-wrapper">
+            <img src={MealIcon} alt="spoon fork icon" className="resource-icon" />
+            <button className="resources-icon-button">
+              <a
+                href={'https://www.opt-osfns.org/schoolfoodny/meals/default.aspx'}
+                className="icon-button-text"
+                target="_blank"
+                rel={'noreferrer'}
+              >
+                GRAB AND GO MEALS
+              </a>
+            </button>
+          </div>
+          <div className="resources-icon-wrapper">
+            <img
+              src={MentalIcon}
+              alt="outline of human head with heart in it"
+              className="resource-icon"
+            />
+            <button className="resources-icon-button">
+              <a
+                href={'https://mentalhealth.cityofnewyork.us/#intro'}
+                className="icon-button-text"
+                target="_blank"
+                rel={'noreferrer'}
+              >
+                NYC WELL - MENTAL HEALTH
+              </a>
+            </button>
+          </div>
+          <div className="resources-icon-wrapper">
+            <img
+              src={HeartIcon}
+              alt="heart icon with a plus sign in it"
+              className="resource-icon"
+            />
+            <button className="resources-icon-button">
+              <a
+                href={'https://hitesite.org/about'}
+                className="icon-button-text"
+                target="_blank"
+                rel={'noreferrer'}
+              >
+                HEALTH INFORMATION TOOL FOR EMPOWERMENT (HITE)
+              </a>
+            </button>
+          </div>
+          <div className="resources-icon-wrapper">
+            <img
+              src={ChildrenIcon}
+              alt="children being held up by hands"
+              className="resource-icon"
+            />
+            <button className="resources-icon-button">
+              <a
+                href={'https://childmind.org/'}
+                className="icon-button-text"
+                target="_blank"
+                rel={'noreferrer'}
+              >
+                MENTAL HEALTH RESOURCES FOR CHILDREN
+              </a>
+            </button>
+          </div>
+          <div className="resources-icon-wrapper">
+            <img src={VoteIcon} alt="vote icon" className="resource-icon" />
+            <button className="resources-icon-button">
+              <a
+                href={'https://www.nyc.gov/nyc-resources/voter-registration-forms.page'}
+                className="icon-button-text"
+                target="_blank"
+                rel={'noreferrer'}
+              >
+                REGISTER TO VOTE / GET ABSENTEE BALLOT
+              </a>
+            </button>
+          </div>
         </div>
       </StyledContentSection>
     </StyledParents>

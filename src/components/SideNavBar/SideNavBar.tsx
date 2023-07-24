@@ -1,19 +1,21 @@
 import StyledSideNavBar from "./StyledSideNavBar";
 import { MainLogo } from 'assets/images';
 import { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink,useNavigate } from 'react-router-dom';
 import NavLinkList from 'components/NavLinkList';
-
+import { MissionLogo } from "assets/images/Logos";
+//data
 import { aboutPaths, staffPaths, admissionsPaths, studentCornerPaths, teacherHubPaths, parentsFamiliesPaths, missionPaths } from 'components/NavBar/utils-NavBar';
-import { missionSocietyList } from "assets/images/Staff-Photos";
 
 export default function SideNavBar() {
   const [activeList, setActiveList] = useState('');
+  const navigate = useNavigate();
   function handleCategoryClick(evt: React.MouseEvent<HTMLButtonElement>) {
     if (activeList === evt.currentTarget.value) {
       setActiveList('');
     } else setActiveList(evt.currentTarget.value);
   }
+
   return (
     <StyledSideNavBar>
       <div className="img-wrapper">
@@ -22,10 +24,10 @@ export default function SideNavBar() {
       <nav>
         <ul className="categories-list">
           <li className="category">
-            <NavLink to="/">HOME</NavLink>
+            <button onClick={(evt: React.MouseEvent<HTMLButtonElement>) => navigate(evt.currentTarget.value)} value={'/'}>HOME</button>
           </li>
           <li className="category">
-            <button onClick={handleCategoryClick} value="about" id="about-button">
+            <button onClick={handleCategoryClick} value="about">
               ABOUT
             </button>
             {activeList === 'about' && <NavLinkList list={aboutPaths} />}
@@ -67,10 +69,16 @@ export default function SideNavBar() {
             {activeList === 'mission-society-of-new-york' && <NavLinkList list={missionPaths} />}
           </li>
           <li className="category">
-            <NavLink to={'/contact'}>CONTACT</NavLink>
+            <button onClick={(evt: React.MouseEvent<HTMLButtonElement>) => navigate(evt.currentTarget.value)} value={'/contact'}>CONTACT</button>
           </li>
         </ul>
       </nav>
+      <div className="mission-logo-container">
+        <img src ={MissionLogo} alt='Mission Society of New Yorks'/>
+        <p className="address-p">
+          Washington Irving YABC <br /> 40 Irving Place NY, NY 10003
+        </p>
+      </div>
     </StyledSideNavBar>
   );
 }
