@@ -231,6 +231,13 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
     width: 169px;
     height: auto;
   }
+  .banner {
+      z-index:20;
+      color: red;
+      background: var(--main-bg);
+      width: 100vw;
+      font-size: 1.1rem;
+    }
   @media screen and (min-width: 700px) {
     #root {
       justify-content: flex-start;
@@ -247,6 +254,7 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
       flex-basis: calc(90% - 150px);
       left: clamp(200px, 20vw, 255px);
     }
+
   }
 `;
 

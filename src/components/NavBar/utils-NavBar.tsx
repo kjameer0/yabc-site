@@ -16,28 +16,57 @@ export function makeHashLink(label: string): string {
   return '#' + makeLink(label);
 }
 
-/*
-navLinks shows the structure of the navigation menu
-almost every link that will appear on screen has submenus.
-the anchor property in each object contains a list of submenus
-the navbar/drawer component will check length of
-that links anchors, and if there is at least one item
-in anchors, the component will show the subanchors
-*/
+
 export type NavListItemType = {
   label: string;
   path: string;
   anchors?: NavListItemType[];
 };
-
+export const aboutPaths: NavListItemType[] = [
+  { label: 'Open House', path: '/about' },
+  { label: 'Eligibility requirements', path: '/about/#are-we-a-fit' },
+  { label: 'Meet past graduates', path: '/about/#meet-our-graduates' },
+];
+export const admissionsPaths: NavListItemType[] = [
+  { label: 'Academic Requirements', path: '/admissions/#open-enrollment' },
+  { label: 'Admissions Information', path: '/admissions/#admissions-information' },
+  { label: 'FAQs', path: 'admissions/#frequently-asked-questions' },
+];
+export const staffPaths: NavListItemType[] = [
+  { label: 'Administrators', path: '/staff-directory/' },
+  { label: 'School Counselors', path: '/staff-directory/#school-counselors' },
+  { label: 'Mission Society of New York', path: '/staff-directory/#mission-society-of-new-york' },
+  { label: 'Faculty', path: '/staff-directory/#staff-faculty' },
+  { label: 'Support Staff', path: '/staff-directory/#support-staff' },
+];
+export const studentCornerPaths: NavListItemType[] = [
+  { label: 'Remote Learning Tips', path: '/student-corner/' },
+  { label: 'Student Resources', path: '/student-corner/#student-resources' },
+  { label: "What's Happening", path: '/student-corner/#whats-happening' },
+  { label: 'School Library', path: '/student-corner/#school-library' },
+];
+export const teacherHubPaths: NavListItemType[] = [
+  { label: 'Classroom Expectations', path: '/teacher-hub/' },
+  { label: 'Teacher Resources', path: '/teacher-hub/#teacher-resources' },
+];
+export const parentsFamiliesPaths: NavListItemType[] = [
+  { label: 'Tips for Parents', path: '/parents-families/' },
+  { label: 'Your Involvement', path: '/parents-families/#your-involvement' },
+  { label: 'Teacher Resources', path: '/parents-families/#family-resources' },
+];
+export const missionPaths: NavListItemType[] = [
+  { label: 'About Mission Society', path: '/mission-society-of-new-york/' },
+  { label: 'Forms', path: '/mission-society-of-new-york/#forms' },
+  { label: 'Services', path: '/mission-society-of-new-york/#services' },
+]
 export const aboutLinks = [
   {
-    label: 'Open house',
+    label: 'ABOUT',
     path: 'about',
     anchors: [
-      { label: 'Openhouse', path: '#openhouse', anchors: [] },
-      { label: 'Are we a fit?', path: '#are-we-a-fit', anchors: [] },
-      { label: 'Meet past graduates', path: '#meet-past-graduates', anchors: [] },
+      { label: 'Open House', path: '/about', anchors: [] },
+      { label: 'Eligibility requirements', path: '/about/#are-we-a-fit', anchors: [] },
+      { label: 'Meet past graduates', path: '/about/#meet-our-graduates', anchors: [] },
     ],
   },
   {
@@ -58,7 +87,7 @@ export const admissionsLinks = [
     label: 'Admissions',
     path: 'admissions',
     anchors: [
-      { label: 'Academic Requirements', path: '#academic-requirements', anchors: [] },
+      { label: 'Academic Requirements', path: '#open-enrollment', anchors: [] },
       { label: 'Enrollment Process', path: '#enrollment-process', anchors: [] },
       { label: 'FAQs', path: '#frequently-asked-questions', anchors: [] },
     ],

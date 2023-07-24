@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, NavLink } from 'react-router-dom';
 //components
-import { NavLink } from 'react-router-dom';
 import StyledAdmissions from './StyledAdmissions';
 import HeroImage from 'components/HeroImage';
 import { StyledContentSection } from 'components/ContentSection';
@@ -12,16 +11,13 @@ import { AdmissionsHero } from 'assets/images/Hero-Images';
 export default function Admissions() {
   const location = useLocation();
   useEffect(() => {
-    console.log(location)
-    const currentPage = document.getElementById('admissions-hero');
+    const currentPage = document.getElementById('admissions-page');
     const elementScrolledTo = document.getElementById(location.hash.slice(1));
-    if (currentPage && !elementScrolledTo) {
-      console.log(currentPage)
+    if (currentPage) {
       document.body.scrollIntoView({ behavior: 'smooth' });
     }
     if (location.hash.length > 0 && elementScrolledTo) {
-      elementScrolledTo.scroll({
-        top:0,
+      elementScrolledTo.scrollIntoView({
         behavior: 'smooth',
       });
     }

@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+import { useLocation,NavLink } from 'react-router-dom';
 import StyledStudentCorner from './StyledStudentCorner';
 //images
 import { RemoteLearningStudentsIcon, BabyCarriageIcon, VoteIcon } from 'assets/Icons';
@@ -10,10 +12,22 @@ import {
 //components
 import { StyledContentSection } from 'components/ContentSection';
 import StyledMainButton from 'components/MainButton';
-import { NavLink } from 'react-router-dom';
 export default function StudentCorner() {
+  const location = useLocation();
+  useEffect(() => {
+    const currentPage = document.getElementById('student-corner');
+    const elementScrolledTo = document.getElementById(location.hash.slice(1));
+    if (currentPage) {
+      document.body.scrollIntoView({ behavior: 'smooth' });
+    }
+    if (location.hash.length > 0 && elementScrolledTo) {
+      elementScrolledTo.scrollIntoView({
+        behavior: 'smooth',
+      });
+    }
+  }, [location]);
   return (
-    <StyledStudentCorner>
+    <StyledStudentCorner id='student-corner'>
       <h1 className="major-heading">STUDENT&apos;S CORNER</h1>
       <div className="reminder-wrapper">
         <StyledContentSection className="remote-learning-section" id="remote-learning-tips">

@@ -1,2 +1,3 @@
 import VoteSvg from './vote.svg';
-export { VoteSvg };
+import MissionLogo from './Mission-logo.png'
+export { VoteSvg, MissionLogo };

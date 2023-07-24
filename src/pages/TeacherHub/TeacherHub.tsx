@@ -1,3 +1,5 @@
+import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 //images
 import { TeacherInfluenceImg } from 'assets/images/Teacher-Hub-Images';
 //download
@@ -7,8 +9,21 @@ import StyledTeacherHub from './StyledTeacherHub';
 import StyledMainButton from 'components/MainButton';
 import { StyledContentSection } from 'components/ContentSection';
 export default function TeacherHub() {
+  const location = useLocation();
+  useEffect(() => {
+    const currentPage = document.getElementById('teacher-hub');
+    const elementScrolledTo = document.getElementById(location.hash.slice(1));
+    if (currentPage) {
+      document.body.scrollIntoView({ behavior: 'smooth' });
+    }
+    if (location.hash.length > 0 && elementScrolledTo) {
+      elementScrolledTo.scrollIntoView({
+        behavior: 'smooth',
+      });
+    }
+  }, [location]);
   return (
-    <StyledTeacherHub>
+    <StyledTeacherHub id='teacher-hub'>
       <h1 className="major-heading">TEACHER HUB</h1>
       <StyledContentSection id="classroom-expectation">
         <h2 className="sub-heading">EXPECTATIONS FOR CLASSROOM LEARNING</h2>

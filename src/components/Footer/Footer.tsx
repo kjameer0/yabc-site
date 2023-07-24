@@ -1,5 +1,20 @@
 import StyledFooter from "./StyledFooter";
-
+//images
+import { MissionLogo } from "assets/images/Logos";
 export default function Footer() {
-  return <StyledFooter>Footer</StyledFooter>
+  return (
+    <StyledFooter>
+      <div className="logo-wrapper">
+        <img src={MissionLogo} alt="Mission Society of New York" />
+        <p className="address-p">
+          Washington Irving YABC <br /> 40 Irving Place NY, NY 10003
+        </p>
+      </div>
+      <div className="info-wrapper">
+        <p className="info-wrapper-p">E: aayetiw@schools.nyc.gov | F: 646-654-9672</p>
+        <p className="info-wrapper-p">Site Administrator Cell: 929-359-3750</p>
+        <p className="info-wrapper-p">Phone: 212-674-5000 x 11491/11420, or 646-654-9671</p>
+      </div>
+    </StyledFooter>
+  );
 }
