@@ -232,6 +232,7 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
     height: auto;
   }
   .banner {
+      position: fixed;
       z-index:20;
       color: red;
       background: var(--main-bg);

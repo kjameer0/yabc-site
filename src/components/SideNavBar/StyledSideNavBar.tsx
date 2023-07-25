@@ -2,7 +2,7 @@ import { styled } from 'styled-components';
 
 export default styled.nav`
   position: fixed;
-  top: -15px;
+  top: 15px;
   left: 0;
   display: none;
   background-color: var(--main-bg);
