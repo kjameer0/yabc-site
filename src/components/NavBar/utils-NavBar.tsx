@@ -16,51 +16,51 @@ export function makeHashLink(label: string): string {
   return '#' + makeLink(label);
 }
 import { baseUrl } from 'project-constants';
-
+let baseWithoutSlash = baseUrl.slice(0, baseUrl.length - 1);
 export type NavListItemType = {
   label: string;
   path: string;
   anchors?: NavListItemType[];
 };
 export const aboutPaths: NavListItemType[] = [
-  { label: 'Open House', path: baseUrl + '/about' },
-  { label: 'Eligibility requirements', path: baseUrl + '/about/#are-we-a-fit' },
-  { label: 'Meet past graduates', path: baseUrl + '/about/#meet-our-graduates' },
+  { label: 'Open House', path: baseWithoutSlash + '/about' },
+  { label: 'Eligibility requirements', path: baseWithoutSlash + '/about/#are-we-a-fit' },
+  { label: 'Meet past graduates', path: baseWithoutSlash + '/about/#meet-our-graduates' },
 ];
 export const admissionsPaths: NavListItemType[] = [
-  { label: 'Academic Requirements', path: baseUrl + '/admissions/#open-enrollment' },
-  { label: 'Admissions Information', path: baseUrl + '/admissions/#admissions-information' },
-  { label: 'FAQs', path: baseUrl + 'admissions/#frequently-asked-questions' },
+  { label: 'Academic Requirements', path: baseWithoutSlash + '/admissions/#open-enrollment' },
+  { label: 'Admissions Information', path: baseWithoutSlash + '/admissions/#admissions-information' },
+  { label: 'FAQs', path: baseWithoutSlash + 'admissions/#frequently-asked-questions' },
 ];
 export const staffPaths: NavListItemType[] = [
-  { label: 'Administrators', path: baseUrl + '/staff-directory/' },
-  { label: 'School Counselors', path: baseUrl + '/staff-directory/#school-counselors' },
+  { label: 'Administrators', path: baseWithoutSlash + '/staff-directory/' },
+  { label: 'School Counselors', path: baseWithoutSlash + '/staff-directory/#school-counselors' },
   {
     label: 'Mission Society of New York',
-    path: baseUrl + '/staff-directory/#mission-society-of-new-york',
+    path: baseWithoutSlash + '/staff-directory/#mission-society-of-new-york',
   },
-  { label: 'Faculty', path: baseUrl + '/staff-directory/#staff-faculty' },
-  { label: 'Support Staff', path: baseUrl + '/staff-directory/#support-staff' },
+  { label: 'Faculty', path: baseWithoutSlash + '/staff-directory/#staff-faculty' },
+  { label: 'Support Staff', path: baseWithoutSlash + '/staff-directory/#support-staff' },
 ];
 export const studentCornerPaths: NavListItemType[] = [
-  { label: 'Remote Learning Tips', path: baseUrl + '/student-corner/' },
-  { label: 'Student Resources', path: baseUrl + '/student-corner/#student-resources' },
-  { label: "What's Happening", path: baseUrl + '/student-corner/#whats-happening' },
-  { label: 'School Library', path: baseUrl + '/student-corner/#school-library' },
+  { label: 'Remote Learning Tips', path: baseWithoutSlash + '/student-corner/' },
+  { label: 'Student Resources', path: baseWithoutSlash + '/student-corner/#student-resources' },
+  { label: "What's Happening", path: baseWithoutSlash + '/student-corner/#whats-happening' },
+  { label: 'School Library', path: baseWithoutSlash + '/student-corner/#school-library' },
 ];
 export const teacherHubPaths: NavListItemType[] = [
-  { label: 'Classroom Expectations', path: baseUrl + '/teacher-hub/' },
-  { label: 'Teacher Resources', path: baseUrl + '/teacher-hub/#teacher-resources' },
+  { label: 'Classroom Expectations', path: baseWithoutSlash + '/teacher-hub/' },
+  { label: 'Teacher Resources', path: baseWithoutSlash + '/teacher-hub/#teacher-resources' },
 ];
 export const parentsFamiliesPaths: NavListItemType[] = [
-  { label: 'Tips for Parents', path: baseUrl + '/parents-families/' },
-  { label: 'Your Involvement', path: baseUrl + '/parents-families/#your-involvement' },
-  { label: 'Teacher Resources', path: baseUrl + '/parents-families/#family-resources' },
+  { label: 'Tips for Parents', path: baseWithoutSlash + '/parents-families/' },
+  { label: 'Your Involvement', path: baseWithoutSlash + '/parents-families/#your-involvement' },
+  { label: 'Teacher Resources', path: baseWithoutSlash + '/parents-families/#family-resources' },
 ];
 export const missionPaths: NavListItemType[] = [
-  { label: 'About Mission Society', path: baseUrl + '/mission-society-of-new-york/' },
-  { label: 'Forms', path: baseUrl + '/mission-society-of-new-york/#forms' },
-  { label: 'Services', path: baseUrl + '/mission-society-of-new-york/#services' },
+  { label: 'About Mission Society', path: baseWithoutSlash + '/mission-society-of-new-york/' },
+  { label: 'Forms', path: baseWithoutSlash + '/mission-society-of-new-york/#forms' },
+  { label: 'Services', path: baseWithoutSlash + '/mission-society-of-new-york/#services' },
 ];
 export const aboutLinks = [
   {

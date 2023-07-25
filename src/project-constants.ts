@@ -1,2 +1,2 @@
-export const baseUrl = '/yabc-site/';
+export const baseUrl = '/';
 //add dates and properly named info here
