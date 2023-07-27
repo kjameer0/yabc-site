@@ -72,6 +72,7 @@ export default styled.main`
   }
   .home-class-wrapper {
     width: 100%;
+    margin-bottom: 40px;
   }
   .separate-line {
     display: block;
@@ -88,21 +89,32 @@ export default styled.main`
   }
   .our-vision p {
     font-family: Inria-serif-light-italic;
-    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-size: clamp(1rem, 2vw, 1.5rem);
     letter-spacing: -0.05rem;
     width: clamp(270px, 75%);
   }
   @media screen and (min-width: 700px) {
-    .restore-margin, #school-facade {
+    .restore-margin,
+    #school-facade {
       margin-left: 0;
       margin-right: 0;
+    }
+    .registration-date-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .registration-date-section .para-content {
+      width: 80%;
+      margin-bottom: 0;
     }
     .home-grad-wrapper {
       display: flex;
       justify-content: space-evenly;
-      margin-bottom: 30px;
+      margin-bottom: 60px;
     }
     .grad-aside-p-wrapper {
+      margin-top: 6%;
       flex-basis: 50%;
     }
     .our-mission {
@@ -114,8 +126,21 @@ export default styled.main`
     .separate-line {
       display: none;
     }
-    .home-class-wrapper img {
-      float: right;
+    .home-class-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      margin-bottom: 100px;
+    }
+    .home-class-wrapper .our-vision {
+      order: 1;
+      flex-basis: 60%;
+    }
+    .home-class-img-wrapper {
+      align-self: center;
+      order: 2;
+      height: auto;
+      /* float: right; */
     }
   }
 `;

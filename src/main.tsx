@@ -231,14 +231,31 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
     width: 169px;
     height: auto;
   }
+  .banner-wrapper {
+    width: 3000px;
+    overflow: hidden;
+    position: fixed;
+    left: 0;
+    z-index:20;
+    background: var(--main-bg);
+  }
   .banner {
-      position: fixed;
-      z-index:20;
-      color: red;
-      background: var(--main-bg);
-      width: 100vw;
-      font-size: 1.2rem;
+    position: relative;
+    color: red;
+    font-size: 1.2rem;
+    animation-name: text-slide-in;
+    animation-duration: 12s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+  @keyframes text-slide-in {
+    0% {
+      right: 0;
     }
+    100% {
+      right: 3000px;
+    }
+  }
   @media screen and (min-width: 700px) {
     #root {
       justify-content: flex-start;

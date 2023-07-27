@@ -9,26 +9,26 @@ export default function HomePage() {
     <StyledHomePage className="home-main">
       <HeroImage id="school-facade" imgLink={HomePageHero} text={[]} color="white" />
       <h1 className="major-heading restore-margin">WASHINGTON IRVING YABC</h1>
-        <div className="pre-reg-box info-box restore-margin">
-          <h2 className="sub-heading">
-            <u>PRE-REGISTRATION FOR FALL CLASSES</u>
-          </h2>
-          <p className="reg-date">
-            <b>START:</b> MONDAY, AUGUST 21
-          </p>
-          <p className="reg-date">
-            <b>END:</b> MONDAY, SEPTEMBER 5
-          </p>
-        </div>
-        <div className="class-start-box info-box restore-margin">
-          <h2 className="sub-heading">
-            <u>FALL CLASSES BEGIN</u>
-          </h2>
-          <p className="reg-date">THURSDAY, SEPTEMBER 7</p>
-        </div>
+      <div className="pre-reg-box info-box restore-margin">
+        <h2 className="sub-heading">
+          <u>PRE-REGISTRATION FOR FALL CLASSES</u>
+        </h2>
+        <p className="reg-date">
+          <b>START:</b> MONDAY, AUGUST 21
+        </p>
+        <p className="reg-date">
+          <b>END:</b> MONDAY, SEPTEMBER 5
+        </p>
+      </div>
+      <div className="class-start-box info-box restore-margin">
+        <h2 className="sub-heading">
+          <u>FALL CLASSES BEGIN</u>
+        </h2>
+        <p className="reg-date">THURSDAY, SEPTEMBER 7</p>
+      </div>
       <StyledContentSection className="registration-date-section">
         <p className="registration-range smaller-med-heading">
-          In-Person Registration for Summer Classes will continue through September
+          In-Person Registration for Fall Classes will begin September 7th
         </p>
         <p className="para-content">
           On behalf of the YABC Program Community at the Washington Irving Campus, we extend a warm
@@ -73,7 +73,9 @@ export default function HomePage() {
         </p>
       </aside>
       <div className="home-class-wrapper">
-        <img src={HomeClassImg} alt="home class at Washington Irving" />
+        <div className="home-class-img-wrapper">
+          <img src={HomeClassImg} alt="home class at Washington Irving" />
+        </div>
         <div className="separate-line"></div>
         <div className="our-wrapper our-vision">
           <h2 className="med-heading ">Our Vision</h2>
@@ -89,7 +91,9 @@ export default function HomePage() {
           </p>
         </div>
       </div>
-      <img src={NewGradImg} className="homepage-img" alt="students at graduation ceremony" />
+      <div className="mock-carousel">
+        <img src={NewGradImg} className="homepage-img" alt="students at graduation ceremony" />
+      </div>
     </StyledHomePage>
   );
 }
