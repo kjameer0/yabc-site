@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "test": "jest --watch",
     "serve": "vite preview",
-    "deploy": "gh-pages -d dist",
+    "deploy": "gh-pages -d dist --cname www.washingtonirvingyabc.org",
     "prepare": "husky install",
     "commit": "commit",
     "format": "prettier --write --ignore-unknown .",
