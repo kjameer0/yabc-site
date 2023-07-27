@@ -4,11 +4,12 @@ export default styled.footer`
   /* display: none; */
   width: 100vw;
   z-index: -1;
-  height: 80px;
+  height: 70px;
   background-color: var(--main-bg);
   font-size: 0.75rem;
   position: relative;
   color: black;
+  margin-top: 70px;
   img {
     width: 135px;
     height: 31px;
@@ -28,7 +29,6 @@ export default styled.footer`
     margin: 5px 5px 5px 5px;
     text-align: right;
     line-height: 1;
-
   }
   @media screen and (min-width: 700px) {
     .logo-wrapper {
@@ -36,7 +36,7 @@ export default styled.footer`
     }
     .info-wrapper-p {
       text-align: right;
-      font-size: 1rem;
+      font-size: 0.75rem;
     }
   }
 `;

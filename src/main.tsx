@@ -250,7 +250,7 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
     }
     main {
       position: relative;
-      margin-top: 10px;
+      margin-top: 35px;
       margin-left: 10px;
       flex-basis: calc(90% - 150px);
       left: clamp(200px, 20vw, 255px);

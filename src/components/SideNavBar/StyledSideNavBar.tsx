@@ -63,12 +63,13 @@ export default styled.nav`
     justify-content: flex-start;
     flex-wrap: wrap;
     height: auto;
+    margin-left: 20px;
   }
   img {
     margin-left: 5px;
     width: 90px;
   }
-
+  
   @media screen and (min-width: 700px) {
     display: block;
   }

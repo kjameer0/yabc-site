@@ -1,4 +1,4 @@
-import { useLocation, } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 //images
 import { AboutHero } from 'assets/images/Hero-Images';
@@ -12,8 +12,8 @@ export default function About() {
   const location = useLocation();
   useEffect(() => {
     const currentPage = document.getElementById('students-sitting-hero');
-    const elementScrolledTo = document.getElementById(location.hash.slice(1));
-    if (currentPage) {
+    const elementScrolledTo = location.hash? document.getElementById(location.hash.slice(1)) : null;
+    if (currentPage && !elementScrolledTo) {
       document.body.scrollIntoView({ behavior: 'smooth' });
     }
     if (location.hash.length > 0 && elementScrolledTo) {
@@ -27,9 +27,17 @@ export default function About() {
       <HeroImage id="students-sitting-hero" imgLink={AboutHero} text={[]} color="white" />
       <h1 className="major-heading">ATTEND AN OPEN HOUSE</h1>
       <StyledContentSection className="attend-info">
-        <h2 className="attend-info-h2">Registration</h2>
+        <h2 className="attend-info-h2">PRE-REGISTRATION</h2>
         <p className="para-content">
-          Begins January 31 through March 2023. We will be in the Library on the first floor at
+          All students that pre-register must come in person with a parent or guardian to complete
+          their registration and orientation.
+        </p>
+        <h2 className="attend-info-h2">REGISTRATION</h2>
+        <p className="attend-info-h2">
+          Students are required to come in with a parent or guardian for registration.
+        </p>
+        <p className="para-content">
+          Begins August 21st through September 2023. We will be in the Library on the first floor at
           Washington Irving Campus 40 Irving Place, New York, NY 10003.
         </p>
         <h2 className="attend-info-h2">Zoom Meeting ID</h2>
@@ -37,18 +45,34 @@ export default function About() {
           Even though registration is in person, you can log in to meet with Guidance Counselors,
           CBO and Site Directors to have your questions answered.
         </p>
-      </StyledContentSection>
+        <h2 className="attend-info-h2">OPEN HOUSES ARE AVAILABLE ALL YEAR</h2>
+        <p className="para-content">
+          <b> Fall Term:</b> August through September <br></br>
+          <b></b>Spring Term: January through March
+        </p>
+        <p className="para-content"></p>
       <StyledMainButton className="open-house-button">
-        LEARN ABOUT OUR NEXT OPEN HOUSE!
+        <NavLink to="/contact">CONTACT US TO ATTEND<br/> AN OPEN HOUSE</NavLink>
       </StyledMainButton>
-      <StyledMainButton>LEARN MORE ABOUT OUR ADMISSIONS PROCESS</StyledMainButton>
+      <StyledMainButton>
+        <NavLink to="/admissions">LEARN MORE ABOUT OUR<br></br> ADMISSIONS PROCESS</NavLink>
+      </StyledMainButton>
+      </StyledContentSection>
       <div className="line-separate"></div>
-      <StyledContentSection id='are-we-a-fit' className="good-fit-section">
+      <StyledContentSection id="are-we-a-fit" className="good-fit-section">
         <h2 className="major-heading">ARE WE A FIT FOR YOU?</h2>
         <h3 className="sub-heading good-fit-h3">
           PROVIDING EDUCATION THAT
           <br className="line-break" /> TRANSFORMS LIVES
         </h3>
+        <StyledContentSection className="requirements" id="eligibility-requirements">
+          <h4 className="requirements-h4 sub-heading">To be eligible, you should:</h4>
+          <ul className="requirements-ul">
+            <li className="para-content requirements-li">Be 17.5-21 years old</li>
+            <li className="para-content requirements-li">Be enrolled in a New York City high school</li>
+            <li className="para-content requirements-li">Have earned at 17 credits or more</li>
+          </ul>
+        </StyledContentSection>
         <p className="para-content">
           Students attend Washington Irving YABC program part-time to earn a high school diploma.
           Students graduate with a diploma from their home day school after they have earned all
@@ -68,18 +92,10 @@ export default function About() {
           their own jobs.
         </p>
       </StyledContentSection>
-      <StyledContentSection className="requirements" id='eligibility-requirements'>
-        <h4 className="requirements-h4 sub-heading">To be eligible, you should:</h4>
-        <ul className="requirements-ul">
-          <li className="para-content">Be 17.5-21 years old</li>
-          <li className="para-content">Be enrolled in a New York City high school</li>
-          <li className="para-content">Have earned at 17 credits or more</li>
-        </ul>
-      </StyledContentSection>
+
       <div className="line-separate"></div>
-      <StyledContentSection className="meet-graduates"
-      id='meet-our-graduates'>
-        <h2 className="major-heading">MEET SOME OF OUR GRADUATES!</h2>
+      <StyledContentSection className="meet-graduates" id="meet-our-graduates">
+        <h2 className="major-heading">MEET OUR GRADUATES!</h2>
         <img src={GraduateImg} alt="new graduate" />
       </StyledContentSection>
     </StyledAbout>

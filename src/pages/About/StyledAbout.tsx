@@ -8,17 +8,18 @@ export default styled.main`
     background-color: var(--main-bg);
     height: 1px;
   }
+
   .attend-info .para-content {
     margin-top: 0;
     margin-bottom: 20px;
     font-family: hind-guntur-light, sans-serif;
   }
+
   .attend-info-h2 {
     margin: 0;
     font-family: hind-guntur-bold;
     font-size: clamp(1rem, 3vw, 1.5rem);
   }
-
   button {
     padding: 5px;
     max-width: 510px;
@@ -40,7 +41,7 @@ export default styled.main`
     align-items: center;
   }
   .requirements-h4 {
-    margin-bottom: 0;
+    margin-bottom: 10px;
     margin-top: 0px;
   }
   .requirements-ul {
@@ -61,6 +62,21 @@ export default styled.main`
   @media screen and (min-width: 700px) {
     .line-break {
       display: none;
+    }
+    section > .para-content {
+      width: 80%;
+    }
+    .requirements-ul {
+      width: 100%;
+    }
+    .attend-info,
+    .good-fit-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .attend-info button {
+      width: 35%;
     }
   }
 `;
