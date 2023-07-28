@@ -28,8 +28,12 @@ export const aboutPaths: NavListItemType[] = [
   { label: 'Meet past graduates', path: baseWithoutSlash + '/about/#meet-our-graduates' },
 ];
 export const admissionsPaths: NavListItemType[] = [
-  { label: 'Academic Requirements', path: baseWithoutSlash + '/admissions/#open-enrollment' },
-  { label: 'Admissions Information', path: baseWithoutSlash + '/admissions/#admissions-information' },
+  { label: 'Admissions Information', path: baseWithoutSlash + '/admissions/' },
+  {
+    label: `Regular Enrollment Forms`,
+    path: baseWithoutSlash + '/admissions/#how-to-enroll',
+  },
+  { label: 'Shared Instruction Forms', path: baseWithoutSlash + '/shared-admissions/' },
   { label: 'FAQs', path: baseWithoutSlash + 'admissions/#frequently-asked-questions' },
 ];
 export const staffPaths: NavListItemType[] = [

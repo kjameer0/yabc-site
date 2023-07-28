@@ -30,7 +30,7 @@ export default function SideNavBar() {
             <button onClick={handleCategoryClick} value="about">
               ABOUT
             </button>
-            {activeList === 'about' && <NavLinkList list={aboutPaths} />}
+          {activeList === 'about' && <NavLinkList list={aboutPaths} />}
           </li>
           <li className="category">
             <button onClick={handleCategoryClick} value="staff">

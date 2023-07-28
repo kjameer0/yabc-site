@@ -8,8 +8,26 @@ import { StyledContentSection } from "components/ContentSection";
 import StyledMainButton from 'components/MainButton';
 //forms
 import { S1PDF, S2PDF } from 'assets/images/Forms';
-
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 export default function SharedAdmissions() {
+  const location = useLocation();
+  useEffect(() => {
+    //currentPage is used to jump to top of page
+    const currentPage = document.getElementById('shared-admissions-hero');
+    //element located at the hash in url
+    const elementScrolledTo = location.hash? document.getElementById(location.hash.slice(1)) : null;
+    //jump to top of page if no hash
+    if (currentPage && !elementScrolledTo) {
+      document.body.scrollIntoView({ behavior: 'smooth' });
+    }
+    //jump to section anchor if there is a hash
+    if (location.hash.length > 0 && elementScrolledTo) {
+      elementScrolledTo.scrollIntoView({
+        behavior: 'smooth',
+      });
+    }
+  }, [location]);
   return (
     <StyledSharedAdmissions>
       <HeroImage
