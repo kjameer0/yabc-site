@@ -248,7 +248,7 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
     height: 100%;
     left: 100%;
     animation-name: text-slide-in;
-    animation-duration: 19s;
+    animation-duration: 45s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-fill-mode: backwards;
