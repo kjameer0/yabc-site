@@ -71,7 +71,7 @@ Error generating stack: `+o.message+`
   position: sticky;
   display: flex;
   z-index: 2;
-  top: 13px;
+  top: 18px;
   background-color: black;
   min-height: 70px;
   height: auto;
@@ -229,7 +229,7 @@ Error generating stack: `+o.message+`
   }
 `),Ft.rippleVisible,zk,kc,({theme:e})=>e.transitions.easing.easeInOut,Ft.ripplePulsate,({theme:e})=>e.transitions.duration.shorter,Ft.child,Ft.childLeaving,Uk,kc,({theme:e})=>e.transitions.easing.easeInOut,Ft.childPulsate,Bk,({theme:e})=>e.transitions.easing.easeInOut),Yk=S.forwardRef(function(t,n){const r=ys({props:t,name:"MuiTouchRipple"}),{center:i=!1,classes:o={},className:a}=r,s=Lt(r,Dk),[u,c]=S.useState([]),f=S.useRef(0),h=S.useRef(null);S.useEffect(()=>{h.current&&(h.current(),h.current=null)},[u]);const m=S.useRef(!1),w=S.useRef(0),v=S.useRef(null),y=S.useRef(null);S.useEffect(()=>()=>{w.current&&clearTimeout(w.current)},[]);const E=S.useCallback(x=>{const{pulsate:b,rippleX:j,rippleY:k,rippleSize:P,cb:M}=x;c(O=>[...O,l.jsx(Hk,{classes:{ripple:Dt(o.ripple,Ft.ripple),rippleVisible:Dt(o.rippleVisible,Ft.rippleVisible),ripplePulsate:Dt(o.ripplePulsate,Ft.ripplePulsate),child:Dt(o.child,Ft.child),childLeaving:Dt(o.childLeaving,Ft.childLeaving),childPulsate:Dt(o.childPulsate,Ft.childPulsate)},timeout:kc,pulsate:b,rippleX:j,rippleY:k,rippleSize:P},f.current)]),f.current+=1,h.current=M},[o]),d=S.useCallback((x={},b={},j=()=>{})=>{const{pulsate:k=!1,center:P=i||b.pulsate,fakeElement:M=!1}=b;if((x==null?void 0:x.type)==="mousedown"&&m.current){m.current=!1;return}(x==null?void 0:x.type)==="touchstart"&&(m.current=!0);const O=M?null:y.current,Q=O?O.getBoundingClientRect():{width:0,height:0,left:0,top:0};let ue,fe,je;if(P||x===void 0||x.clientX===0&&x.clientY===0||!x.clientX&&!x.touches)ue=Math.round(Q.width/2),fe=Math.round(Q.height/2);else{const{clientX:xe,clientY:ce}=x.touches&&x.touches.length>0?x.touches[0]:x;ue=Math.round(xe-Q.left),fe=Math.round(ce-Q.top)}if(P)je=Math.sqrt((2*Q.width**2+Q.height**2)/3),je%2===0&&(je+=1);else{const xe=Math.max(Math.abs((O?O.clientWidth:0)-ue),ue)*2+2,ce=Math.max(Math.abs((O?O.clientHeight:0)-fe),fe)*2+2;je=Math.sqrt(xe**2+ce**2)}x!=null&&x.touches?v.current===null&&(v.current=()=>{E({pulsate:k,rippleX:ue,rippleY:fe,rippleSize:je,cb:j})},w.current=setTimeout(()=>{v.current&&(v.current(),v.current=null)},Fk)):E({pulsate:k,rippleX:ue,rippleY:fe,rippleSize:je,cb:j})},[i,E]),p=S.useCallback(()=>{d({},{pulsate:!0})},[d]),g=S.useCallback((x,b)=>{if(clearTimeout(w.current),(x==null?void 0:x.type)==="touchend"&&v.current){v.current(),v.current=null,w.current=setTimeout(()=>{g(x,b)});return}v.current=null,c(j=>j.length>0?j.slice(1):j),h.current=b},[]);return S.useImperativeHandle(n,()=>({pulsate:p,start:d,stop:g}),[p,d,g]),l.jsx(Wk,U({className:Dt(Ft.root,o.root,a),ref:y},s,{children:l.jsx(_k,{component:null,exit:!0,children:u})}))}),Vk=Yk;function Gk(e){return ql("MuiButtonBase",e)}const Kk=Ql("MuiButtonBase",["root","disabled","focusVisible"]),qk=Kk,Qk=["action","centerRipple","children","className","component","disabled","disableRipple","disableTouchRipple","focusRipple","focusVisibleClassName","LinkComponent","onBlur","onClick","onContextMenu","onDragLeave","onFocus","onFocusVisible","onKeyDown","onKeyUp","onMouseDown","onMouseLeave","onMouseUp","onTouchEnd","onTouchMove","onTouchStart","tabIndex","TouchRippleProps","touchRippleRef","type"],Xk=e=>{const{disabled:t,focusVisible:n,focusVisibleClassName:r,classes:i}=e,a=Pd({root:["root",t&&"disabled",n&&"focusVisible"]},Gk,i);return n&&r&&(a.root+=` ${r}`),a},Jk=Xo("button",{name:"MuiButtonBase",slot:"Root",overridesResolver:(e,t)=>t.root})({display:"inline-flex",alignItems:"center",justifyContent:"center",position:"relative",boxSizing:"border-box",WebkitTapHighlightColor:"transparent",backgroundColor:"transparent",outline:0,border:0,margin:0,borderRadius:0,padding:0,cursor:"pointer",userSelect:"none",verticalAlign:"middle",MozAppearance:"none",WebkitAppearance:"none",textDecoration:"none",color:"inherit","&::-moz-focus-inner":{borderStyle:"none"},[`&.${qk.disabled}`]:{pointerEvents:"none",cursor:"default"},"@media print":{colorAdjust:"exact"}}),Zk=S.forwardRef(function(t,n){const r=ys({props:t,name:"MuiButtonBase"}),{action:i,centerRipple:o=!1,children:a,className:s,component:u="button",disabled:c=!1,disableRipple:f=!1,disableTouchRipple:h=!1,focusRipple:m=!1,LinkComponent:w="a",onBlur:v,onClick:y,onContextMenu:E,onDragLeave:d,onFocus:p,onFocusVisible:g,onKeyDown:x,onKeyUp:b,onMouseDown:j,onMouseLeave:k,onMouseUp:P,onTouchEnd:M,onTouchMove:O,onTouchStart:Q,tabIndex:ue=0,TouchRippleProps:fe,touchRippleRef:je,type:xe}=r,ce=Lt(r,Qk),Ce=S.useRef(null),I=S.useRef(null),F=yc(I,je),{isFocusVisibleRef:D,onFocus:W,onBlur:re,ref:mt}=w0(),[we,Re]=S.useState(!1);c&&we&&Re(!1),S.useImperativeHandle(i,()=>({focusVisible:()=>{Re(!0),Ce.current.focus()}}),[]);const[$e,et]=S.useState(!1);S.useEffect(()=>{et(!0)},[]);const Pn=$e&&!f&&!c;S.useEffect(()=>{we&&m&&!f&&$e&&I.current.pulsate()},[f,m,we,$e]);function tt(H,N,C=h){return to(R=>(N&&N(R),!C&&I.current&&I.current[H](R),!0))}const _t=tt("start",j),ws=tt("stop",E),nr=tt("stop",d),Jo=tt("stop",P),Pi=tt("stop",H=>{we&&H.preventDefault(),k&&k(H)}),Oi=tt("start",Q),Li=tt("stop",M),On=tt("stop",O),Zo=tt("stop",H=>{re(H),D.current===!1&&Re(!1),v&&v(H)},!1),ea=to(H=>{Ce.current||(Ce.current=H.currentTarget),W(H),D.current===!0&&(Re(!0),g&&g(H)),p&&p(H)}),Rr=()=>{const H=Ce.current;return u&&u!=="button"&&!(H.tagName==="A"&&H.href)},Ai=S.useRef(!1),rr=to(H=>{m&&!Ai.current&&we&&I.current&&H.key===" "&&(Ai.current=!0,I.current.stop(H,()=>{I.current.start(H)})),H.target===H.currentTarget&&Rr()&&H.key===" "&&H.preventDefault(),x&&x(H),H.target===H.currentTarget&&Rr()&&H.key==="Enter"&&!c&&(H.preventDefault(),y&&y(H))}),Tr=to(H=>{m&&H.key===" "&&I.current&&we&&!H.defaultPrevented&&(Ai.current=!1,I.current.stop(H,()=>{I.current.pulsate(H)})),b&&b(H),y&&H.target===H.currentTarget&&Rr()&&H.key===" "&&!H.defaultPrevented&&y(H)});let ir=u;ir==="button"&&(ce.href||ce.to)&&(ir=w);const hn={};ir==="button"?(hn.type=xe===void 0?"button":xe,hn.disabled=c):(!ce.href&&!ce.to&&(hn.role="button"),c&&(hn["aria-disabled"]=c));const Ss=yc(n,mt,Ce),ta=U({},r,{centerRipple:o,component:u,disabled:c,disableRipple:f,disableTouchRipple:h,focusRipple:m,tabIndex:ue,focusVisible:we}),na=Xk(ta);return l.jsxs(Jk,U({as:ir,className:Dt(na.root,s),ownerState:ta,onBlur:Zo,onClick:y,onContextMenu:ws,onFocus:ea,onKeyDown:rr,onKeyUp:Tr,onMouseDown:_t,onMouseLeave:Pi,onMouseUp:Jo,onDragLeave:nr,onTouchEnd:Li,onTouchMove:On,onTouchStart:Oi,ref:Ss,tabIndex:c?-1:ue,type:xe},hn,ce,{children:[a,Pn?l.jsx(Vk,U({ref:F,center:o},fe)):null]}))}),eE=Zk;function tE(e){return ql("MuiIconButton",e)}const nE=Ql("MuiIconButton",["root","disabled","colorInherit","colorPrimary","colorSecondary","colorError","colorInfo","colorSuccess","colorWarning","edgeStart","edgeEnd","sizeSmall","sizeMedium","sizeLarge"]),rE=nE,iE=["edge","children","className","color","disabled","disableFocusRipple","size"],oE=e=>{const{classes:t,disabled:n,color:r,edge:i,size:o}=e,a={root:["root",n&&"disabled",r!=="default"&&`color${st(r)}`,i&&`edge${st(i)}`,`size${st(o)}`]};return Pd(a,tE,t)},aE=Xo(eE,{name:"MuiIconButton",slot:"Root",overridesResolver:(e,t)=>{const{ownerState:n}=e;return[t.root,n.color!=="default"&&t[`color${st(n.color)}`],n.edge&&t[`edge${st(n.edge)}`],t[`size${st(n.size)}`]]}})(({theme:e,ownerState:t})=>U({textAlign:"center",flex:"0 0 auto",fontSize:e.typography.pxToRem(24),padding:8,borderRadius:"50%",overflow:"visible",color:(e.vars||e).palette.action.active,transition:e.transitions.create("background-color",{duration:e.transitions.duration.shortest})},!t.disableRipple&&{"&:hover":{backgroundColor:e.vars?`rgba(${e.vars.palette.action.activeChannel} / ${e.vars.palette.action.hoverOpacity})`:Zp(e.palette.action.active,e.palette.action.hoverOpacity),"@media (hover: none)":{backgroundColor:"transparent"}}},t.edge==="start"&&{marginLeft:t.size==="small"?-3:-12},t.edge==="end"&&{marginRight:t.size==="small"?-3:-12}),({theme:e,ownerState:t})=>{var n;const r=(n=(e.vars||e).palette)==null?void 0:n[t.color];return U({},t.color==="inherit"&&{color:"inherit"},t.color!=="inherit"&&t.color!=="default"&&U({color:r==null?void 0:r.main},!t.disableRipple&&{"&:hover":U({},r&&{backgroundColor:e.vars?`rgba(${r.mainChannel} / ${e.vars.palette.action.hoverOpacity})`:Zp(r.main,e.palette.action.hoverOpacity)},{"@media (hover: none)":{backgroundColor:"transparent"}})}),t.size==="small"&&{padding:5,fontSize:e.typography.pxToRem(18)},t.size==="large"&&{padding:12,fontSize:e.typography.pxToRem(28)},{[`&.${rE.disabled}`]:{backgroundColor:"transparent",color:(e.vars||e).palette.action.disabled}})}),lE=S.forwardRef(function(t,n){const r=ys({props:t,name:"MuiIconButton"}),{edge:i=!1,children:o,className:a,color:s="default",disabled:u=!1,disableFocusRipple:c=!1,size:f="medium"}=r,h=Lt(r,iE),m=U({},r,{edge:i,color:s,disabled:u,disableFocusRipple:c,size:f}),w=oE(m);return l.jsx(aE,U({className:Dt(w.root,a),centerRipple:!0,focusRipple:!c,disabled:u,ref:n,ownerState:m},h,{children:o}))}),sE=lE;var qd={},Y0={exports:{}};(function(e){function t(n){return n&&n.__esModule?n:{default:n}}e.exports=t,e.exports.__esModule=!0,e.exports.default=e.exports})(Y0);var uE=Y0.exports,cu={};function cE(e){return ql("MuiSvgIcon",e)}Ql("MuiSvgIcon",["root","colorPrimary","colorSecondary","colorAction","colorError","colorDisabled","fontSizeInherit","fontSizeSmall","fontSizeMedium","fontSizeLarge"]);const dE=["children","className","color","component","fontSize","htmlColor","inheritViewBox","titleAccess","viewBox"],fE=e=>{const{color:t,fontSize:n,classes:r}=e,i={root:["root",t!=="inherit"&&`color${st(t)}`,`fontSize${st(n)}`]};return Pd(i,cE,r)},pE=Xo("svg",{name:"MuiSvgIcon",slot:"Root",overridesResolver:(e,t)=>{const{ownerState:n}=e;return[t.root,n.color!=="inherit"&&t[`color${st(n.color)}`],t[`fontSize${st(n.fontSize)}`]]}})(({theme:e,ownerState:t})=>{var n,r,i,o,a,s,u,c,f,h,m,w,v;return{userSelect:"none",width:"1em",height:"1em",display:"inline-block",fill:t.hasSvgAsChild?void 0:"currentColor",flexShrink:0,transition:(n=e.transitions)==null||(r=n.create)==null?void 0:r.call(n,"fill",{duration:(i=e.transitions)==null||(i=i.duration)==null?void 0:i.shorter}),fontSize:{inherit:"inherit",small:((o=e.typography)==null||(a=o.pxToRem)==null?void 0:a.call(o,20))||"1.25rem",medium:((s=e.typography)==null||(u=s.pxToRem)==null?void 0:u.call(s,24))||"1.5rem",large:((c=e.typography)==null||(f=c.pxToRem)==null?void 0:f.call(c,35))||"2.1875rem"}[t.fontSize],color:(h=(m=(e.vars||e).palette)==null||(m=m[t.color])==null?void 0:m.main)!=null?h:{action:(w=(e.vars||e).palette)==null||(w=w.action)==null?void 0:w.active,disabled:(v=(e.vars||e).palette)==null||(v=v.action)==null?void 0:v.disabled,inherit:void 0}[t.color]}}),V0=S.forwardRef(function(t,n){const r=ys({props:t,name:"MuiSvgIcon"}),{children:i,className:o,color:a="inherit",component:s="svg",fontSize:u="medium",htmlColor:c,inheritViewBox:f=!1,titleAccess:h,viewBox:m="0 0 24 24"}=r,w=Lt(r,dE),v=S.isValidElement(i)&&i.type==="svg",y=U({},r,{color:a,component:s,fontSize:u,instanceFontSize:t.fontSize,inheritViewBox:f,viewBox:m,hasSvgAsChild:v}),E={};f||(E.viewBox=m);const d=fE(y);return l.jsxs(pE,U({as:s,className:Dt(d.root,o),focusable:"false",color:c,"aria-hidden":h?void 0:!0,role:h?"img":void 0,ref:n},E,w,v&&i.props,{ownerState:y,children:[v?i.props.children:i,h?l.jsx("title",{children:h}):null]}))});V0.muiName="SvgIcon";const ch=V0;function hE(e,t){function n(r,i){return l.jsx(ch,U({"data-testid":`${t}Icon`,ref:i},r,{children:e}))}return n.muiName=ch.muiName,S.memo(S.forwardRef(n))}const mE={configure:e=>{b0.configure(e)}},gE=Object.freeze(Object.defineProperty({__proto__:null,capitalize:st,createChainedFunction:uS,createSvgIcon:hE,debounce:cS,deprecatedPropType:dS,isMuiElement:fS,ownerDocument:y0,ownerWindow:pS,requirePropFactory:hS,setRef:v0,unstable_ClassNameGenerator:mE,unstable_useEnhancedEffect:x0,unstable_useId:yS,unsupportedProp:vS,useControlled:xS,useEventCallback:to,useForkRef:yc,useIsFocusVisible:w0},Symbol.toStringTag,{value:"Module"})),yE=ey(gE);var dh;function vE(){return dh||(dh=1,function(e){Object.defineProperty(e,"__esModule",{value:!0}),Object.defineProperty(e,"default",{enumerable:!0,get:function(){return t.createSvgIcon}});var t=yE}(cu)),cu}var xE=uE;Object.defineProperty(qd,"__esModule",{value:!0});var G0=qd.default=void 0,wE=xE(vE()),SE=l,bE=(0,wE.default)((0,SE.jsx)("path",{d:"M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"}),"Menu");G0=qd.default=bE;const K0=""+new URL("WIYABC_Logo_cropped-a7022b4a.png",import.meta.url).href;function kE(){const[e,t]=S.useState(""),[n,r]=S.useState(!1);return It(),S.useEffect(()=>{window.addEventListener("click",function i(){e!==""&&t("close"),window.removeEventListener("click",i,!1)},!1)},[e]),l.jsxs(Vw,{$isTransparent:n,children:[l.jsx("img",{className:"logo",src:K0,alt:"YABC Washington Irving"}),l.jsx(sE,{onClick:i=>oS(i,e,t),className:"hamburger",children:l.jsx(G0,{fontSize:"large"})}),l.jsx(sS,{open:e,setOpen:t})]})}const EE=ve.nav`
   position: fixed;
-  top: 15px;
+  top: 25px;
   left: 0;
   display: none;
   background-color: var(--main-bg);
@@ -246,6 +246,7 @@ Error generating stack: `+o.message+`
     width: 100%;
     list-style: none;
     padding-left: 0;
+    padding-bottom: 6px;
   }
   .category {
     width: 100%;
@@ -290,13 +291,13 @@ Error generating stack: `+o.message+`
     justify-content: flex-start;
     flex-wrap: wrap;
     height: auto;
-    margin-left: 20px;
+    margin-left: 30px;
   }
   img {
     margin-left: 5px;
     width: 90px;
   }
-  
+
   @media screen and (min-width: 700px) {
     display: block;
   }
@@ -1649,28 +1650,33 @@ Error generating stack: `+o.message+`
     height: auto;
   }
   .banner-wrapper {
-    width: 3000px;
-    overflow: hidden;
     position: fixed;
+    width: 100vw;
+    height: 20px;
+    overflow: hidden;
+    white-space: nowrap;
     left: 0;
-    z-index:20;
+    z-index: 2;
     background: var(--main-bg);
   }
   .banner {
     position: relative;
-    color: red;
     font-size: 1.2rem;
+    color: red;
+    height: 100%;
+    left: 100%;
     animation-name: text-slide-in;
-    animation-duration: 12s;
+    animation-duration: 45s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
+    animation-fill-mode: backwards;
   }
   @keyframes text-slide-in {
     0% {
-      right: 0;
+      left: 100%;
     }
     100% {
-      right: 3000px;
+      left: -150%;
     }
   }
   @media screen and (min-width: 700px) {
@@ -1689,6 +1695,5 @@ Error generating stack: `+o.message+`
       flex-basis: calc(90% - 150px);
       left: clamp(200px, 20vw, 255px);
     }
-
   }
 `;mu.createRoot(document.getElementById("root")).render(l.jsxs(Xe.StrictMode,{children:[l.jsx(pj,{}),l.jsx(kv,{router:fj})]}));
