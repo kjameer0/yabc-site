@@ -3,7 +3,7 @@ const StyledNavBar = styled.nav<{ $isTransparent: boolean }>`
   position: sticky;
   display: flex;
   z-index: 2;
-  top: 13px;
+  top: 18px;
   background-color: black;
   min-height: 70px;
   height: auto;

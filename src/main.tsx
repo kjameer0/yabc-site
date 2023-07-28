@@ -232,28 +232,33 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
     height: auto;
   }
   .banner-wrapper {
-    width: 3000px;
-    overflow: hidden;
     position: fixed;
+    width: 100vw;
+    height: 20px;
+    overflow: hidden;
+    white-space: nowrap;
     left: 0;
-    z-index:20;
+    z-index: 2;
     background: var(--main-bg);
   }
   .banner {
     position: relative;
-    color: red;
     font-size: 1.2rem;
+    color: red;
+    height: 100%;
+    left: 100%;
     animation-name: text-slide-in;
-    animation-duration: 12s;
+    animation-duration: 19s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
+    animation-fill-mode: backwards;
   }
   @keyframes text-slide-in {
     0% {
-      right: 0;
+      left: 100%;
     }
     100% {
-      right: 3000px;
+      left: -150%;
     }
   }
   @media screen and (min-width: 700px) {
@@ -272,7 +277,6 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
       flex-basis: calc(90% - 150px);
       left: clamp(200px, 20vw, 255px);
     }
-
   }
 `;
 

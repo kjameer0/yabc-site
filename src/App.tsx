@@ -11,7 +11,6 @@ function App() {
           Classes start 9/7/2023 **** In-Person Registration for Fall Classes will continue through
           September ****
         </span>
-      
       </div>
       <NavBar />
       <SideNavBar />

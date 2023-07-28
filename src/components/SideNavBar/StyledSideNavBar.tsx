@@ -2,7 +2,7 @@ import { styled } from 'styled-components';
 
 export default styled.nav`
   position: fixed;
-  top: 15px;
+  top: 25px;
   left: 0;
   display: none;
   background-color: var(--main-bg);
@@ -19,6 +19,7 @@ export default styled.nav`
     width: 100%;
     list-style: none;
     padding-left: 0;
+    padding-bottom: 6px;
   }
   .category {
     width: 100%;
@@ -63,13 +64,13 @@ export default styled.nav`
     justify-content: flex-start;
     flex-wrap: wrap;
     height: auto;
-    margin-left: 20px;
+    margin-left: 30px;
   }
   img {
     margin-left: 5px;
     width: 90px;
   }
-  
+
   @media screen and (min-width: 700px) {
     display: block;
   }
