@@ -1,7 +1,7 @@
 import StyledSideNavBar from "./StyledSideNavBar";
 import { MainLogo } from 'assets/images';
 import { useEffect, useState } from 'react';
-import { NavLink,useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import NavLinkList from 'components/NavLinkList';
 import { MissionLogo } from "assets/images/Logos";
 //data
