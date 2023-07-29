@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
 //components
 import StyledNavBar from './StyledNavBar';
 import { Drawer } from 'components/Drawer';
@@ -14,7 +13,28 @@ import { OpenOptions, handleDrawerSwitch } from './utils-NavBar';
 export default function NavBar() {
   const [open, setOpen] = useState<OpenOptions>('');
   const [isTransparent, setIsTransparent] = useState(false);
-  const location = useLocation();
+  const [show, setShow] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const controlNavbar = () => {
+    if (typeof window !== 'undefined') {
+      if (window.scrollY > lastScrollY) { // if scroll down hide the navbar
+        setShow(false);
+      } else { // if scroll up show the navbar
+        setShow(true);
+      }
+      // remember current page location to use in the next move
+      setLastScrollY(window.scrollY);
+    }
+  };
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.addEventListener('scroll', controlNavbar);
+      // cleanup function
+      return () => {
+        window.removeEventListener('scroll', controlNavbar);
+      };
+    }
+  }, [lastScrollY]);
   useEffect(() => {
     //a click anywhere on screen dismisses drawer
     window.addEventListener(
@@ -29,7 +49,7 @@ export default function NavBar() {
   //NavList activePage prop grabs the first part of URL pathname and
   //passes it to NavList
   return (
-    <StyledNavBar $isTransparent={isTransparent}>
+    <StyledNavBar $isTransparent={isTransparent} $shown={show}>
       <img className="logo" src={MainLogo} alt="YABC Washington Irving" />
       <IconButton onClick={(e) => handleDrawerSwitch(e, open, setOpen)} className="hamburger">
         <MenuIcon fontSize="large" />

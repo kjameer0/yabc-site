@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-const StyledNavBar = styled.nav<{ $isTransparent: boolean }>`
+const StyledNavBar = styled.nav<{ $isTransparent: boolean; $shown: boolean }>`
   position: sticky;
   display: flex;
   z-index: 2;
@@ -8,10 +8,11 @@ const StyledNavBar = styled.nav<{ $isTransparent: boolean }>`
   min-height: 70px;
   height: auto;
   width: 100%;
-.logo {
-  margin-top: 10px;
-  margin-bottom: 0px;
-}
+  visibility: ${props => props.$shown ? 'visible' : 'hidden'};
+  .logo {
+    margin-top: 10px;
+    margin-bottom: 0px;
+  }
   .hamburger {
     position: absolute;
     right: 4px;
