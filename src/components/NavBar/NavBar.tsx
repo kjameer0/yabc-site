@@ -15,11 +15,10 @@ export default function NavBar() {
   const [isTransparent, setIsTransparent] = useState(false);
   const [show, setShow] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  console.log(lastScrollY);
   const controlNavbar = () => {
     if (typeof window !== 'undefined') {
       const currentYPos = window.scrollY;
-      if (currentYPos === 0) setShow(true);
+      if (currentYPos < 120) setShow(true);
       else if (currentYPos > lastScrollY) {
         // if scroll down hide the navbar
         setShow(false);
@@ -28,7 +27,7 @@ export default function NavBar() {
         setShow(true);
       }
       // remember current page location to use in the next move
-      setLastScrollY(window.scrollY);
+      setLastScrollY(currentYPos);
     }
   };
   useEffect(() => {
