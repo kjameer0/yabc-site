@@ -78,13 +78,15 @@ Error generating stack: `+o.message+`
   width: 100%;
   visibility: ${e=>e.$shown?"visible":"hidden"};
   .logo {
+    width: 100px;
     margin-top: 10px;
     margin-bottom: 0px;
+    margin-left: 25px;
   }
   .hamburger {
     position: absolute;
-    right: 4px;
-    top: 8%;
+    right: 25px;
+    top: 20px;
     border: 0px solid blue;
     color: var(--main-bg);
   }
@@ -93,7 +95,6 @@ Error generating stack: `+o.message+`
     margin-bottom: -5%;
     background-color: transparent;
     .logo {
-      width: 22%;
       visibility: hidden;
       z-index: 0;
     }
@@ -1618,6 +1619,7 @@ Error generating stack: `+o.message+`
     justify-content: center;
   }
   main {
+    margin-top: 30px;
     flex-basis: 90%;
     max-width: 1160px;
   }
@@ -1660,9 +1662,7 @@ Error generating stack: `+o.message+`
   .logo {
     margin-top: 40px;
     margin-bottom: 20px;
-    min-width: 169px;
     max-width: 174px;
-    width: 169px;
     height: auto;
   }
   .banner-wrapper {
