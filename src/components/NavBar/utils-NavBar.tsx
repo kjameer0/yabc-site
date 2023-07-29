@@ -40,7 +40,7 @@ export const staffPaths: NavListItemType[] = [
   { label: 'Administrators', path: baseWithoutSlash + '/staff-directory/' },
   { label: 'School Counselors', path: baseWithoutSlash + '/staff-directory/#school-counselors' },
   {
-    label: 'Mission Society of New York',
+    label: 'Mission Society of NYC',
     path: baseWithoutSlash + '/staff-directory/#mission-society-of-new-york',
   },
   { label: 'Faculty', path: baseWithoutSlash + '/staff-directory/#staff-faculty' },

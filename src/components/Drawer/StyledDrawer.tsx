@@ -23,6 +23,7 @@ const StyledDrawer = styled.nav<{ $open: OpenOptions }>`
     flex-basis: 100%;
   }
   .category button {
+    font-family: hind-guntur, sans-serif;
     cursor: pointer;
     background: black;
     color: white;
@@ -38,7 +39,7 @@ const StyledDrawer = styled.nav<{ $open: OpenOptions }>`
   }
   .category ul .nav-anchor button{
     margin-top: 1px;
-    background: #515050;
+    background: #013518;
   }
 
   @keyframes open {
