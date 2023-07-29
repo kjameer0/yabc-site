@@ -184,6 +184,7 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
     justify-content: center;
   }
   main {
+    margin-top: 30px;
     flex-basis: 90%;
     max-width: 1160px;
   }
@@ -226,9 +227,7 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
   .logo {
     margin-top: 40px;
     margin-bottom: 20px;
-    min-width: 169px;
     max-width: 174px;
-    width: 169px;
     height: auto;
   }
   .banner-wrapper {
