@@ -989,8 +989,6 @@ Error generating stack: `+o.message+`
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-    /* flex-basis: 100%; */
-    /* height: 24px; */
   }
   .dropdown-label p {
     flex-basis: 100%;
@@ -1005,28 +1003,37 @@ Error generating stack: `+o.message+`
     font-size: clamp(1rem, 3vw, 2rem);
     flex-basis: 10%;
   }
-  @media screen and (min-width: 700px) {
-    .form-label {
-      flex-basis: unset;
-      /* outline: solid 1px red; */
-      /* flex-wrap: nowrap; */
-    }
-    .input-field {
-      height: 40px;
-      font-size: 1.3rem;
-      width: clamp(300px, 50%, 630px);
-      flex-basis: unset;
-    }
-    .form-label-text {
-      flex-basis: 40%;
-    }
-    .select {
-      height: 40px;
-      width: clamp(300px, 50%, 630px);
-      flex-basis: unset;
-    }
+  .line-break {
+    display: none;
   }
-`,gh="https://public.herotofu.com/v1/ebe2a980-28c6-11ee-9907-0b23fd627d84";function tN(){const[e,t]=S.useState(!0),{status:n,handleFormSubmit:r}=Qd(gh,t);return l.jsxs(eN,{children:[l.jsx(nn,{imgLink:ws,text:[],color:"white",id:"info-request-hero"}),l.jsx("h1",{className:"major-heading",children:"INFORMATION REQUEST"}),l.jsx("input",{type:"text",name:"_gotcha",tabIndex:-1,autoComplete:"off",style:{display:"none"}}),l.jsx("form",{action:gh,method:"POST",onSubmit:r,acceptCharset:"UTF-8",children:l.jsxs("fieldset",{children:[l.jsxs("label",{className:"form-label",htmlFor:"Name",children:[l.jsx("p",{className:"form-label-text",children:"Name*"}),l.jsx("input",{className:"input-field",required:!0,type:"text",name:"Name",placeholder:"Name"})]}),l.jsxs("label",{className:"form-label",htmlFor:"Email",children:[l.jsx("p",{className:"form-label-text",children:"Email*"}),l.jsx("input",{required:!0,name:"Email",placeholder:"Email",className:"input-field"})]}),l.jsxs("label",{className:"form-label",htmlFor:"Phone",children:[l.jsx("p",{className:"form-label-text",children:"Phone:"}),l.jsx("input",{className:"input-field",name:"Phone",placeholder:"Phone(optional)"})]}),l.jsxs("label",{className:"form-label",htmlFor:"OSIS",children:[l.jsx("p",{className:"form-label-text",children:"OSIS*"}),l.jsx("input",{name:"OSIS",className:"input-field",required:!0,placeholder:"OSIS"})]}),l.jsx("p",{className:"form-assist-p",children:"Let us know how we can help"}),l.jsxs("label",{htmlFor:"Preferred Contact",className:"form-label dropdown-label",children:[l.jsx("p",{className:"form-label-text sl-text",children:"Preferred Method of Contact*"}),l.jsxs("select",{className:"select",required:!0,name:"Preferred Contact",children:[l.jsx("option",{className:"placeholder",value:"",children:"Please choose an option"}),l.jsx("option",{value:"email",children:"Email"}),l.jsx("option",{value:"phone",children:"Phone"})]})]}),l.jsxs("label",{htmlFor:"Request from student",className:"form-label dropdown-label",children:[l.jsx("p",{className:"form-label-text sl-text",children:"I would like to request"}),l.jsxs("select",{className:"select",name:"Request from student",children:[l.jsx("option",{value:"",children:"Please choose an option"}),l.jsx("option",{value:"Unofficial transcript",children:"Student Transcript - UNOFFICIAL"}),l.jsx("option",{value:"Official Transcript",children:"Student Transcript - OFFICIAL"}),l.jsx("option",{value:"Student Program",children:"Student Program"}),l.jsx("option",{value:"Report Card",children:"Report Card"}),l.jsx("option",{value:"verification letter",children:"Enrollment Verification Letter"}),l.jsx("option",{value:"pupilpath access",children:"Pupilpath Access"}),l.jsx("option",{value:"Other",children:"Other"})]})]}),l.jsxs("label",{htmlFor:"Requests Appointment With",className:"form-label dropdown-label",children:[l.jsx("p",{className:"form-label-text sl-text",children:"I would like an appointment with"}),l.jsxs("select",{className:"select",name:"Requests appointment with",children:[l.jsx("option",{value:"",children:"Please choose an option"}),l.jsx("option",{value:"School Counselor",children:"School Counselor"}),l.jsx("option",{value:"Assistant Principal",children:"Assistant Principal"}),l.jsx("option",{value:"Social Worker",children:"Social Worker"}),l.jsx("option",{value:"School Psychologist",children:"School Psychologist"}),l.jsx("option",{value:"Teacher",children:"Teacher"}),l.jsx("option",{value:"College Advisor",children:"College Advisor"}),l.jsx("option",{value:"Internship Coordinator",children:"Internship Coordinator"}),l.jsx("option",{value:"CBO Staff",children:"CBO Staff"}),l.jsx("option",{value:"Other",children:"Other"})]})]}),l.jsxs("label",{htmlFor:"Needs Assistance With",className:"form-label dropdown-label",children:[l.jsx("p",{className:"form-label-text sl-text",children:"I would like assistance with"}),l.jsxs("select",{className:"select",name:"Needs Assistance With",children:[l.jsx("option",{value:"",children:"Please choose an option"}),l.jsx("option",{value:"Google Classroom",children:"Google Classroom"}),l.jsx("option",{value:"Pupilpath Access",children:"Pupilpath Access"}),l.jsx("option",{value:"Working Papers",children:"Working Papers"}),l.jsx("option",{value:"Academic Support",children:"Academic Support"}),l.jsx("option",{value:"Obtaining D-79 Email Address",children:"Obtaining D-79 Email Address"}),l.jsx("option",{value:"Requesting a DOE Device",children:"Requesting a DOE Device"}),l.jsx("option",{value:"DOE Issued Device is Not Working",children:"DOE issued device is Not Working"}),l.jsx("option",{value:"Obtaining Internet Acess",children:"Obtaining Internet Acess"}),l.jsx("option",{value:"Other",children:"Other"})]})]}),l.jsx("p",{className:"para-content",children:"PLEASE ALLOW AT LEAST 24 HOURS FOR A RESPONSE."}),l.jsx("button",{type:"submit",disabled:!e,className:"submit-button",children:e?"Submit":"Sending..."})]})})]})}const nN=Ne.main`
+  @media screen and (min-width: 700px) {
+    .dropdown-label {
+      justify-content: flex-start;
+    }
+    .line-break {
+      display: block;
+    }
+    .form-label {
+      display: flex;
+      justify-content: center;
+    }
+    .form-label .form-label-text {
+      min-width: 155px;
+      flex-basis: 25%;
+      padding-top: 0;
+      min-height: 40px;
+    }
+    .form-label .input-field, .form-label .select {
+      min-width: 240px;
+      flex-basis: 45%;
+    }
+    .form-label .sl-text {
+      white-space: nowrap;
+      text-align: right;
+    }
+
+  }
+`,gh="https://public.herotofu.com/v1/ebe2a980-28c6-11ee-9907-0b23fd627d84";function tN(){const[e,t]=S.useState(!0),{status:n,handleFormSubmit:r}=Qd(gh,t);return l.jsxs(eN,{children:[l.jsx(nn,{imgLink:ws,text:[],color:"white",id:"info-request-hero"}),l.jsx("h1",{className:"major-heading",children:"INFORMATION REQUEST"}),l.jsx("input",{type:"text",name:"_gotcha",tabIndex:-1,autoComplete:"off",style:{display:"none"}}),l.jsx("form",{action:gh,method:"POST",onSubmit:r,acceptCharset:"UTF-8",children:l.jsxs("fieldset",{children:[l.jsxs("label",{className:"form-label",htmlFor:"Name",children:[l.jsx("p",{className:"form-label-text",children:"Name*"}),l.jsx("input",{className:"input-field",required:!0,type:"text",name:"Name",placeholder:"Name"})]}),l.jsxs("label",{className:"form-label",htmlFor:"Email",children:[l.jsx("p",{className:"form-label-text",children:"Email*"}),l.jsx("input",{required:!0,name:"Email",placeholder:"Email",className:"input-field"})]}),l.jsxs("label",{className:"form-label",htmlFor:"Phone",children:[l.jsx("p",{className:"form-label-text",children:"Phone:"}),l.jsx("input",{className:"input-field",name:"Phone",placeholder:"Phone"})]}),l.jsxs("label",{className:"form-label",htmlFor:"OSIS",children:[l.jsx("p",{className:"form-label-text",children:"OSIS*"}),l.jsx("input",{name:"OSIS",className:"input-field",required:!0,placeholder:"OSIS"})]}),l.jsx("p",{className:"form-assist-p",children:"Let us know how we can help"}),l.jsxs("label",{htmlFor:"Preferred Contact",className:"form-label dropdown-label",children:[l.jsxs("p",{className:"form-label-text sl-text",children:["Preferred Method of ",l.jsx("br",{className:"line-break"}),"Contact*"]}),l.jsxs("select",{className:"select",required:!0,name:"Preferred Contact",children:[l.jsx("option",{className:"placeholder",value:"",children:"Please choose an option"}),l.jsx("option",{value:"email",children:"Email"}),l.jsx("option",{value:"phone",children:"Phone"})]})]}),l.jsxs("label",{htmlFor:"Request from student",className:"form-label dropdown-label",children:[l.jsxs("p",{className:"form-label-text sl-text",children:["I would like to ",l.jsx("br",{className:"line-break"}),"request:"]}),l.jsxs("select",{className:"select",name:"Request from student",children:[l.jsx("option",{value:"",children:"Please choose an option"}),l.jsx("option",{value:"Unofficial transcript",children:"Student Transcript - UNOFFICIAL"}),l.jsx("option",{value:"Official Transcript",children:"Student Transcript - OFFICIAL"}),l.jsx("option",{value:"Student Program",children:"Student Program"}),l.jsx("option",{value:"Report Card",children:"Report Card"}),l.jsx("option",{value:"verification letter",children:"Enrollment Verification Letter"}),l.jsx("option",{value:"pupilpath access",children:"Pupilpath Access"}),l.jsx("option",{value:"Other",children:"Other"})]})]}),l.jsxs("label",{htmlFor:"Requests Appointment With",className:"form-label dropdown-label",children:[l.jsxs("p",{className:"form-label-text sl-text",children:["I would like an ",l.jsx("br",{className:"line-break"}),"appointment with:"]}),l.jsxs("select",{className:"select",name:"Requests appointment with",children:[l.jsx("option",{value:"",children:"Please choose an option"}),l.jsx("option",{value:"School Counselor",children:"School Counselor"}),l.jsx("option",{value:"Assistant Principal",children:"Assistant Principal"}),l.jsx("option",{value:"Social Worker",children:"Social Worker"}),l.jsx("option",{value:"School Psychologist",children:"School Psychologist"}),l.jsx("option",{value:"Teacher",children:"Teacher"}),l.jsx("option",{value:"College Advisor",children:"College Advisor"}),l.jsx("option",{value:"Internship Coordinator",children:"Internship Coordinator"}),l.jsx("option",{value:"CBO Staff",children:"CBO Staff"}),l.jsx("option",{value:"Other",children:"Other"})]})]}),l.jsxs("label",{htmlFor:"Needs Assistance With",className:"form-label dropdown-label",children:[l.jsxs("p",{className:"form-label-text sl-text",children:["I would like ",l.jsx("br",{className:"line-break"}),"assistance with:"]}),l.jsxs("select",{className:"select",name:"Needs Assistance With",children:[l.jsx("option",{value:"",children:"Please choose an option"}),l.jsx("option",{value:"Google Classroom",children:"Google Classroom"}),l.jsx("option",{value:"Pupilpath Access",children:"Pupilpath Access"}),l.jsx("option",{value:"Working Papers",children:"Working Papers"}),l.jsx("option",{value:"Academic Support",children:"Academic Support"}),l.jsx("option",{value:"Obtaining D-79 Email Address",children:"Obtaining D-79 Email Address"}),l.jsx("option",{value:"Requesting a DOE Device",children:"Requesting a DOE Device"}),l.jsx("option",{value:"DOE Issued Device is Not Working",children:"DOE issued device is Not Working"}),l.jsx("option",{value:"Obtaining Internet Acess",children:"Obtaining Internet Acess"}),l.jsx("option",{value:"Other",children:"Other"})]})]}),l.jsx("p",{className:"para-content",children:"PLEASE ALLOW AT LEAST 24 HOURS FOR A RESPONSE."}),l.jsx("button",{type:"submit",disabled:!e,className:"submit-button",children:e?"Submit":"Sending..."})]})})]})}const nN=Ne.main`
   #learn-to-work-hero, #services-hero {
     height: clamp(150px, 6vw, 300px);
   }
