@@ -83,14 +83,20 @@ export default styled.main`
     margin-bottom: 10px;
   }
   .resources-icon-button {
-    height: clamp(46px, 8vw, 130px);
+    /* height: clamp(46px, 8vw, 130px); */
     color: white;
     background: black;
     border: 1px solid white;
     width: 80%;
-    padding: 0;
+  }
+  .resources-icon-button:hover {
+    cursor: pointer;
   }
   .resources-icon-button a {
+    padding: 10px 5px;
+    display: block;
+    width: 100%;
+    height: auto;
     text-decoration: none;
     color: inherit;
   }
@@ -109,13 +115,16 @@ export default styled.main`
     flex-wrap: wrap;
     justify-content: center;
   }
+  .para-content {
+    width: 80%;
+  }
   .mock-carousel {
     display: flex;
     flex-direction: column;
     align-items: center;
     align-self: center;
     justify-self: center;
-    padding: 3px;
+    padding-top: 40px;
     width: 80%;
     border: 1px solid white;
   }
@@ -134,6 +143,10 @@ export default styled.main`
   }
   .school-library-section h1 {
     margin-bottom: 10px;
+  }
+  .school-library-section .para-content {
+    position: relative;
+    left: 10%;
   }
   .school-library-section button {
     width: 100%;
@@ -162,8 +175,15 @@ export default styled.main`
     .student-resources h2 {
       flex-basis: 100%;
     }
+    .resources-icon-button {
+      min-height: 110px;
+    }
     .baby-carriage-button {
       margin-top: 11px;
+    }
+    .school-library-section button {
+      width: 60%;
+      margin-bottom: 30px;
     }
   }
 `;

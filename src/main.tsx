@@ -128,7 +128,6 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
   font-family: Inter-regular;
   src: url('/fonts/Inter/static/Inter-Regular.ttf');
 }
-
 @font-face {
   font-family: Inria-serif-light;
   src: url('/fonts/Inria_Serif/InriaSerif-Light.ttf');

@@ -49,13 +49,14 @@ export default function StudentCorner() {
         <div className="resources-icon-wrapper">
           <img src={BabyCarriageIcon} alt="baby carriage" />
           <button className="resources-icon-button baby-carriage-button">
-            <p className="icon-button-bold-text">LYFE PROGRAM</p>
             <a
               href="https://lyfenyc.org/"
               target="_blank"
               className="icon-button-text"
               rel={'noreferrer'}
             >
+              <b className="icon-button-bold-text">LYFE PROGRAM</b>
+              <br />
               RESOURCES FOR STUDENTS/PARENTS
             </a>
           </button>
@@ -101,7 +102,7 @@ export default function StudentCorner() {
           disciplinary boundaries and confront conventional ways of thinking. Check out our Library
           site to learn more about all that we have to offer.
         </p>
-        <StyledMainButton>
+        <StyledMainButton className='digital-library-button'>
           <a
             href="https://sites.google.com/d-79.com/yabc-digital-library/bitmoji-library-book-blurbs"
             target="_blank"

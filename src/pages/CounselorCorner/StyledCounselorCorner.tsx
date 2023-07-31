@@ -1,8 +1,15 @@
 import { styled } from 'styled-components';
 
 export default styled.main`
+  .transform-lives-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
   .transform-p-first {
-    font-family: hind-guntur-bold;
+    margin-bottom: 0;
+    width: 80%;
+    font-family: hind-guntur-bold, sans-serif;
   }
   .remote-learning-section {
     padding-bottom: 30px;
@@ -16,15 +23,19 @@ export default styled.main`
     flex-wrap: wrap;
     justify-content: center;
     max-width: 734px;
+    width: 80%;
     border: 1px solid white;
     background-color: white;
     color: black;
+    padding-bottom: 5px;
   }
   .reminder-section h2 {
     font-size: clamp(1.5rem, 3vw, 3rem);
+    margin-bottom: 10px;
   }
   .reminder-section p {
     margin-top: 0;
+    margin-bottom: 10px;
     font-family: hind-guntur-bold, sans-serif;
     width: 90%;
     line-height: 1.4;
@@ -57,9 +68,5 @@ export default styled.main`
     letter-spacing: -0.05rem;
     padding-top: 2px;
     margin: 0;
-  }
-  .contact-admin-button {
-    background: var(--main-bg);
-    color: black;
   }
 `;
