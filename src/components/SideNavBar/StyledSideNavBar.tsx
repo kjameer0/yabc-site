@@ -10,9 +10,10 @@ export default styled.nav`
   width: clamp(200px, 20vw, 255px);
   .img-wrapper {
     background: black;
+    /* border: 1px solid red; */
   }
   .categories-list {
-    margin-top: -15px;
+    margin-top: -25px;
     background: black;
     display: flex;
     flex-wrap: wrap;
@@ -37,10 +38,10 @@ export default styled.nav`
     cursor: pointer;
     font-family: Inter-black, sans-serif;
     height: 25px;
-    font-size: 0.75rem;
+    font-size: .75rem;
     border: 0;
     margin: 5px 0;
-    width: 100%;
+    width: 100%; 
     color: black;
     background: var(--main-bg);
   }

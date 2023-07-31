@@ -73,18 +73,20 @@ export default styled.main`
     }
     .form-label .form-label-text {
       min-width: 155px;
-      flex-basis: 25%;
+      flex-basis: 8%;
       padding-top: 0;
       min-height: 40px;
+      margin-right: 20px;
     }
-    .form-label .input-field, .form-label .select {
+    .form-label .input-field,
+    .form-label .select {
       min-width: 240px;
-      flex-basis: 45%;
+      flex-basis: 40%;
+      margin-right: clamp(40px, 5vw, 120px);
     }
     .form-label .sl-text {
       white-space: nowrap;
       text-align: right;
     }
-
   }
 `;
