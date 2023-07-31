@@ -2,7 +2,7 @@ import { styled } from 'styled-components';
 
 export default styled.nav`
   position: fixed;
-  top: 25px;
+  top: 10px;
   left: 0;
   display: none;
   background-color: var(--main-bg);
@@ -41,7 +41,7 @@ export default styled.nav`
     font-size: .75rem;
     border: 0;
     margin: 5px 0;
-    width: 100%; 
+    width: 100%;
     color: black;
     background: var(--main-bg);
   }
@@ -69,7 +69,7 @@ export default styled.nav`
   }
   img {
     margin-left: 5px;
-    width: 90px;
+    width: 120px;
   }
 
   @media screen and (min-width: 700px) {

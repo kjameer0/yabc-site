@@ -7,8 +7,8 @@ function App() {
     <>
       <div className="banner-wrapper">
         <span className="banner">
-          **** Pre-Registration for Fall Classes will START 8/21/2023 and END on 9/5/2023 *** Fall
-          Classes start 9/7/2023 **** In-Person Registration for Fall Classes will continue through
+          **** Pre-Registration for Fall Classes will START August 21, 2023 and END on September 5, 2023 <span className='banner-bullet'>●</span> Fall
+          Classes start September 7, 2023<span className='banner-bullet'>●</span> In-Person Registration for Fall Classes will continue through
           September ****
         </span>
       </div>

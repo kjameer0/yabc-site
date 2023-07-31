@@ -2,13 +2,14 @@ import { styled } from 'styled-components';
 
 export default styled.div<{ $direction: 'left' | 'right' }>`
   display: flex;
+  .img-wrapper {
+    order: ${(props) => (props.$direction === 'left' ? 1 : 2)};
+  }
   .staff-img {
-    min-width: 124px;
     width: 124px;
     border: 2px solid var(--main-bg);
     border-radius: 100%;
     height: auto;
-    order: ${(props) => (props.$direction === 'left' ? 1 : 2)};
   }
   .staff-info-ul {
     display: flex;
@@ -34,28 +35,45 @@ export default styled.div<{ $direction: 'left' | 'right' }>`
   }
   .staff-role {
     font-size: clamp(0.75rem, 3vw, 1.5rem);
-    font-family: hind-guntur-bold;
+    font-family: hind-guntur-regular;
   }
   .staff-email {
+    /* hid staff email until confirmed*/
+    visibility: hidden;
     font-size: clamp(0.75rem, 3vw, 1.5rem);
     font-family: hind-guntur-regular;
   }
   @media screen and (min-width: 700px) {
+    display: block;
     flex-direction: row;
     justify-content: center;
+    align-items: flex-start;
     flex-wrap: wrap;
-    max-width: 400px;
+    max-width: 375px;
+    margin-bottom: 30px;
+    flex-basis: 30%;
+    min-height: 270px;
     .staff-info {
       order: 2;
+      width: 100%;
+      display: flex;
+      justify-content: center;
     }
     .staff-info-ul {
-      margin-right: 30px;
+      justify-self: center;
+      width: 100%;
+      padding-left: 0;
+      margin: 0;
+      margin-top: 10px;
       text-align: center;
+    }
+    .img-wrapper {
+      flex-basis: 100%;
     }
     .staff-img {
       order: 1;
-      flex-basis: 100%;
       max-width: 175px;
+      width: 140px;
       max-height: 175px;
     }
   }

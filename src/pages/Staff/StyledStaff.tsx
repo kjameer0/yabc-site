@@ -1,8 +1,11 @@
 import { styled } from 'styled-components';
 
 export default styled.main`
+  h1 {
+    margin-bottom: 50px;
+  }
   h2 {
-    margin: 15px auto;
+    margin: 25px auto;
     text-align: right;
   }
   .staff-flex-wrapper {
@@ -22,7 +25,7 @@ export default styled.main`
     border: 1px solid white;
     position: relative;
     left: 45%;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
   }
   @media screen and (min-width: 700px) {
     .staff-flex-wrapper {

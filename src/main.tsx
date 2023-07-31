@@ -154,6 +154,10 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
   src: url('/fonts/Hind_Guntur/HindGuntur-Bold.ttf');
 }
 @font-face {
+  font-family: hind-guntur-semibold;
+  src: url('/fonts/Hind_Guntur/HindGuntur-SemiBold.ttf');
+}
+@font-face {
   font-family: hind-guntur-medium;
   src: url('/fonts/Hind_Guntur/HindGuntur-Medium.ttf');
 }
@@ -233,7 +237,7 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
   .banner-wrapper {
     position: fixed;
     width: 100vw;
-    height: 20px;
+    height: 30px;
     overflow: hidden;
     white-space: nowrap;
     left: 0;
@@ -241,8 +245,10 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
     background: var(--main-bg);
   }
   .banner {
+    font-family: hind-guntur-semibold, sans-serif;
     position: relative;
-    font-size: 1.2rem;
+    bottom: 2px;
+    font-size: 1.3rem;
     color: red;
     height: 100%;
     left: 100%;
@@ -251,6 +257,9 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-fill-mode: backwards;
+  }
+  .banner-bullet {
+    margin: 0 5px;
   }
   @keyframes text-slide-in {
     0% {
