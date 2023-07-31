@@ -35,6 +35,7 @@ export default styled.main`
   }
   .good-fit-h3 {
     margin-top: 0;
+    font-size: clamp(1rem, 3vw, 1.5rem);
     color: var(--main-bg);
   }
   .requirements {
@@ -44,6 +45,7 @@ export default styled.main`
   }
   .requirements-h4 {
     margin-bottom: 10px;
+    font-size: clamp(1rem, 3vw, 1.5rem);
     margin-top: 0px;
   }
   .requirements-ul {
@@ -69,6 +71,9 @@ export default styled.main`
       width: 80%;
     }
     .requirements-ul {
+      width: 100%;
+    }
+    .requirements-ul .requirements-li {
       width: 100%;
     }
     .attend-info,

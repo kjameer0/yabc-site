@@ -1,6 +1,12 @@
 import { styled } from 'styled-components';
 
 export default styled.main`
+  .register-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
   .requirements-wrapper {
     display: flex;
     justify-content: center;
@@ -9,9 +15,9 @@ export default styled.main`
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 80%;
     background-color: white;
     color: black;
+    width: 90%;
   }
   .requirements-h3 {
     font-family: Inter-black, sans-serif;
@@ -48,6 +54,7 @@ export default styled.main`
     margin-top: 30px;
   }
   .enroll-section {
+    position: relative;
     margin-top: 15px;
     align-self: center;
     display: flex;
@@ -55,6 +62,9 @@ export default styled.main`
     background-color: white;
     align-items: center;
     color: black;
+    width: 90%;
+    left: 5%;
+    align-self: center;
   }
   .enroll-section p {
     margin-top: 0;
@@ -108,7 +118,7 @@ export default styled.main`
   }
   .faq-section section {
     color: black;
-    width: 75%;
+    width: 90%;
   }
   .regular-instruction {
     background: #d0ea9b;
@@ -120,6 +130,7 @@ export default styled.main`
   .faq-section button {
     background-color: transparent;
     border: 2px solid black;
+    margin-bottom: 3px;
   }
   .faq-section button:hover {
     cursor: pointer;
@@ -128,5 +139,36 @@ export default styled.main`
   .faq-section button a {
     text-decoration: none;
     color: black;
+  }
+  @media screen and (min-width: 700px) {
+    h1 {
+      margin-bottom: 0;
+    }
+    h2 {
+      margin-top: 5px;
+    }
+    .register-section .para-content {
+      width: 80%;
+      margin-top: 0;
+    }
+    .admissions-info-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .admissions-info-section .para-content{
+      flex-basis: 80%;
+    }
+    .requirements-wrapper {
+      width: 100%;
+    }
+    .requirements {
+      flex-basis: 75%;
+    }
+    .enroll-section {
+      position: relative;
+      width: 75%;
+      left: 12.5%;
+    }
   }
 `;

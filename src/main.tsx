@@ -162,7 +162,7 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
   src: url('/fonts/Hind_Guntur/HindGuntur-Medium.ttf');
 }
   :root {
-    font-family: sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 16px;
     font-weight: 400;
     font-synthesis: none;
@@ -215,9 +215,9 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
     font-size: clamp(1.5rem, 4vw, 3rem);
   }
   .para-content {
-    font-family: hind-guntur-regular, sans-serif;
+    font-family: hind-guntur-light, sans-serif;
     width: 99%;
-    line-height: calc(22/16px);
+    line-height: 1.5;
     font-size: clamp(14px, 2vw, 1.5rem);
   }
   .ital-para-text {

@@ -12,9 +12,9 @@ import { HomeGradImg, HomeClassImg, NewGradImg } from 'assets/images/HomePage-im
 import { pageNavigationHandler } from 'pages/pages-utils';
 export default function HomePage() {
   const location: Location = useLocation();
-  // useEffect(() => {
-  //   pageNavigationHandler('school-facade', location);
-  // }, [location]);
+  useEffect(() => {
+    pageNavigationHandler('school-facade', location);
+  }, [location]);
   return (
     <StyledHomePage className="home-main">
       <HeroImage id="school-facade" imgLink={HomePageHero} text={[]} color="white" />

@@ -14,10 +14,10 @@ import { AdmissionsHero } from 'assets/images/Hero-Images';
 import { pageNavigationHandler } from 'pages/pages-utils';
 
 export default function Admissions() {
-  const location: Location = useLocation();
-  useEffect(() => {
-    pageNavigationHandler('admissions-hero', location);
-  }, [location]);
+  // const location: Location = useLocation();
+  // useEffect(() => {
+  //   pageNavigationHandler('admissions-hero', location);
+  // }, [location]);
   return (
     <StyledAdmissions id="admissions-page">
       <HeroImage text={[]} color="white" imgLink={AdmissionsHero} id="admissions-hero" />
@@ -37,7 +37,7 @@ export default function Admissions() {
       <StyledContentSection className="admissions-info-section" id="admissions-information">
         <h2 className="sub-heading">IMPORTANT ADMISSIONS INFORMATION</h2>
         <p className="para-content">
-          at Washington Irving YABC, we believe education transforms lives. That&apos;s why we
+          At Washington Irving YABC, we believe education transforms lives. That&apos;s why we
           invite you to review the information below and start the admissions process with us today.
           Don&apos;t hesitate to reach out with any questions.
         </p>
