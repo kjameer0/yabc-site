@@ -485,14 +485,22 @@ Error generating stack: `+o.message+`
   color: var(--main-bg);
   border: 1px solid var(--main-bg);
   letter-spacing: -0.05rem;
-  padding: 0px;
+  padding: -12px;
   background-color: black;
   font-size: clamp(1rem, 3vw, 1.5rem);
   font-family: Inter-semi-bold, sans-serif;
   &:hover {
     cursor: pointer;
+    background-color: #e5fbb9;
+    color: black;
+  }
+  &:active {
+    background: black;
+    color: white;
   }
   a {
+    display: block;
+    margin: 0;
     text-decoration: none;
     color: inherit;
   }
@@ -513,6 +521,7 @@ Error generating stack: `+o.message+`
     align-items: center;
     background-color: white;
     color: black;
+    padding-top: 10px;
     width: 90%;
   }
   .requirements-h3 {
@@ -550,6 +559,7 @@ Error generating stack: `+o.message+`
     margin-top: 30px;
   }
   .enroll-section {
+    padding-top: 10px;
     position: relative;
     margin-top: 15px;
     align-self: center;
@@ -609,28 +619,37 @@ Error generating stack: `+o.message+`
     margin: 20px 0;
   }
   .y-forms button {
+    padding: 5px;
     margin-top: 15px;
     width: 60%;
   }
   .faq-section section {
     color: black;
-    width: 90%;
+    width: 75%;
   }
   .regular-instruction {
-    background: #d0ea9b;
+    background: #e5fbb9;
     margin-bottom: 40px;
   }
   .shared-instruction {
     background: white;
+    height: auto;
+  }
+  .faq-section p {
+    padding: 0 30px;
   }
   .faq-section button {
-    background-color: transparent;
+    background-color: #e5fbb9;
     border: 2px solid black;
-    margin-bottom: 3px;
+    font-size: clamp(.75rem, 3vw, .8rem);
+    margin-bottom: 25px;
+    padding: 4px;
+    width: 40%;
   }
   .faq-section button:hover {
     cursor: pointer;
-    background-color: #d0ea9b;
+    background-color: var(--main-bg);
+
   }
   .faq-section button a {
     text-decoration: none;
