@@ -17,6 +17,7 @@ export default styled.main`
     align-items: center;
     background-color: white;
     color: black;
+    padding-top: 10px;
     width: 90%;
   }
   .requirements-h3 {
@@ -54,6 +55,7 @@ export default styled.main`
     margin-top: 30px;
   }
   .enroll-section {
+    padding-top: 10px;
     position: relative;
     margin-top: 15px;
     align-self: center;
@@ -113,12 +115,13 @@ export default styled.main`
     margin: 20px 0;
   }
   .y-forms button {
+    padding: 5px;
     margin-top: 15px;
     width: 60%;
   }
   .faq-section section {
     color: black;
-    width: 90%;
+    width: 75%;
   }
   .regular-instruction {
     background: #d0ea9b;
@@ -127,10 +130,14 @@ export default styled.main`
   .shared-instruction {
     background: white;
   }
+  .faq-section p {
+    padding: 0 30px;
+  }
   .faq-section button {
     background-color: transparent;
     border: 2px solid black;
-    margin-bottom: 3px;
+    margin-bottom: 13px;
+    width: 80%;
   }
   .faq-section button:hover {
     cursor: pointer;
