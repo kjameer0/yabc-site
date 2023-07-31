@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom';
+import { Location, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 //images
 import { TeacherInfluenceImg } from 'assets/images/Teacher-Hub-Images';
@@ -8,19 +8,12 @@ import { TimesheetDownload, StaffHanbook } from 'assets/images/Forms';
 import StyledTeacherHub from './StyledTeacherHub';
 import StyledMainButton from 'components/MainButton';
 import { StyledContentSection } from 'components/ContentSection';
+//utils
+import { pageNavigationHandler } from 'pages/pages-utils';
 export default function TeacherHub() {
-  const location = useLocation();
+  const location: Location = useLocation();
   useEffect(() => {
-    const currentPage = document.getElementById('teacher-hub');
-    const elementScrolledTo = document.getElementById(location.hash.slice(1));
-    if (currentPage) {
-      document.body.scrollIntoView({ behavior: 'smooth' });
-    }
-    if (location.hash.length > 0 && elementScrolledTo) {
-      elementScrolledTo.scrollIntoView({
-        behavior: 'smooth',
-      });
-    }
+    pageNavigationHandler('teacher-hub', location);
   }, [location]);
   return (
     <StyledTeacherHub id='teacher-hub'>

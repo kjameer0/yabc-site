@@ -51,6 +51,9 @@ export default function SideNavBar() {
             {activeList === 'student-corner' && <NavLinkList list={studentCornerPaths} />}
           </li>
           <li className="category">
+            <button onClick={(evt: React.MouseEvent<HTMLButtonElement>) => navigate(evt.currentTarget.value)} value={'/counselor-corner'}>COUNSELOR&apos;S CORNER</button>
+          </li>
+          <li className="category">
             <button onClick={handleCategoryClick} value={'parents-families'}>
               PARENTS/FAMILIES
             </button>

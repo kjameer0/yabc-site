@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom';
+import { Location, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 //components
 import StyledStaff from './StyledStaff';
@@ -14,24 +14,20 @@ import {
   missionSocietyList,
   supportStaffList,
 } from 'assets/images/Staff-Photos';
+//utils
+import { pageNavigationHandler } from 'pages/pages-utils';
 
 export default function Staff() {
-  const location = useLocation();
+  const location: Location = useLocation();
   useEffect(() => {
-    const currentPage = document.getElementById('administrators');
-    const elementScrolledTo = document.getElementById(location.hash.slice(1));
-    if (currentPage) {
-      document.body.scrollIntoView({ behavior: 'smooth' });
-    }
-    if (location.hash.length > 0 && elementScrolledTo) {
-      elementScrolledTo.scrollIntoView({
-        behavior: 'smooth',
-      });
-    }
+    pageNavigationHandler('administrators', location);
   }, [location]);
+
   return (
     <StyledStaff className="staff-main">
-      <h1 className="major-heading" id='administrators'>STAFF DIRECTORY</h1>
+      <h1 className="major-heading" id="administrators">
+        STAFF DIRECTORY
+      </h1>
       <StyledContentSection className="staff-section">
         <div className="staff-flex-wrapper">
           {adminList.map((admin, index) => {

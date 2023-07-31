@@ -1,17 +1,25 @@
-import { useState } from 'react';
-import StyledContact from './StyledContact';
+//React
+import { useState, useEffect } from 'react';
+import { Location, useLocation } from 'react-router-dom';
 //images
 import { AdmissionsHero } from 'assets/images/Hero-Images';
 import { MapImg } from 'assets/images/Contact-Images';
 //components
+import StyledContact from './StyledContact';
 import HeroImage from 'components/HeroImage';
 //utils
 import { useContactForm } from 'pages/ContactForm/ContactForm';
+import { pageNavigationHandler } from 'pages/pages-utils';
 
 const ENDPOINT = 'https://public.herotofu.com/v1/6d309f10-28c7-11ee-8058-515da3888232';
 export default function Contact() {
   const [isButtonActive, setIsButtonActive] = useState(true);
   const { status, handleFormSubmit } = useContactForm(ENDPOINT, setIsButtonActive);
+  const location: Location = useLocation();
+
+  useEffect(() => {
+    pageNavigationHandler('contact-hero', location);
+  }, [location]);
   return (
     <StyledContact>
       <HeroImage imgLink={AdmissionsHero} id="contact-hero" text={[]} color="white" />

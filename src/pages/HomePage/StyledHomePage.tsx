@@ -43,10 +43,9 @@ export default styled.main`
     border-top: 1px solid var(--main-bg);
     border-bottom: 1px solid var(--main-bg);
     text-align: right;
-    padding-right: 20px;
+    padding-right: 40px;
     margin-bottom: 50px;
   }
-
   .our-wrapper .med-heading {
     font-family: Inter-bold, sans-serif;
     margin-top: 15px;
@@ -119,6 +118,14 @@ export default styled.main`
     }
     .our-mission {
       right: -8%;
+    }
+    .our-mission > * {
+      position: relative;
+      right: 30px;
+    }
+    .our-mission .para-content {
+      right: 20px;
+      margin-right: 10px;
     }
     .our-wrapper {
       width: 90%;

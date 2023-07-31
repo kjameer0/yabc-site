@@ -1,4 +1,6 @@
-import { useState } from 'react';
+//React
+import { useState, useEffect } from 'react';
+import { Location, useLocation } from 'react-router-dom';
 import StyledInfoRequestForm from './StyledInfoRequestForm';
 //images
 import { AdmissionsHero } from 'assets/images/Hero-Images';
@@ -6,10 +8,16 @@ import { AdmissionsHero } from 'assets/images/Hero-Images';
 import HeroImage from 'components/HeroImage';
 //utils
 import { useContactForm } from 'pages/ContactForm/ContactForm';
+import { pageNavigationHandler } from 'pages/pages-utils';
+
 const ENDPOINT = 'https://public.herotofu.com/v1/ebe2a980-28c6-11ee-9907-0b23fd627d84';
 export default function InfoRequestForm() {
   const [isButtonActive, setIsButtonActive] = useState(true);
   const { status, handleFormSubmit } = useContactForm(ENDPOINT, setIsButtonActive);
+  const location: Location = useLocation();
+  useEffect(() => {
+    pageNavigationHandler('info-request-hero', location);
+  }, [location]);
   return (
     <StyledInfoRequestForm>
       <HeroImage imgLink={AdmissionsHero} text={[]} color="white" id="info-request-hero" />
@@ -41,7 +49,10 @@ export default function InfoRequestForm() {
           </label>
           <p className="form-assist-p">Let us know how we can help</p>
           <label htmlFor="Preferred Contact" className="form-label dropdown-label">
-            <p className="form-label-text sl-text">Preferred Method of <br className='line-break' />Contact*</p>
+            <p className="form-label-text sl-text">
+              Preferred Method of <br className="line-break" />
+              Contact*
+            </p>
             <select className="select" required name="Preferred Contact">
               <option className="placeholder" value="">
                 Please choose an option
@@ -51,7 +62,10 @@ export default function InfoRequestForm() {
             </select>
           </label>
           <label htmlFor="Request from student" className="form-label dropdown-label">
-            <p className="form-label-text sl-text">I would like to <br className='line-break' />request:</p>
+            <p className="form-label-text sl-text">
+              I would like to <br className="line-break" />
+              request:
+            </p>
             <select className="select" name="Request from student">
               <option value="">Please choose an option</option>
               <option value="Unofficial transcript">Student Transcript - UNOFFICIAL</option>
@@ -64,7 +78,10 @@ export default function InfoRequestForm() {
             </select>
           </label>
           <label htmlFor="Requests Appointment With" className="form-label dropdown-label">
-            <p className="form-label-text sl-text">I would like an <br className='line-break' />appointment with:</p>
+            <p className="form-label-text sl-text">
+              I would like an <br className="line-break" />
+              appointment with:
+            </p>
             <select className="select" name="Requests appointment with">
               <option value="">Please choose an option</option>
               <option value="School Counselor">School Counselor</option>
@@ -79,7 +96,10 @@ export default function InfoRequestForm() {
             </select>
           </label>
           <label htmlFor="Needs Assistance With" className="form-label dropdown-label">
-            <p className="form-label-text sl-text">I would like <br className='line-break' />assistance with:</p>
+            <p className="form-label-text sl-text">
+              I would like <br className="line-break" />
+              assistance with:
+            </p>
             <select className="select" name="Needs Assistance With">
               <option value="">Please choose an option</option>
               <option value="Google Classroom">Google Classroom</option>

@@ -14,7 +14,9 @@ export default styled.main`
     margin-bottom: 20px;
     font-family: hind-guntur-light, sans-serif;
   }
-
+  .para-content b {
+    font-family: hind-guntur-semibold, sans-serif;
+  }
   .attend-info-h2 {
     margin: 0;
     font-family: hind-guntur-bold;

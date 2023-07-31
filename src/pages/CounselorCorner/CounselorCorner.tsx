@@ -1,17 +1,25 @@
-import StyledCounselorCorner from "./StyledCounselorCorner";
+import { useEffect } from 'react';
+import { useLocation, NavLink, Location } from 'react-router-dom';
+import StyledCounselorCorner from './StyledCounselorCorner';
 //components
-import HeroImage from "components/HeroImage";
-import { StyledContentSection } from "components/ContentSection";
+import HeroImage from 'components/HeroImage';
+import { StyledContentSection } from 'components/ContentSection';
 import StyledMainButton from 'components/MainButton';
-import { NavLink } from 'react-router-dom';
+
 //images
 import { CounselorCornerHero } from 'assets/images/Hero-Images';
 import { RemoteLearningImg } from 'assets/images/Counselor-Corner-images';
+//utils
+import { pageNavigationHandler } from 'pages/pages-utils';
 
 export default function CounselorCorner() {
+  const location: Location = useLocation();
+  useEffect(() => {
+    pageNavigationHandler('counselor-hero', location);
+  }, [location]);
   return (
     <StyledCounselorCorner>
-      <HeroImage imgLink={CounselorCornerHero} text={[]} color="white" id="counselor-hero-image" />
+      <HeroImage imgLink={CounselorCornerHero} text={[]} color="white" id="counselor-hero" />
       <h1 className="major-heading">COUNSELOR&apos;S CORNER</h1>
       <StyledContentSection className="transform-lives-content">
         <p className="para-content transform-p-first">

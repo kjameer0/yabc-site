@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useLocation,NavLink } from 'react-router-dom';
+import { useLocation, NavLink, Location } from 'react-router-dom';
 import StyledStudentCorner from './StyledStudentCorner';
 //forms
 import { StudentHandbook } from 'assets/images/Forms';
@@ -7,27 +7,18 @@ import { StudentHandbook } from 'assets/images/Forms';
 import { RemoteLearningStudentsIcon, BabyCarriageIcon, VoteIcon } from 'assets/Icons';
 import {
   TownHallImg,
-  SchoolTripImg,
   BookshelfImg,
   StudentHandBookImg,
 } from 'assets/images/Student-Corner-Images';
 //components
 import { StyledContentSection } from 'components/ContentSection';
+//utils
+import { pageNavigationHandler } from 'pages/pages-utils';
 import StyledMainButton from 'components/MainButton';
 export default function StudentCorner() {
-  const location = useLocation();
-
+  const location: Location = useLocation();
   useEffect(() => {
-    const currentPage = document.getElementById('student-corner');
-    const elementScrolledTo = document.getElementById(location.hash.slice(1));
-    if (currentPage) {
-      document.body.scrollIntoView({ behavior: 'smooth' });
-    }
-    if (location.hash.length > 0 && elementScrolledTo) {
-      elementScrolledTo.scrollIntoView({
-        behavior: 'smooth',
-      });
-    }
+    pageNavigationHandler('student-corner', location);
   }, [location]);
   return (
     <StyledStudentCorner id="student-corner">

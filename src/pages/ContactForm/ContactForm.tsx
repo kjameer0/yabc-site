@@ -1,9 +1,13 @@
+//React
+import { Location, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 //components
 import StyledContactForm from './StyledContactForm';
 import HeroImage from 'components/HeroImage';
 //images
 import { AdmissionsHero } from 'assets/images/Hero-Images';
+//utils
+import { pageNavigationHandler } from 'pages/pages-utils';
 
 const COUNSELOR_FORM_ENDPOINT =
   'https://public.herotofu.com/v1/1bd822b0-27fe-11ee-adc8-15d0255d3cef';
@@ -74,6 +78,10 @@ export default function ContactForm({ version }: { version: 'counselor' | 'admin
     version === 'counselor' ? COUNSELOR_FORM_ENDPOINT : SITE_ADMIN_FORM_ENDPOINT,
     setIsButtonActive
   );
+  const location: Location = useLocation();
+  useEffect(() => {
+    pageNavigationHandler('contact-counselor-hero', location);
+  }, [location]);
 
   return (
     <StyledContactForm>

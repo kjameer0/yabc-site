@@ -1,10 +1,20 @@
-import StyledHomePage from "./StyledHomePage";
+//React
+import { useEffect } from 'react';
+import { Location, useLocation } from 'react-router-dom';
+//components
+import StyledHomePage from './StyledHomePage';
 import HeroImage from 'components/HeroImage';
 import { StyledContentSection } from 'components/ContentSection';
 //images
-import { HomePageHero } from "assets/images/Hero-Images";
+import { HomePageHero } from 'assets/images/Hero-Images';
 import { HomeGradImg, HomeClassImg, NewGradImg } from 'assets/images/HomePage-images';
+//utils
+import { pageNavigationHandler } from 'pages/pages-utils';
 export default function HomePage() {
+  const location: Location = useLocation();
+  // useEffect(() => {
+  //   pageNavigationHandler('school-facade', location);
+  // }, [location]);
   return (
     <StyledHomePage className="home-main">
       <HeroImage id="school-facade" imgLink={HomePageHero} text={[]} color="white" />

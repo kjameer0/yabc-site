@@ -1,5 +1,6 @@
+//react
 import { useEffect } from 'react';
-import { useLocation, NavLink } from 'react-router-dom';
+import { useLocation, NavLink, Location } from 'react-router-dom';
 //forms
 import { FillableY1Form, FillableY2Form } from 'assets/images/Forms';
 //components
@@ -9,20 +10,13 @@ import { StyledContentSection } from 'components/ContentSection';
 import StyledMainButton from 'components/MainButton';
 //images
 import { AdmissionsHero } from 'assets/images/Hero-Images';
+//utils
+import { pageNavigationHandler } from 'pages/pages-utils';
 
 export default function Admissions() {
-  const location = useLocation();
+  const location: Location = useLocation();
   useEffect(() => {
-    const currentPage = document.getElementById('admissions-page');
-    const elementScrolledTo = document.getElementById(location.hash.slice(1));
-    if (currentPage) {
-      document.body.scrollIntoView({ behavior: 'smooth' });
-    }
-    if (location.hash.length > 0 && elementScrolledTo) {
-      elementScrolledTo.scrollIntoView({
-        behavior: 'smooth',
-      });
-    }
+    pageNavigationHandler('admissions-hero', location);
   }, [location]);
   return (
     <StyledAdmissions id="admissions-page">

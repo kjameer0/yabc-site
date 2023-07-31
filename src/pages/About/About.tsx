@@ -1,4 +1,4 @@
-import { NavLink, useLocation } from 'react-router-dom';
+import { Location, NavLink, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 //images
 import { AboutHero } from 'assets/images/Hero-Images';
@@ -8,24 +8,13 @@ import StyledAbout from './StyledAbout';
 import HeroImage from 'components/HeroImage';
 import { StyledContentSection } from 'components/ContentSection';
 import StyledMainButton from 'components/MainButton';
+//utils
+import { pageNavigationHandler } from 'pages/pages-utils';
 export default function About() {
   //for SPA routing
-  const location = useLocation();
+  const location: Location = useLocation();
   useEffect(() => {
-    //currentPage is used to jump to top of page
-    const currentPage = document.getElementById('students-sitting-hero');
-    //element located at the hash in url
-    const elementScrolledTo = location.hash? document.getElementById(location.hash.slice(1)) : null;
-    //jump to top of page if no hash
-    if (currentPage && !elementScrolledTo) {
-      document.body.scrollIntoView({ behavior: 'smooth' });
-    }
-    //jump to section anchor if there is a hash
-    if (location.hash.length > 0 && elementScrolledTo) {
-      elementScrolledTo.scrollIntoView({
-        behavior: 'smooth',
-      });
-    }
+    pageNavigationHandler('students-sitting-hero', location);
   }, [location]);
   return (
     <StyledAbout>
@@ -52,16 +41,21 @@ export default function About() {
         </p>
         <h2 className="attend-info-h2">OPEN HOUSES ARE AVAILABLE ALL YEAR</h2>
         <p className="para-content">
-          <b> Fall Term:</b> August through September <br></br>
-          <b></b>Spring Term: January through March
+          <b>Fall Term:</b> August through September <br></br>
+          <b>Spring Term:</b> January through March
         </p>
         <p className="para-content"></p>
-      <StyledMainButton className="open-house-button">
-        <NavLink to="/contact">CONTACT US TO ATTEND<br/> AN OPEN HOUSE</NavLink>
-      </StyledMainButton>
-      <StyledMainButton>
-        <NavLink to="/admissions">LEARN MORE ABOUT OUR<br></br> ADMISSIONS PROCESS</NavLink>
-      </StyledMainButton>
+        <StyledMainButton className="open-house-button">
+          <NavLink to="/contact">
+            CONTACT US TO ATTEND
+            <br /> AN OPEN HOUSE
+          </NavLink>
+        </StyledMainButton>
+        <StyledMainButton>
+          <NavLink to="/admissions">
+            LEARN MORE ABOUT OUR<br></br> ADMISSIONS PROCESS
+          </NavLink>
+        </StyledMainButton>
       </StyledContentSection>
       <div className="line-separate"></div>
       <StyledContentSection id="are-we-a-fit" className="good-fit-section">
@@ -74,7 +68,9 @@ export default function About() {
           <h4 className="requirements-h4 sub-heading">To be eligible, you should:</h4>
           <ul className="requirements-ul">
             <li className="para-content requirements-li">Be 17.5-21 years old</li>
-            <li className="para-content requirements-li">Be enrolled in a New York City high school</li>
+            <li className="para-content requirements-li">
+              Be enrolled in a New York City high school
+            </li>
             <li className="para-content requirements-li">Have earned at 17 credits or more</li>
           </ul>
         </StyledContentSection>

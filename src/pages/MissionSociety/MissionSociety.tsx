@@ -1,4 +1,5 @@
-import { useLocation } from 'react-router-dom';
+//react
+import { Location, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import StyledMissionSociety from './StyledMissionSociety';
 //images
@@ -8,19 +9,12 @@ import { LearnToWorkHero, ServicesHero } from 'assets/images/MISSION-SOCIETY-PAG
 import { StyledContentSection } from 'components/ContentSection';
 import StyledMainButton from 'components/MainButton';
 import HeroImage from 'components/HeroImage';
+//utils
+import { pageNavigationHandler } from 'pages/pages-utils';
 export default function MissionSociety() {
-  const location = useLocation();
+  const location: Location = useLocation();
   useEffect(() => {
-    const currentPage = document.getElementById('forms');
-    const elementScrolledTo = document.getElementById(location.hash.slice(1));
-    if (currentPage) {
-      document.body.scrollIntoView({ behavior: 'smooth' });
-    }
-    if (location.hash.length > 0 && elementScrolledTo) {
-      elementScrolledTo.scrollIntoView({
-        behavior: 'smooth',
-      });
-    }
+    pageNavigationHandler('mission-society-hero', location);
   }, [location]);
   return (
     <StyledMissionSociety>
