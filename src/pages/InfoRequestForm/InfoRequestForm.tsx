@@ -33,16 +33,15 @@ export default function InfoRequestForm() {
           </label>
           <label className="form-label" htmlFor="Phone">
             <p className="form-label-text">Phone:</p>
-            <input className="input-field" name="Phone" placeholder="Phone(optional)" />
+            <input className="input-field" name="Phone" placeholder="Phone" />
           </label>
           <label className="form-label" htmlFor="OSIS">
             <p className="form-label-text">OSIS*</p>
             <input name="OSIS" className="input-field" required placeholder="OSIS" />
           </label>
           <p className="form-assist-p">Let us know how we can help</p>
-
           <label htmlFor="Preferred Contact" className="form-label dropdown-label">
-            <p className="form-label-text sl-text">Preferred Method of Contact*</p>
+            <p className="form-label-text sl-text">Preferred Method of <br className='line-break' />Contact*</p>
             <select className="select" required name="Preferred Contact">
               <option className="placeholder" value="">
                 Please choose an option
@@ -52,7 +51,7 @@ export default function InfoRequestForm() {
             </select>
           </label>
           <label htmlFor="Request from student" className="form-label dropdown-label">
-            <p className="form-label-text sl-text">I would like to request</p>
+            <p className="form-label-text sl-text">I would like to <br className='line-break' />request:</p>
             <select className="select" name="Request from student">
               <option value="">Please choose an option</option>
               <option value="Unofficial transcript">Student Transcript - UNOFFICIAL</option>
@@ -65,7 +64,7 @@ export default function InfoRequestForm() {
             </select>
           </label>
           <label htmlFor="Requests Appointment With" className="form-label dropdown-label">
-            <p className="form-label-text sl-text">I would like an appointment with</p>
+            <p className="form-label-text sl-text">I would like an <br className='line-break' />appointment with:</p>
             <select className="select" name="Requests appointment with">
               <option value="">Please choose an option</option>
               <option value="School Counselor">School Counselor</option>
@@ -80,7 +79,7 @@ export default function InfoRequestForm() {
             </select>
           </label>
           <label htmlFor="Needs Assistance With" className="form-label dropdown-label">
-            <p className="form-label-text sl-text">I would like assistance with</p>
+            <p className="form-label-text sl-text">I would like <br className='line-break' />assistance with:</p>
             <select className="select" name="Needs Assistance With">
               <option value="">Please choose an option</option>
               <option value="Google Classroom">Google Classroom</option>

@@ -43,8 +43,6 @@ export default styled.main`
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-    /* flex-basis: 100%; */
-    /* height: 24px; */
   }
   .dropdown-label p {
     flex-basis: 100%;
@@ -59,25 +57,34 @@ export default styled.main`
     font-size: clamp(1rem, 3vw, 2rem);
     flex-basis: 10%;
   }
+  .line-break {
+    display: none;
+  }
   @media screen and (min-width: 700px) {
+    .dropdown-label {
+      justify-content: flex-start;
+    }
+    .line-break {
+      display: block;
+    }
     .form-label {
-      flex-basis: unset;
-      /* outline: solid 1px red; */
-      /* flex-wrap: nowrap; */
+      display: flex;
+      justify-content: center;
     }
-    .input-field {
-      height: 40px;
-      font-size: 1.3rem;
-      width: clamp(300px, 50%, 630px);
-      flex-basis: unset;
+    .form-label .form-label-text {
+      min-width: 155px;
+      flex-basis: 25%;
+      padding-top: 0;
+      min-height: 40px;
     }
-    .form-label-text {
-      flex-basis: 40%;
+    .form-label .input-field, .form-label .select {
+      min-width: 240px;
+      flex-basis: 45%;
     }
-    .select {
-      height: 40px;
-      width: clamp(300px, 50%, 630px);
-      flex-basis: unset;
+    .form-label .sl-text {
+      white-space: nowrap;
+      text-align: right;
     }
+
   }
 `;
