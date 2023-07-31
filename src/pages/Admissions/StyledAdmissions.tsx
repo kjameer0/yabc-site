@@ -124,24 +124,28 @@ export default styled.main`
     width: 75%;
   }
   .regular-instruction {
-    background: #d0ea9b;
+    background: #e5fbb9;
     margin-bottom: 40px;
   }
   .shared-instruction {
     background: white;
+    height: auto;
   }
   .faq-section p {
     padding: 0 30px;
   }
   .faq-section button {
-    background-color: transparent;
+    background-color: #e5fbb9;
     border: 2px solid black;
-    margin-bottom: 13px;
-    width: 80%;
+    font-size: clamp(.75rem, 3vw, .8rem);
+    margin-bottom: 25px;
+    padding: 4px;
+    width: 40%;
   }
   .faq-section button:hover {
     cursor: pointer;
-    background-color: #d0ea9b;
+    background-color: var(--main-bg);
+
   }
   .faq-section button a {
     text-decoration: none;
