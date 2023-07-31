@@ -16,7 +16,7 @@ export function makeHashLink(label: string): string {
   return '#' + makeLink(label);
 }
 import { baseUrl } from 'project-constants';
-let baseWithoutSlash = baseUrl.slice(0, baseUrl.length - 1);
+const baseWithoutSlash = baseUrl.slice(0, baseUrl.length - 1);
 export type NavListItemType = {
   label: string;
   path: string;

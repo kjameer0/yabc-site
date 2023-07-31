@@ -1,13 +1,15 @@
-import StyledInfoRequestForm from "./StyledInfoRequestForm";
+import { useState } from 'react';
+import StyledInfoRequestForm from './StyledInfoRequestForm';
 //images
-import { AdmissionsHero } from "assets/images/Hero-Images";
+import { AdmissionsHero } from 'assets/images/Hero-Images';
 //components
-import HeroImage from "components/HeroImage";
+import HeroImage from 'components/HeroImage';
 //utils
-import { useContactForm } from "pages/ContactForm/ContactForm";
-const ENDPOINT ='https://public.herotofu.com/v1/ebe2a980-28c6-11ee-9907-0b23fd627d84';
+import { useContactForm } from 'pages/ContactForm/ContactForm';
+const ENDPOINT = 'https://public.herotofu.com/v1/ebe2a980-28c6-11ee-9907-0b23fd627d84';
 export default function InfoRequestForm() {
-  const { status, handleFormSubmit } = useContactForm(ENDPOINT);
+  const [isButtonActive, setIsButtonActive] = useState(true);
+  const { status, handleFormSubmit } = useContactForm(ENDPOINT, setIsButtonActive);
   return (
     <StyledInfoRequestForm>
       <HeroImage imgLink={AdmissionsHero} text={[]} color="white" id="info-request-hero" />
@@ -95,8 +97,8 @@ export default function InfoRequestForm() {
             </select>
           </label>
           <p className="para-content">PLEASE ALLOW AT LEAST 24 HOURS FOR A RESPONSE.</p>
-          <button type="submit" className="submit-button">
-            Submit
+          <button type="submit" disabled={!isButtonActive} className="submit-button">
+            {isButtonActive ? 'Submit' : 'Sending...'}
           </button>
         </fieldset>
       </form>

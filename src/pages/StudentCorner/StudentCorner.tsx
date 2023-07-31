@@ -40,6 +40,9 @@ export default function StudentCorner() {
       </div>
       <div className="buttons-wrapper">
         <StyledMainButton className="contact-school-button">
+          <NavLink to="/information-request-form">INFORMATION REQUEST FORM</NavLink>
+        </StyledMainButton>
+        <StyledMainButton className="contact-school-button">
           <NavLink to="/counselor-contact-form">CONTACT YOUR SCHOOL COUNSELOR</NavLink>
         </StyledMainButton>
         <StyledMainButton className="contact-admin-button">

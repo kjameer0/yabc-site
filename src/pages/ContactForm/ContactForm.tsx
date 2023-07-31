@@ -9,10 +9,14 @@ const COUNSELOR_FORM_ENDPOINT =
   'https://public.herotofu.com/v1/1bd822b0-27fe-11ee-adc8-15d0255d3cef';
 const SITE_ADMIN_FORM_ENDPOINT =
   'https://public.herotofu.com/v1/50bf2530-2846-11ee-8058-515da3888232';
-export function useContactForm(ENDPOINT: string) {
+export function useContactForm(
+  ENDPOINT: string,
+  setIsButtonActive: React.Dispatch<React.SetStateAction<boolean>>
+) {
   const [status, setStatus] = useState<string>();
   const handleFormSubmit: React.FormEventHandler = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
+    setIsButtonActive(false);
     const form = e.currentTarget as HTMLFormElement;
     const injectedData: Record<string, string | number> = {
       // Here you can specify anything you need to inject dynamically, outside the form. For example:
@@ -27,7 +31,6 @@ export function useContactForm(ENDPOINT: string) {
         {} as Record<string, string>
       );
     Object.assign(data, injectedData);
-
     fetch(ENDPOINT, {
       method: 'POST',
       headers: {
@@ -37,6 +40,7 @@ export function useContactForm(ENDPOINT: string) {
       body: JSON.stringify(data),
     })
       .then((response) => {
+        setIsButtonActive(true);
         // It's likely a spam/bot submission, so bypass it to validate via captcha challenge old-school style
         if (response.status === 422) {
           // Append dynamically generated keys back to the form
@@ -65,20 +69,11 @@ export function useContactForm(ENDPOINT: string) {
   return { status, handleFormSubmit };
 }
 export default function ContactForm({ version }: { version: 'counselor' | 'admin' }) {
+  const [isButtonActive, setIsButtonActive] = useState(true);
   const { status, handleFormSubmit } = useContactForm(
-    version === 'counselor' ? COUNSELOR_FORM_ENDPOINT : SITE_ADMIN_FORM_ENDPOINT
+    version === 'counselor' ? COUNSELOR_FORM_ENDPOINT : SITE_ADMIN_FORM_ENDPOINT,
+    setIsButtonActive
   );
-
-  if (status) {
-    return (
-      <div className="md:w-96 md:max-w-full w-full mx-auto">
-        <div className="sm:rounded-md p-6 border border-gray-300">
-          <div className="major-heading">Thank you!</div>
-          <div className="sub-heading">{status}</div>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <StyledContactForm>
@@ -117,8 +112,8 @@ export default function ContactForm({ version }: { version: 'counselor' | 'admin
             <textarea name="Message" required placeholder="Send a message" />
           </label>
           <p className="para-content">PLEASE ALLOW AT LEAST 24 HOURS FOR A RESPONSE.</p>
-          <button type="submit" className="submit-button">
-            Send Message
+          <button type="submit" disabled={!isButtonActive} className="submit-button">
+            {isButtonActive ? 'Send Message' : 'Sending...'}
           </button>
         </fieldset>
       </form>

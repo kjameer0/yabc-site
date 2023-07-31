@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import StyledContact from './StyledContact';
 //images
 import { AdmissionsHero } from 'assets/images/Hero-Images';
@@ -9,13 +10,13 @@ import { useContactForm } from 'pages/ContactForm/ContactForm';
 
 const ENDPOINT = 'https://public.herotofu.com/v1/6d309f10-28c7-11ee-8058-515da3888232';
 export default function Contact() {
-  const { status, handleFormSubmit } = useContactForm(ENDPOINT);
+  const [isButtonActive, setIsButtonActive] = useState(true);
+  const { status, handleFormSubmit } = useContactForm(ENDPOINT, setIsButtonActive);
   return (
     <StyledContact>
       <HeroImage imgLink={AdmissionsHero} id="contact-hero" text={[]} color="white" />
       <h1 className="major-heading">CONTACT US!</h1>
       <p className="para-content">
-        {' '}
         Washington Irving YABC always has its doors open. Don&apos;t hesitate to get in touch with
         any feedback or questions regarding our academics, events, students, staff or anything else.
       </p>
@@ -45,8 +46,8 @@ export default function Contact() {
             <textarea name="Message" required placeholder="Send a message" />
           </label>
           <p className="para-content">PLEASE ALLOW AT LEAST 24 HOURS FOR A RESPONSE.</p>
-          <button type="submit" className="submit-button">
-            Send Message
+          <button type="submit" disabled={!isButtonActive} className="submit-button">
+            {isButtonActive ? 'Send Message' : 'Sending...'}
           </button>
         </fieldset>
       </form>
