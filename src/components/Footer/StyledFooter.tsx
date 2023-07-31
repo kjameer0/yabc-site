@@ -28,7 +28,7 @@ export default styled.footer`
     text-align: right;
   }
   .info-wrapper-p {
-    margin: 5px 5px 5px 5px;
+    margin: 5px 10px 5px 5px;
     text-align: right;
     line-height: 1;
   }
