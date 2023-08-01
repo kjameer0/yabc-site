@@ -125,6 +125,7 @@ export default styled.main`
   }
   .regular-instruction {
     background: #e5fbb9;
+    padding-bottom: 10px;
     margin-bottom: 40px;
   }
   .shared-instruction {

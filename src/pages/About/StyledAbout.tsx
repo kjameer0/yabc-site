@@ -8,11 +8,18 @@ export default styled.main`
     background-color: var(--main-bg);
     height: 1px;
   }
-
+  .link-line-break {
+    margin-bottom: 1.5vw;
+  }
   .attend-info .para-content {
     margin-top: 0;
     margin-bottom: 20px;
     font-family: hind-guntur-light, sans-serif;
+  }
+  .attend-info .navlink {
+    font-size: clamp(1rem, 3vw, 1.4rem);
+    width: 100%;
+    padding: 4px;
   }
   .para-content b {
     font-family: hind-guntur-semibold, sans-serif;
@@ -21,14 +28,6 @@ export default styled.main`
     margin: 0;
     font-family: hind-guntur-bold;
     font-size: clamp(1rem, 3vw, 1.5rem);
-  }
-  button {
-    padding: 5px;
-    max-width: 510px;
-    width: 90%;
-  }
-  .open-house-button {
-    margin-bottom: 2%;
   }
   .good-fit-section .major-heading {
     margin-bottom: 2px;
@@ -82,8 +81,10 @@ export default styled.main`
       flex-direction: column;
       align-items: center;
     }
-    .attend-info button {
-      width: 35%;
+    .attend-info .navlink {
+      white-space: nowrap;
+      max-width: 500px;
+      width: 55%;
     }
   }
 `;

@@ -10,10 +10,10 @@ import StyledMainButton from 'components/MainButton';
 //utils
 import { pageNavigationHandler } from 'pages/pages-utils';
 export default function Parents() {
-  const location: Location = useLocation();
-  useEffect(() => {
-    pageNavigationHandler('parents-page', location);
-  }, [location]);
+  // const location: Location = useLocation();
+  // useEffect(() => {
+  //   pageNavigationHandler('parents-page', location);
+  // }, [location]);
   return (
     <StyledParents id="parents-page">
       <h1 className="major-heading">PARENTS & FAMILIES</h1>
@@ -39,10 +39,10 @@ export default function Parents() {
       </StyledContentSection>
       <StyledContentSection id="your-involvement">
         <h2 className="major-heading">YOUR INVOLVEMENT IS IMPORTANT!</h2>
-        <p className="para-content bold-para">Opportunities Increase When You Help Others</p>
+        <p className="para-content bold-para">OPPORTUNITIES INCREASE WHEN YOU HELP OTHERS</p>
         <p className="para-content">
           Here you will find information and guidance to help you support your student and your
-          family. At Washington Irving YABC , we do not have a parent coordinator, however, we will
+          family. At Washington Irving YABC, we do not have a parent coordinator, however, we will
           provide contact information for key staff members that you can reach out to for support.
           We want to your feedback and to know about any challenges your student or your family is
           facing. We want to give you a voice and to help you find solutions.
@@ -90,7 +90,7 @@ export default function Parents() {
                 target="_blank"
                 rel={'noreferrer'}
               >
-                NYC WELL - MENTAL HEALTH
+                <p>NYC WELL - MENTAL HEALTH</p>
               </a>
             </button>
           </div>
@@ -107,7 +107,9 @@ export default function Parents() {
                 target="_blank"
                 rel={'noreferrer'}
               >
+                <p>
                 HEALTH INFORMATION TOOL FOR EMPOWERMENT (HITE)
+                </p>
               </a>
             </button>
           </div>
@@ -124,7 +126,9 @@ export default function Parents() {
                 target="_blank"
                 rel={'noreferrer'}
               >
+                <p>
                 MENTAL HEALTH RESOURCES FOR CHILDREN
+                </p>
               </a>
             </button>
           </div>
@@ -137,7 +141,9 @@ export default function Parents() {
                 target="_blank"
                 rel={'noreferrer'}
               >
+                <p>
                 REGISTER TO VOTE / GET ABSENTEE BALLOT
+                </p>
               </a>
             </button>
           </div>

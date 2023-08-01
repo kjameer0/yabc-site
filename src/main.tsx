@@ -227,6 +227,25 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
     font-family: Inria-serif-bold-italic;
     font-size: clamp(1.1rem, 2vw, 1.6rem);
   }
+  .navlink {
+    text-decoration: none;
+    display: block;
+    color: var(--main-bg);
+    border: 1px solid var(--main-bg);
+    letter-spacing: -0.05rem;
+    padding: 10px 5px;
+    background-color: black;
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    font-family: Inter-semi-bold, sans-serif;
+  }
+  .navlink:hover {
+    cursor: pointer;
+    background-color: white;
+    color: black;
+  }
+  /* .navlink:visited {
+    color: var(--main-bg);
+  } */
   .logo {
     margin-top: 40px;
     margin-bottom: 20px;

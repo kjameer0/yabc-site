@@ -1,12 +1,14 @@
 import { styled } from 'styled-components';
 
 export default styled.main`
+  .major-heading {
+    margin-bottom: 0px;
+  }
   display: flex;
   flex-direction: column;
   align-items: center;
   ol {
     list-style: none;
-    /* border: 1px solid red; */
     counter-reset: count 0;
     padding-left: 0;
     align-self: center;
@@ -14,6 +16,7 @@ export default styled.main`
     flex-wrap: wrap;
     justify-content: center;
   }
+
   ol li::before {
     content: counter(count, decimal) '.';
     margin-right: 4px;
@@ -34,10 +37,6 @@ export default styled.main`
     margin-bottom: 15px;
     width: 100%;
   }
-  .admin-button {
-    background: var(--main-bg);
-    color: black;
-  }
   .bold-para {
     font-family: hind-guntur-bold, sans-serif;
   }
@@ -57,7 +56,6 @@ export default styled.main`
   .resources-icon-wrapper {
     flex-basis: 100%;
     margin-top: 20px;
-  
   }
   .resources-icon-button {
     height: clamp(46px, 8vw, 130px);
@@ -65,11 +63,10 @@ export default styled.main`
     background: black;
     border: 1px solid white;
     width: 80%;
-    padding: 0;
   }
-  .resources-icon-button a {
+  a {
     text-decoration: none;
-    color: inherit;
+    color: white;
   }
   .icon-button-text {
     margin: 0;
@@ -82,9 +79,15 @@ export default styled.main`
     font-family: Inter-bold, sans-serif;
   }
   @media screen and (min-width: 700px) {
+    p {
+      position: relative;
+      left: 10%;
+      width: 80%;
+    }
     .involvement-button-wrapper {
+      display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
+      justify-content: space-evenly;
     }
     .resources-icon-wrapper {
       flex-basis: 50%;
@@ -94,7 +97,8 @@ export default styled.main`
     }
     .involvement-button-wrapper button {
       width: 40%;
-      flex-basis: 100%;
+      flex-basis: 40%;
+      min-height: 65px;
     }
   }
 `;

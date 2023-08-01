@@ -6,16 +6,17 @@ import { GraduateImg } from 'assets/images/About-images';
 //components
 import StyledAbout from './StyledAbout';
 import HeroImage from 'components/HeroImage';
+import StyledLink from 'components/StyledLink';
 import { StyledContentSection } from 'components/ContentSection';
 import StyledMainButton from 'components/MainButton';
 //utils
 import { pageNavigationHandler } from 'pages/pages-utils';
 export default function About() {
   //for SPA routing
-  const location: Location = useLocation();
-  useEffect(() => {
-    pageNavigationHandler('students-sitting-hero', location);
-  }, [location]);
+  // const location: Location = useLocation();
+  // useEffect(() => {
+  //   pageNavigationHandler('students-sitting-hero', location);
+  // }, [location]);
   return (
     <StyledAbout>
       <HeroImage id="students-sitting-hero" imgLink={AboutHero} text={[]} color="white" />
@@ -44,18 +45,14 @@ export default function About() {
           <b>Fall Term:</b> August through September <br></br>
           <b>Spring Term:</b> January through March
         </p>
-        <p className="para-content"></p>
-        <StyledMainButton className="open-house-button">
-          <NavLink to="/contact">
+          <NavLink to="/contact" className={'navlink'}>
             CONTACT US TO ATTEND
             <br /> AN OPEN HOUSE
           </NavLink>
-        </StyledMainButton>
-        <StyledMainButton>
-          <NavLink to="/admissions">
+          <br className='link-line-break'/>
+          <NavLink to="/admissions" className={'navlink'}>
             LEARN MORE ABOUT OUR<br></br> ADMISSIONS PROCESS
           </NavLink>
-        </StyledMainButton>
       </StyledContentSection>
       <div className="line-separate"></div>
       <StyledContentSection id="are-we-a-fit" className="good-fit-section">
@@ -84,6 +81,7 @@ export default function About() {
           We care and want to serve ALL learners. We specialize in helping students with IEPs, 504s,
           and English For New Language learners.
         </p>
+        
         <p className="para-content">
           Washington Irving YABC is supported by the Learning to Work program. Mission Society of
           NYC manages our program and provides PAID internships for students who need to support
