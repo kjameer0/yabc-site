@@ -124,12 +124,12 @@ export default function Admissions() {
         </p>
       </StyledContentSection>
       <div className="y-forms">
-        <StyledMainButton className="y-forms-button">
-          <a href={FillableY1Form}>FILLABLE Y1 FORM DOWNLOAD</a>
-        </StyledMainButton>
-        <StyledMainButton className="y-forms-button">
-          <a href={FillableY2Form}>FILLABLE Y2 FORM DOWNLOAD</a>
-        </StyledMainButton>
+        <a className="navlink" href={FillableY1Form}>
+          FILLABLE Y1 FORM DOWNLOAD
+        </a>
+        <a className="navlink" href={FillableY2Form}>
+          FILLABLE Y2 FORM DOWNLOAD
+        </a>
       </div>
       <StyledContentSection className="faq-section" id="frequently-asked-questions">
         <h2 className="sub-heading">FREQUENTLY ASKED QUESTIONS</h2>
@@ -167,11 +167,9 @@ export default function Admissions() {
             affiliated schools after shared instruction has ended. Shared instruction also means
             shared responsibility.
           </p>
-          <StyledMainButton>
             <NavLink to="/shared-admissions/#how-to-enroll">
               LEARN HOW TO ENROLL IN SHARED INSTRUCTION
             </NavLink>
-          </StyledMainButton>
         </section>
       </StyledContentSection>
     </StyledAdmissions>

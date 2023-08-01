@@ -103,8 +103,6 @@ export default styled.main`
   .faq-section {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
     align-items: center;
   }
   .faq-h3 {
@@ -114,10 +112,12 @@ export default styled.main`
   .y-forms {
     margin: 20px 0;
   }
-  .y-forms button {
+  .y-forms a {
     padding: 5px;
     margin-top: 15px;
-    width: 60%;
+    width: 50%;
+    position: relative;
+    left: 25%;
   }
   .faq-section section {
     color: black;
@@ -131,24 +131,24 @@ export default styled.main`
   .shared-instruction {
     background: white;
     height: auto;
+    padding-bottom: 20px;
   }
   .faq-section p {
     padding: 0 30px;
   }
-  .faq-section button {
+  .faq-section a {
     background-color: #e5fbb9;
     border: 2px solid black;
     font-size: clamp(.75rem, 3vw, .8rem);
-    margin-bottom: 25px;
+    margin-bottom: 5px;
     padding: 4px;
     width: 40%;
   }
-  .faq-section button:hover {
+  .faq-section a:hover {
     cursor: pointer;
     background-color: var(--main-bg);
-
   }
-  .faq-section button a {
+  .faq-section a {
     text-decoration: none;
     color: black;
   }

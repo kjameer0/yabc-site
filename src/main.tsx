@@ -243,9 +243,7 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
     background-color: white;
     color: black;
   }
-  /* .navlink:visited {
-    color: var(--main-bg);
-  } */
+
   .logo {
     margin-top: 40px;
     margin-bottom: 20px;

@@ -13,10 +13,10 @@ import StyledMainButton from 'components/MainButton';
 import { pageNavigationHandler } from 'pages/pages-utils';
 export default function About() {
   //for SPA routing
-  // const location: Location = useLocation();
-  // useEffect(() => {
-  //   pageNavigationHandler('students-sitting-hero', location);
-  // }, [location]);
+  const location: Location = useLocation();
+  useEffect(() => {
+    pageNavigationHandler('students-sitting-hero', location);
+  }, [location]);
   return (
     <StyledAbout>
       <HeroImage id="students-sitting-hero" imgLink={AboutHero} text={[]} color="white" />
@@ -81,7 +81,7 @@ export default function About() {
           We care and want to serve ALL learners. We specialize in helping students with IEPs, 504s,
           and English For New Language learners.
         </p>
-        
+
         <p className="para-content">
           Washington Irving YABC is supported by the Learning to Work program. Mission Society of
           NYC manages our program and provides PAID internships for students who need to support
