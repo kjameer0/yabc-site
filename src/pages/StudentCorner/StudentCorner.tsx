@@ -15,10 +15,10 @@ import { StyledContentSection } from 'components/ContentSection';
 //utils
 import { pageNavigationHandler } from 'pages/pages-utils';
 export default function StudentCorner() {
-  // const location: Location = useLocation();
-  // useEffect(() => {
-  //   pageNavigationHandler('student-corner', location);
-  // }, [location]);
+  const location: Location = useLocation();
+  useEffect(() => {
+    pageNavigationHandler('student-corner', location);
+  }, [location]);
   return (
     <StyledStudentCorner id="student-corner">
       <h1 className="major-heading">STUDENT&apos;S CORNER</h1>

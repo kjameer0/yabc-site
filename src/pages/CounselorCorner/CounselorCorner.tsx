@@ -42,15 +42,15 @@ export default function CounselorCorner() {
         </StyledContentSection>
       </div>
       <div className="buttons-wrapper">
-        <StyledMainButton className="contact-school-button">
-          <NavLink to="/counselor-contact-form">CONTACT YOUR SCHOOL COUNSELOR</NavLink>
-        </StyledMainButton>
-        <StyledMainButton className="contact-admin-button">
-          <NavLink to="/site-administrator-contact-form">CONTACT THE SITE ADMINISTRATOR</NavLink>
-        </StyledMainButton>
-        <StyledMainButton className="attend-button">
-          <NavLink to="/about">ATTEND OUR NEXT OPEN HOUSE</NavLink>
-        </StyledMainButton>
+        <NavLink className="navlink" to="/counselor-contact-form">
+          CONTACT YOUR SCHOOL COUNSELOR
+        </NavLink>
+        <NavLink className="navlink" to="/site-administrator-contact-form">
+          CONTACT THE SITE ADMINISTRATOR
+        </NavLink>
+        <NavLink className="navlink" to="/about">
+          ATTEND OUR NEXT OPEN HOUSE
+        </NavLink>
       </div>
     </StyledCounselorCorner>
   );

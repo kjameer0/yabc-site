@@ -54,19 +54,9 @@ export default styled.main`
     flex-direction: column;
     align-items: center;
   }
-  .buttons-wrapper button {
+  .buttons-wrapper a {
     max-width: 734px;
     margin-top: 30px;
     width: clamp(292px, 40%, 734px);
-  }
-  .buttons-wrapper button p {
-    max-height: 36px;
-    height: auto;
-    margin-top: 4px;
-    font-family: hind-guntur-medium, sans-serif;
-    font-size: clamp(1rem, 1.5vw, 2rem);
-    letter-spacing: -0.05rem;
-    padding-top: 2px;
-    margin: 0;
   }
 `;
