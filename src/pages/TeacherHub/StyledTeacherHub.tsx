@@ -22,7 +22,7 @@ export default styled.main`
     flex-direction: column;
     align-items: center;
   }
-  .resource-button-wrapper button {
+  .resource-button-wrapper a {
     padding: 10px 0;
     margin: 15px 0;
     width: 50%;
@@ -38,10 +38,16 @@ export default styled.main`
       flex-wrap: wrap;
       justify-content: space-evenly;
     }
-    .resource-button-wrapper button {
-      padding: 10px 0;
+    .resource-button-wrapper a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 80px;
       margin: 15px 0;
       width: 40%;
+    }
+    .resource-button-wrapper a p {
+      margin: 0;
     }
   }
 `;

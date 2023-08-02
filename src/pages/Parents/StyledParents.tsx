@@ -102,7 +102,5 @@ export default styled.main`
     .resources-icon-wrapper .navlink p {
       margin: 0;
     }
-
-
   }
 `;

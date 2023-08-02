@@ -10,10 +10,10 @@ import StyledMainButton from 'components/MainButton';
 //utils
 import { pageNavigationHandler } from 'pages/pages-utils';
 export default function Parents() {
-  // const location: Location = useLocation();
-  // useEffect(() => {
-  //   pageNavigationHandler('parents-page', location);
-  // }, [location]);
+  const location: Location = useLocation();
+  useEffect(() => {
+    pageNavigationHandler('parents-page', location);
+  }, [location]);
   return (
     <StyledParents id="parents-page">
       <h1 className="major-heading">PARENTS & FAMILIES</h1>
