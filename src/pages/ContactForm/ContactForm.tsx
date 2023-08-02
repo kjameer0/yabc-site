@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 //components
 import StyledContactForm from './StyledContactForm';
 import HeroImage from 'components/HeroImage';
+import StyledMainButton from 'components/MainButton';
 //images
 import { AdmissionsHero } from 'assets/images/Hero-Images';
 //utils
@@ -120,9 +121,9 @@ export default function ContactForm({ version }: { version: 'counselor' | 'admin
             <textarea name="Message" required placeholder="Send a message" />
           </label>
           <p className="para-content">PLEASE ALLOW AT LEAST 24 HOURS FOR A RESPONSE.</p>
-          <button type="submit" disabled={!isButtonActive} className="submit-button">
+          <StyledMainButton type="submit" disabled={!isButtonActive} className="submit-button">
             {isButtonActive ? 'Send Message' : 'Sending...'}
-          </button>
+          </StyledMainButton>
         </fieldset>
       </form>
     </StyledContactForm>

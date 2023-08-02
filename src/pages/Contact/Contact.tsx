@@ -7,6 +7,7 @@ import { MapImg } from 'assets/images/Contact-Images';
 //components
 import StyledContact from './StyledContact';
 import HeroImage from 'components/HeroImage';
+import StyledMainButton from 'components/MainButton';
 //utils
 import { useContactForm } from 'pages/ContactForm/ContactForm';
 import { pageNavigationHandler } from 'pages/pages-utils';
@@ -54,9 +55,9 @@ export default function Contact() {
             <textarea name="Message" required placeholder="Send a message" />
           </label>
           <p className="para-content">PLEASE ALLOW AT LEAST 24 HOURS FOR A RESPONSE.</p>
-          <button type="submit" disabled={!isButtonActive} className="submit-button">
+          <StyledMainButton type="submit" disabled={!isButtonActive} className="submit-button">
             {isButtonActive ? 'Send Message' : 'Sending...'}
-          </button>
+          </StyledMainButton>
         </fieldset>
       </form>
       <p className="para-content address-p">

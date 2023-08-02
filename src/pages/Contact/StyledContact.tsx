@@ -32,6 +32,8 @@ export default styled.main`
   }
   .form-textarea-label {
     align-self: flex-start;
+    position: relative;
+    right: 3.5%;
   }
   textarea,
   .input-field {
@@ -66,6 +68,9 @@ export default styled.main`
     }
     .form-label {
       width: 90%;
+    }
+    .form-textarea-label {
+      right: 15px;
     }
   }
 `;

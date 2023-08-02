@@ -9,6 +9,7 @@ import HeroImage from 'components/HeroImage';
 //utils
 import { useContactForm } from 'pages/ContactForm/ContactForm';
 import { pageNavigationHandler } from 'pages/pages-utils';
+import StyledMainButton from 'components/MainButton';
 
 const ENDPOINT = 'https://public.herotofu.com/v1/ebe2a980-28c6-11ee-9907-0b23fd627d84';
 export default function InfoRequestForm() {
@@ -116,9 +117,9 @@ export default function InfoRequestForm() {
             </select>
           </label>
           <p className="para-content">PLEASE ALLOW AT LEAST 24 HOURS FOR A RESPONSE.</p>
-          <button type="submit" disabled={!isButtonActive} className="submit-button">
+          <StyledMainButton type="submit" disabled={!isButtonActive} className="submit-button">
             {isButtonActive ? 'Submit' : 'Sending...'}
-          </button>
+          </StyledMainButton>
         </fieldset>
       </form>
     </StyledInfoRequestForm>

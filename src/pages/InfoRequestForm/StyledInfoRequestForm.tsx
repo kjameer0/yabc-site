@@ -55,7 +55,7 @@ export default styled.main`
   }
   .submit-button {
     font-size: clamp(1rem, 3vw, 2rem);
-    flex-basis: 10%;
+    flex-basis: 20%;
   }
   .line-break {
     display: none;
