@@ -12,6 +12,7 @@ export default styled.main`
     border: 0;
   }
   .form-label {
+    font-family: Inter-regular;
     font-size: clamp(1rem, 3vw, 1.2rem);
     width: 70%;
     display: flex;

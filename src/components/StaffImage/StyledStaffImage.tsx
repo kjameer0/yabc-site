@@ -1,7 +1,9 @@
 import { styled } from 'styled-components';
 
 export default styled.div<{ $direction: 'left' | 'right' }>`
+  flex-basis: 100%;
   display: flex;
+  width: clamp(325px, 50vw, 460px);
   .img-wrapper {
     order: ${(props) => (props.$direction === 'left' ? 1 : 2)};
   }

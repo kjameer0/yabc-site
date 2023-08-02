@@ -6,6 +6,7 @@ export default styled.main`
   }
   h2 {
     margin: 25px auto;
+    margin-bottom: 30px;
     text-align: right;
   }
   .staff-flex-wrapper {
@@ -14,7 +15,7 @@ export default styled.main`
     align-items: center;
   }
   .white-line-long {
-    margin-top: 40px;
+    margin-top: 50px;
     width: 75%;
     border: 1px solid white;
     position: relative;
@@ -32,6 +33,9 @@ export default styled.main`
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: space-evenly;
+    }
+    .white-line-short {
+      margin-bottom: 80px;
     }
   }
 `;
