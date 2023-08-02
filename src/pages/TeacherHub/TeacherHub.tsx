@@ -11,10 +11,10 @@ import { StyledContentSection } from 'components/ContentSection';
 //utils
 import { pageNavigationHandler } from 'pages/pages-utils';
 export default function TeacherHub() {
-  // const location: Location = useLocation();
-  // useEffect(() => {
-  //   pageNavigationHandler('teacher-hub', location);
-  // }, [location]);
+  const location: Location = useLocation();
+  useEffect(() => {
+    pageNavigationHandler('teacher-hub', location);
+  }, [location]);
   return (
     <StyledTeacherHub id="teacher-hub">
       <h1 className="major-heading">TEACHER HUB</h1>

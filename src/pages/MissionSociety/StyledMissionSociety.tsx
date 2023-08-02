@@ -19,13 +19,14 @@ export default styled.main`
     display: flex;
     flex-direction: center;
   }
-  .buttons-list-wrapper button {
+  .buttons-list-wrapper a {
     font-family: Inter-regular;
-    margin: 5px auto;
+    margin: 10px auto;
     width: 70%;
   }
   .service-list-section h3 {
     color: var(--main-bg);
+    margin-bottom: 0px;
   }
   .service-list-section {
     display: flex;
