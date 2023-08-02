@@ -14,12 +14,11 @@ import {
 import { StyledContentSection } from 'components/ContentSection';
 //utils
 import { pageNavigationHandler } from 'pages/pages-utils';
-import StyledMainButton from 'components/MainButton';
 export default function StudentCorner() {
-  const location: Location = useLocation();
-  useEffect(() => {
-    pageNavigationHandler('student-corner', location);
-  }, [location]);
+  // const location: Location = useLocation();
+  // useEffect(() => {
+  //   pageNavigationHandler('student-corner', location);
+  // }, [location]);
   return (
     <StyledStudentCorner id="student-corner">
       <h1 className="major-heading">STUDENT&apos;S CORNER</h1>
@@ -30,49 +29,40 @@ export default function StudentCorner() {
         </StyledContentSection>
       </div>
       <div className="buttons-wrapper">
-        <StyledMainButton className="contact-school-button">
-          <NavLink to="/information-request-form">INFORMATION REQUEST FORM</NavLink>
-        </StyledMainButton>
-        <StyledMainButton className="contact-school-button">
-          <NavLink to="/counselor-contact-form">CONTACT YOUR SCHOOL COUNSELOR</NavLink>
-        </StyledMainButton>
-        <StyledMainButton className="contact-admin-button">
-          <NavLink to="/site-administrator-contact-form">CONTACT THE SITE ADMINISTRATOR</NavLink>
-        </StyledMainButton>
-        <StyledMainButton className="attend-button">
-          <NavLink to="/about">ATTEND OUR NEXT OPEN HOUSE</NavLink>
-        </StyledMainButton>
+        <NavLink className="navlink" to="/information-request-form">
+          INFORMATION REQUEST FORM
+        </NavLink>
+        <NavLink className="navlink" to="/counselor-contact-form">
+          CONTACT YOUR SCHOOL COUNSELOR
+        </NavLink>
+        <NavLink className="navlink" to="/site-administrator-contact-form">
+          CONTACT THE SITE ADMINISTRATOR
+        </NavLink>
+        <NavLink className="navlink" to="/about">
+          ATTEND OUR NEXT OPEN HOUSE
+        </NavLink>
       </div>
       <div className="green-separator"></div>
       <StyledContentSection className="student-resources" id="student-resources">
         <h2 className="major-heading">STUDENT RESOURCES</h2>
         <div className="resources-icon-wrapper">
           <img src={BabyCarriageIcon} alt="baby carriage" />
-          <button className="resources-icon-button baby-carriage-button">
-            <a
-              href="https://lyfenyc.org/"
-              target="_blank"
-              className="icon-button-text"
-              rel={'noreferrer'}
-            >
-              <b className="icon-button-bold-text">LYFE PROGRAM</b>
-              <br />
-              RESOURCES FOR STUDENTS/PARENTS
-            </a>
-          </button>
+          <a href="https://lyfenyc.org/" target="_blank" className="navlink resources-icon-a" rel={'noreferrer'}>
+            <b className="icon-button-bold-text">LYFE PROGRAM</b>
+            <br />
+            RESOURCES FOR STUDENTS/PARENTS
+          </a>
         </div>
         <div className="resources-icon-wrapper">
           <img src={VoteIcon} alt="vote icon" />
-          <button className="resources-icon-button">
-            <a
-              href={'https://www.nyc.gov/nyc-resources/voter-registration-forms.page'}
-              className="icon-button-text"
-              target="_blank"
-              rel={'noreferrer'}
-            >
-              REGISTER TO VOTE / GET ABSENTEE BALLOT
-            </a>
-          </button>
+          <a
+            href={'https://www.nyc.gov/nyc-resources/voter-registration-forms.page'}
+            className="navlink resources-icon-a"
+            target="_blank"
+            rel={'noreferrer'}
+          >
+            REGISTER TO VOTE / GET ABSENTEE BALLOT
+          </a>
         </div>
       </StyledContentSection>
       <div className="green-separator"></div>
@@ -102,15 +92,14 @@ export default function StudentCorner() {
           disciplinary boundaries and confront conventional ways of thinking. Check out our Library
           site to learn more about all that we have to offer.
         </p>
-        <StyledMainButton className='digital-library-button'>
-          <a
-            href="https://sites.google.com/d-79.com/yabc-digital-library/bitmoji-library-book-blurbs"
-            target="_blank"
-            rel="noreferrer"
-          >
-            DIGITAL LIBRARY
-          </a>
-        </StyledMainButton>
+        <a
+          href="https://sites.google.com/d-79.com/yabc-digital-library/bitmoji-library-book-blurbs"
+          target="_blank"
+          rel="noreferrer"
+          className="navlink"
+        >
+          DIGITAL LIBRARY
+        </a>
         <img
           className="handbook-img"
           src={StudentHandBookImg}
@@ -131,11 +120,9 @@ export default function StudentCorner() {
           all students are responsible for acquainting themselves with the contents of the Student
           Handbook.
         </p>
-        <StyledMainButton>
-          <a href={StudentHandbook} download={'student-handbook'}>
-            DOWNLOAD STUDENT HANDBOOK
-          </a>
-        </StyledMainButton>
+        <a className="navlink" href={StudentHandbook} download={'student-handbook'}>
+          DOWNLOAD STUDENT HANDBOOK
+        </a>
       </StyledContentSection>
     </StyledStudentCorner>
   );

@@ -76,29 +76,21 @@ export default styled.main`
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
+    margin-top: 10px;
   }
   .resources-icon-wrapper img {
+    min-height: 158px;
     width: clamp(148px, 8vw, 260px);
     height: auto;
     margin-bottom: 10px;
   }
-  .resources-icon-button {
-    /* height: clamp(46px, 8vw, 130px); */
+  .resources-icon-a {
     color: white;
     background: black;
-    border: 1px solid white;
-    width: 80%;
+    width: 75%;
   }
-  .resources-icon-button:hover {
+  .resources-icon-a:hover {
     cursor: pointer;
-  }
-  .resources-icon-button a {
-    padding: 10px 5px;
-    display: block;
-    width: 100%;
-    height: auto;
-    text-decoration: none;
-    color: inherit;
   }
   .icon-button-text {
     margin: 0;
@@ -109,6 +101,11 @@ export default styled.main`
     margin: 0;
     font-size: clamp(1rem, 2vw, 1.3rem);
     font-family: Inter-bold, sans-serif;
+  }
+  .school-library-section .navlink {
+    width: 80%;
+    position: relative;
+    left: 10%;
   }
   .whats-happening {
     display: flex;
@@ -148,7 +145,7 @@ export default styled.main`
     position: relative;
     left: 10%;
   }
-  .school-library-section button {
+  .school-library-section a {
     width: 100%;
     margin-bottom: 30px;
   }
@@ -178,9 +175,17 @@ export default styled.main`
     .resources-icon-button {
       min-height: 110px;
     }
-    .baby-carriage-button {
-      margin-top: 11px;
-    }
+    .resources-icon-a {
+    /* height: clamp(46px, 8vw, 130px); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: 112px;
+    color: white;
+    background: black;
+    width: 90%;
+  }
     .school-library-section button {
       width: 60%;
       margin-bottom: 30px;

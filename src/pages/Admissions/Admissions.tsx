@@ -14,10 +14,10 @@ import { AdmissionsHero } from 'assets/images/Hero-Images';
 import { pageNavigationHandler } from 'pages/pages-utils';
 
 export default function Admissions() {
-  // const location: Location = useLocation();
-  // useEffect(() => {
-  //   pageNavigationHandler('admissions-hero', location);
-  // }, [location]);
+  const location: Location = useLocation();
+  useEffect(() => {
+    pageNavigationHandler('admissions-hero', location);
+  }, [location]);
   return (
     <StyledAdmissions id="admissions-page">
       <HeroImage text={[]} color="white" imgLink={AdmissionsHero} id="admissions-hero" />
