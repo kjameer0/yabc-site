@@ -48,12 +48,12 @@ export default function Parents() {
           facing. We want to give you a voice and to help you find solutions.
         </p>
         <div className="involvement-button-wrapper">
-          <StyledMainButton>
-            <NavLink to="/contact">EMAIL US</NavLink>
-          </StyledMainButton>
-          <StyledMainButton className="admin-button">
-            <NavLink to="/site-administrator-contact-form">CONTACT SITE ADMINISTRATOR</NavLink>
-          </StyledMainButton>
+          <NavLink className={'navlink'} to="/contact">
+            <span>EMAIL US</span>
+          </NavLink>
+          <NavLink className={'navlink'} to="/site-administrator-contact-form">
+            <span>CONTACT SITE ADMINISTRATOR</span>
+          </NavLink>
         </div>
       </StyledContentSection>
       <StyledContentSection className="parents-night" id="parents-night">
@@ -66,16 +66,14 @@ export default function Parents() {
         <div className="resources-flex-container">
           <div className="resources-icon-wrapper">
             <img src={MealIcon} alt="spoon fork icon" className="resource-icon" />
-            <button className="resources-icon-button">
               <a
                 href={'https://www.opt-osfns.org/schoolfoodny/meals/default.aspx'}
-                className="icon-button-text"
+                className="icon-button-text navlink"
                 target="_blank"
                 rel={'noreferrer'}
               >
-                GRAB AND GO MEALS
+               <p> GRAB AND GO MEALS</p>
               </a>
-            </button>
           </div>
           <div className="resources-icon-wrapper">
             <img
@@ -83,16 +81,14 @@ export default function Parents() {
               alt="outline of human head with heart in it"
               className="resource-icon"
             />
-            <button className="resources-icon-button">
               <a
                 href={'https://mentalhealth.cityofnewyork.us/#intro'}
-                className="icon-button-text"
+                className="icon-button-text navlink"
                 target="_blank"
                 rel={'noreferrer'}
               >
                 <p>NYC WELL - MENTAL HEALTH</p>
               </a>
-            </button>
           </div>
           <div className="resources-icon-wrapper">
             <img
@@ -100,18 +96,14 @@ export default function Parents() {
               alt="heart icon with a plus sign in it"
               className="resource-icon"
             />
-            <button className="resources-icon-button">
               <a
                 href={'https://hitesite.org/about'}
-                className="icon-button-text"
+                className="icon-button-text navlink"
                 target="_blank"
                 rel={'noreferrer'}
               >
-                <p>
-                HEALTH INFORMATION TOOL FOR EMPOWERMENT (HITE)
-                </p>
+                <p>HEALTH INFORMATION TOOL FOR EMPOWERMENT (HITE)</p>
               </a>
-            </button>
           </div>
           <div className="resources-icon-wrapper">
             <img
@@ -119,33 +111,25 @@ export default function Parents() {
               alt="children being held up by hands"
               className="resource-icon"
             />
-            <button className="resources-icon-button">
               <a
                 href={'https://childmind.org/'}
-                className="icon-button-text"
+                className="icon-button-text navlink"
                 target="_blank"
                 rel={'noreferrer'}
               >
-                <p>
-                MENTAL HEALTH RESOURCES FOR CHILDREN
-                </p>
+                <p>MENTAL HEALTH RESOURCES FOR CHILDREN</p>
               </a>
-            </button>
           </div>
           <div className="resources-icon-wrapper">
             <img src={VoteIcon} alt="vote icon" className="resource-icon" />
-            <button className="resources-icon-button">
               <a
                 href={'https://www.nyc.gov/nyc-resources/voter-registration-forms.page'}
-                className="icon-button-text"
+                className="icon-button-text navlink"
                 target="_blank"
                 rel={'noreferrer'}
               >
-                <p>
-                REGISTER TO VOTE / GET ABSENTEE BALLOT
-                </p>
+                <p>REGISTER TO VOTE / GET ABSENTEE BALLOT</p>
               </a>
-            </button>
           </div>
         </div>
       </StyledContentSection>

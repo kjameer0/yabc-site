@@ -32,7 +32,7 @@ export default styled.main`
     justify-content: center;
     flex-wrap: wrap;
   }
-  .involvement-button-wrapper button {
+  .involvement-button-wrapper a {
     padding: 5px 0;
     margin-bottom: 15px;
     width: 100%;
@@ -51,7 +51,7 @@ export default styled.main`
   .resources-flex-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-evenly;
   }
   .resources-icon-wrapper {
     flex-basis: 100%;
@@ -79,26 +79,30 @@ export default styled.main`
     font-family: Inter-bold, sans-serif;
   }
   @media screen and (min-width: 700px) {
-    p {
-      position: relative;
-      left: 10%;
-      width: 80%;
-    }
     .involvement-button-wrapper {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-evenly;
     }
     .resources-icon-wrapper {
-      flex-basis: 50%;
-    }
-    .admin-button {
-      margin-left: 4%;
-    }
-    .involvement-button-wrapper button {
-      width: 40%;
       flex-basis: 40%;
-      min-height: 65px;
+      min-height: 232px;
     }
+    .resource-icon {
+      height: 135px;
+    }
+    .resources-icon-wrapper .navlink {
+      padding: 0;
+      min-height: 106px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-self: flex-end;
+    }
+    .resources-icon-wrapper .navlink p {
+      margin: 0;
+    }
+
+
   }
 `;
