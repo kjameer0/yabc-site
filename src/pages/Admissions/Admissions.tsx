@@ -171,7 +171,7 @@ export default function Admissions() {
             shared responsibility.
           </p>
             <NavLink to="/shared-admissions/#how-to-enroll">
-              LEARN HOW TO ENROLL IN SHARED INSTRUCTION
+              <p>LEARN HOW TO ENROLL IN SHARED INSTRUCTION</p>
             </NavLink>
         </section>
       </StyledContentSection>

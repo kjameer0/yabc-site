@@ -30,16 +30,16 @@ export default function StudentCorner() {
       </div>
       <div className="a-wrapper">
         <NavLink className="navlink" to="/information-request-form">
-         <p> INFORMATION REQUEST FORM</p>
+         <p>INFORMATION REQUEST FORM</p>
         </NavLink>
         <NavLink className="navlink" to="/counselor-contact-form">
-         <p> CONTACT YOUR SCHOOL COUNSELOR</p>
+         <p>CONTACT YOUR SCHOOL COUNSELOR</p>
         </NavLink>
         <NavLink className="navlink" to="/site-administrator-contact-form">
-         <p> CONTACT THE SITE ADMINISTRATOR</p>
+         <p>CONTACT THE SITE ADMINISTRATOR</p>
         </NavLink>
         <NavLink className="navlink" to="/about">
-         <p> ATTEND OUR NEXT OPEN HOUSE</p>
+         <p>ATTEND OUR NEXT OPEN HOUSE</p>
         </NavLink>
       </div>
       <div className="green-separator"></div>

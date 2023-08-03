@@ -54,7 +54,7 @@ export default styled.main`
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 30px;
+    margin-top: 0px;
   }
   .a-wrapper a {
     display: flex;
@@ -65,12 +65,14 @@ export default styled.main`
     min-width: 250px;
   }
   .a-wrapper p {
-    margin: 0;
+    line-height: 1.5;
+    padding: 0;
     width: 100%;
     font-family: hind-guntur-medium, sans-serif;
     font-size: clamp(1rem, 1.5vw, 2rem);
     letter-spacing: -0.05rem;
     margin: 0;
+    padding-top: 4px;
   }
   .resources-icon-wrapper {
     display: flex;

@@ -62,7 +62,7 @@ export const parentsFamiliesPaths: NavListItemType[] = [
 ];
 export const missionPaths: NavListItemType[] = [
   { label: 'About Mission Society', path: baseWithoutSlash + '/mission-society-of-new-york/' },
-  { label: 'Forms', path: baseWithoutSlash + '/mission-society-of-new-york/#forms' },
+  { label: 'Learn to Work', path: baseWithoutSlash + '/mission-society-of-new-york/#forms' },
   { label: 'Services', path: baseWithoutSlash + '/mission-society-of-new-york/#services' },
 ];
 export const aboutLinks = [

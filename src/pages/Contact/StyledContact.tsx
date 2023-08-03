@@ -4,7 +4,9 @@ export default styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  form {
+    width: 70%;
+  }
   fieldset {
     display: flex;
     flex-direction: column;
@@ -48,8 +50,9 @@ export default styled.main`
   }
   .submit-button {
     margin-top: 25px;
-    font-size: clamp(1rem, 3vw, 2rem);
+    font-size: clamp(1rem, 3vw, 1.7rem);
     margin-bottom: 10px;
+    padding: 15px;
   }
   .address-p {
     flex-basis: 50%;
@@ -62,13 +65,16 @@ export default styled.main`
     margin-bottom: 30px;
   }
   .green-separator {
-    width: 80%;
+    align-self: center;
     min-height: 1px;
     background: var(--main-bg);
     margin-top: 10px;
     margin-bottom: 60px;
   }
   @media screen and (min-width: 700px) {
+    fieldset {
+      width: 100%;
+    }
     .input-field {
       height: 40px;
       font-size: 1.3rem;

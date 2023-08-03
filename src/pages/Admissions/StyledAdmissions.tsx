@@ -126,7 +126,7 @@ export default styled.main`
   .regular-instruction {
     background: #e5fbb9;
     padding-bottom: 10px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
   }
   .shared-instruction {
     background: white;
@@ -136,22 +136,27 @@ export default styled.main`
   .faq-section p {
     padding: 0 30px;
   }
-  .faq-section a {
+  .shared-instruction a {
+    position: relative;
+    left: 25%;
+    display: block;
     background-color: #e5fbb9;
     border: 2px solid black;
-    font-size: clamp(.75rem, 3vw, .8rem);
-    margin-bottom: 5px;
-    padding: 4px;
-    width: 40%;
+    font-size: clamp(.75rem, 3vw, 1rem);
+    min-height: 40px;
+    margin: 25px 0;
+    width: 50%;
+    text-decoration: none;
+    color: black;
+  }
+  .shared-instruction a p {
+    white-space: nowrap;
   }
   .faq-section a:hover {
     cursor: pointer;
     background-color: var(--main-bg);
   }
-  .faq-section a {
-    text-decoration: none;
-    color: black;
-  }
+
   @media screen and (min-width: 700px) {
     h1 {
       margin-bottom: 0;

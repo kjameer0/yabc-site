@@ -33,9 +33,13 @@ export default styled.main`
     flex-wrap: wrap;
   }
   .involvement-button-wrapper a {
-    padding: 5px 0;
-    margin-bottom: 15px;
-    width: 100%;
+    margin-bottom: 25px;
+    width: 70%;
+    padding: 0;
+  }
+  .involvement-button-wrapper a p {
+    margin: 0;
+    padding: 8px;
   }
   .bold-para {
     font-family: hind-guntur-bold, sans-serif;
@@ -64,10 +68,7 @@ export default styled.main`
     border: 1px solid white;
     width: 80%;
   }
-  a {
-    text-decoration: none;
-    color: white;
-  }
+
   .icon-button-text {
     margin: 0;
     font-size: clamp(0.75rem, 2vw, 1.3rem);

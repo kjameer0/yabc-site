@@ -2,14 +2,19 @@ import { styled } from 'styled-components';
 
 export default styled.main`
   #learn-to-work-hero, #services-hero {
-    height: clamp(200px, 6vw, 300px);
+    height: clamp(180px, 6vw, 300px);
   }
   #learn-to-work-hero .single-word, #services-hero .single-word {
     font-family: Inter-bold;
     font-size: clamp(1rem, 3vw, 2.5rem);
   }
   #learn-to-work-hero .words-wrapper p:nth-child(n+3) {
-    font-size: clamp(.75rem, 2.5vw, 2rem);
+    margin-top: 14px;
+    font-size: clamp(.75rem, 2.5vw, 1rem);
+  }
+  #services-hero .words-wrapper p:nth-child(2) {
+    margin-top: 14px;
+    font-size: clamp(.75rem, 2.5vw, 1rem);
   }
   .buttons-container {
     display: flex;

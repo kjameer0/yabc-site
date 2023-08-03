@@ -49,10 +49,10 @@ export default function Parents() {
         </p>
         <div className="involvement-button-wrapper">
           <NavLink className={'navlink'} to="/contact">
-            <span>EMAIL US</span>
+            <p>EMAIL US</p>
           </NavLink>
           <NavLink className={'navlink'} to="/site-administrator-contact-form">
-            <span>CONTACT SITE ADMINISTRATOR</span>
+            <p>CONTACT SITE ADMINISTRATOR</p>
           </NavLink>
         </div>
       </StyledContentSection>

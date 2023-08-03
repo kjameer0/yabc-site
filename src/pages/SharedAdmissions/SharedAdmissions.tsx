@@ -44,7 +44,7 @@ export default function SharedAdmissions() {
         </p>
         <p className="para-content">
           Interested in learning more about Washington Irving YABC? We invite you to attend our{' '}
-          <NavLink to="/about">Open House.</NavLink> However, you can get in touch with questions
+          <NavLink className={'para-link'} to="/about">Open House.</NavLink> However, you can get in touch with questions
           about our values, academics, community and more at any time by using the Contact US form.
         </p>
       </StyledContentSection>

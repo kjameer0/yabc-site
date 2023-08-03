@@ -43,7 +43,7 @@ export default styled.main`
       justify-content: center;
       align-items: center;
       min-height: 80px;
-      margin: 15px 0;
+      margin: 10px 0;
       width: 40%;
     }
     .resource-button-wrapper a p {

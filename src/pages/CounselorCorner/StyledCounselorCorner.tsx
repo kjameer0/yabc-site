@@ -56,7 +56,7 @@ export default styled.main`
   }
   .buttons-wrapper a {
     max-width: 734px;
-    margin-top: 30px;
+    margin-top: 15px;
     width: clamp(292px, 40%, 734px);
   }
 `;

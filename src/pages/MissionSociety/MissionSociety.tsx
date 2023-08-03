@@ -35,7 +35,7 @@ export default function MissionSociety() {
       <StyledContentSection id="forms" className="forms-section">
         <HeroImage
           imgLink={LearnToWorkHero}
-          text={['LEARN TO WORK', 'PROGRAM', 'BY THE MISSION', 'SOCIETY OF NEW YORK']}
+          text={['LEARN TO WORK', 'PROGRAM', 'BY THE MISSION SOCIETY OF NEW YORK']}
           color="white"
           id="learn-to-work-hero"
         />
@@ -115,7 +115,7 @@ export default function MissionSociety() {
       <StyledContentSection id="services" className="services">
         <HeroImage
           imgLink={ServicesHero}
-          text={['SERVICES', 'FROM THE MISSION', 'SOCIETY OF NEW YORK']}
+          text={['SERVICES', 'FROM THE MISSION SOCIETY OF NEW YORK']}
           color="white"
           id="services-hero"
         />

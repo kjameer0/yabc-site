@@ -33,6 +33,12 @@ export default styled.main`
     font-family: Inter-bold;
     margin: 0;
   }
+  .para-link {
+    color: white;
+  }
+  .para-link:hover {
+    color: var(--main-bg);
+  }
   .step-ul {
     margin-top: 0;
     list-style: none;
@@ -47,6 +53,7 @@ export default styled.main`
     font-size: clamp(1rem, 3vw, 1.3rem);
   }
   .form-buttons-wrapper {
+    margin-top: 30px;
     width: 80%;
     display: flex;
     flex-direction: column;
