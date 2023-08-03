@@ -124,10 +124,13 @@ export default function Admissions() {
         </p>
       </StyledContentSection>
       <div className="y-forms">
-        <a className="navlink" href={FillableY1Form}>
+        <a className="navlink" target='_blank' rel='noreferrer' href={"https://docs.google.com/forms/d/e/1FAIpQLSeKpoGEg-Uwg3zh4BVKIn9KhoCRm0V-yssN7B_1z7kPmEvwlQ/viewform"}>
+          COUNSELOR REFERRAL FORM
+        </a>
+        <a className="navlink" download='Fillable-y1-form' href={FillableY1Form}>
           FILLABLE Y1 FORM DOWNLOAD
         </a>
-        <a className="navlink" href={FillableY2Form}>
+        <a className="navlink" download='Fillable-y2-form' href={FillableY2Form}>
           FILLABLE Y2 FORM DOWNLOAD
         </a>
       </div>

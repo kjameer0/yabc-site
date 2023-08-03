@@ -19,18 +19,27 @@ export default function SideNavBar() {
   return (
     <StyledSideNavBar>
       <div className="img-wrapper">
-        <img className="logo" src={MainLogo} alt="YABC Washington Irving" />
+        <NavLink to="/">
+          <img className="logo" src={MainLogo} alt="YABC Washington Irving" />
+        </NavLink>
       </div>
       <nav>
         <ul className="categories-list">
           <li className="category">
-            <button onClick={(evt: React.MouseEvent<HTMLButtonElement>) => navigate(evt.currentTarget.value)} value={'/'}>HOME</button>
+            <button
+              onClick={(evt: React.MouseEvent<HTMLButtonElement>) =>
+                navigate(evt.currentTarget.value)
+              }
+              value={'/'}
+            >
+              HOME
+            </button>
           </li>
           <li className="category">
             <button onClick={handleCategoryClick} value="about">
               ABOUT
             </button>
-          {activeList === 'about' && <NavLinkList list={aboutPaths} />}
+            {activeList === 'about' && <NavLinkList list={aboutPaths} />}
           </li>
           <li className="category">
             <button onClick={handleCategoryClick} value="staff">
@@ -51,7 +60,14 @@ export default function SideNavBar() {
             {activeList === 'student-corner' && <NavLinkList list={studentCornerPaths} />}
           </li>
           <li className="category">
-            <button onClick={(evt: React.MouseEvent<HTMLButtonElement>) => navigate(evt.currentTarget.value)} value={'/counselor-corner'}>COUNSELOR&apos;S CORNER</button>
+            <button
+              onClick={(evt: React.MouseEvent<HTMLButtonElement>) =>
+                navigate(evt.currentTarget.value)
+              }
+              value={'/counselor-corner'}
+            >
+              COUNSELOR&apos;S CORNER
+            </button>
           </li>
           <li className="category">
             <button onClick={handleCategoryClick} value={'parents-families'}>
@@ -72,12 +88,19 @@ export default function SideNavBar() {
             {activeList === 'mission-society-of-new-york' && <NavLinkList list={missionPaths} />}
           </li>
           <li className="category">
-            <button onClick={(evt: React.MouseEvent<HTMLButtonElement>) => navigate(evt.currentTarget.value)} value={'/contact'}>CONTACT</button>
+            <button
+              onClick={(evt: React.MouseEvent<HTMLButtonElement>) =>
+                navigate(evt.currentTarget.value)
+              }
+              value={'/contact'}
+            >
+              CONTACT
+            </button>
           </li>
         </ul>
       </nav>
       <div className="mission-logo-container">
-        <img src ={MissionLogo} alt='Mission Society of New Yorks'/>
+        <img src={MissionLogo} alt="Mission Society of New Yorks" />
         <p className="address-p">
           Washington Irving YABC <br /> 40 Irving Place NY, NY 10003
         </p>
