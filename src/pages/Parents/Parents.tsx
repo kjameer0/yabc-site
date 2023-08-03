@@ -38,7 +38,7 @@ export default function Parents() {
         </ol>
       </StyledContentSection>
       <StyledContentSection id="your-involvement">
-        <h2 className="major-heading">YOUR INVOLVEMENT IS IMPORTANT!</h2>
+        <h2 className="major-heading">PARENT INVOLVEMENT IS IMPORTANT!</h2>
         <p className="para-content bold-para">OPPORTUNITIES INCREASE WHEN YOU HELP OTHERS</p>
         <p className="para-content">
           Here you will find information and guidance to help you support your student and your

@@ -54,19 +54,20 @@ export default function Contact() {
             <span className="form-label-text form-textarea-label">Message*</span>
             <textarea name="Message" required placeholder="Send a message" />
           </label>
-          <p className="para-content">PLEASE ALLOW AT LEAST 24 HOURS FOR A RESPONSE.</p>
           <StyledMainButton type="submit" disabled={!isButtonActive} className="submit-button">
             {isButtonActive ? 'Send Message' : 'Sending...'}
           </StyledMainButton>
+          <p className="para-content">PLEASE ALLOW AT LEAST 24 HOURS FOR A RESPONSE.</p>
         </fieldset>
       </form>
+      <div className='green-separator'></div>
+      <img className="location-img" src={MapImg} alt="Washington Irving YABC location" />
       <p className="para-content address-p">
         40 Irving Place NY, NY 10003
         <br />
-        Site Administrator Cell: 929-359-3750 OFFICE PH: 212-674-5000 ext 11491/11420 or
+        Site Administrator Cell: 929-359-3750<br/> OFFICE PH: 212-674-5000 ext 11491/11420 or
         646-654-9671
       </p>
-      <img className="location-img" src={MapImg} alt="Washington Irving YABC location" />
     </StyledContact>
   );
 }

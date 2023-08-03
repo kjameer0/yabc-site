@@ -47,7 +47,9 @@ export default styled.main`
     font-family: hind-guntur-regular;
   }
   .submit-button {
+    margin-top: 25px;
     font-size: clamp(1rem, 3vw, 2rem);
+    margin-bottom: 10px;
   }
   .address-p {
     flex-basis: 50%;
@@ -57,6 +59,14 @@ export default styled.main`
   .location-img {
     width: clamp(334px, 20vw, 911px);
     height: auto;
+    margin-bottom: 30px;
+  }
+  .green-separator {
+    width: 80%;
+    min-height: 1px;
+    background: var(--main-bg);
+    margin-top: 10px;
+    margin-bottom: 60px;
   }
   @media screen and (min-width: 700px) {
     .input-field {

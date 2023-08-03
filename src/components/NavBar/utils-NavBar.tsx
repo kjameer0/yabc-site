@@ -58,8 +58,7 @@ export const teacherHubPaths: NavListItemType[] = [
 ];
 export const parentsFamiliesPaths: NavListItemType[] = [
   { label: 'Tips for Parents', path: baseWithoutSlash + '/parents-families/' },
-  { label: 'Your Involvement', path: baseWithoutSlash + '/parents-families/#your-involvement' },
-  { label: 'Teacher Resources', path: baseWithoutSlash + '/parents-families/#family-resources' },
+  { label: 'Parent Involvement', path: baseWithoutSlash + '/parents-families/#your-involvement' },
 ];
 export const missionPaths: NavListItemType[] = [
   { label: 'About Mission Society', path: baseWithoutSlash + '/mission-society-of-new-york/' },
