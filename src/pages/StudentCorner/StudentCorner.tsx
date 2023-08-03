@@ -15,10 +15,10 @@ import { StyledContentSection } from 'components/ContentSection';
 //utils
 import { pageNavigationHandler } from 'pages/pages-utils';
 export default function StudentCorner() {
-  const location: Location = useLocation();
-  useEffect(() => {
-    pageNavigationHandler('student-corner', location);
-  }, [location]);
+  // const location: Location = useLocation();
+  // useEffect(() => {
+  //   pageNavigationHandler('student-corner', location);
+  // }, [location]);
   return (
     <StyledStudentCorner id="student-corner">
       <h1 className="major-heading">STUDENT&apos;S CORNER</h1>
@@ -28,18 +28,18 @@ export default function StudentCorner() {
           <img src={RemoteLearningStudentsIcon} alt="remote learning tips for students" />
         </StyledContentSection>
       </div>
-      <div className="buttons-wrapper">
+      <div className="a-wrapper">
         <NavLink className="navlink" to="/information-request-form">
-          INFORMATION REQUEST FORM
+         <p> INFORMATION REQUEST FORM</p>
         </NavLink>
         <NavLink className="navlink" to="/counselor-contact-form">
-          CONTACT YOUR SCHOOL COUNSELOR
+         <p> CONTACT YOUR SCHOOL COUNSELOR</p>
         </NavLink>
         <NavLink className="navlink" to="/site-administrator-contact-form">
-          CONTACT THE SITE ADMINISTRATOR
+         <p> CONTACT THE SITE ADMINISTRATOR</p>
         </NavLink>
         <NavLink className="navlink" to="/about">
-          ATTEND OUR NEXT OPEN HOUSE
+         <p> ATTEND OUR NEXT OPEN HOUSE</p>
         </NavLink>
       </div>
       <div className="green-separator"></div>
@@ -49,8 +49,7 @@ export default function StudentCorner() {
           <img src={BabyCarriageIcon} alt="baby carriage" />
           <a href="https://lyfenyc.org/" target="_blank" className="navlink resources-icon-a" rel={'noreferrer'}>
             <b className="icon-button-bold-text">LYFE PROGRAM</b>
-            <br />
-            RESOURCES FOR STUDENTS/PARENTS
+            <p className='icon-button-text'>RESOURCES FOR STUDENTS/PARENTS</p>
           </a>
         </div>
         <div className="resources-icon-wrapper">
@@ -61,7 +60,7 @@ export default function StudentCorner() {
             target="_blank"
             rel={'noreferrer'}
           >
-            REGISTER TO VOTE / GET ABSENTEE BALLOT
+           <p className='icon-button-text'>REGISTER TO VOTE / GET ABSENTEE BALLOT</p>
           </a>
         </div>
       </StyledContentSection>

@@ -4,7 +4,6 @@ export default styled.main`
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-
   h1 {
     margin-bottom: 0px;
   }
@@ -50,24 +49,27 @@ export default styled.main`
   .remote-learning-section img {
     width: clamp(279px, 60vw, 709px);
   }
-  .buttons-wrapper {
+  .a-wrapper {
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .buttons-wrapper button {
-    max-width: 734px;
+    justify-content: center;
+    flex-wrap: wrap;
     margin-top: 30px;
-    width: clamp(292px, 40%, 734px);
   }
-  .buttons-wrapper button p {
-    max-height: 36px;
-    height: auto;
-    margin-top: 4px;
+  .a-wrapper a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 70%;
+    margin-top: 15px;
+    min-width: 250px;
+  }
+  .a-wrapper p {
+    margin: 0;
+    width: 100%;
     font-family: hind-guntur-medium, sans-serif;
     font-size: clamp(1rem, 1.5vw, 2rem);
     letter-spacing: -0.05rem;
-    padding-top: 2px;
     margin: 0;
   }
   .resources-icon-wrapper {
@@ -96,6 +98,10 @@ export default styled.main`
     margin: 0;
     font-size: clamp(0.75rem, 2vw, 1.3rem);
     font-family: Inter-regular, sans-serif;
+  }
+  b {
+    display: block;
+    width: 100%;
   }
   .icon-button-bold-text {
     margin: 0;
@@ -169,6 +175,9 @@ export default styled.main`
       align-items: center;
       flex-wrap: wrap;
     }
+    .a-wrapper a {
+      flex-basis: 50%;
+    }
     .student-resources h2 {
       flex-basis: 100%;
     }
@@ -176,18 +185,19 @@ export default styled.main`
       min-height: 110px;
     }
     .resources-icon-a {
-    /* height: clamp(46px, 8vw, 130px); */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    min-height: 112px;
-    color: white;
-    background: black;
-    width: 90%;
-  }
-    .school-library-section button {
-      width: 60%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      min-height: 73px;
+      color: white;
+      background: black;
+      width: 90%;
+    }
+    .school-library-section .navlink {
+      position: relative;
+      left: 25%;
+      width: 50%;
       margin-bottom: 30px;
     }
   }
