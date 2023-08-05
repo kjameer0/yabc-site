@@ -5,6 +5,7 @@ import { Location, useLocation } from 'react-router-dom';
 import StyledHomePage from './StyledHomePage';
 import HeroImage from 'components/HeroImage';
 import { StyledContentSection } from 'components/ContentSection';
+import { Carousel, CarouselProps } from 'react-responsive-carousel';
 //images
 import { HomePageHero } from 'assets/images/Hero-Images';
 import { HomeGradImg, HomeClassImg, NewGradImg } from 'assets/images/HomePage-images';

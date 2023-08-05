@@ -1,22 +1,29 @@
 import { Location, NavLink, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 //images
 import { AboutHero } from 'assets/images/Hero-Images';
-import { GraduateImg } from 'assets/images/About-images';
 //components
-import StyledAbout from './StyledAbout';
+import StyledAbout, { CarouselImgStyles, CarouselStyles } from './StyledAbout';
 import HeroImage from 'components/HeroImage';
-import StyledLink from 'components/StyledLink';
 import { StyledContentSection } from 'components/ContentSection';
 import StyledMainButton from 'components/MainButton';
+import { Carousel, CarouselProps } from 'react-responsive-carousel';
 //utils
 import { pageNavigationHandler } from 'pages/pages-utils';
+//data
+import { GRAD_CAROUSEL_YEARS } from 'assets/images/Carousel-Photos';
+//styles
+import 'react-responsive-carousel/lib/styles/carousel.min.css'; // Import the carousel styles
+
 export default function About() {
+  const [carouselYear, setCarouselYear] = useState('2023');
+  const currentCarousel = GRAD_CAROUSEL_YEARS.get(Number(carouselYear));
+  const [selectedCarouselItem, setSelectedCarouselItem] = useState(0);
   //for SPA routing
-  const location: Location = useLocation();
-  useEffect(() => {
-    pageNavigationHandler('students-sitting-hero', location);
-  }, [location]);
+  // const location: Location = useLocation();
+  // useEffect(() => {
+  //   pageNavigationHandler('students-sitting-hero', location);
+  // }, [location]);
   return (
     <StyledAbout>
       <HeroImage id="students-sitting-hero" imgLink={AboutHero} text={[]} color="white" />
@@ -45,14 +52,14 @@ export default function About() {
           <b>Fall Term:</b> August through September <br></br>
           <b>Spring Term:</b> January through March
         </p>
-          <NavLink to="/contact" className={'navlink'}>
-            CONTACT US TO ATTEND
-            <br /> AN OPEN HOUSE
-          </NavLink>
-          <br className='link-line-break'/>
-          <NavLink to="/admissions" className={'navlink'}>
-            LEARN MORE ABOUT OUR<br></br> ADMISSIONS PROCESS
-          </NavLink>
+        <NavLink to="/contact" className={'navlink'}>
+          CONTACT US TO ATTEND
+          <br /> AN OPEN HOUSE
+        </NavLink>
+        <br className="link-line-break" />
+        <NavLink to="/admissions" className={'navlink'}>
+          LEARN MORE ABOUT OUR<br></br> ADMISSIONS PROCESS
+        </NavLink>
       </StyledContentSection>
       <div className="line-separate"></div>
       <StyledContentSection id="are-we-a-fit" className="good-fit-section">
@@ -81,7 +88,6 @@ export default function About() {
           We care and want to serve ALL learners. We specialize in helping students with IEPs, 504s,
           and English For New Language learners.
         </p>
-
         <p className="para-content">
           Washington Irving YABC is supported by the Learning to Work program. Mission Society of
           NYC manages our program and provides PAID internships for students who need to support
@@ -91,12 +97,50 @@ export default function About() {
           their own jobs.
         </p>
       </StyledContentSection>
-
       <div className="line-separate"></div>
-      <StyledContentSection className="meet-graduates" id="meet-our-graduates">
-        <h2 className="major-heading">MEET OUR GRADUATES!</h2>
-        <img src={GraduateImg} alt="new graduate" />
-      </StyledContentSection>
+      <h2 className="major-heading" id="meet-our-graduates">
+        MEET OUR GRADUATES!
+      </h2>
+      <div className="carousel-wrapper">
+        <Carousel
+          className={"carous"}
+          showStatus={false}
+          showArrows={true}
+          showThumbs={false}
+          infiniteLoop={true}
+          selectedItem={selectedCarouselItem}
+          onChange={(idx) => setSelectedCarouselItem(idx)}
+        >
+          {currentCarousel &&
+            currentCarousel.map((link, idx) => {
+              return (
+                <div style={CarouselStyles} key={crypto.randomUUID()}>
+                  <img style={CarouselImgStyles} src={link} alt="Graduation carousel" />
+                </div>
+              );
+            })}
+        </Carousel>
+      </div>
+      <select
+        onChange={(e) => {
+          setCarouselYear(e.target.value);
+          setSelectedCarouselItem(0);
+        }}
+        className="year-select"
+      >
+        <option className="year-option" value={'2020'}>
+          2020
+        </option>
+        <option className="year-option" value={'2021'}>
+          2021
+        </option>
+        <option className="year-option" value={'2022'}>
+          2022
+        </option>
+        <option selected className="year-option" value={'2023'}>
+          2023
+        </option>
+      </select>
     </StyledAbout>
   );
 }

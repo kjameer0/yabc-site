@@ -62,6 +62,42 @@ export default styled.main`
     height: auto;
     border: 8px solid white;
   }
+  .carousel-wrapper {
+    position: relative;
+    left: 25%;
+    width: 50%;
+  }
+  .carousel-root {
+    .carousel {
+      min-height: 250px;
+      height: 100%;
+      width: 100%;
+    }
+    img {
+      width: 80%;
+      margin-bottom: 70px;
+    }
+    .control-dots {
+      left: 10%;
+      width: 80%;
+      margin: 0;
+      li {
+        width: 10px;
+        height: 10px;
+        margin: 2px 4px;
+      }
+    }
+  }
+  .year-select {
+    margin-top: 40px;
+    padding: 4px;
+    width: 40%;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    text-align: center;
+    background-color: black;
+    color: var(--main-bg);
+    border: 1px solid var(--main-bg);
+  }
   @media screen and (min-width: 700px) {
     .line-break {
       display: none;
@@ -86,5 +122,18 @@ export default styled.main`
       max-width: 500px;
       width: 55%;
     }
+    .carous {
+      .control-dots {
+      }
+    }
   }
 `;
+//carousel styles
+export const CarouselStyles = {
+  minHeight: '230px',
+};
+export const CarouselImgStyles = {
+  maxWidth: '280px',
+  border: '3px solid white',
+  height: 'auto',
+};
