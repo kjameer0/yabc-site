@@ -5,20 +5,18 @@ import StyledStudentCorner from './StyledStudentCorner';
 import { StudentHandbook } from 'assets/images/Forms';
 //images
 import { RemoteLearningStudentsIcon, BabyCarriageIcon, VoteIcon } from 'assets/Icons';
-import {
-  TownHallImg,
-  BookshelfImg,
-  StudentHandBookImg,
-} from 'assets/images/Student-Corner-Images';
+import { StudentCornerCarouselImages } from 'assets/images/Carousel-Photos';
+import { BookshelfImg, StudentHandBookImg } from 'assets/images/Student-Corner-Images';
 //components
+import { Carousel } from 'react-responsive-carousel';
 import { StyledContentSection } from 'components/ContentSection';
 //utils
 import { pageNavigationHandler } from 'pages/pages-utils';
 export default function StudentCorner() {
-  // const location: Location = useLocation();
-  // useEffect(() => {
-  //   pageNavigationHandler('student-corner', location);
-  // }, [location]);
+  const location: Location = useLocation();
+  useEffect(() => {
+    pageNavigationHandler('student-corner', location);
+  }, [location]);
   return (
     <StyledStudentCorner id="student-corner">
       <h1 className="major-heading">STUDENT&apos;S CORNER</h1>
@@ -30,16 +28,16 @@ export default function StudentCorner() {
       </div>
       <div className="a-wrapper">
         <NavLink className="navlink" to="/information-request-form">
-         <p>INFORMATION REQUEST FORM</p>
+          <p>INFORMATION REQUEST FORM</p>
         </NavLink>
         <NavLink className="navlink" to="/counselor-contact-form">
-         <p>CONTACT YOUR SCHOOL COUNSELOR</p>
+          <p>CONTACT YOUR SCHOOL COUNSELOR</p>
         </NavLink>
         <NavLink className="navlink" to="/site-administrator-contact-form">
-         <p>CONTACT THE SITE ADMINISTRATOR</p>
+          <p>CONTACT THE SITE ADMINISTRATOR</p>
         </NavLink>
         <NavLink className="navlink" to="/about">
-         <p>ATTEND OUR NEXT OPEN HOUSE</p>
+          <p>ATTEND OUR NEXT OPEN HOUSE</p>
         </NavLink>
       </div>
       <div className="green-separator"></div>
@@ -47,9 +45,14 @@ export default function StudentCorner() {
         <h2 className="major-heading">STUDENT RESOURCES</h2>
         <div className="resources-icon-wrapper">
           <img src={BabyCarriageIcon} alt="baby carriage" />
-          <a href="https://lyfenyc.org/" target="_blank" className="navlink resources-icon-a" rel={'noreferrer'}>
+          <a
+            href="https://lyfenyc.org/"
+            target="_blank"
+            className="navlink resources-icon-a"
+            rel={'noreferrer'}
+          >
             <b className="icon-button-bold-text">LYFE PROGRAM</b>
-            <p className='icon-button-text'>RESOURCES FOR STUDENTS/PARENTS</p>
+            <p className="icon-button-text">RESOURCES FOR STUDENTS/PARENTS</p>
           </a>
         </div>
         <div className="resources-icon-wrapper">
@@ -60,7 +63,7 @@ export default function StudentCorner() {
             target="_blank"
             rel={'noreferrer'}
           >
-           <p className='icon-button-text'>REGISTER TO VOTE / GET ABSENTEE BALLOT</p>
+            <p className="icon-button-text">REGISTER TO VOTE / GET ABSENTEE BALLOT</p>
           </a>
         </div>
       </StyledContentSection>
@@ -72,12 +75,17 @@ export default function StudentCorner() {
           the important and exciting updates happening at Washington Irving YABC, so check back
           often to stay in the know!
         </p>
-        <div className="mock-carousel">
-          <img className="mock-carousel-img" src={TownHallImg} alt="student town hall" />
-          <p className="para-content">
-            Twice a semester, the YABC student community gathers together to build community with
-            each other, teachers, staff, and CBO staff. It&apos;s a way to unwInd and relax
-          </p>
+        <div className='carousel-wrapper'>
+        <Carousel showStatus={false} showArrows={true} showThumbs={false} infiniteLoop={true} width={'60%'}>
+          {StudentCornerCarouselImages.map(({ src, text }) => {
+            return (
+              <div key={text} className="img-wrapper">
+                <img className='carousel-img'src={src} alt={text} />
+                <p>{text}</p>
+              </div>
+            );
+          })}
+        </Carousel>
         </div>
       </StyledContentSection>
       <StyledContentSection id="school-library" className="school-library-section">

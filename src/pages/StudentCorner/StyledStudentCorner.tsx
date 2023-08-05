@@ -72,7 +72,7 @@ export default styled.main`
     font-size: clamp(1rem, 1.5vw, 2rem);
     letter-spacing: -0.05rem;
     margin: 0;
-    padding-top: 4px;
+    padding-top: 3px;
   }
   .resources-icon-wrapper {
     display: flex;
@@ -123,7 +123,7 @@ export default styled.main`
   .para-content {
     width: 80%;
   }
-  .mock-carousel {
+  /* .mock-carousel {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -132,7 +132,7 @@ export default styled.main`
     padding-top: 40px;
     width: 80%;
     border: 1px solid white;
-  }
+  } */
   .mock-carousel img {
     width: clamp(120px, 22vw, 509px);
     height: auto;
@@ -143,6 +143,32 @@ export default styled.main`
     line-height: 1.4;
     width: 65%;
   }
+  .carousel-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-basis: 50%;
+    width: 100%;
+    max-width: 70vw;
+    justify-self: center;
+  }
+  .carousel-root {
+    width: 70%;
+    min-width: 150px;
+    max-width: 700px;
+    display: flex;
+    justify-content: center;
+    .img-wrapper {
+      width: 100%;
+      padding-left: 20px;
+      padding-right: 20px;
+      margin-bottom: 50px;
+    }
+    p{
+      font-family: Inter-black;
+      font-size: clamp(1rem, 3vw, 1.5rem);
+    }
+  }
+
   .school-library-section img {
     border: 2px solid white;
   }

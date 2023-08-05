@@ -95,8 +95,8 @@ export default styled.main`
     font-size: clamp(1rem, 2vw, 1.5rem);
     text-align: center;
     background-color: black;
-    color: var(--main-bg);
-    border: 1px solid var(--main-bg);
+    color: white;
+    border: 1px solid white;
   }
   @media screen and (min-width: 700px) {
     .line-break {
@@ -122,10 +122,7 @@ export default styled.main`
       max-width: 500px;
       width: 55%;
     }
-    .carous {
-      .control-dots {
-      }
-    }
+   
   }
 `;
 //carousel styles

@@ -20,10 +20,10 @@ export default function About() {
   const currentCarousel = GRAD_CAROUSEL_YEARS.get(Number(carouselYear));
   const [selectedCarouselItem, setSelectedCarouselItem] = useState(0);
   //for SPA routing
-  // const location: Location = useLocation();
-  // useEffect(() => {
-  //   pageNavigationHandler('students-sitting-hero', location);
-  // }, [location]);
+  const location: Location = useLocation();
+  useEffect(() => {
+    pageNavigationHandler('students-sitting-hero', location);
+  }, [location]);
   return (
     <StyledAbout>
       <HeroImage id="students-sitting-hero" imgLink={AboutHero} text={[]} color="white" />
@@ -102,7 +102,7 @@ export default function About() {
         MEET OUR GRADUATES!
       </h2>
       <div className="carousel-wrapper">
-        <Carousel
+        {/* <Carousel
           className={"carous"}
           showStatus={false}
           showArrows={true}
@@ -119,7 +119,7 @@ export default function About() {
                 </div>
               );
             })}
-        </Carousel>
+        </Carousel> */}
       </div>
       <select
         onChange={(e) => {
