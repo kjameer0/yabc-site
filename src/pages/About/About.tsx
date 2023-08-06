@@ -102,7 +102,7 @@ export default function About() {
         MEET OUR GRADUATES!
       </h2>
       <div className="carousel-wrapper">
-        {/* <Carousel
+        <Carousel
           className={"carous"}
           showStatus={false}
           showArrows={true}
@@ -114,12 +114,12 @@ export default function About() {
           {currentCarousel &&
             currentCarousel.map((link, idx) => {
               return (
-                <div style={CarouselStyles} key={crypto.randomUUID()}>
+                <div style={CarouselStyles} key={idx}>
                   <img style={CarouselImgStyles} src={link} alt="Graduation carousel" />
                 </div>
               );
             })}
-        </Carousel> */}
+        </Carousel>
       </div>
       <select
         onChange={(e) => {
