@@ -144,6 +144,7 @@ export default styled.main`
     width: 65%;
   }
   .carousel-wrapper {
+    /* background: red; */
     display: flex;
     justify-content: center;
     flex-basis: 50%;
@@ -152,23 +153,26 @@ export default styled.main`
     justify-self: center;
   }
   .carousel-root {
-    width: 70%;
+    /* background: blue; */
+    width: 100%;
     min-width: 150px;
     max-width: 700px;
     display: flex;
     justify-content: center;
     .img-wrapper {
-      width: 100%;
+      position: relative;
+      left: 8%;
+      /* background: green; */
+      width: 84%;
       padding-left: 20px;
       padding-right: 20px;
       margin-bottom: 50px;
     }
-    p{
+    p {
       font-family: Inter-black;
       font-size: clamp(1rem, 3vw, 1.5rem);
     }
   }
-
   .school-library-section img {
     border: 2px solid white;
   }

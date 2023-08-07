@@ -147,15 +147,11 @@ export default styled.main`
     text-decoration: none;
     color: black;
   }
-  .shared-instruction a p {
-    font-size: clamp(0.25rem, 4vw, 0.75rem);
-  }
-  
+
   .faq-section a:hover {
     cursor: pointer;
     background-color: var(--main-bg);
   }
-
   @media screen and (min-width: 700px) {
     h1 {
       margin-bottom: 0;
@@ -187,14 +183,11 @@ export default styled.main`
       left: 12.5%;
     }
     .shared-instruction a {
-      font-size: clamp(.5rem, 4w, .9rem);
       left: 20%;
       display: block;
       width: 60%;
     }
     .shared-instruction a p {
-      white-space: unset;
-
       margin-left: 0;
       padding: 0;
     }
