@@ -6,7 +6,6 @@ export default styled.main`
     flex-wrap: wrap;
     justify-content: center;
   }
-
   .requirements-wrapper {
     display: flex;
     justify-content: center;
@@ -138,20 +137,20 @@ export default styled.main`
   }
   .shared-instruction a {
     position: relative;
-    left: 25%;
+    left: 10%;
     display: block;
     background-color: #e5fbb9;
     border: 2px solid black;
-    font-size: clamp(.75rem, 3vw, 1rem);
     min-height: 40px;
     margin: 25px 0;
-    width: 50%;
+    width: 80%;
     text-decoration: none;
     color: black;
   }
   .shared-instruction a p {
-    white-space: nowrap;
+    font-size: clamp(0.25rem, 4vw, 0.75rem);
   }
+  
   .faq-section a:hover {
     cursor: pointer;
     background-color: var(--main-bg);
@@ -173,7 +172,7 @@ export default styled.main`
       flex-wrap: wrap;
       justify-content: center;
     }
-    .admissions-info-section .para-content{
+    .admissions-info-section .para-content {
       flex-basis: 80%;
     }
     .requirements-wrapper {
@@ -186,6 +185,18 @@ export default styled.main`
       position: relative;
       width: 75%;
       left: 12.5%;
+    }
+    .shared-instruction a {
+      font-size: clamp(.5rem, 4w, .9rem);
+      left: 20%;
+      display: block;
+      width: 60%;
+    }
+    .shared-instruction a p {
+      white-space: unset;
+
+      margin-left: 0;
+      padding: 0;
     }
   }
 `;

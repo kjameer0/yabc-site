@@ -1,10 +1,14 @@
-import React from "react";
+//React
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+//routing
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import ReactDOM from "react-dom/client";
-import App from "./App";
-import "./index.css";
-import { ErrorPage } from "ErrorPage";
+//stlyes
+import './index.css';
 import { createGlobalStyle } from 'styled-components';
+//components
+import App from './App';
+import { ErrorPage } from 'ErrorPage';
 import {
   About,
   Admissions,
@@ -21,7 +25,9 @@ import {
   TeacherHub,
 } from './pages';
 import { baseUrl } from 'project-constants';
-
+//all paths
+//the paths go as far as the pages themselves
+//anchors within a page are handled by navbar and hashes
 const router = createBrowserRouter([
   {
     path: '',
@@ -44,14 +50,14 @@ const router = createBrowserRouter([
       },
       {
         path: baseUrl + 'counselor-contact-form',
-        element: <ContactForm version="counselor"/>,
+        element: <ContactForm version="counselor" />,
         errorElement: <ErrorPage />,
         children: [],
       },
       // ADD in props for contact forms!!!
       {
         path: baseUrl + 'site-administrator-contact-form',
-        element: <ContactForm version="admin"/>,
+        element: <ContactForm version="admin" />,
         errorElement: <ErrorPage />,
         children: [],
       },
