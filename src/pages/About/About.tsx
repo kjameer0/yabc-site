@@ -6,8 +6,7 @@ import { AboutHero } from 'assets/images/Hero-Images';
 import StyledAbout, { CarouselImgStyles, CarouselStyles } from './StyledAbout';
 import HeroImage from 'components/HeroImage';
 import { StyledContentSection } from 'components/ContentSection';
-import StyledMainButton from 'components/MainButton';
-import { Carousel, CarouselProps } from 'react-responsive-carousel';
+import { Carousel } from 'react-responsive-carousel';
 //utils
 import { pageNavigationHandler } from 'pages/pages-utils';
 //data
@@ -17,6 +16,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css'; // Import the ca
 
 export default function About() {
   const [carouselYear, setCarouselYear] = useState('2023');
+  //hashmap that has every years pictures by year
   const currentCarousel = GRAD_CAROUSEL_YEARS.get(Number(carouselYear));
   const [selectedCarouselItem, setSelectedCarouselItem] = useState(0);
   //for SPA routing
@@ -66,7 +66,7 @@ export default function About() {
         <h2 className="major-heading">ARE WE A FIT FOR YOU?</h2>
         <h3 className="sub-heading good-fit-h3">
           PROVIDING EDUCATION THAT
-          <br className="line-break" /> TRANSFORMS LIVES
+          <br className="line-break" />TRANSFORMS LIVES
         </h3>
         <StyledContentSection className="requirements" id="eligibility-requirements">
           <h4 className="requirements-h4 sub-heading">To be eligible, you should:</h4>
@@ -103,7 +103,6 @@ export default function About() {
       </h2>
       <div className="carousel-wrapper">
         <Carousel
-          className={"carous"}
           showStatus={false}
           showArrows={true}
           showThumbs={false}

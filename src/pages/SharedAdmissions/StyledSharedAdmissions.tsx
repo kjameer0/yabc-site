@@ -5,7 +5,6 @@ export default styled.main`
   flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
-
   .enroll-section {
     display: flex;
     flex-direction: column;

@@ -1,11 +1,8 @@
 import StyledDrawer from './StyledDrawer';
 //components
-import { baseUrl } from 'project-constants';
-import { MainLogo } from 'assets/images';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import NavLinkList from 'components/NavLinkList';
-import { MissionLogo } from 'assets/images/Logos';
 //data
 import {
   aboutPaths,
@@ -17,7 +14,9 @@ import {
   missionPaths,
   DrawerProps,
 } from 'components/NavBar/utils-NavBar';
-
+//Notice: There are two types of clickables here:
+//links that navigate to url
+//buttons that open sub menus
 export default function Drawer({ open, setOpen }: DrawerProps) {
   const [activeList, setActiveList] = useState('');
   const navigate = useNavigate();

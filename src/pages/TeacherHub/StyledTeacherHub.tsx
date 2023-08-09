@@ -5,6 +5,7 @@ export default styled.main`
     font-family: hind-guntur-bold, sans-serif;
   }
   .expectation-list-wrapper {
+    display: block;
   }
   .expectations-list p::before {
     content: '●';
@@ -32,8 +33,10 @@ export default styled.main`
     .expectation-list-wrapper {
       display: flex;
     }
+    /* buttons on screen changed to be two per row
+    instead of one column*/
+
     .resource-button-wrapper {
-      display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: space-evenly;

@@ -123,16 +123,7 @@ export default styled.main`
   .para-content {
     width: 80%;
   }
-  /* .mock-carousel {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-self: center;
-    justify-self: center;
-    padding-top: 40px;
-    width: 80%;
-    border: 1px solid white;
-  } */
+
   .mock-carousel img {
     width: clamp(120px, 22vw, 509px);
     height: auto;
@@ -144,7 +135,6 @@ export default styled.main`
     width: 65%;
   }
   .carousel-wrapper {
-    /* background: red; */
     display: flex;
     justify-content: center;
     flex-basis: 50%;
@@ -153,7 +143,6 @@ export default styled.main`
     justify-self: center;
   }
   .carousel-root {
-    /* background: blue; */
     width: 100%;
     min-width: 150px;
     max-width: 700px;
@@ -162,7 +151,6 @@ export default styled.main`
     .img-wrapper {
       position: relative;
       left: 8%;
-      /* background: green; */
       width: 84%;
       padding-left: 20px;
       padding-right: 20px;

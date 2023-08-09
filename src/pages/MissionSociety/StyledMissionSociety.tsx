@@ -4,10 +4,12 @@ export default styled.main`
   #learn-to-work-hero, #services-hero {
     height: clamp(180px, 6vw, 300px);
   }
+  /* overwrite default word styles of hero image */
   #learn-to-work-hero .single-word, #services-hero .single-word {
     font-family: Inter-bold;
     font-size: clamp(1rem, 3vw, 2.5rem);
   }
+  /* these styles dont affect the first three words */
   #learn-to-work-hero .words-wrapper p:nth-child(n+3) {
     margin-top: 14px;
     font-size: clamp(.75rem, 2.5vw, 1rem);
@@ -48,6 +50,7 @@ export default styled.main`
     width: 60%;
     flex-basis: 60%;
   }
+  /* custom bullet point */
   .service-list-li::before {
     content: '●';
     margin-right: 5px;

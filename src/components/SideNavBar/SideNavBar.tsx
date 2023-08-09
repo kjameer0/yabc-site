@@ -1,6 +1,6 @@
 import StyledSideNavBar from "./StyledSideNavBar";
 import { MainLogo } from 'assets/images';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import NavLinkList from 'components/NavLinkList';
 import { MissionLogo } from "assets/images/Logos";
@@ -8,9 +8,12 @@ import { MissionLogo } from "assets/images/Logos";
 import { aboutPaths, staffPaths, admissionsPaths, studentCornerPaths, teacherHubPaths, parentsFamiliesPaths, missionPaths } from 'components/NavBar/utils-NavBar';
 
 export default function SideNavBar() {
+  // controls which list of sub anchors is being shown
   const [activeList, setActiveList] = useState('');
   const navigate = useNavigate();
+  //change active list of links
   function handleCategoryClick(evt: React.MouseEvent<HTMLButtonElement>) {
+    //clicking already active list closes the open menu
     if (activeList === evt.currentTarget.value) {
       setActiveList('');
     } else setActiveList(evt.currentTarget.value);
@@ -51,6 +54,7 @@ export default function SideNavBar() {
             <button onClick={handleCategoryClick} id="admissions-button" value={'admissions'}>
               ADMISSIONS
             </button>
+            {/* if active list is this item, render its link */}
             {activeList === 'admissions' && <NavLinkList list={admissionsPaths} />}
           </li>
           <li className="category">

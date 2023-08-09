@@ -16,7 +16,7 @@ export default styled.main`
     flex-wrap: wrap;
     justify-content: center;
   }
-
+  /* put list number right next to text */
   ol li::before {
     content: counter(count, decimal) '.';
     margin-right: 4px;
@@ -25,8 +25,9 @@ export default styled.main`
     counter-increment: count 1;
     padding-left: 0 !important;
     width: 80%;
-    /* border: 1px solid green; */
   }
+  /* the button classes here are for links that
+  look like button */
   .involvement-button-wrapper {
     width: 100%;
     justify-content: center;
@@ -61,6 +62,7 @@ export default styled.main`
     flex-basis: 100%;
     margin-top: 20px;
   }
+  /* individual icon */
   .resources-icon-button {
     height: clamp(46px, 8vw, 130px);
     color: white;
@@ -68,7 +70,6 @@ export default styled.main`
     border: 1px solid white;
     width: 80%;
   }
-
   .icon-button-text {
     margin: 0;
     font-size: clamp(0.75rem, 2vw, 1.3rem);
@@ -85,10 +86,12 @@ export default styled.main`
       flex-wrap: wrap;
       justify-content: space-evenly;
     }
+    /* 40% flex gets 2 containers per row */
     .resources-icon-wrapper {
       flex-basis: 40%;
       min-height: 232px;
     }
+    /* enforce height of icons in family resources */
     .resource-icon {
       height: 135px;
     }

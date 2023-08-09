@@ -42,8 +42,9 @@ export default function SharedAdmissions() {
           Irving YABC. Home schools, students, and families are encouraged to look for alternatives
           should this YABC be unable to meet their request.
         </p>
+        {/* That extra whitespace below is necessary */}
         <p className="para-content">
-          Interested in learning more about Washington Irving YABC? We invite you to attend our{' '}
+          Interested in learning more about Washington Irving YABC? We invite you to attend our {' '}
           <NavLink className={'para-link'} to="/about">Open House.</NavLink> However, you can get in touch with questions
           about our values, academics, community and more at any time by using the Contact US form.
         </p>

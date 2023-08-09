@@ -1,7 +1,11 @@
+//components
 import NavBar from 'components/NavBar';
 import SideNavBar from 'components/SideNavBar';
 import Footer from 'components/Footer';
 import { Outlet } from 'react-router-dom';
+
+//nav bar is for mobile view and side nav bar is for desktop/tablet
+//the <Outlet /> replaces the <main> tag on screen with the current page 
 function App() {
   return (
     <>

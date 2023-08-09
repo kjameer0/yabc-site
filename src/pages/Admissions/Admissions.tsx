@@ -7,7 +7,6 @@ import { FillableY1Form, FillableY2Form } from 'assets/images/Forms';
 import StyledAdmissions from './StyledAdmissions';
 import HeroImage from 'components/HeroImage';
 import { StyledContentSection } from 'components/ContentSection';
-import StyledMainButton from 'components/MainButton';
 //images
 import { AdmissionsHero } from 'assets/images/Hero-Images';
 //utils
@@ -44,8 +43,10 @@ export default function Admissions() {
       </StyledContentSection>
       <div className="requirements-wrapper">
         <StyledContentSection className="requirements" id="academic-requirements">
+          <header>
           <h3 className="requirements-h3">ACADEMIC REQUIREMENTS</h3>
-          <h4 className="requirements-h4">To be eligible for Full Time, a student should:</h4>
+          <p className="requirements-sub">To be eligible for Full Time, a student should:</p>
+          </header>
           <ul className="requirements-ul">
             <li className="para-content">Be 17.5-21 years old</li>
             <li className="para-content">

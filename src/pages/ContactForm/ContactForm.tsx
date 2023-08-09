@@ -9,7 +9,8 @@ import StyledMainButton from 'components/MainButton';
 import { AdmissionsHero } from 'assets/images/Hero-Images';
 //utils
 import { pageNavigationHandler } from 'pages/pages-utils';
-
+//endpoints depend on which form is being rendered
+//see routes in main.tsx for prop passing
 const COUNSELOR_FORM_ENDPOINT =
   'https://public.herotofu.com/v1/1bd822b0-27fe-11ee-adc8-15d0255d3cef';
 const SITE_ADMIN_FORM_ENDPOINT =
@@ -70,7 +71,6 @@ export function useContactForm(
       .then(() => setStatus("We'll be in touch soon."))
       .catch((err) => setStatus(err.toString()));
   };
-
   return { status, handleFormSubmit };
 }
 export default function ContactForm({ version }: { version: 'counselor' | 'admin' }) {

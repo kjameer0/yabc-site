@@ -8,6 +8,7 @@ export default styled.nav`
   background-color: var(--main-bg);
   height: 100vh;
   width: clamp(200px, 20vw, 255px);
+  /* logo wrapper */
   .img-wrapper {
     background: black;
     margin-bottom: 5px;
@@ -22,6 +23,7 @@ export default styled.nav`
     padding-left: 0;
     padding-bottom: 6px;
   }
+  //individual li item of link category
   .category {
     width: 100%;
   }
@@ -48,6 +50,7 @@ export default styled.nav`
   .nav-anchor .link-button {
     background: #bad87f;
   }
+  /* any individual list of links under each category */
   ul ul {
     list-style: none;
     text-align: right;
@@ -73,6 +76,7 @@ export default styled.nav`
   }
 
   @media screen and (min-width: 700px) {
+    /* toggle existence  */
     display: block;
   }
 `;

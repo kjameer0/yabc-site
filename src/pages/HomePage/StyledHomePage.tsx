@@ -6,6 +6,7 @@ export default styled.main`
     font-family: Inter-regular, sans-serif;
     font-size: clamp(1rem, 3vw, 2rem);
   }
+  /* wrapper for information containers */
   .info-box {
     color: rgb(0, 0, 0);
     margin-bottom: 10px;
@@ -15,7 +16,7 @@ export default styled.main`
     font-family: Inter-regular;
     margin: 0;
   }
-  .info-box b {
+  .info-box strong {
     font-family: Inter-bold;
   }
   .info-box .sub-heading {
@@ -34,6 +35,7 @@ export default styled.main`
   .registration-range {
     letter-spacing: -0.05rem;
   }
+  /* generic wrapper for asides */
   .our-wrapper {
     width: 75%;
   }
@@ -147,7 +149,6 @@ export default styled.main`
       align-self: center;
       order: 2;
       height: auto;
-      /* float: right; */
     }
   }
 `;

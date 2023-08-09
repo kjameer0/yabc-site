@@ -3,6 +3,8 @@ import Images_2021 from './2021 Grads';
 import Images_2022 from './2022 Grads';
 import Images_2023 from './2023 Grads';
 import StudentCornerCarouselImages from './STUDENT CORNER - EVENTS';
+//imported images by year put into hashmap
+//that can retrieve image paths by year
 export const GRAD_CAROUSEL_YEARS = new Map([
   [2020, Images_2020],
   [2021, Images_2021],

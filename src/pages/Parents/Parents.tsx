@@ -6,7 +6,6 @@ import { VoteIcon, MealIcon, MentalIcon, ChildrenIcon, HeartIcon } from "assets/
 //components
 import { StyledContentSection } from "components/ContentSection";
 import { useLocation, NavLink, Location } from 'react-router-dom';
-import StyledMainButton from 'components/MainButton';
 //utils
 import { pageNavigationHandler } from 'pages/pages-utils';
 export default function Parents() {
@@ -33,7 +32,7 @@ export default function Parents() {
             Please communicate with YABC and teachers whenever you have a question or concern.
           </li>
           <li className="parent-tip-li para-content">
-            Encourage your student to complete their assignmnets on time.
+            Encourage your student to complete their assignments on time.
           </li>
         </ol>
       </StyledContentSection>
@@ -72,7 +71,7 @@ export default function Parents() {
                 target="_blank"
                 rel={'noreferrer'}
               >
-               <p> GRAB AND GO MEALS</p>
+               <p>GRAB AND GO MEALS</p>
               </a>
           </div>
           <div className="resources-icon-wrapper">

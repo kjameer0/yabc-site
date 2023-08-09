@@ -7,7 +7,6 @@ import { MissionSocietyHero } from 'assets/images/Hero-Images';
 import { LearnToWorkHero, ServicesHero } from 'assets/images/MISSION-SOCIETY-PAGE-IMAGES';
 //components
 import { StyledContentSection } from 'components/ContentSection';
-import StyledMainButton from 'components/MainButton';
 import HeroImage from 'components/HeroImage';
 //utils
 import { pageNavigationHandler } from 'pages/pages-utils';

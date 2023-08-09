@@ -24,6 +24,7 @@ import {
   StudentCorner,
   TeacherHub,
 } from './pages';
+//constants
 import { baseUrl } from 'project-constants';
 //all paths
 //the paths go as far as the pages themselves
@@ -233,6 +234,7 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
     font-family: Inria-serif-bold-italic;
     font-size: clamp(1.1rem, 2vw, 1.6rem);
   }
+  //all links styled to look like buttons
   .navlink {
     text-decoration: none;
     display: block;
@@ -249,13 +251,13 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
     background-color: white;
     color: black;
   }
-
   .logo {
     margin-top: 40px;
     margin-bottom: 20px;
     max-width: 174px;
     height: auto;
   }
+  //banner pinned to top of screen
   .banner-wrapper {
     position: fixed;
     width: 100vw;
@@ -266,6 +268,7 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
     z-index: 2;
     background: var(--main-bg);
   }
+  //spans that contain top banner text
   .banner {
     font-family: hind-guntur-semibold, sans-serif;
     position: relative;
@@ -292,6 +295,8 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
     }
   }
   @media screen and (min-width: 700px) {
+    //prevent horizontal scroll when container size might exceed
+    //100vw
     #root {
       justify-content: flex-start;
       overflow-x: hidden;
@@ -300,6 +305,8 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
       margin-left: 20px;
       margin-right: 20px;
     }
+    //-150px keeps main content from touching nav bar
+    //left pushes it away from left side of root container
     main {
       position: relative;
       margin-top: 35px;

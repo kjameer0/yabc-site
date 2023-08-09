@@ -8,6 +8,7 @@ export default styled.main`
     background-color: var(--main-bg);
     height: 1px;
   }
+  /* line rule break */
   .link-line-break {
     margin-bottom: 1.5vw;
   }
@@ -29,6 +30,7 @@ export default styled.main`
     font-family: hind-guntur-bold;
     font-size: clamp(1rem, 3vw, 1.5rem);
   }
+  /* are we a fit */
   .good-fit-section .major-heading {
     margin-bottom: 2px;
   }
@@ -37,6 +39,7 @@ export default styled.main`
     font-size: clamp(1rem, 3vw, 1.5rem);
     color: var(--main-bg);
   }
+  /* requirements for good fit section */
   .requirements {
     display: flex;
     flex-direction: column;
@@ -77,6 +80,7 @@ export default styled.main`
       width: 80%;
       margin-bottom: 70px;
     }
+    /* the dots that show which picture we're looking at*/
     .control-dots {
       left: 10%;
       width: 80%;
@@ -88,6 +92,7 @@ export default styled.main`
       }
     }
   }
+  /* select menu for carousel*/
   .year-select {
     margin-top: 40px;
     padding: 4px;
@@ -122,7 +127,7 @@ export default styled.main`
       max-width: 500px;
       width: 55%;
     }
-   
+
   }
 `;
 //carousel styles

@@ -15,6 +15,7 @@ export default function NavBar() {
   const [isTransparent, setIsTransparent] = useState(false);
   const [show, setShow] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  // the nav bar should disappear when scrolling
   const controlNavbar = () => {
     if (typeof window !== 'undefined') {
       const currentYPos = window.scrollY;
@@ -31,6 +32,7 @@ export default function NavBar() {
     }
   };
   useEffect(() => {
+    //add scroll to disappear nav bar event to window
     if (typeof window !== 'undefined') {
       window.addEventListener('scroll', controlNavbar);
       // cleanup function
@@ -44,7 +46,9 @@ export default function NavBar() {
     window.addEventListener(
       'click',
       function clickOff() {
+        //make sure a click anywhere on the window shuts the drawer
         if (open !== '') setOpen('close');
+        //prevent the same event from being added to event listeners
         window.removeEventListener('click', clickOff, false);
       },
       false

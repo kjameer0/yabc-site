@@ -4,8 +4,6 @@ import StyledCounselorCorner from './StyledCounselorCorner';
 //components
 import HeroImage from 'components/HeroImage';
 import { StyledContentSection } from 'components/ContentSection';
-import StyledMainButton from 'components/MainButton';
-
 //images
 import { CounselorCornerHero } from 'assets/images/Hero-Images';
 import { RemoteLearningImg } from 'assets/images/Counselor-Corner-images';

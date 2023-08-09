@@ -6,6 +6,7 @@ export default styled.main`
     flex-wrap: wrap;
     justify-content: center;
   }
+  /* wraps entire requirements section */
   .requirements-wrapper {
     display: flex;
     justify-content: center;
@@ -25,7 +26,7 @@ export default styled.main`
     margin: 5px;
     margin-bottom: 15px;
   }
-  .requirements-h4 {
+  .requirements-sub {
     font-size: clamp(1rem, 3vw, 1.5rem);
     font-family: Inter-bold;
     margin-bottom: 0;
@@ -38,12 +39,13 @@ export default styled.main`
     padding: 0;
   }
   .requirements-ul li::before {
+    /* custom bullet point */
     content: '●';
     margin-right: 5px;
   }
   .requirements p {
     margin-top: 0;
-    font-family: inter-bold;
+    font-family: Inter-bold;
     font-size: clamp(1rem, 2vw, 1.4rem);
   }
   .green-separator {

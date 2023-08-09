@@ -1,5 +1,5 @@
 import StyledStaffImage from "./StyledStaffImage";
-
+//all data associated with individual staff member
 export interface StaffImageType {
   direction: 'left' | 'right';
   imgLink: string;

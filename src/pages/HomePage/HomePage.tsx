@@ -25,10 +25,10 @@ export default function HomePage() {
           <u>PRE-REGISTRATION FOR FALL CLASSES</u>
         </h2>
         <p className="reg-date">
-          <b>START:</b> MONDAY, AUGUST 21
+          <strong>START:</strong> MONDAY, AUGUST 21
         </p>
         <p className="reg-date">
-          <b>END:</b> MONDAY, SEPTEMBER 5
+          <strong>END:</strong> MONDAY, SEPTEMBER 5
         </p>
       </div>
       <div className="class-start-box info-box restore-margin">

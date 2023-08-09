@@ -6,7 +6,6 @@ import { TeacherInfluenceImg } from 'assets/images/Teacher-Hub-Images';
 import { TimesheetDownload, StaffHanbook } from 'assets/images/Forms';
 //components
 import StyledTeacherHub from './StyledTeacherHub';
-import StyledMainButton from 'components/MainButton';
 import { StyledContentSection } from 'components/ContentSection';
 //utils
 import { pageNavigationHandler } from 'pages/pages-utils';
@@ -65,7 +64,7 @@ export default function TeacherHub() {
             rel="noreferrer"
             href="https://sesis.nycenet.edu/userlogin.aspx"
           >
-            <p> SESIS</p>
+            <p>SESIS</p>
           </a>
           <a
             className="navlink"
@@ -73,7 +72,7 @@ export default function TeacherHub() {
             rel="noreferrer"
             href="https://www.schools.nyc.gov/employees"
           >
-            <p> NYC INFOHUB</p>
+            <p>NYC INFOHUB</p>
           </a>
           <a
             className="navlink"
@@ -81,7 +80,7 @@ export default function TeacherHub() {
             rel="noreferrer"
             href="https://payrollportal.nycboe.net/"
           >
-            <p> PAYROLL PORTAL</p>
+            <p>PAYROLL PORTAL</p>
           </a>
           <a
             className="navlink"
@@ -90,10 +89,10 @@ export default function TeacherHub() {
             download="per-session-timesheet"
             href={TimesheetDownload}
           >
-            <p> FILLABLE PER SESSION TIMESHEET</p>
+            <p>FILLABLE PER SESSION TIMESHEET</p>
           </a>
           <a className="navlink" target="_blank" rel="noreferrer" href={StaffHanbook}>
-            <p> STAFF HANDBOOK</p>
+            <p>STAFF HANDBOOK</p>
           </a>
         </div>
       </StyledContentSection>
