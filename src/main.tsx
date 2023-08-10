@@ -118,54 +118,67 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
 @font-face {
   font-family: Inter-bold;
   src: url('/fonts/Inter/static/Inter-Bold.ttf');
+  font-display: swap;
 }
 @font-face {
   font-family: Inter-black;
   src: url('/fonts/Inter/static/Inter-Black.ttf');
+  font-display: swap;
 }
 @font-face {
   font-family: Inter-extra-bold;
   src: url('/fonts/Inter/static/Inter-ExtraBold.ttf');
+  font-display: swap;
 }
 @font-face {
   font-family: Inter-semi-bold;
   src: url('/fonts/Inter/static/Inter-SemiBold.ttf');
+  font-display: swap;
 }
 @font-face {
   font-family: Inter-regular;
   src: url('/fonts/Inter/static/Inter-Regular.ttf');
+  font-display: swap;
 }
 @font-face {
   font-family: Inria-serif-light;
   src: url('/fonts/Inria_Serif/InriaSerif-Light.ttf');
+  font-display: swap;
 }
 @font-face {
   font-family: Inria-serif-light-italic;
   src: url('/fonts/Inria_Serif/InriaSerif-LightItalic.ttf');
+  font-display: swap;
 }
 @font-face {
   font-family: Inria-serif-bold-italic;
   src: url('/fonts/Inria_Serif/InriaSerif-BoldItalic.ttf');
+  font-display: swap;
 }
 @font-face {
   font-family: hind-guntur-light;
   src: url('/fonts/Hind_Guntur/HindGuntur-Light.ttf');
+  font-display: swap;
 }
 @font-face {
   font-family: hind-guntur-regular;
   src: url('/fonts/Hind_Guntur/HindGuntur-Regular.ttf');
+  font-display: swap;
 }
 @font-face {
   font-family: hind-guntur-bold;
   src: url('/fonts/Hind_Guntur/HindGuntur-Bold.ttf');
+  font-display: swap;
 }
 @font-face {
   font-family: hind-guntur-semibold;
   src: url('/fonts/Hind_Guntur/HindGuntur-SemiBold.ttf');
+  font-display: swap;
 }
 @font-face {
   font-family: hind-guntur-medium;
   src: url('/fonts/Hind_Guntur/HindGuntur-Medium.ttf');
+  font-display: swap;
 }
   :root {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
