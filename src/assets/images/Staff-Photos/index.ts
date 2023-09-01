@@ -9,14 +9,12 @@ import BrownWhetstoneImg from './elizabeth_brown-whetstone.webp';
 import WadeImg from './Kelly-Wade_edited.webp';
 import TracyKarasImg from './Tracy.webp';
 import LeeImg from './lee.webp';
-import MatelusImg from './matelus.webp';
 import McLaughlinImg from './mclaughlin.webp';
 import MorelGrantImg from './Morel-Grant.webp';
 import RiveraImg from './mr_rivera.webp';
 import DavidImg from './Ms_David.webp';
 import RamosImg from './ramos.webp';
 import SabadiquaImg from './sabadiqua.webp';
-import SanJorgeImg from './sanjorge.webp';
 import StephanieMullingsImg from './Stephanie-Mullings.webp';
 import SiosonImg from './sioson.webp';
 import StachaLeeImg from './Stacha_Lee.webp';
@@ -63,10 +61,10 @@ export const schoolCounselorList: StaffInfoType[] = [
     imgLink: ToomeyImg,
   },
   {
-    name: 'Ms. A San Jorge',
-    email: 'asanjorge' + emailDomain,
+    name: 'Mr. N Tahmid',
+    email: 'tnazrul' + emailDomain,
     role: 'Guidance Counselor',
-    imgLink: SanJorgeImg,
+    imgLink: DefaultTeacherIcon,
   },
 ];
 export const missionSocietyList: StaffInfoType[] = [
@@ -105,11 +103,7 @@ export const yabcStaffList: StaffInfoType[] = [
     role: 'Social Studies',
     imgLink: WeberImg,
   },
-  {
-    name: 'Mr. J Matelus',
-    role: 'Dean',
-    imgLink: MatelusImg,
-  },
+ 
   {
     name: 'Ms. R Bray',
     role: 'Piano Teacher/ELA Electives',
