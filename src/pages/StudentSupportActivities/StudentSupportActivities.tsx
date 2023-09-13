@@ -1,7 +1,7 @@
 //react
 import { Location, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
-import StyledMissionSociety from './StyledMissionSociety';
+import StyledMissionSociety from './StyledStudentSupportActivities';
 //images
 import { MissionSocietyHero } from 'assets/images/Hero-Images';
 import { LearnToWorkHero, ServicesHero } from 'assets/images/MISSION-SOCIETY-PAGE-IMAGES';
@@ -10,7 +10,7 @@ import { StyledContentSection } from 'components/ContentSection';
 import HeroImage from 'components/HeroImage';
 //utils
 import { pageNavigationHandler } from 'pages/pages-utils';
-export default function MissionSociety() {
+export default function StudentSupportCenter() {
   const location: Location = useLocation();
   useEffect(() => {
     pageNavigationHandler('mission-society-hero', location);

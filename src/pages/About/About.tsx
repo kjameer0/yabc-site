@@ -29,18 +29,19 @@ export default function About() {
       <HeroImage id="students-sitting-hero" imgLink={AboutHero} text={[]} color="white" />
       <h1 className="major-heading">ATTEND AN OPEN HOUSE</h1>
       <StyledContentSection className="attend-info">
-        <h2 className="attend-info-h2">PRE-REGISTRATION</h2>
-        <p className="para-content">
-          All students that pre-register must come in person with a parent or guardian to complete
-          their registration and orientation.
-        </p>
         <h2 className="attend-info-h2">REGISTRATION</h2>
+        <p className="para-content">
+          All students that register must come in person with a parent or guardian to complete their
+          registration and orientation.
+        </p>
+        {/* <h2 className="attend-info-h2">REGISTRATION</h2> */}
         <p className="attend-info-h2">
-          Students are required to come in with a parent or guardian for registration.
+          Students are required to come in with a parent or guardian for registration for a
+          mandatory orientation and then register.
         </p>
         <p className="para-content">
-          Begins August 21st through September 2023. We will be in the Library on the first floor at
-          Washington Irving Campus 40 Irving Place, New York, NY 10003.
+          Registration is ongoing. We will be in the Library on the first floor at Washington Irving
+          Campus 40 Irving Place, New York, NY 10003.
         </p>
         <h2 className="attend-info-h2">Zoom Meeting ID</h2>
         <p className="para-content">
@@ -66,7 +67,8 @@ export default function About() {
         <h2 className="major-heading">ARE WE A FIT FOR YOU?</h2>
         <h3 className="sub-heading good-fit-h3">
           PROVIDING EDUCATION THAT
-          <br className="line-break" />TRANSFORMS LIVES
+          <br className="line-break" />
+          TRANSFORMS LIVES
         </h3>
         <StyledContentSection className="requirements" id="eligibility-requirements">
           <h4 className="requirements-h4 sub-heading">To be eligible, you should:</h4>

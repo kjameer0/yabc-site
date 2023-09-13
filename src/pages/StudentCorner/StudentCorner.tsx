@@ -21,8 +21,8 @@ export default function StudentCorner() {
     <StyledStudentCorner id="student-corner">
       <h1 className="major-heading">STUDENT&apos;S CORNER</h1>
       <div className="reminder-wrapper">
-        <StyledContentSection className="remote-learning-section" id="remote-learning-tips">
-          <h2 className="sub-heading">REMOTE LEARNING TIPS</h2>
+        <StyledContentSection className="learning-section" id="learning-tips">
+          <h2 className="sub-heading">LEARNING TIPS</h2>
           <img src={RemoteLearningStudentsIcon} alt="remote learning tips for students" />
         </StyledContentSection>
       </div>

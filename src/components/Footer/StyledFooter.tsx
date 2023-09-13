@@ -20,7 +20,7 @@ export default styled.footer`
     width: 100%;
     height: 40px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
   }
   .address-p {
     font-family: Inter-semi-bold;

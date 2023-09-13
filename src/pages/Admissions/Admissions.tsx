@@ -44,8 +44,8 @@ export default function Admissions() {
       <div className="requirements-wrapper">
         <StyledContentSection className="requirements" id="academic-requirements">
           <header>
-          <h3 className="requirements-h3">ACADEMIC REQUIREMENTS</h3>
-          <p className="requirements-sub">To be eligible for Full Time, a student should:</p>
+            <h3 className="requirements-h3">ACADEMIC REQUIREMENTS</h3>
+            <p className="requirements-sub">To be eligible for Full Time, a student should:</p>
           </header>
           <ul className="requirements-ul">
             <li className="para-content">Be 17.5-21 years old</li>
@@ -85,7 +85,7 @@ export default function Admissions() {
           <li className="para-content">Up-to-date IEP or 504 Documents (if applicable)</li>
         </ul>
         <p className="para-content">
-          Application materials may be submitted to <u>amclaughlin2@schools.nyc.gov</u>.
+          Application materials should be attached to the counselor referral form below.
         </p>
         <p className="enroll-step-bold-p">
           If you do not understand the enrollment process, please contact us and someone will
@@ -120,18 +120,25 @@ export default function Admissions() {
           <li className="para-content">school rules form</li>
         </ul>
         <p className="enroll-step-bold-p">
-          Students wishing to work with the Mission Society of NYC must complete all online waivers
-          found on the Mission Society of NYC tab.
+          Students wishing to do internships must complete all forms and waivers in{' '}
+          <NavLink to="/mission-society-of-new-york/#forms">student support activities.</NavLink>
         </p>
       </StyledContentSection>
       <div className="y-forms">
-        <a className="navlink" target='_blank' rel='noreferrer' href={"https://docs.google.com/forms/d/e/1FAIpQLSeKpoGEg-Uwg3zh4BVKIn9KhoCRm0V-yssN7B_1z7kPmEvwlQ/viewform"}>
+        <a
+          className="navlink"
+          target="_blank"
+          rel="noreferrer"
+          href={
+            'https://docs.google.com/forms/d/e/1FAIpQLSeKpoGEg-Uwg3zh4BVKIn9KhoCRm0V-yssN7B_1z7kPmEvwlQ/viewform'
+          }
+        >
           COUNSELOR REFERRAL FORM
         </a>
-        <a className="navlink" download='Fillable-y1-form' href={FillableY1Form}>
+        <a className="navlink" download="Fillable-y1-form" href={FillableY1Form}>
           FILLABLE Y1 FORM DOWNLOAD
         </a>
-        <a className="navlink" download='Fillable-y2-form' href={FillableY2Form}>
+        <a className="navlink" download="Fillable-y2-form" href={FillableY2Form}>
           FILLABLE Y2 FORM DOWNLOAD
         </a>
       </div>
@@ -171,9 +178,9 @@ export default function Admissions() {
             affiliated schools after shared instruction has ended. Shared instruction also means
             shared responsibility.
           </p>
-            <NavLink to="/shared-admissions/#how-to-enroll">
-              <p>LEARN HOW TO ENROLL IN SHARED INSTRUCTION</p>
-            </NavLink>
+          <NavLink to="/shared-admissions/#how-to-enroll">
+            <p>LEARN HOW TO ENROLL IN SHARED INSTRUCTION</p>
+          </NavLink>
         </section>
       </StyledContentSection>
     </StyledAdmissions>

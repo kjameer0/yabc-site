@@ -22,24 +22,25 @@ export default function HomePage() {
       <h1 className="major-heading restore-margin">WASHINGTON IRVING YABC</h1>
       <div className="pre-reg-box info-box restore-margin">
         <h2 className="sub-heading">
-          <u>PRE-REGISTRATION FOR FALL CLASSES</u>
+          <u>REGISTRATION INFORMATION</u>
         </h2>
-        <p className="reg-date">
-          <strong>START:</strong> MONDAY, AUGUST 21
-        </p>
-        <p className="reg-date">
-          <strong>END:</strong> MONDAY, SEPTEMBER 5
-        </p>
+        <p className="reg-date">REGISTRATION IS ONGOING</p>
+        <p className="reg-date"></p>
       </div>
       <div className="class-start-box info-box restore-margin">
         <h2 className="sub-heading">
-          <u>FALL CLASSES BEGIN</u>
+          <u>REGISRATION LOCATION</u>
         </h2>
-        <p className="reg-date">THURSDAY, SEPTEMBER 7</p>
+        <p className="reg-date">
+          {' '}
+          Registration takes place in the Washington Irving YABC library Monday-Thursday from 4PM to
+          7PM and Friday from 3PM-6PM.
+        </p>
       </div>
       <StyledContentSection className="registration-date-section">
         <p className="registration-range smaller-med-heading">
-          In-Person Registration for Fall Classes will begin September 7th
+          For registration students must come with a parent or guardian to a mandatory orientation
+          after which registration will take place.
         </p>
         <p className="para-content">
           On behalf of the YABC Program Community at the Washington Irving Campus, we extend a warm

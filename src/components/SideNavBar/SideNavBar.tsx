@@ -3,9 +3,17 @@ import { MainLogo } from 'assets/images';
 import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import NavLinkList from 'components/NavLinkList';
-import { MissionLogo } from "assets/images/Logos";
+// import { MissionLogo } from "assets/images/Logos";
 //data
-import { aboutPaths, staffPaths, admissionsPaths, studentCornerPaths, teacherHubPaths, parentsFamiliesPaths, missionPaths } from 'components/NavBar/utils-NavBar';
+import {
+  aboutPaths,
+  staffPaths,
+  admissionsPaths,
+  studentCornerPaths,
+  teacherHubPaths,
+  parentsFamiliesPaths,
+  studentSupportPaths,
+} from 'components/NavBar/utils-NavBar';
 
 export default function SideNavBar() {
   // controls which list of sub anchors is being shown
@@ -86,10 +94,10 @@ export default function SideNavBar() {
             {activeList === 'teacher-hub' && <NavLinkList list={teacherHubPaths} />}
           </li>
           <li className="category">
-            <button onClick={handleCategoryClick} value={'mission-society-of-new-york'}>
-              MISSION SOCIETY OF NYC
+            <button onClick={handleCategoryClick} value={'student-support-activities'}>
+              STUDENT SUPPORT ACTIVITIES
             </button>
-            {activeList === 'mission-society-of-new-york' && <NavLinkList list={missionPaths} />}
+            {activeList === 'student-support-activities' && <NavLinkList list={studentSupportPaths} />}
           </li>
           <li className="category">
             <button
@@ -104,7 +112,6 @@ export default function SideNavBar() {
         </ul>
       </nav>
       <div className="mission-logo-container">
-        <img src={MissionLogo} alt="Mission Society of New Yorks" />
         <p className="address-p">
           Washington Irving YABC <br /> 40 Irving Place NY, NY 10003
         </p>

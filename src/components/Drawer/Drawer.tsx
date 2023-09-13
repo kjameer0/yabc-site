@@ -11,7 +11,7 @@ import {
   studentCornerPaths,
   teacherHubPaths,
   parentsFamiliesPaths,
-  missionPaths,
+  studentSupportPaths,
   DrawerProps,
 } from 'components/NavBar/utils-NavBar';
 //Notice: There are two types of clickables here:
@@ -76,10 +76,10 @@ export default function Drawer({ open, setOpen }: DrawerProps) {
             {activeList === 'teacher-hub' && <NavLinkList list={teacherHubPaths} />}
           </li>
           <li className="category">
-            <button onClick={handleCategoryClick} value={'mission-society-of-new-york'}>
-              MISSION SOCIETY OF NYC
+            <button onClick={handleCategoryClick} value={'student-support-activities'}>
+              STUDENT SUPPORT ACTIVITIES
             </button>
-            {activeList === 'mission-society-of-new-york' && <NavLinkList list={missionPaths} />}
+            {activeList === 'student-support-activities' && <NavLinkList list={studentSupportPaths} />}
           </li>
           <li className="category">
             <button

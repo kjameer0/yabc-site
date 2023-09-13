@@ -5,7 +5,6 @@ export default function Footer() {
   return (
     <StyledFooter>
       <div className="logo-wrapper">
-        <img src={MissionLogo} alt="Mission Society of New York" />
         <p className="address-p">
           Washington Irving YABC <br /> 40 Irving Place NY, NY 10003
         </p>

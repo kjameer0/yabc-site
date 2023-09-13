@@ -60,10 +60,10 @@ export const parentsFamiliesPaths: NavListItemType[] = [
   { label: 'Tips for Parents', path: baseWithoutSlash + '/parents-families/' },
   { label: 'Parent Involvement', path: baseWithoutSlash + '/parents-families/#your-involvement' },
 ];
-export const missionPaths: NavListItemType[] = [
-  { label: 'About Mission Society', path: baseWithoutSlash + '/mission-society-of-new-york/' },
-  { label: 'Learn to Work', path: baseWithoutSlash + '/mission-society-of-new-york/#forms' },
-  { label: 'Services', path: baseWithoutSlash + '/mission-society-of-new-york/#services' },
+export const studentSupportPaths: NavListItemType[] = [
+  { label: 'About Mission Society', path: baseWithoutSlash + '/student-support-activities/' },
+  { label: 'Learn to Work', path: baseWithoutSlash + '/student-support-activities/#forms' },
+  { label: 'Services', path: baseWithoutSlash + '/student-support-activities/#services' },
 ];
 export const aboutLinks = [
   {

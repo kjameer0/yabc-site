@@ -10,7 +10,7 @@ import { MainLogo } from 'assets/images';
 //utils
 import { OpenOptions, handleDrawerSwitch } from './utils-NavBar';
 
-export default function NavBar() {
+export default function MobileNavBar() {
   const [open, setOpen] = useState<OpenOptions>('');
   const [isTransparent, setIsTransparent] = useState(false);
   const [show, setShow] = useState(true);

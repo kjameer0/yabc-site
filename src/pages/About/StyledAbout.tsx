@@ -29,6 +29,7 @@ export default styled.main`
     margin: 0;
     font-family: hind-guntur-bold;
     font-size: clamp(1rem, 3vw, 1.5rem);
+    width: 90%;
   }
   /* are we a fit */
   .good-fit-section .major-heading {

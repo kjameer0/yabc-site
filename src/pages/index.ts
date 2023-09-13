@@ -5,7 +5,7 @@ import ContactForm from './ContactForm';
 import CounselorCorner from './CounselorCorner';
 import HomePage from './HomePage';
 import InfoRequestForm from './InfoRequestForm';
-import MissionSociety from './MissionSociety';
+import StudentSupportActivities from './StudentSupportActivities';
 import Parents from './Parents';
 import SharedAdmissions from './SharedAdmissions';
 import Staff from './Staff';
@@ -19,7 +19,7 @@ export {
   CounselorCorner,
   HomePage,
   InfoRequestForm,
-  MissionSociety,
+  StudentSupportActivities,
   Parents,
   SharedAdmissions,
   Staff,
