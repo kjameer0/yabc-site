@@ -32,7 +32,6 @@ export default function HomePage() {
           <u>REGISRATION LOCATION</u>
         </h2>
         <p className="reg-date">
-          {' '}
           Registration takes place in the Washington Irving YABC library Monday-Thursday from 4PM to
           7PM and Friday from 3PM-6PM.
         </p>

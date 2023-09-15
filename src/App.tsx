@@ -6,7 +6,8 @@ import Footer from 'components/Footer';
 import { Outlet } from 'react-router-dom';
 //utils
 import { getBannerText } from 'utils/contentful-functions';
-
+//error
+import { errorGenerator } from 'utils/error';
 //nav bar is for mobile view and side nav bar is for desktop/tablet
 //the <Outlet /> replaces the <main> tag on screen with the current page
 
@@ -20,12 +21,8 @@ function App() {
         }
         setBannerText(data);
       });
-    } catch (error) {
-      if (error instanceof ReferenceError) {
-        console.error(error.message);
-      } else {
-        console.error('unknown error');
-      }
+    } catch (error: unknown) {
+      errorGenerator(error)
     }
   }, []);
   return (
