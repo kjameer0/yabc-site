@@ -13,7 +13,7 @@ import {
   teacherHubPaths,
   parentsFamiliesPaths,
   studentSupportPaths,
-} from 'components/NavBar/utils-NavBar';
+} from 'components/MobileNavBar/utils-NavBar';
 
 export default function SideNavBar() {
   // controls which list of sub anchors is being shown

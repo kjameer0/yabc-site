@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import { OpenOptions } from 'components/NavBar/utils-NavBar';
+import { OpenOptions } from 'components/MobileNavBar/utils-NavBar';
 const drawerWidth = '200px';
 const StyledDrawer = styled.nav<{ $open: OpenOptions }>`
   position: fixed;

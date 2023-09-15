@@ -308,3 +308,10 @@ export type TypeParagraph = Entry<TypeParagraphSkeleton>;
 export function isTypeParagraph(entry: Entry<EntrySkeletonType>): entry is TypeParagraph {
   return entry.sys.contentType.sys.id === 'paragraph';
 }
+export interface TypeBannerTextFields {
+  text: EntryFieldTypes.Symbol;
+}
+
+export type TypeBannerTextSkeleton = EntrySkeletonType<TypeBannerTextFields, 'bannerText'>;
+export type TypeBannerText = Entry<TypeBannerTextSkeleton>;
+

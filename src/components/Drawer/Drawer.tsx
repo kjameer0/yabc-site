@@ -13,7 +13,7 @@ import {
   parentsFamiliesPaths,
   studentSupportPaths,
   DrawerProps,
-} from 'components/NavBar/utils-NavBar';
+} from 'components/MobileNavBar/utils-NavBar';
 //Notice: There are two types of clickables here:
 //links that navigate to url
 //buttons that open sub menus

@@ -1,22 +1,39 @@
+import { useEffect, useState } from 'react';
 //components
-import NavBar from 'components/NavBar';
+import MobileNavBar from 'components/MobileNavBar';
 import SideNavBar from 'components/SideNavBar';
 import Footer from 'components/Footer';
 import { Outlet } from 'react-router-dom';
+//utils
+import { getBannerText } from 'utils/contentful-functions';
 
 //nav bar is for mobile view and side nav bar is for desktop/tablet
 //the <Outlet /> replaces the <main> tag on screen with the current page
+
 function App() {
+  const [bannerText, setBannerText] = useState('');
+  useEffect(() => {
+    try {
+      getBannerText().then((data) => {
+        if (!data) {
+          throw new ReferenceError('no banner data');
+        }
+        setBannerText(data);
+      });
+    } catch (error) {
+      if (error instanceof ReferenceError) {
+        console.error(error.message);
+      } else {
+        console.error('unknown error');
+      }
+    }
+  }, []);
   return (
     <>
       <div className="banner-wrapper">
-        <span className="banner">
-          **** In person registration is ongoing ****<span className="banner-bullet">●</span>
-          Students must report to Washington Irving YABC library with a parent/guardian to complete
-          mandatory orientation and registration
-        </span>
+        <span className="banner">{bannerText || ''}</span>
       </div>
-      <NavBar />
+      <MobileNavBar />
       <SideNavBar />
       <Outlet />
       <Footer />

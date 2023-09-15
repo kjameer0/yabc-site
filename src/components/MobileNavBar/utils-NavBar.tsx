@@ -22,6 +22,7 @@ export type NavListItemType = {
   path: string;
   anchors?: NavListItemType[];
 };
+//these are all of the anchors associated with each page
 export const aboutPaths: NavListItemType[] = [
   { label: 'Open House', path: baseWithoutSlash + '/about' },
   { label: 'Eligibility requirements', path: baseWithoutSlash + '/about/#are-we-a-fit' },
@@ -140,7 +141,7 @@ export function handleDrawerSwitch(
   prev: OpenOptions,
   setOpen: React.Dispatch<React.SetStateAction<OpenOptions>>
 ) {
-  //if first mounted, toggling drawer sets drawer open
+  //if first mount, toggling drawer sets drawer open
   e.stopPropagation();
   if (prev === 'close' || prev === '') {
     setOpen('open');
