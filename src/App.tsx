@@ -11,9 +11,9 @@ function App() {
     <>
       <div className="banner-wrapper">
         <span className="banner">
-          **** In person registration is ongoing ****<span className="banner-bullet">●</span>Student
-          must report to Washington Irving YABC library with a parent/guardian to complete mandatory
-          orientation and registration
+          **** In person registration is ongoing ****<span className="banner-bullet">●</span>
+          Students must report to Washington Irving YABC library with a parent/guardian to complete
+          mandatory orientation and registration
         </span>
       </div>
       <NavBar />

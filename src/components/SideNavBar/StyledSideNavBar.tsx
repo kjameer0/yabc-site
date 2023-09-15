@@ -39,7 +39,7 @@ export default styled.nav`
   .category button {
     cursor: pointer;
     font-family: Inter-black, sans-serif;
-    height: 25px;
+    height: 30px;
     font-size: .75rem;
     border: 0;
     margin: 5px 0;
@@ -76,7 +76,7 @@ export default styled.nav`
   }
 
   @media screen and (min-width: 700px) {
-    /* toggle existence  */
+    /* toggle existence */
     display: block;
   }
 `;

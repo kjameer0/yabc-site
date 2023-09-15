@@ -34,9 +34,9 @@ export default function CounselorCorner() {
         </StyledContentSection>
       </div>
       <div className="reminder-wrapper">
-        <StyledContentSection className="remote-learning-section" id="remote-learning-tips">
-          <h2 className="sub-heading">REMOTE LEARNING TIPS</h2>
-          <img src={RemoteLearningImg} alt="remote learning tips for students" />
+        <StyledContentSection className="learning-section" id="learning-tips">
+          <h2 className="sub-heading">LEARNING TIPS</h2>
+          <img src={RemoteLearningImg} alt="learning tips for students" />
         </StyledContentSection>
       </div>
       <div className="buttons-wrapper">

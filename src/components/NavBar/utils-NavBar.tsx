@@ -47,7 +47,7 @@ export const staffPaths: NavListItemType[] = [
   { label: 'Support Staff', path: baseWithoutSlash + '/staff-directory/#support-staff' },
 ];
 export const studentCornerPaths: NavListItemType[] = [
-  { label: 'Remote Learning Tips', path: baseWithoutSlash + '/student-corner/' },
+  { label: 'Learning Tips', path: baseWithoutSlash + '/student-corner/' },
   { label: 'Student Resources', path: baseWithoutSlash + '/student-corner/#student-resources' },
   { label: "What's Happening", path: baseWithoutSlash + '/student-corner/#whats-happening' },
   { label: 'School Library', path: baseWithoutSlash + '/student-corner/#school-library' },

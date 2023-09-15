@@ -11,7 +11,7 @@ export default styled.main`
     width: 80%;
     font-family: hind-guntur-bold, sans-serif;
   }
-  .remote-learning-section {
+  .learning-section {
     padding-bottom: 30px;
   }
   .reminder-wrapper {
@@ -40,13 +40,13 @@ export default styled.main`
     width: 90%;
     line-height: 1.4;
   }
-  .remote-learning-section {
+  .learning-section {
     max-width: 734px;
     width: 100%;
     border: 1px solid var(--main-bg);
     margin-top: 40px;
   }
-  .remote-learning-section img {
+  .learning-section img {
     width: clamp(279px, 60vw, 709px);
   }
   .buttons-wrapper {
