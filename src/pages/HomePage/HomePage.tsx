@@ -1,5 +1,5 @@
 //React
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Location, useLocation } from 'react-router-dom';
 //components
 import StyledHomePage from './StyledHomePage';
@@ -10,15 +10,21 @@ import { Carousel, CarouselProps } from 'react-responsive-carousel';
 import { HomePageHero } from 'assets/images/Hero-Images';
 import { HomeGradImg, HomeClassImg, NewGradImg } from 'assets/images/HomePage-images';
 //utils
+import { errorGenerator } from 'utils/error';
 import { pageNavigationHandler } from 'pages/pages-utils';
+import { useGetPageData } from 'utils/apiHooks';
+import { generateImageObject,  } from 'utils/contentfulTypeFunctions';
+//types
+import { TypePageFields, TypePage } from 'types/contentfulTypes';
 export default function HomePage() {
   const location: Location = useLocation();
+  const {imgObj, sectionObj} = useGetPageData('7yhGH9U8xAnRRgnC76CcAC');
   useEffect(() => {
     pageNavigationHandler('school-facade', location);
   }, [location]);
   return (
     <StyledHomePage className="home-main">
-      <HeroImage id="school-facade" imgLink={HomePageHero} text={[]} color="white" />
+      <HeroImage id="school-facade" imgLink={imgObj.homehero} text={[]} color="white" />
       <h1 className="major-heading restore-margin">WASHINGTON IRVING YABC</h1>
       <div className="pre-reg-box info-box restore-margin">
         <h2 className="sub-heading">

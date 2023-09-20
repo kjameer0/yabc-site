@@ -5,7 +5,7 @@ import SideNavBar from 'components/SideNavBar';
 import Footer from 'components/Footer';
 import { Outlet } from 'react-router-dom';
 //utils
-import { getBannerText } from 'utils/contentful-functions';
+import { getBannerText } from 'utils/contentful-api-functions';
 //error
 import { errorGenerator } from 'utils/error';
 //nav bar is for mobile view and side nav bar is for desktop/tablet

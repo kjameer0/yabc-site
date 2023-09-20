@@ -1,4 +1,3 @@
-//7yhGH9U8xAnRRgnC76CcAC
 import type {
   ChainModifiers,
   Entry,
@@ -211,7 +210,7 @@ export interface TypePageFields {
    * @name page-title
    * @localized false
    */
-  title: EntryFieldTypes.Symbol;
+  title: string;
   /**
    * Field type definition for field 'sections' (Sections)
    * @name Sections

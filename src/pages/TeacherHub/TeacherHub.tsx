@@ -94,6 +94,14 @@ export default function TeacherHub() {
           <a className="navlink" target="_blank" rel="noreferrer" href={StaffHanbook}>
             <p>STAFF HANDBOOK</p>
           </a>
+          <a
+            className="navlink"
+            target="_blank"
+            rel="noreferrer"
+            href={'https://login.jupitered.com/login/'}
+          >
+            <p>JUPITER</p>
+          </a>
         </div>
       </StyledContentSection>
     </StyledTeacherHub>
