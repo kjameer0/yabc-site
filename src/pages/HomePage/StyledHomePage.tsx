@@ -94,6 +94,39 @@ export default styled.main`
     letter-spacing: -0.05rem;
     width: clamp(270px, 75%);
   }
+  .carousel-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-basis: 50%;
+    width: 100%;
+    justify-self: center;
+  }
+  .carousel-root {
+    width: 100%;
+    min-width: 150px;
+    max-width: 700px;
+    display: flex;
+    justify-content: center;
+    .img-wrapper {
+      position: relative;
+      left: 8%;
+      width: 84%;
+      padding-left: 20px;
+      padding-right: 20px;
+      margin-bottom: 50px;
+    }
+    .img-wrapper img {
+      border: 8px solid white;
+    }
+    p {
+      font-family: Inter-black;
+      font-size: clamp(1rem, 3vw, 1.5rem);
+    }
+  }
+  .loading {
+    font-size: 2rem;
+    color: white;
+  }
   @media screen and (min-width: 700px) {
     .restore-margin,
     #school-facade {

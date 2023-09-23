@@ -1,10 +1,4 @@
-import type {
-  ChainModifiers,
-  Entry,
-  EntryFieldTypes,
-  EntrySkeletonType,
-  LocaleCode,
-} from 'contentful';
+import type { Entry, EntryFieldTypes, EntrySkeletonType } from 'contentful';
 
 /**
  * Fields type definition for content type 'TypeCarousel'
@@ -18,7 +12,8 @@ export interface TypeCarouselFields {
    * @name carouselImages
    * @localized false
    */
-  carouselImages?: EntryFieldTypes.Array<EntryFieldTypes.AssetLink>;
+  carouselImages: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<TypeCarouselImageSkeleton>>;
+
   /**
    * Field type definition for field 'year' (year)
    * @name year
@@ -32,7 +27,6 @@ export interface TypeCarouselFields {
    */
   title?: EntryFieldTypes.Symbol;
 }
-
 /**
  * Entry skeleton type definition for content type 'carousel' (Carousel)
  * @name TypeCarouselSkeleton
@@ -56,7 +50,61 @@ export type TypeCarousel = Entry<TypeCarouselSkeleton>;
 export function isTypeCarousel(entry: Entry<EntrySkeletonType>): entry is TypeCarousel {
   return entry.sys.contentType.sys.id === 'carousel';
 }
+export interface TypeCarouselListFields {
+  carousels?: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<TypeCarouselSkeleton>>;
+}
 
+export type TypeCarouselListSkeleton = EntrySkeletonType<TypeCarouselListFields, 'carouselList'>;
+export type TypeCarouselList = Entry<TypeCarouselListSkeleton>;
+
+export function isTypeCarouselList(entry: Entry<EntrySkeletonType>): entry is TypeCarouselList {
+  return entry.sys.contentType.sys.id === 'carouselList';
+}
+
+export interface TypeCarouselImageFields {
+  /**
+   * Field type definition for field 'image' (image)
+   * @name image
+   * @localized false
+   */
+  image?: EntryFieldTypes.AssetLink;
+  /**
+   * Field type definition for field 'quoteText' (quoteText)
+   * @name quoteText
+   * @localized false
+   */
+  quoteText?: EntryFieldTypes.Symbol;
+  /**
+   * Field type definition for field 'title' (title)
+   * @name title
+   * @localized false
+   */
+  title: EntryFieldTypes.Symbol;
+}
+
+/**
+ * Entry skeleton type definition for content type 'carouselImage' (CarouselImage)
+ * @name TypeCarouselImageSkeleton
+ * @type {TypeCarouselImageSkeleton}
+ * @author 0H7QJUQw6nd6NVtiSX4s7l
+ * @since 2023-09-21T18:21:39.856Z
+ * @version 3
+ */
+export type TypeCarouselImageSkeleton = EntrySkeletonType<TypeCarouselImageFields, 'carouselImage'>;
+/**
+ * Entry type definition for content type 'carouselImage' (CarouselImage)
+ * @name TypeCarouselImage
+ * @type {TypeCarouselImage}
+ * @author Khalid Jameer<kjameer0@gmail.com>
+ * @since 2023-09-21T18:21:39.856Z
+ * @version 3
+ * @link https://app.contentful.com/spaces/jhdk2rr72yfb/environments/master/content_types/carouselImage
+ */
+export type TypeCarouselImage = Entry<TypeCarouselImageSkeleton>;
+
+export function isTypeCarouselImage(entry: Entry<EntrySkeletonType>): entry is TypeCarouselImage {
+  return entry.sys.contentType.sys.id === 'carouselImage';
+}
 /**
  * Fields type definition for content type 'TypeHeader'
  * @name TypeHeaderFields
@@ -281,7 +329,7 @@ export interface TypeParagraphFields {
    * @name content
    * @localized false
    */
-  content: EntryFieldTypes.Text;
+  content?: EntryFieldTypes.Text;
 }
 
 /**
@@ -313,4 +361,3 @@ export interface TypeBannerTextFields {
 
 export type TypeBannerTextSkeleton = EntrySkeletonType<TypeBannerTextFields, 'bannerText'>;
 export type TypeBannerText = Entry<TypeBannerTextSkeleton>;
-

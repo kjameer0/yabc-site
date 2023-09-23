@@ -9,8 +9,10 @@ import {
   TypePage,
   isTypeListText,
   TypeHeaderFields,
+  TypeCarouselSkeleton,
 } from 'types/contentfulTypes';
 
+//all text in the website falls under these 3 categories
 export type sectionObjType = {
   headers: Record<string, { mainHeading: string; subHeading: string | undefined }>;
   lists: Record<string, { listContent: string[] }>;
@@ -18,6 +20,8 @@ export type sectionObjType = {
 };
 
 export type PageDataType = Entry<TypePageSkeleton, 'WITHOUT_UNRESOLVABLE_LINKS', string>;
+export type CarouselDataType = Entry<TypeCarouselSkeleton, 'WITHOUT_UNRESOLVABLE_LINKS', string>;
+
 export function generateImageObject(data: PageDataType) {
   try {
     //make sure images is not undefined
@@ -76,10 +80,10 @@ export function generateSectionsObject(data: PageDataType) {
       } else if (isTypeParagraph(section)) {
         //paragraphs only have one field: content
         const text = section.fields.content;
-        if (typeof text === 'object' || text === undefined) {
+        if (typeof text === 'object') {
           throw new ReferenceError('no paragraph content');
         }
-        const content = { content: text };
+        const content = { content: text || '' };
         sectionObj.paragraphs[title] = content;
       } else if (isTypeListText(section)) {
         const content = section.fields.listContent;
@@ -98,3 +102,29 @@ export function generateSectionsObject(data: PageDataType) {
 }
 
 
+
+export function generateImageObjectCarousel(data: CarouselDataType) {
+  try {
+    //make sure images is not undefined
+    const images = data.fields.carouselImages || [];
+    //throw error if undefined
+    if (!data.fields || images.length === 0) {
+      throw new ReferenceError('images undefined');
+    }
+    //images are stored with their title as the key and url as the value
+    return images.map((img) => {
+      //make sure image properties exist
+      if (img !== undefined && img.fields && img.fields.title) {
+        const imgData = img?.fields;
+        const imgUrl = imgData.image?.fields.file?.url || '';
+        const quoteText = imgData.quoteText || '';
+        return { imgUrl, quoteText };
+      } else {
+        throw new ReferenceError('images undefined');
+      }
+    });
+  } catch (error) {
+    if (error instanceof ReferenceError) console.error(error.message);
+    else console.error('image object error');
+  }
+}
