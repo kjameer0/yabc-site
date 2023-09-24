@@ -15,7 +15,6 @@ import { useGetPageData, useGetSingleCarousel } from 'utils/apiHooks';
 export default function HomePage() {
   const location: Location = useLocation();
   const { imgObj, sectionObj, loading } = useGetPageData('7yhGH9U8xAnRRgnC76CcAC');
-  console.log(sectionObj);
   const { paragraphs, headers } = sectionObj;
   const quoteCarousel = useGetSingleCarousel('6HNgzL9333zge8eEXDZV9R');
   useEffect(() => {
