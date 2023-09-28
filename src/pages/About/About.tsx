@@ -11,25 +11,41 @@ import { Carousel } from 'react-responsive-carousel';
 import { pageNavigationHandler } from 'pages/pages-utils';
 //data
 import { GRAD_CAROUSEL_YEARS } from 'assets/images/Carousel-Photos';
+//hooks
+import { useGetPageData } from 'utils/apiHooks';
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 //styles
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // Import the carousel styles
 
 export default function About() {
   const [carouselYear, setCarouselYear] = useState('2023');
-  //hashmap that has every years pictures by year
+  //hashmap that has every year's pictures by year
   const currentCarousel = GRAD_CAROUSEL_YEARS.get(Number(carouselYear));
   const [selectedCarouselItem, setSelectedCarouselItem] = useState(0);
+  //data fetching for page itself
+  const { imgObj, sectionObj, loading } = useGetPageData('2UE2gLOJhURbCW6YffSfPQ');
+  console.log(sectionObj.links);
+  const { paragraphs, headers, links } = sectionObj;
   //for SPA routing
   const location: Location = useLocation();
   useEffect(() => {
     pageNavigationHandler('students-sitting-hero', location);
   }, [location]);
+
+  if (loading) {
+    return (
+      <StyledAbout className="home-main">
+        <p className="loading">Loading...Please Wait</p>
+      </StyledAbout>
+    );
+  }
   return (
     <StyledAbout>
       <HeroImage id="students-sitting-hero" imgLink={AboutHero} text={[]} color="white" />
-      <h1 className="major-heading">ATTEND AN OPEN HOUSE</h1>
+      <h1 className="major-heading">{headers.pageTitle.mainHeading}</h1>
+      <div>{documentToReactComponents(sectionObj.links.exampleLink)}</div>
       <StyledContentSection className="attend-info">
-        <h2 className="attend-info-h2">REGISTRATION</h2>
+        <h2 className="attend-info-h2">{headers.registrationHeading.mainHeading}</h2>
         <p className="para-content">
           All students that register must come in person with a parent or guardian to complete their
           registration and orientation.
@@ -128,6 +144,7 @@ export default function About() {
           setSelectedCarouselItem(0);
         }}
         className="year-select"
+        value={'2023'}
       >
         <option className="year-option" value={'2020'}>
           2020
@@ -138,7 +155,7 @@ export default function About() {
         <option className="year-option" value={'2022'}>
           2022
         </option>
-        <option selected className="year-option" value={'2023'}>
+        <option className="year-option" value={'2023'}>
           2023
         </option>
       </select>

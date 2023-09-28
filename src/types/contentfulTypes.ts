@@ -247,6 +247,46 @@ export function isTypeLogo(entry: Entry<EntrySkeletonType>): entry is TypeLogo {
 }
 
 /**
+ * Fields type definition for content type 'TypeLinkText'
+ * @name TypeLinkTextFields
+ * @type {TypeLinkTextFields}
+ * @memberof TypeLinkText
+ */
+export interface TypeLinkTextFields {
+    /**
+     * Field type definition for field 'title' (title)
+     * @name title
+     * @localized false
+     */
+    title: EntryFieldTypes.Symbol;
+    textWithLink: EntryFieldTypes.RichText;
+}
+
+/**
+ * Entry skeleton type definition for content type 'linkText' (linkText)
+ * @name TypeLinkTextSkeleton
+ * @type {TypeLinkTextSkeleton}
+ * @author 0H7QJUQw6nd6NVtiSX4s7l
+ * @since 2023-09-24T18:50:43.049Z
+ * @version 19
+ */
+export type TypeLinkTextSkeleton = EntrySkeletonType<TypeLinkTextFields, "linkText">;
+/**
+ * Entry type definition for content type 'linkText' (linkText)
+ * @name TypeLinkText
+ * @type {TypeLinkText}
+ * @author Khalid Jameer<kjameer0@gmail.com>
+ * @since 2023-09-24T18:50:43.049Z
+ * @version 19
+ * @link https://app.contentful.com/spaces/jhdk2rr72yfb/environments/master/content_types/linkText
+ */
+export type TypeLinkText = Entry<TypeLinkTextSkeleton>;
+
+export function isTypeLinkText(entry: Entry<EntrySkeletonType>): entry is TypeLinkText {
+    return entry.sys.contentType.sys.id === 'linkText'
+}
+
+/**
  * Fields type definition for content type 'TypePage'
  * @name TypePageFields
  * @type {TypePageFields}
@@ -265,7 +305,9 @@ export interface TypePageFields {
    * @localized false
    */
   sections?: EntryFieldTypes.Array<
-    EntryFieldTypes.EntryLink<TypeHeaderSkeleton | TypeListTextSkeleton | TypeParagraphSkeleton>
+    EntryFieldTypes.EntryLink<
+      TypeHeaderSkeleton | TypeListTextSkeleton | TypeParagraphSkeleton | TypeLinkTextSkeleton
+    >
   >;
   /**
    * Field type definition for field 'slug' (slug)
@@ -361,3 +403,5 @@ export interface TypeBannerTextFields {
 
 export type TypeBannerTextSkeleton = EntrySkeletonType<TypeBannerTextFields, 'bannerText'>;
 export type TypeBannerText = Entry<TypeBannerTextSkeleton>;
+
+

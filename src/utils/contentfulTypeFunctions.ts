@@ -1,22 +1,21 @@
-import { Entry, Asset } from 'contentful';
+import { Entry, EntryFieldTypes } from 'contentful';
 import {
-  TypePageFields,
   TypePageSkeleton,
-  TypeParagraph,
-  TypeHeader,
   isTypeHeader,
   isTypeParagraph,
-  TypePage,
   isTypeListText,
-  TypeHeaderFields,
   TypeCarouselSkeleton,
+  TypeLinkTextFields,
+  isTypeLinkText,
 } from 'types/contentfulTypes';
+import { Document as ContentfulDocumentType } from '@contentful/rich-text-types';
 
 //all text in the website falls under these 3 categories
 export type sectionObjType = {
   headers: Record<string, { mainHeading: string; subHeading: string | undefined }>;
   lists: Record<string, { listContent: string[] }>;
   paragraphs: Record<string, { content: string }>;
+  links: Record<string, ContentfulDocumentType>;
 };
 
 export type PageDataType = Entry<TypePageSkeleton, 'WITHOUT_UNRESOLVABLE_LINKS', string>;
@@ -57,7 +56,7 @@ export function generateSectionsObject(data: PageDataType) {
     }
     const sections = data.fields.sections;
     //sections are stored with their title as the key and content objects as values
-    const sectionObj: sectionObjType = {lists: {}, headers: {}, paragraphs: {}};
+    const sectionObj: sectionObjType = { lists: {}, headers: {}, paragraphs: {}, links: {} };
     sections.forEach((section) => {
       //make sure section title exists
       if (section === undefined || section.fields === undefined) {
@@ -92,6 +91,12 @@ export function generateSectionsObject(data: PageDataType) {
         }
         const listContent = { listContent: content };
         sectionObj.lists[title] = listContent;
+      } else if (isTypeLinkText(section)) {
+        const link = section.fields.textWithLink as ContentfulDocumentType;
+        if (!link) {
+          throw new ReferenceError('no links in sections object');
+        }
+        sectionObj.links[title] = link;
       }
     });
     return sectionObj;
@@ -100,8 +105,6 @@ export function generateSectionsObject(data: PageDataType) {
     else console.error('image object error');
   }
 }
-
-
 
 export function generateImageObjectCarousel(data: CarouselDataType) {
   try {
