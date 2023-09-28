@@ -1,5 +1,5 @@
 import { Location, NavLink, useLocation } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 //images
 import { AboutHero } from 'assets/images/Hero-Images';
 //components
@@ -13,7 +13,8 @@ import { pageNavigationHandler } from 'pages/pages-utils';
 import { GRAD_CAROUSEL_YEARS } from 'assets/images/Carousel-Photos';
 //hooks
 import { useGetPageData } from 'utils/apiHooks';
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { documentToReactComponents, Options } from '@contentful/rich-text-react-renderer';
+import { BLOCKS, INLINES, Hyperlink, Inline } from '@contentful/rich-text-types';
 //styles
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // Import the carousel styles
 
@@ -24,14 +25,21 @@ export default function About() {
   const [selectedCarouselItem, setSelectedCarouselItem] = useState(0);
   //data fetching for page itself
   const { imgObj, sectionObj, loading } = useGetPageData('2UE2gLOJhURbCW6YffSfPQ');
-  console.log(sectionObj.links);
   const { paragraphs, headers, links } = sectionObj;
   //for SPA routing
   const location: Location = useLocation();
   useEffect(() => {
     pageNavigationHandler('students-sitting-hero', location);
   }, [location]);
-
+  const options = {
+    renderNode: {
+      [INLINES.HYPERLINK]: ({ data }: Inline, children: ReactNode) => (
+        <a href={data.uri} target={`'_blank'`} rel={`'noopener noreferrer'`}>
+          {children}
+        </a>
+      ),
+    },
+  } as Options;
   if (loading) {
     return (
       <StyledAbout className="home-main">
@@ -41,33 +49,20 @@ export default function About() {
   }
   return (
     <StyledAbout>
-      <HeroImage id="students-sitting-hero" imgLink={AboutHero} text={[]} color="white" />
+      <HeroImage id="students-sitting-hero" imgLink={imgObj.abouthero} text={[]} color="white" />
       <h1 className="major-heading">{headers.pageTitle.mainHeading}</h1>
-      <div>{documentToReactComponents(sectionObj.links.exampleLink)}</div>
       <StyledContentSection className="attend-info">
         <h2 className="attend-info-h2">{headers.registrationHeading.mainHeading}</h2>
-        <p className="para-content">
-          All students that register must come in person with a parent or guardian to complete their
-          registration and orientation.
-        </p>
+        <p className="para-content">{paragraphs.registrationPara.content}</p>
         {/* <h2 className="attend-info-h2">REGISTRATION</h2> */}
-        <p className="attend-info-h2">
-          Students are required to come in with a parent or guardian for registration for a
-          mandatory orientation and then register.
-        </p>
+        <p className="attend-info-h2">{paragraphs.orientationPara.content}</p>
+        <p className="para-content">{paragraphs.registrationLocationPara.content}</p>
+        <h2 className="attend-info-h2">{documentToReactComponents(links.zoomLink, options)}</h2>
+        <p className="para-content">{paragraphs.inPersonRegistrationPara.content}</p>
+        <h2 className="attend-info-h2">{headers.openHouseHeading.mainHeading}</h2>
         <p className="para-content">
-          Registration is ongoing. We will be in the Library on the first floor at Washington Irving
-          Campus 40 Irving Place, New York, NY 10003.
-        </p>
-        <h2 className="attend-info-h2">Zoom Meeting ID</h2>
-        <p className="para-content">
-          Even though registration is in person, you can log in to meet with Guidance Counselors,
-          CBO and Site Directors to have your questions answered.
-        </p>
-        <h2 className="attend-info-h2">OPEN HOUSES ARE AVAILABLE ALL YEAR</h2>
-        <p className="para-content">
-          <b>Fall Term:</b> August through September <br></br>
-          <b>Spring Term:</b> January through March
+          {paragraphs.fallTermPara.content} <br></br>
+          {paragraphs.springTermPara.content}
         </p>
         <NavLink to="/contact" className={'navlink'}>
           CONTACT US TO ATTEND
