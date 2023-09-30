@@ -1,7 +1,6 @@
 import { Location, NavLink, useLocation } from 'react-router-dom';
 import { ReactNode, useEffect, useState } from 'react';
 //images
-import { AboutHero } from 'assets/images/Hero-Images';
 //components
 import StyledAbout, { CarouselImgStyles, CarouselStyles } from './StyledAbout';
 import HeroImage from 'components/HeroImage';
@@ -9,23 +8,26 @@ import { StyledContentSection } from 'components/ContentSection';
 import { Carousel } from 'react-responsive-carousel';
 //utils
 import { pageNavigationHandler } from 'pages/pages-utils';
+import { generateCarouselYearList } from 'utils/date-utils';
 //data
 import { GRAD_CAROUSEL_YEARS } from 'assets/images/Carousel-Photos';
 //hooks
-import { useGetPageData } from 'utils/apiHooks';
+import { useGetPageData, useGetCarouselByYear } from 'utils/apiHooks';
 import { documentToReactComponents, Options } from '@contentful/rich-text-react-renderer';
-import { BLOCKS, INLINES, Hyperlink, Inline } from '@contentful/rich-text-types';
+import { INLINES, Inline } from '@contentful/rich-text-types';
 //styles
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // Import the carousel styles
 
 export default function About() {
   const [carouselYear, setCarouselYear] = useState('2023');
+  const currentCarousel = useGetCarouselByYear(carouselYear)
+  console.log(currentCarousel)
   //hashmap that has every year's pictures by year
-  const currentCarousel = GRAD_CAROUSEL_YEARS.get(Number(carouselYear));
+  // const currentCarousel = GRAD_CAROUSEL_YEARS.get(Number(carouselYear));
   const [selectedCarouselItem, setSelectedCarouselItem] = useState(0);
   //data fetching for page itself
   const { imgObj, sectionObj, loading } = useGetPageData('2UE2gLOJhURbCW6YffSfPQ');
-  const { paragraphs, headers, links } = sectionObj;
+  const { paragraphs, headers, links, lists } = sectionObj;
   //for SPA routing
   const location: Location = useLocation();
   useEffect(() => {
@@ -40,6 +42,7 @@ export default function About() {
       ),
     },
   } as Options;
+  
   if (loading) {
     return (
       <StyledAbout className="home-main">
@@ -54,7 +57,6 @@ export default function About() {
       <StyledContentSection className="attend-info">
         <h2 className="attend-info-h2">{headers.registrationHeading.mainHeading}</h2>
         <p className="para-content">{paragraphs.registrationPara.content}</p>
-        {/* <h2 className="attend-info-h2">REGISTRATION</h2> */}
         <p className="attend-info-h2">{paragraphs.orientationPara.content}</p>
         <p className="para-content">{paragraphs.registrationLocationPara.content}</p>
         <h2 className="attend-info-h2">{documentToReactComponents(links.zoomLink, options)}</h2>
@@ -65,54 +67,38 @@ export default function About() {
           {paragraphs.springTermPara.content}
         </p>
         <NavLink to="/contact" className={'navlink'}>
-          CONTACT US TO ATTEND
-          <br /> AN OPEN HOUSE
+          {headers.attendButtonLabel.mainHeading}
         </NavLink>
         <br className="link-line-break" />
         <NavLink to="/admissions" className={'navlink'}>
-          LEARN MORE ABOUT OUR<br></br> ADMISSIONS PROCESS
+          {headers.admissionsButtonLabel.mainHeading}{' '}
         </NavLink>
       </StyledContentSection>
       <div className="line-separate"></div>
       <StyledContentSection id="are-we-a-fit" className="good-fit-section">
-        <h2 className="major-heading">ARE WE A FIT FOR YOU?</h2>
-        <h3 className="sub-heading good-fit-h3">
-          PROVIDING EDUCATION THAT
-          <br className="line-break" />
-          TRANSFORMS LIVES
-        </h3>
+        <header>
+          <h2 className="major-heading">{headers.fitHeading.mainHeading}</h2>
+          <p className="sub-heading good-fit-header-p">{headers.fitHeading.subHeading}</p>
+        </header>
         <StyledContentSection className="requirements" id="eligibility-requirements">
           <h4 className="requirements-h4 sub-heading">To be eligible, you should:</h4>
           <ul className="requirements-ul">
-            <li className="para-content requirements-li">Be 17.5-21 years old</li>
-            <li className="para-content requirements-li">
-              Be enrolled in a New York City high school
-            </li>
-            <li className="para-content requirements-li">Have earned at 17 credits or more</li>
+            {lists.eligibilityList.listContent.map((item: string) => {
+              return (
+                <li key={crypto.randomUUID()} className="para-content requirements-li">
+                  {item}
+                </li>
+              );
+            })}
           </ul>
         </StyledContentSection>
-        <p className="para-content">
-          Students attend Washington Irving YABC program part-time to earn a high school diploma.
-          Students graduate with a diploma from their home day school after they have earned all
-          their credits and passed all their required exams or satisfied their portfolio
-          requirements.
-        </p>
-        <p className="para-content">
-          We care and want to serve ALL learners. We specialize in helping students with IEPs, 504s,
-          and English For New Language learners.
-        </p>
-        <p className="para-content">
-          Washington Irving YABC is supported by the Learning to Work program. Mission Society of
-          NYC manages our program and provides PAID internships for students who need to support
-          themselves while attending school. Additionally, Mission Society of NYC provides student
-          support services, in-depth job readiness, and college and career readiness activities.
-          Please note that we are considerate of the work schedules of students who have secured
-          their own jobs.
-        </p>
+        <p className="para-content">{paragraphs.studentPara.content}</p>
+        <p className="para-content">{paragraphs.servePara.content}</p>
+        <p className="para-content">{paragraphs.supportPara.content}</p>
       </StyledContentSection>
       <div className="line-separate"></div>
       <h2 className="major-heading" id="meet-our-graduates">
-        MEET OUR GRADUATES!
+        {headers.graduateHeading.mainHeading}
       </h2>
       <div className="carousel-wrapper">
         <Carousel
@@ -124,10 +110,10 @@ export default function About() {
           onChange={(idx) => setSelectedCarouselItem(idx)}
         >
           {currentCarousel &&
-            currentCarousel.map((link, idx) => {
+            currentCarousel.map(({imgUrl}, idx) => {
               return (
                 <div style={CarouselStyles} key={idx}>
-                  <img style={CarouselImgStyles} src={link} alt="Graduation carousel" />
+                  <img style={CarouselImgStyles} src={imgUrl} alt="Graduation carousel" />
                 </div>
               );
             })}
@@ -139,20 +125,15 @@ export default function About() {
           setSelectedCarouselItem(0);
         }}
         className="year-select"
-        value={'2023'}
+        value={carouselYear}
       >
-        <option className="year-option" value={'2020'}>
-          2020
-        </option>
-        <option className="year-option" value={'2021'}>
-          2021
-        </option>
-        <option className="year-option" value={'2022'}>
-          2022
-        </option>
-        <option className="year-option" value={'2023'}>
-          2023
-        </option>
+        {generateCarouselYearList().map((year: number) => {
+          return (
+            <option key={crypto.randomUUID()} className="year-option" value={year.toString()}>
+              {year}
+            </option>
+          );
+        })}
       </select>
     </StyledAbout>
   );

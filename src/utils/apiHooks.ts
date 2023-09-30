@@ -100,3 +100,29 @@ export function useGetSingleCarousel(contentfulId: string) {
   }, []);
   return carousel;
 }
+
+export function useGetCarouselByYear(year: string) {
+  const [currentCarousel, setCurrentCarousel] = useState<CarouselItem[]>([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await client.withoutUnresolvableLinks.getEntries<TypeCarouselSkeleton>({
+          content_type: 'carousel',
+          'fields.year': year,
+        });
+        if (!response) {
+          throw new ReferenceError('no carousels found');
+        }
+        const carouselImageArray = generateImageObjectCarousel(response.items[0]);
+        if (carouselImageArray === undefined) {
+          throw new ReferenceError('no carousels found');
+        }
+        setCurrentCarousel(carouselImageArray)
+      } catch (error) {
+        errorGenerator(error);
+      }
+    };
+    fetchData();
+  }, [year]);
+  return currentCarousel;
+}

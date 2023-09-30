@@ -18,6 +18,7 @@ export default styled.main`
     font-family: hind-guntur-light, sans-serif;
   }
   .attend-info .navlink {
+    display: block;
     font-size: clamp(1rem, 3vw, 1.4rem);
     width: 100%;
     padding: 4px;
@@ -35,7 +36,7 @@ export default styled.main`
   .good-fit-section .major-heading {
     margin-bottom: 2px;
   }
-  .good-fit-h3 {
+  .good-fit-header-p {
     margin-top: 0;
     font-size: clamp(1rem, 3vw, 1.5rem);
     color: var(--main-bg);
@@ -67,6 +68,7 @@ export default styled.main`
     border: 8px solid white;
   }
   .carousel-wrapper {
+    min-height: 180px;
     position: relative;
     left: 25%;
     width: 50%;
@@ -124,11 +126,9 @@ export default styled.main`
       align-items: center;
     }
     .attend-info .navlink {
-      white-space: nowrap;
       max-width: 500px;
       width: 55%;
     }
-
   }
 `;
 //carousel styles
