@@ -10,7 +10,6 @@ import { Carousel } from 'react-responsive-carousel';
 import { pageNavigationHandler } from 'pages/pages-utils';
 import { generateCarouselYearList } from 'utils/date-utils';
 //data
-import { GRAD_CAROUSEL_YEARS } from 'assets/images/Carousel-Photos';
 //hooks
 import { useGetPageData, useGetCarouselByYear } from 'utils/apiHooks';
 import { documentToReactComponents, Options } from '@contentful/rich-text-react-renderer';
@@ -42,7 +41,7 @@ export default function About() {
       ),
     },
   } as Options;
-  
+
   if (loading) {
     return (
       <StyledAbout className="home-main">
