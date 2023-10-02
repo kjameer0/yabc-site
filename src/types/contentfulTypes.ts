@@ -405,3 +405,19 @@ export type TypeBannerTextSkeleton = EntrySkeletonType<TypeBannerTextFields, 'ba
 export type TypeBannerText = Entry<TypeBannerTextSkeleton>;
 
 
+
+export interface TypeStaffMemberFields {
+  name: EntryFieldTypes.Symbol;
+  image?: EntryFieldTypes.AssetLink;
+  role: EntryFieldTypes.Symbol;
+  roleCategory: EntryFieldTypes.Symbol<
+    'admin' | 'counselor' | 'faculty' | 'missionSociety' | 'support'
+  >;
+}
+
+export type TypeStaffMemberSkeleton = EntrySkeletonType<TypeStaffMemberFields, 'staffMember'>;
+export type TypeStaffMember = Entry<TypeStaffMemberSkeleton>;
+
+export function isTypeStaffMember(entry: Entry<EntrySkeletonType>): entry is TypeStaffMember {
+  return entry.sys.contentType.sys.id === 'staffMember';
+}

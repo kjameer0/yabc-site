@@ -11,13 +11,12 @@ import {
   TypeCarousel,
   TypeCarouselFields,
   TypeCarouselImageFields,
+  TypeStaffMemberSkeleton,
 } from 'types/contentfulTypes';
 import {
   generateImageObject,
-  PageDataType,
   sectionObjType,
   generateSectionsObject,
-  CarouselDataType,
   generateImageObjectCarousel,
 } from './contentfulTypeFunctions';
 import { errorGenerator } from './error';
@@ -125,4 +124,22 @@ export function useGetCarouselByYear(year: string) {
     fetchData();
   }, [year]);
   return currentCarousel;
+}
+
+export function useGetStaffImages() {
+  const [staffObj, setStaffObj] = useState([]);
+  try {
+    const fetchStaff = async () => {
+      const response = await client.getEntries<TypeStaffMemberSkeleton>({
+        content_type: 'staffMember',
+      });
+      if (!response) {
+        throw new ReferenceError('no staff members');
+      }
+      const staffArr = response.items;
+    };
+    fetchStaff();
+  } catch (error) {
+    errorGenerator(error);
+  }
 }

@@ -5,7 +5,6 @@ import StyledStaff from './StyledStaff';
 import StaffImage from 'components/StaffImage';
 import { StyledContentSection } from 'components/ContentSection';
 //types
-
 //data
 import {
   adminList,
@@ -16,9 +15,12 @@ import {
 } from 'assets/images/Staff-Photos';
 //utils
 import { pageNavigationHandler } from 'pages/pages-utils';
+//hooks
+import { useGetStaffImages } from 'utils/apiHooks';
 
 export default function Staff() {
   const location: Location = useLocation();
+  useGetStaffImages()
   useEffect(() => {
     pageNavigationHandler('administrators', location);
   }, [location]);

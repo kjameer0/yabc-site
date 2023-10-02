@@ -6,6 +6,7 @@ import StyledAbout, { CarouselImgStyles, CarouselStyles } from './StyledAbout';
 import HeroImage from 'components/HeroImage';
 import { StyledContentSection } from 'components/ContentSection';
 import { Carousel } from 'react-responsive-carousel';
+import LoadingScreen from 'components/LoadingScreen';
 //utils
 import { pageNavigationHandler } from 'pages/pages-utils';
 import { generateCarouselYearList } from 'utils/date-utils';
@@ -44,9 +45,7 @@ export default function About() {
 
   if (loading) {
     return (
-      <StyledAbout className="home-main">
-        <p className="loading">Loading...Please Wait</p>
-      </StyledAbout>
+      <LoadingScreen />
     );
   }
   return (

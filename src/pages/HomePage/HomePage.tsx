@@ -6,8 +6,8 @@ import StyledHomePage from './StyledHomePage';
 import HeroImage from 'components/HeroImage';
 import { StyledContentSection } from 'components/ContentSection';
 import { Carousel, CarouselProps } from 'react-responsive-carousel';
+import LoadingScreen from 'components/LoadingScreen';
 //images
-// import { HomeGradImg, HomeClassImg, NewGradImg } from 'assets/images/HomePage-images';
 //utils
 import { pageNavigationHandler } from 'pages/pages-utils';
 import { useGetPageData, useGetSingleCarousel } from 'utils/apiHooks';
@@ -22,9 +22,7 @@ export default function HomePage() {
   }, [location]);
   if (loading) {
     return (
-      <StyledHomePage className="home-main">
-        <p className='loading'>Loading...Please Wait</p>
-      </StyledHomePage>
+      <LoadingScreen />
     );
   }
   return (

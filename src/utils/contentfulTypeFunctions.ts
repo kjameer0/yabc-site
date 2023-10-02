@@ -131,3 +131,7 @@ export function generateImageObjectCarousel(data: CarouselDataType) {
     else console.error('image object error');
   }
 }
+//staff member can either be admin, faculty, support, missionSociety, or 
+export function generateStaffCategoryObject() {
+
+}

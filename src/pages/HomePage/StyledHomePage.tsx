@@ -123,10 +123,6 @@ export default styled.main`
       font-size: clamp(1rem, 3vw, 1.5rem);
     }
   }
-  .loading {
-    font-size: 2rem;
-    color: white;
-  }
   @media screen and (min-width: 700px) {
     .restore-margin,
     #school-facade {
