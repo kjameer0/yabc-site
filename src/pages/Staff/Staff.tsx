@@ -4,42 +4,40 @@ import { useEffect } from 'react';
 import StyledStaff from './StyledStaff';
 import StaffImage from 'components/StaffImage';
 import { StyledContentSection } from 'components/ContentSection';
+import LoadingScreen from 'components/LoadingScreen';
 //types
-//data
-import {
-  adminList,
-  schoolCounselorList,
-  yabcStaffList,
-  missionSocietyList,
-  supportStaffList,
-} from 'assets/images/Staff-Photos';
 //utils
 import { pageNavigationHandler } from 'pages/pages-utils';
 //hooks
-import { useGetStaffImages } from 'utils/apiHooks';
+import { useGetStaffImages, useGetPageData } from 'utils/apiHooks';
 
 export default function Staff() {
   const location: Location = useLocation();
-  useGetStaffImages()
+  const { sectionObj, loading } = useGetPageData('4PVhqvB90jCz42mULpBZeC');
+  const { headers } = sectionObj;
+  const { staffObj, isStaffLoading } = useGetStaffImages();
+
   useEffect(() => {
     pageNavigationHandler('administrators', location);
   }, [location]);
-
+console.log(staffObj)
+  if (loading) {
+    return <LoadingScreen />;
+  }
   return (
     <StyledStaff className="staff-main">
       <h1 className="major-heading" id="administrators">
-        STAFF DIRECTORY
+        {headers.pageTitle.mainHeading}
       </h1>
       <StyledContentSection className="staff-section">
         <div className="staff-flex-wrapper">
-          {adminList.map((admin, index) => {
+          {staffObj.admin.map((admin, index) => {
             return (
               <StaffImage
                 key={admin.name}
                 name={admin.name.toUpperCase()}
                 role={admin.role || ''}
-                email={admin.email || ''}
-                imgLink={admin.imgLink}
+                imgUrl={'https:' + admin.imgUrl}
                 direction={index % 2 === 0 ? 'left' : 'right'}
               />
             );
@@ -48,17 +46,16 @@ export default function Staff() {
       </StyledContentSection>
       <StyledContentSection className="staff-section" id="school-counselors">
         <div className="white-line-long"></div>
-        <h2 className="major-heading counselor-heading">SCHOOL COUNSELORS</h2>
+        <h2 className="major-heading counselor-heading">{headers.schoolCounselorHeading.mainHeading}</h2>
         <div className="white-line-short"></div>
         <div className="staff-flex-wrapper">
-          {schoolCounselorList.map((counselor, index) => {
+          {staffObj.counselor.map((counselor, index) => {
             return (
               <StaffImage
                 key={counselor.name}
                 name={counselor.name.toUpperCase()}
                 role={counselor.role || ''}
-                email={counselor.email || ''}
-                imgLink={counselor.imgLink}
+                imgUrl={counselor.imgUrl}
                 direction={index % 2 === 0 ? 'left' : 'right'}
               />
             );
@@ -67,17 +64,16 @@ export default function Staff() {
       </StyledContentSection>
       <StyledContentSection className="staff-section" id="mission-society-of-new-york">
         <div className="white-line-long"></div>
-        <h2 className="major-heading counselor-heading">MISSION SOCIETY OF NEW YORK</h2>
+        <h2 className="major-heading counselor-heading">{headers.missionSocietyHeading.mainHeading}</h2>
         <div className="white-line-short"></div>
         <div className="staff-flex-wrapper">
-          {missionSocietyList.map((staff, index) => {
+          {staffObj.missionSociety.map((staff, index) => {
             return (
               <StaffImage
                 key={staff.name}
                 name={staff.name.toUpperCase()}
                 role={staff.role || ''}
-                email={staff.email || ''}
-                imgLink={staff.imgLink}
+                imgUrl={staff.imgUrl}
                 direction={index % 2 === 0 ? 'left' : 'right'}
               />
             );
@@ -86,17 +82,16 @@ export default function Staff() {
       </StyledContentSection>
       <StyledContentSection className="staff-section" id="staff-faculty">
         <div className="white-line-long"></div>
-        <h2 className="major-heading counselor-heading">STAFF AND FACULTY</h2>
+        <h2 className="major-heading counselor-heading">{headers.facultyHeading.mainHeading}</h2>
         <div className="white-line-short"></div>
         <div className="staff-flex-wrapper">
-          {yabcStaffList.map((staff, index) => {
+          {staffObj.faculty.map((staff, index) => {
             return (
               <StaffImage
                 key={staff.name}
                 name={staff.name.toUpperCase()}
                 role={staff.role || ''}
-                email={staff.email || ''}
-                imgLink={staff.imgLink}
+                imgUrl={staff.imgUrl}
                 direction={index % 2 === 0 ? 'left' : 'right'}
               />
             );
@@ -105,17 +100,16 @@ export default function Staff() {
       </StyledContentSection>
       <StyledContentSection className="staff-section" id="support-staff">
         <div className="white-line-long"></div>
-        <h2 className="major-heading counselor-heading">SUPPORT STAFF</h2>
+        <h2 className="major-heading counselor-heading">{headers.supportHeading.mainHeading}</h2>
         <div className="white-line-short"></div>
         <div className="staff-flex-wrapper">
-          {supportStaffList.map((staff, index) => {
+          {staffObj.support.map((staff, index) => {
             return (
               <StaffImage
                 key={staff.name}
                 name={staff.name.toUpperCase()}
                 role={staff.role || ''}
-                email={staff.email || ''}
-                imgLink={staff.imgLink}
+                imgUrl={staff.imgUrl}
                 direction={index % 2 === 0 ? 'left' : 'right'}
               />
             );

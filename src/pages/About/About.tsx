@@ -21,9 +21,6 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css'; // Import the ca
 export default function About() {
   const [carouselYear, setCarouselYear] = useState('2023');
   const currentCarousel = useGetCarouselByYear(carouselYear)
-  console.log(currentCarousel)
-  //hashmap that has every year's pictures by year
-  // const currentCarousel = GRAD_CAROUSEL_YEARS.get(Number(carouselYear));
   const [selectedCarouselItem, setSelectedCarouselItem] = useState(0);
   //data fetching for page itself
   const { imgObj, sectionObj, loading } = useGetPageData('2UE2gLOJhURbCW6YffSfPQ');

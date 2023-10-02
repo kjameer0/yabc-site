@@ -30,219 +30,210 @@ import DefaultTeacherIcon from './Teacher_Icon.webp';
 import { StaffImageType } from 'components/StaffImage/StaffImage';
 
 export { AyetiwaImg };
-const emailDomain = '@schools.nyc.gov';
 type StaffInfoType = Omit<StaffImageType, 'direction'>;
 
 export const adminList: StaffInfoType[] = [
   {
     name: 'Mr. A Ayetiwa',
-    email: 'aayetiw' + emailDomain,
     role: 'Program Site Administrator',
-    imgLink: AyetiwaImg,
+    imgUrl: AyetiwaImg,
   },
   {
     name: 'Mr. J Cuevas',
-    email: 'JCuevas2' + emailDomain,
     role: 'Assistant Principal of Data',
-    imgLink: CuevasImg,
+    imgUrl: CuevasImg,
   },
 ];
 export const schoolCounselorList: StaffInfoType[] = [
   {
     name: 'Ms. A Mclaughlin',
-    email: 'amclaughlin2' + emailDomain,
     role: 'Guidance Counselor',
-    imgLink: McLaughlinImg,
+    imgUrl: McLaughlinImg,
   },
   {
     name: 'Ms. A Toomey',
-    email: 'AlixToomey10@gmail.com',
     role: 'Guidance Counselor',
-    imgLink: ToomeyImg,
+    imgUrl: ToomeyImg,
   },
   {
     name: 'Mr. N Tahmid',
-    email: 'tnazrul' + emailDomain,
     role: 'Guidance Counselor',
-    imgLink: DefaultTeacherIcon,
+    imgUrl: DefaultTeacherIcon,
   },
 ];
 export const missionSocietyList: StaffInfoType[] = [
   {
     name: 'Ms. W Nicholas',
-    email: '',
     role: 'Program Director',
-    imgLink: DefaultTeacherIcon,
+    imgUrl: DefaultTeacherIcon,
   },
   {
     name: 'Ms. E Brown-Whetstone',
-    email: 'ebwhetstone@missionsociety.org',
     role: 'Advocate Counselor/Social Worker',
-    imgLink: BrownWhetstoneImg,
+    imgUrl: BrownWhetstoneImg,
   },
   {
     name: 'Mr. A Muhiz',
-    email: 'amuhiz@missionsociety.org',
     role: 'Advocate Counselor',
-    imgLink: MuhizImg,
+    imgUrl: MuhizImg,
   },
 ];
 export const yabcStaffList: StaffInfoType[] = [
   {
     name: 'Ms. A Apilan',
     role: 'Science Teacher',
-    imgLink: ApilanImg,
+    imgUrl: ApilanImg,
   },
   {
     name: 'Ms. R Sabadiqua',
     role: 'Science Teacher',
-    imgLink: SabadiquaImg,
+    imgUrl: SabadiquaImg,
   },
   {
     name: 'Mr. N Weber',
     role: 'Social Studies',
-    imgLink: WeberImg,
+    imgUrl: WeberImg,
   },
- 
+
   {
     name: 'Ms. R Bray',
     role: 'Piano Teacher/ELA Electives',
-    imgLink: DefaultTeacherIcon,
+    imgUrl: DefaultTeacherIcon,
   },
   {
     name: 'Ms. Lee',
     role: 'PD Coordinator/PD Instructor/Math Teacher',
-    imgLink: LeeImg,
+    imgUrl: LeeImg,
   },
   {
     name: 'Mr D Weiner',
     role: 'Digital Photography',
-    imgLink: WeinerImg,
+    imgUrl: WeinerImg,
   },
   {
     name: 'Ms. Venner',
     role: 'COSA/PD Teacher',
-    imgLink: DefaultTeacherIcon,
+    imgUrl: DefaultTeacherIcon,
   },
   {
     name: 'Ms. B David',
     role: 'Fashion Design',
-    imgLink: DavidImg,
+    imgUrl: DavidImg,
   },
   {
     name: 'Mr. A Whitfield',
     role: 'PE Teacher',
-    imgLink: WhitfieldImg,
+    imgUrl: WhitfieldImg,
   },
   {
     name: 'Ms. J Caine',
     role: 'English Teacher',
-    imgLink: DefaultTeacherIcon,
+    imgUrl: DefaultTeacherIcon,
   },
   {
     name: 'Ms. A Ramos',
     role: 'Science Teacher',
-    imgLink: RamosImg,
+    imgUrl: RamosImg,
   },
   {
     name: 'Ms. E Morel-Grant',
     role: 'Spanish Teacher',
-    imgLink: MorelGrantImg,
+    imgUrl: MorelGrantImg,
   },
   {
     name: 'Ms. S Cattarina',
     role: 'Speech Pathologist',
-    imgLink: SantaCattarinaImg,
+    imgUrl: SantaCattarinaImg,
   },
   {
     name: 'Ms. L Acevedo',
     role: 'Science Teacher',
-    imgLink: LesleyAcevadoImg,
+    imgUrl: LesleyAcevadoImg,
   },
   {
     name: 'Ms. T Karas',
     role: 'Librarian',
-    imgLink: TracyKarasImg,
+    imgUrl: TracyKarasImg,
   },
   {
     name: 'Ms. S Mullings',
     role: 'SWD Teacher',
-    imgLink: StephanieMullingsImg,
+    imgUrl: StephanieMullingsImg,
   },
   {
     name: 'Mr. C Rivera',
     role: 'Social Studies Teacher',
-    imgLink: RiveraImg,
+    imgUrl: RiveraImg,
   },
   {
     name: 'Ms. L Mandry',
     role: 'PE Teacher',
-    imgLink: DefaultTeacherIcon,
+    imgUrl: DefaultTeacherIcon,
   },
   {
     name: 'Mr. S Lin',
     role: 'ENL Teacher',
-    imgLink: DefaultTeacherIcon,
+    imgUrl: DefaultTeacherIcon,
   },
   {
     name: 'Ms. S Lee',
     role: 'COSA/Health Teacher',
-    imgLink: StachaLeeImg,
+    imgUrl: StachaLeeImg,
   },
   {
     name: 'Ms. McDoughal',
     role: 'Testing Coordinator',
-    imgLink: McDoughalImg,
+    imgUrl: McDoughalImg,
   },
   {
     name: 'Mr. I Ramos',
     role: 'Math Teacher',
-    imgLink: DefaultTeacherIcon,
+    imgUrl: DefaultTeacherIcon,
   },
   {
     name: 'Mr. C Lerner',
     role: "Special Education/Driver's Ed",
-    imgLink: DefaultTeacherIcon,
+    imgUrl: DefaultTeacherIcon,
   },
   {
     name: 'Ms. A Ellis',
     role: 'College Advisor',
-    imgLink: DefaultTeacherIcon,
+    imgUrl: DefaultTeacherIcon,
   },
   {
     name: 'Ms. L McEvoy',
     role: 'Math/Computer Science',
-    imgLink: DefaultTeacherIcon,
+    imgUrl: DefaultTeacherIcon,
   },
   {
     name: 'Ms. S Mousavi',
     role: ' Communications Teacher',
-    imgLink: DefaultTeacherIcon,
+    imgUrl: DefaultTeacherIcon,
   },
   {
     name: 'Ms. C Sioson',
     role: 'Science Teacher',
-    imgLink: SiosonImg,
+    imgUrl: SiosonImg,
   },
   {
     name: 'Mr. F Alvarez',
     role: 'Dean',
-    imgLink: DefaultTeacherIcon,
+    imgUrl: DefaultTeacherIcon,
   },
   {
     name: 'Ms. D. Faulmino',
     role: 'Social Studies',
-    imgLink: DefaultTeacherIcon,
+    imgUrl: DefaultTeacherIcon,
   },
 ];
 export const supportStaffList: StaffInfoType[] = [
-  { name: 'Mr. Fanfan', imgLink: FanFanImg, role: 'Attendance Teacher' },
-  { name: 'Ms. Ambrose', imgLink: AmbroseImg, role: 'Secretary' },
-  { name: 'Ms. Pierre-Lys', imgLink: DefaultTeacherIcon, role: 'Paraprofessional' },
-  { name: 'Ms. Gomez', imgLink: DefaultTeacherIcon, role: 'School Aide' },
-  { name: 'Mr. Abdallah', imgLink: DefaultTeacherIcon, role: 'School Aide' },
-  { name: 'Ms. Mcloughlin', imgLink: DefaultTeacherIcon, role: 'School Aide' },
-  { name: 'Ms. Fiallos', imgLink: DefaultTeacherIcon, role: 'Paraprofessional' },
+  { name: 'Mr. Fanfan', imgUrl: FanFanImg, role: 'Attendance Teacher' },
+  { name: 'Ms. Ambrose', imgUrl: AmbroseImg, role: 'Secretary' },
+  { name: 'Ms. Pierre-Lys', imgUrl: DefaultTeacherIcon, role: 'Paraprofessional' },
+  { name: 'Ms. Gomez', imgUrl: DefaultTeacherIcon, role: 'School Aide' },
+  { name: 'Mr. Abdallah', imgUrl: DefaultTeacherIcon, role: 'School Aide' },
+  { name: 'Ms. Mcloughlin', imgUrl: DefaultTeacherIcon, role: 'School Aide' },
+  { name: 'Ms. Fiallos', imgUrl: DefaultTeacherIcon, role: 'Paraprofessional' },
 ];
 
 export { DefaultTeacherIcon };

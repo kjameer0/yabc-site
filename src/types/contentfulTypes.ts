@@ -408,7 +408,7 @@ export type TypeBannerText = Entry<TypeBannerTextSkeleton>;
 
 export interface TypeStaffMemberFields {
   name: EntryFieldTypes.Symbol;
-  image?: EntryFieldTypes.AssetLink;
+  image: EntryFieldTypes.AssetLink;
   role: EntryFieldTypes.Symbol;
   roleCategory: EntryFieldTypes.Symbol<
     'admin' | 'counselor' | 'faculty' | 'missionSociety' | 'support'

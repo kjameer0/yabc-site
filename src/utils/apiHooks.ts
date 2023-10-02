@@ -12,12 +12,15 @@ import {
   TypeCarouselFields,
   TypeCarouselImageFields,
   TypeStaffMemberSkeleton,
+  TypeStaffMemberFields,
 } from 'types/contentfulTypes';
 import {
   generateImageObject,
   sectionObjType,
   generateSectionsObject,
   generateImageObjectCarousel,
+  generateStaffCategoryObject,
+  StaffMemberDataType,
 } from './contentfulTypeFunctions';
 import { errorGenerator } from './error';
 
@@ -37,7 +40,7 @@ export function useGetPageData(contentfulId: string) {
         }
         setImgObj(generateImageObject(response) as Record<string, string>);
         setSectionObj(generateSectionsObject(response) as sectionObjType);
-        setLoading(false)
+        setLoading(false);
       } catch (error) {
         errorGenerator(error);
       }
@@ -116,7 +119,7 @@ export function useGetCarouselByYear(year: string) {
         if (carouselImageArray === undefined) {
           throw new ReferenceError('no carousels found');
         }
-        setCurrentCarousel(carouselImageArray)
+        setCurrentCarousel(carouselImageArray);
       } catch (error) {
         errorGenerator(error);
       }
@@ -127,19 +130,25 @@ export function useGetCarouselByYear(year: string) {
 }
 
 export function useGetStaffImages() {
-  const [staffObj, setStaffObj] = useState([]);
-  try {
-    const fetchStaff = async () => {
-      const response = await client.getEntries<TypeStaffMemberSkeleton>({
-        content_type: 'staffMember',
-      });
-      if (!response) {
-        throw new ReferenceError('no staff members');
-      }
-      const staffArr = response.items;
-    };
-    fetchStaff();
-  } catch (error) {
-    errorGenerator(error);
-  }
+  const [staffObj, setStaffObj] = useState<Record<string, StaffMemberDataType[]>>({});
+  const [isStaffLoading, setIsStaffLoading] = useState(true);
+  useEffect(() => {
+    try {
+      const fetchStaff = async () => {
+        const response = await client.withoutUnresolvableLinks.getEntries<TypeStaffMemberSkeleton>({
+          content_type: 'staffMember',
+        });
+        const generatedStaffObj = generateStaffCategoryObject(response.items);
+        if (!generatedStaffObj) {
+          throw new ReferenceError('no staff members');
+        }
+        setStaffObj(generatedStaffObj);
+        setIsStaffLoading(false);
+      };
+      fetchStaff();
+    } catch (error) {
+      errorGenerator(error);
+    }
+  }, []);
+  return { staffObj, isStaffLoading };
 }
