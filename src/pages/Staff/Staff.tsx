@@ -20,8 +20,7 @@ export default function Staff() {
   useEffect(() => {
     pageNavigationHandler('administrators', location);
   }, [location]);
-console.log(staffObj)
-  if (loading) {
+  if (loading || isStaffLoading) {
     return <LoadingScreen />;
   }
   return (
