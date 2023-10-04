@@ -33,7 +33,7 @@ export function generateImageObject(data: PageDataType) {
     //make sure images is not undefined
     const images = data.fields.images || [];
     //throw error if undefined
-    if (!data.fields || images.length === 0) {
+    if (!data.fields) {
       throw new ReferenceError('images undefined');
     }
     //images are stored with their title as the key and url as the value

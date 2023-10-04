@@ -40,7 +40,9 @@ export default function SharedAdmissions() {
         <p className="para-content">{paragraphs.instructionPara1.content} </p>
         <p className="para-content">{paragraphs.instructionPara2.content}</p>
         <p className="para-content">{paragraphs.instructionPara3.content}</p>
-        {documentToReactComponents(links.openHouseLink, richTextLinkOptions)}
+        <div className="para-content">
+          {documentToReactComponents(links.openHouseLink, richTextLinkOptions)}
+        </div>
       </StyledContentSection>
       <StyledContentSection className="enroll-section" id="how-to-enroll">
         <h2 className="enroll-section-h2">
@@ -95,12 +97,22 @@ export default function SharedAdmissions() {
           </a>
         </StyledMainButton>
         <StyledMainButton>
-          <a download="S1-form" target="_blank" rel="noreferrer" href={'https://' + buttons.s1Form.file}>
+          <a
+            download="S1-form"
+            target="_blank"
+            rel="noreferrer"
+            href={'https://' + buttons.s1Form.file}
+          >
             {buttons.s1Form.buttonText}
           </a>
         </StyledMainButton>
         <StyledMainButton>
-          <a download="S2-form" target="_blank" rel="noreferrer" href={'https://' + buttons.s2Form.file}>
+          <a
+            download="S2-form"
+            target="_blank"
+            rel="noreferrer"
+            href={'https://' + buttons.s2Form.file}
+          >
             {buttons.s2Form.buttonText}
           </a>
         </StyledMainButton>
