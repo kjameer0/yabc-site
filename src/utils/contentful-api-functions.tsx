@@ -1,5 +1,14 @@
 import { createClient } from 'contentful';
-import { TypeBannerText, TypeBannerTextSkeleton, TypePageSkeleton, TypePageFields } from 'types/contentfulTypes';
+import {
+  TypeBannerText,
+  TypeBannerTextSkeleton,
+  TypePageSkeleton,
+  TypePageFields,
+} from 'types/contentfulTypes';
+import { Options } from '@contentful/rich-text-react-renderer';
+import { INLINES, Inline } from '@contentful/rich-text-types';
+import { ReactNode } from 'react';
+
 import { errorGenerator } from './error';
 export const client = createClient({
   space: import.meta.env.VITE_SPACE_KEY as string,
@@ -18,5 +27,12 @@ export async function getBannerText() {
     errorGenerator(error);
   }
 }
-
-
+export const richTextLinkOptions = {
+  renderNode: {
+    [INLINES.HYPERLINK]: ({ data }: Inline, children: ReactNode) => (
+      <a href={data.uri} target={`'_blank'`} rel={`'noopener noreferrer'`}>
+        {children}
+      </a>
+    ),
+  },
+} as Options;

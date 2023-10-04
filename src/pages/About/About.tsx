@@ -1,5 +1,5 @@
 import { Location, NavLink, useLocation } from 'react-router-dom';
-import { ReactNode, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 //images
 //components
 import StyledAbout, { CarouselImgStyles, CarouselStyles } from './StyledAbout';
@@ -10,17 +10,17 @@ import LoadingScreen from 'components/LoadingScreen';
 //utils
 import { pageNavigationHandler } from 'pages/pages-utils';
 import { generateCarouselYearList } from 'utils/date-utils';
+import { richTextLinkOptions } from 'utils/contentful-api-functions';
 //data
 //hooks
 import { useGetPageData, useGetCarouselByYear } from 'utils/apiHooks';
-import { documentToReactComponents, Options } from '@contentful/rich-text-react-renderer';
-import { INLINES, Inline } from '@contentful/rich-text-types';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 //styles
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // Import the carousel styles
 
 export default function About() {
   const [carouselYear, setCarouselYear] = useState('2023');
-  const currentCarousel = useGetCarouselByYear(carouselYear)
+  const currentCarousel = useGetCarouselByYear(carouselYear);
   const [selectedCarouselItem, setSelectedCarouselItem] = useState(0);
   //data fetching for page itself
   const { imgObj, sectionObj, loading } = useGetPageData('2UE2gLOJhURbCW6YffSfPQ');
@@ -29,21 +29,10 @@ export default function About() {
   const location: Location = useLocation();
   useEffect(() => {
     pageNavigationHandler('students-sitting-hero', location);
-  }, [location]);
-  const options = {
-    renderNode: {
-      [INLINES.HYPERLINK]: ({ data }: Inline, children: ReactNode) => (
-        <a href={data.uri} target={`'_blank'`} rel={`'noopener noreferrer'`}>
-          {children}
-        </a>
-      ),
-    },
-  } as Options;
+  }, [location, loading]);
 
   if (loading) {
-    return (
-      <LoadingScreen />
-    );
+    return <LoadingScreen />;
   }
   return (
     <StyledAbout>
@@ -54,7 +43,7 @@ export default function About() {
         <p className="para-content">{paragraphs.registrationPara.content}</p>
         <p className="attend-info-h2">{paragraphs.orientationPara.content}</p>
         <p className="para-content">{paragraphs.registrationLocationPara.content}</p>
-        <h2 className="attend-info-h2">{documentToReactComponents(links.zoomLink, options)}</h2>
+        <h2 className="attend-info-h2">{documentToReactComponents(links.zoomLink, richTextLinkOptions)}</h2>
         <p className="para-content">{paragraphs.inPersonRegistrationPara.content}</p>
         <h2 className="attend-info-h2">{headers.openHouseHeading.mainHeading}</h2>
         <p className="para-content">
@@ -105,7 +94,7 @@ export default function About() {
           onChange={(idx) => setSelectedCarouselItem(idx)}
         >
           {currentCarousel &&
-            currentCarousel.map(({imgUrl}, idx) => {
+            currentCarousel.map(({ imgUrl }, idx) => {
               return (
                 <div style={CarouselStyles} key={idx}>
                   <img style={CarouselImgStyles} src={imgUrl} alt="Graduation carousel" />

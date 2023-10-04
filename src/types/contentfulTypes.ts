@@ -306,7 +306,11 @@ export interface TypePageFields {
    */
   sections?: EntryFieldTypes.Array<
     EntryFieldTypes.EntryLink<
-      TypeHeaderSkeleton | TypeListTextSkeleton | TypeParagraphSkeleton | TypeLinkTextSkeleton
+      | TypeHeaderSkeleton
+      | TypeListTextSkeleton
+      | TypeParagraphSkeleton
+      | TypeLinkTextSkeleton
+      | TypeButtonInformationSkeleton
     >
   >;
   /**
@@ -404,8 +408,6 @@ export interface TypeBannerTextFields {
 export type TypeBannerTextSkeleton = EntrySkeletonType<TypeBannerTextFields, 'bannerText'>;
 export type TypeBannerText = Entry<TypeBannerTextSkeleton>;
 
-
-
 export interface TypeStaffMemberFields {
   name: EntryFieldTypes.Symbol;
   image: EntryFieldTypes.AssetLink;
@@ -420,4 +422,23 @@ export type TypeStaffMember = Entry<TypeStaffMemberSkeleton>;
 
 export function isTypeStaffMember(entry: Entry<EntrySkeletonType>): entry is TypeStaffMember {
   return entry.sys.contentType.sys.id === 'staffMember';
+}
+
+export interface TypeButtonInformationFields {
+  buttonText: EntryFieldTypes.Symbol;
+  file?: EntryFieldTypes.AssetLink;
+  link?: EntryFieldTypes.Symbol;
+  title: EntryFieldTypes.Symbol;
+}
+
+export type TypeButtonInformationSkeleton = EntrySkeletonType<
+  TypeButtonInformationFields,
+  'buttonInformation'
+>;
+export type TypeButtonInformation = Entry<TypeButtonInformationSkeleton>;
+
+export function isTypeButtonInformation(
+  entry: Entry<EntrySkeletonType>
+): entry is TypeButtonInformation {
+  return entry.sys.contentType.sys.id === 'buttonInformation';
 }

@@ -78,10 +78,11 @@ export default styled.main`
     margin: 0px auto;
     width: 100%;
   }
-  .enroll-section-h2 {
+  header .enroll-section-header {
     font-size: clamp(1.2rem, 3vw, 2rem);
     font-family: Inter-black;
     margin-bottom: 10px;
+    width: 100%;
   }
   .enroll-step-h3 {
     font-size: clamp(0.75rem, 3vw, 1.5rem);
