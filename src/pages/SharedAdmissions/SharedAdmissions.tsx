@@ -4,19 +4,29 @@ import { Location, NavLink, useLocation } from "react-router-dom";
 import { SharedAdmissionsHero } from "assets/images/Hero-Images";
 //components
 import StyledSharedAdmissions from "./StyledSharedAdmissions";
-import HeroImage from "components/HeroImage";
-import { StyledContentSection } from "components/ContentSection";
+import LoadingScreen from 'components/LoadingScreen';
+import HeroImage from 'components/HeroImage';
+import { StyledContentSection } from 'components/ContentSection';
 import StyledMainButton from 'components/MainButton';
 //forms
 import { S1PDF, S2PDF } from 'assets/images/Forms';
 //utils
-import { pageNavigationHandler } from "pages/pages-utils";
+import { pageNavigationHandler } from 'pages/pages-utils';
+import { richTextLinkOptions } from 'utils/contentful-api-functions';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+//hooks
+import { useGetPageData } from 'utils/apiHooks';
 
 export default function SharedAdmissions() {
   const location: Location = useLocation();
+  const { sectionObj, loading } = useGetPageData('2GsVyoz0lPdUkLQKV30aW5');
+  const { headers, paragraphs, lists, buttons, links } = sectionObj;
   useEffect(() => {
     pageNavigationHandler('shared-admissions-hero', location);
-  }, [location]);
+  }, [location, loading]);
+  if (loading) {
+    return <LoadingScreen />;
+  }
   return (
     <StyledSharedAdmissions>
       <HeroImage
@@ -25,108 +35,73 @@ export default function SharedAdmissions() {
         text={[]}
         color="white"
       />
-      <h1 className="major-heading">SHARED INSTRUCTION</h1>
+      <h1 className="major-heading">{headers.pageTitle.mainHeading}</h1>
       <StyledContentSection className="shared-elaboration-section">
-        <p className="para-content">
-          At Washington Irving YABC, we pride ourselves on creating a unique, exciting environment
-          that embraces all types of learners and promotes growth both academically and personally.
-        </p>
-        <p className="para-content">
-          Our shared instruction academic program is designed for juniors and seniors students who
-          have fallen behind in credit but still want to graduate on time. This means the students
-          will be cared for jointly by the home day school and Washington Irving.
-        </p>
-        <p className="para-content">
-          Counselors should prioritize sending and registering seniors who are capable of graduating
-          in their senior year. Students can only register for classes that we offer at Washington
-          Irving YABC. Home schools, students, and families are encouraged to look for alternatives
-          should this YABC be unable to meet their request.
-        </p>
-        {/* That extra whitespace below is necessary */}
-        <p className="para-content">
-          Interested in learning more about Washington Irving YABC? We invite you to attend our {' '}
-          <NavLink className={'para-link'} to="/about">Open House.</NavLink> However, you can get in touch with questions
-          about our values, academics, community and more at any time by using the Contact US form.
-        </p>
+        <p className="para-content">{paragraphs.instructionPara1.content} </p>
+        <p className="para-content">{paragraphs.instructionPara2.content}</p>
+        <p className="para-content">{paragraphs.instructionPara3.content}</p>
+        {documentToReactComponents(links.openHouseLink, richTextLinkOptions)}
       </StyledContentSection>
       <StyledContentSection className="enroll-section" id="how-to-enroll">
         <h2 className="enroll-section-h2">
-          SHARED INSTRUCTION <br />
-          HOW TO ENROLL
+          {headers.sharedHeading.mainHeading} <br />
+          {headers.howHeading.mainHeading}
         </h2>
-        <h3 className="enroll-step-h3">Step 1:</h3>
-        <p className="para-content">
-          Students should meet with with the guidance counselor at their current high school to
-          determine eligibility and appropriateness.
-        </p>
-        <h3 className="enroll-step-h3">Step 2:</h3>
-        <p className="enroll-step-bold-p">
-          The student&apos;s guidance counselors should complete and submit the following:
-        </p>
+        <h3 className="enroll-step-h3">{headers.step1Heading.mainHeading}</h3>
+        <p className="para-content">{paragraphs.step1Para.content}</p>
+        <h3 className="enroll-step-h3">{headers.step2Heading.mainHeading}</h3>
+        <p className="enroll-step-bold-p">{paragraphs.step2Para.content}</p>
         <ul className="step-ul">
-          <li className="para-content">Counselor referral form (See Below)</li>
-          <li className="para-content">S-1 and S-2 Forms (See Below)</li>
-          <li className="para-content">Student&apos;s day school program</li>
-          <li className="para-content">Up-to-date IEP or 504 Documents (if applicable)</li>
+          {lists.step2List.listContent.map((item: string) => {
+            return (
+              <li key={crypto.randomUUID()} className="para-content">
+                {item}
+              </li>
+            );
+          })}
         </ul>
-        <p className="para-content">
-          Application materials may be submitted to <u>amclaughlin2@schools.nyc.gov</u>.
-        </p>
-        <p className="enroll-step-bold-p">
-          If you do not understand the enrollment process, please contact us and someone will
-          respond to you within 24 hours.
-        </p>
-        <h3 className="enroll-step-h3">Step 3:</h3>
-        <p className="enroll-step-bold-p">
-          Student or Guidance Counselor must call to schedule an interview with Site Administrators
-          or Guidance Counselors at Washington Irving YABC.
-        </p>
-        <p className="para-content">Admission is pending approval on interview.</p>
+        <p className="para-content">{paragraphs.submitPara.content}</p>
+        <p className="enroll-step-bold-p">{paragraphs.understandPara.content}</p>
+        <h3 className="enroll-step-h3">{headers.step3Heading.mainHeading}</h3>
+        <p className="enroll-step-bold-p">{paragraphs.step3Para1.content}</p>
+        <p className="para-content">{paragraphs.step3Para2.content}</p>
         <ul className="step-ul">
-          <li className="para-content">
-            Site Administrator: <u>929-359-3750</u>
-          </li>
-          <li className="para-content">
-            Guidance Counselor: <u>347-941-3313</u>
-          </li>
+          {lists.phoneList.listContent.map((item: string) => {
+            return (
+              <li key={crypto.randomUUID()} className="para-content">
+                {item}
+              </li>
+            );
+          })}
         </ul>
-        <p className="para-content">
-          Call or Text either of these numbers and someone will respond to you within 24 hours. If
-          you leave a voicemail or text, please state, &quot;My name is ____________, and I would
-          like to schedule an interview. I can be reached at ____________________.&quot;
-        </p>
-        <h3 className="enroll-step-h3">Step 4:</h3>
-        <p className="enroll-step-bold-p">
-          Upon acceptance, student reviews, completes, and signs the following forms:
-        </p>
+        <p className="para-content">{paragraphs.voicemailPara.content}</p>
+        <h3 className="enroll-step-h3">{headers.step4Heading.mainHeading}</h3>
+        <p className="enroll-step-bold-p">{paragraphs.step4Para1.content}</p>
         <ul className="step-ul">
-          <li className="para-content">shared instruction intake form</li>
-          <li className="para-content">media release form</li>
-          <li className="para-content">school rules form</li>
+          {lists.formList.listContent.map((item: string) => {
+            return (
+              <li key={crypto.randomUUID()} className="para-content">
+                {item}
+              </li>
+            );
+          })}
         </ul>
-        <p className="enroll-step-bold-p">
-          For Shared Instruction, a student must be enrolled in a NYC public school. There is no age
-          requirement.
-        </p>
+        <p className="enroll-step-bold-p">{paragraphs.agePara.content}</p>
       </StyledContentSection>
       <div className="form-buttons-wrapper">
         <StyledMainButton>
-          <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSeKpoGEg-Uwg3zh4BVKIn9KhoCRm0V-yssN7B_1z7kPmEvwlQ/viewform"
-            target="_blank"
-            rel="noreferrer"
-          >
-            COUNSELOR REFERRAL FORM
+          <a href={buttons.counselorForm.link} target="_blank" rel="noreferrer">
+            {buttons.counselorForm.buttonText}
           </a>
         </StyledMainButton>
         <StyledMainButton>
-          <a download="S1-form" href={S1PDF}>
-            S1 FORM
+          <a download="S1-form" target="_blank" rel="noreferrer" href={'https://' + buttons.s1Form.file}>
+            {buttons.s1Form.buttonText}
           </a>
         </StyledMainButton>
         <StyledMainButton>
-          <a download="S2-form" href={S2PDF}>
-            S2 FORM
+          <a download="S2-form" target="_blank" rel="noreferrer" href={'https://' + buttons.s2Form.file}>
+            {buttons.s2Form.buttonText}
           </a>
         </StyledMainButton>
       </div>
