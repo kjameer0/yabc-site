@@ -8,6 +8,8 @@ export default styled.nav`
   background-color: var(--main-bg);
   height: 100vh;
   width: clamp(200px, 20vw, 255px);
+  overflow-y: scroll;
+  overflow-x: hidden;
   /* logo wrapper */
   .img-wrapper {
     background: black;
