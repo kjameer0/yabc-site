@@ -107,7 +107,7 @@ export default function Admissions() {
           className="navlink"
           target="_blank"
           rel="noreferrer"
-          href={buttons.referralFormButton.link || ''}
+          href={buttons.referralFormButton.link}
         >
           {buttons.referralFormButton.buttonText}
         </a>
