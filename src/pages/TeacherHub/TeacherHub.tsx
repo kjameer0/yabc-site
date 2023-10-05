@@ -7,100 +7,102 @@ import { TimesheetDownload, StaffHanbook } from 'assets/images/Forms';
 //components
 import StyledTeacherHub from './StyledTeacherHub';
 import { StyledContentSection } from 'components/ContentSection';
+import LoadingScreen from 'components/LoadingScreen';
+
 //utils
 import { pageNavigationHandler } from 'pages/pages-utils';
+//hooks
+import { useGetPageData } from 'utils/apiHooks';
+
 export default function TeacherHub() {
   const location: Location = useLocation();
+  const { imgObj, sectionObj, loading } = useGetPageData('4ull73PKgAqB37xT6SkdwB');
+  const { headers, paragraphs, buttons, links, lists } = sectionObj;
   useEffect(() => {
     pageNavigationHandler('teacher-hub', location);
-  }, [location]);
+  }, [location, loading]);
+  if(loading) {
+    return <LoadingScreen />
+  }
   return (
     <StyledTeacherHub id="teacher-hub">
-      <h1 className="major-heading">TEACHER HUB</h1>
+      <h1 className="major-heading">{headers.pageTitle.mainHeading}</h1>
       <StyledContentSection id="classroom-expectation">
-        <h2 className="sub-heading">EXPECTATIONS FOR CLASSROOM LEARNING</h2>
+        <h2 className="sub-heading">{headers.expectationHeading.mainHeading}</h2>
         <p className="para-content bold-para">
-          Our philosophy is simple - to embrace and provide for all types of learning. We respect
-          the individual needs of all our students and believe that with the right guidance and
-          direction, everyone can succeed.
+         {paragraphs.philosophyPara.content}
         </p>
-        <p className="para-content bold-para">We do not have remote classes at this time.</p>
+        <p className="para-content bold-para">{paragraphs.remotePara.content}</p>
         <div className="expectation-list-wrapper">
           <img
-            src={TeacherInfluenceImg}
+            src={imgObj.influenceimg}
             alt="The influence of a good teacher can never be erased"
           />
           <div className="expectations-list">
-            <h3 className="para-content bold-para">Expectations of YABC Teachers</h3>
+            <h3 className="para-content bold-para">{headers.teacherExpectationHeading.mainHeading}</h3>
             <p className="para-content">
-              Attendance is vital to the success of YABC students. Therefore, teachers must stress
-              students logging every class period (synchronous and asynchronous learning). They will
-              reach out to the Site Administrator/Guidance Counselors/NYC Mission staff when a
-              student has missed a two consecutive class periods. This will allow for the proper
-              outreach to take place in checking on student welfare.
+              {paragraphs.teacherPara1.content}
             </p>
             <p className="para-content">
-              Regular communication, group emails, phone calls, Google classroom, live Zoom / Google
-              Meet discussions, etc. will be used to maintain student-teacher relationships and
-              support learning.
+              {paragraphs.teacherPara2.content}
             </p>
           </div>
         </div>
       </StyledContentSection>
       <StyledContentSection id="teacher-resources" className="teacher-resources">
-        <h2 className="major-heading">TEACHER RESOURCES</h2>
+        <h2 className="major-heading">{headers.resourcesHeading.mainHeading}</h2>
         <div className="resource-button-wrapper">
           <a
             className="navlink"
             target="_blank"
             rel="noreferrer"
-            href="https://www.civicschools.com/"
+            href={buttons.civicsButton.link}
           >
-            <p> CIVICS APP FOR TEACHERS</p>
+            <p>{buttons.civicsButton.buttonText}</p>
           </a>
           <a
             className="navlink"
             target="_blank"
             rel="noreferrer"
-            href="https://sesis.nycenet.edu/userlogin.aspx"
+            href={buttons.sesisButton.link}
           >
-            <p>SESIS</p>
+            <p>{buttons.sesisButton.buttonText}</p>
           </a>
           <a
             className="navlink"
             target="_blank"
             rel="noreferrer"
-            href="https://www.schools.nyc.gov/employees"
+            href={buttons.infohubButton.link}
           >
-            <p>NYC INFOHUB</p>
+            <p>{buttons.infohubButton.buttonText}</p>
           </a>
           <a
             className="navlink"
             target="_blank"
             rel="noreferrer"
-            href="https://payrollportal.nycboe.net/"
+            href={buttons.payrollButton.link}
           >
-            <p>PAYROLL PORTAL</p>
+            <p>{buttons.payrollButton.buttonText}</p>
           </a>
           <a
             className="navlink"
             target="_blank"
             rel="noreferrer"
             download="per-session-timesheet"
-            href={TimesheetDownload}
+            href={buttons.sessionButton.file}
           >
-            <p>FILLABLE PER SESSION TIMESHEET</p>
+            <p>{buttons.sessionButton.buttonText}</p>
           </a>
-          <a className="navlink" target="_blank" rel="noreferrer" href={StaffHanbook}>
-            <p>STAFF HANDBOOK</p>
+          <a className="navlink" target="_blank" download={'per-session-timesheet'} rel="noreferrer" href={buttons.handbookButton.file}>
+            <p>{buttons.handbookButton.buttonText}</p>
           </a>
           <a
             className="navlink"
             target="_blank"
             rel="noreferrer"
-            href={'https://login.jupitered.com/login/'}
+            href={buttons.jupiterButton.link}
           >
-            <p>JUPITER</p>
+            <p>{buttons.jupiterButton.buttonText}</p>
           </a>
         </div>
       </StyledContentSection>

@@ -42,6 +42,7 @@ export default function HomePage() {
         </h2>
         <p className="reg-date">{paragraphs.classesBeginDate.content}</p>
       </div>
+      <iframe title='yabc-video' src="https://drive.google.com/file/d/1k3BEgpFhhelqdwCvzUyfFWNVYw8wB8KZ/preview" width="640" height="480" allow="autoplay"></iframe>
       <StyledContentSection className="registration-date-section">
         <p className="registration-range smaller-med-heading">
           {paragraphs.inPersonRegistrationPara.content}

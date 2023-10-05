@@ -1,12 +1,10 @@
 import StyledParents from "./StyledParents";
 import { useEffect } from "react";
 //images
-import { ParentImg } from "assets/images/Parents-images";
-import { VoteIcon, MealIcon, MentalIcon, ChildrenIcon, HeartIcon } from "assets/Icons";
 //components
 import LoadingScreen from 'components/LoadingScreen';
 import { StyledContentSection } from 'components/ContentSection';
-import { useLocation, NavLink, Location } from 'react-router-dom';
+import { useLocation, Location } from 'react-router-dom';
 //utils
 import { pageNavigationHandler } from 'pages/pages-utils';
 //hooks
