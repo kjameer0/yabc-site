@@ -4,7 +4,7 @@ import StyledStudentCorner from './StyledStudentCorner';
 //forms
 import { StudentHandbook } from 'assets/images/Forms';
 //images
-import { RemoteLearningStudentsIcon, BabyCarriageIcon, VoteIcon } from 'assets/Icons';
+import { RemoteLearningStudentsIcon, BabyCarriageIcon } from 'assets/Icons';
 import { StudentCornerCarouselImages } from 'assets/images/Carousel-Photos';
 import { BookshelfImg, StudentHandBookImg } from 'assets/images/Student-Corner-Images';
 //components
@@ -66,7 +66,7 @@ export default function StudentCorner() {
           </a>
         </div>
         <div className="resources-icon-wrapper">
-          <img src={VoteIcon} alt="vote icon" />
+          <img src={imgObj.voteimg} alt="vote icon" />
           <a
             href={buttons.voteButton.link}
             className="navlink resources-icon-a"
@@ -102,7 +102,7 @@ export default function StudentCorner() {
       </StyledContentSection>
       <StyledContentSection id="school-library" className="school-library-section">
         <h1 className="major-heading">{headers.libraryHeading.mainHeading}</h1>
-        <img className="bookshelf-img" src={BookshelfImg} alt="a library book shelf" />
+        <img className="bookshelf-img" src={imgObj.shelfimg} alt="a library book shelf" />
         <h3 className="sub-heading library-heading">
           {headers.librarianHeading.mainHeading} <br /> {headers.librarianHeading.subHeading}
         </h3>
