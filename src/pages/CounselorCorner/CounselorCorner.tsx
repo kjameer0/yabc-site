@@ -1,13 +1,10 @@
 import { useEffect } from 'react';
-import { useLocation, NavLink, Location } from 'react-router-dom';
+import { useLocation, Location } from 'react-router-dom';
 import StyledCounselorCorner from './StyledCounselorCorner';
 //components
 import HeroImage from 'components/HeroImage';
 import LoadingScreen from 'components/LoadingScreen';
 import { StyledContentSection } from 'components/ContentSection';
-//images
-import { CounselorCornerHero } from 'assets/images/Hero-Images';
-import { RemoteLearningImg } from 'assets/images/Counselor-Corner-images';
 //utils
 import { pageNavigationHandler } from 'pages/pages-utils';
 //hooks
