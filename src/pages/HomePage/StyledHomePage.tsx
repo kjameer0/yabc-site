@@ -35,6 +35,12 @@ export default styled.main`
   .registration-range {
     letter-spacing: -0.05rem;
   }
+  .yabc-embed {
+    min-width: 320px;
+    min-height: 240px;
+    width: 50vw;
+    height: calc(50vw * .6666);
+  }
   /* generic wrapper for asides */
   .our-wrapper {
     width: 75%;

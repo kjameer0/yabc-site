@@ -9,6 +9,7 @@ import { createGlobalStyle } from 'styled-components';
 //components
 import App from './App';
 import { ErrorPage } from 'ErrorPage';
+import { HelmetProvider } from 'react-helmet-async';
 import {
   About,
   Admissions,
@@ -332,7 +333,9 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <GlobalStyle />
-    <RouterProvider router={router} />
+    <HelmetProvider>
+      <GlobalStyle />
+      <RouterProvider router={router} />
+    </HelmetProvider>
   </React.StrictMode>
 );

@@ -2,14 +2,12 @@
 import { useEffect } from 'react';
 import { useLocation, NavLink, Location } from 'react-router-dom';
 //forms
-import { FillableY1Form, FillableY2Form } from 'assets/images/Forms';
 //components
 import StyledAdmissions from './StyledAdmissions';
 import HeroImage from 'components/HeroImage';
 import LoadingScreen from 'components/LoadingScreen';
 import { StyledContentSection } from 'components/ContentSection';
 //images
-import { AdmissionsHero } from 'assets/images/Hero-Images';
 //utils
 import { pageNavigationHandler } from 'pages/pages-utils';
 import { useGetPageData } from 'utils/apiHooks';
@@ -23,9 +21,11 @@ export default function Admissions() {
   useEffect(() => {
     pageNavigationHandler('admissions-hero', location);
   }, [location, loading]);
+
   if (loading) {
     return <LoadingScreen />;
   }
+  
   return (
     <StyledAdmissions id="admissions-page">
       <HeroImage text={[]} color="white" imgLink={imgObj.admissionshero} id="admissions-hero" />

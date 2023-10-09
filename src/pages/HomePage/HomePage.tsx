@@ -15,16 +15,18 @@ import { useGetPageData, useGetSingleCarousel } from 'utils/apiHooks';
 export default function HomePage() {
   const location: Location = useLocation();
   const { imgObj, sectionObj, loading } = useGetPageData('7yhGH9U8xAnRRgnC76CcAC');
-  const { paragraphs, headers } = sectionObj;
+  const { paragraphs, headers, buttons } = sectionObj;
   const quoteCarousel = useGetSingleCarousel('6HNgzL9333zge8eEXDZV9R');
   useEffect(() => {
     pageNavigationHandler('school-facade', location);
   }, [location]);
+
   if (loading) {
     return (
       <LoadingScreen />
     );
   }
+  
   return (
     <StyledHomePage className="home-main">
       <HeroImage id="school-facade" imgLink={imgObj.homehero} text={[]} color="white" />
@@ -42,8 +44,14 @@ export default function HomePage() {
         </h2>
         <p className="reg-date">{paragraphs.classesBeginDate.content}</p>
       </div>
-      <iframe title='yabc-video' src="https://drive.google.com/file/d/1k3BEgpFhhelqdwCvzUyfFWNVYw8wB8KZ/preview" width="640" height="480" allow="autoplay"></iframe>
       <StyledContentSection className="registration-date-section">
+        <h2 className="sub-heading">{buttons.yabcVideoEmbed.buttonText}</h2>
+        <iframe
+          className="yabc-embed"
+          title={buttons.yabcVideoEmbed.buttonText}
+          src={buttons.yabcVideoEmbed.link}
+          allow="autoplay"
+        ></iframe>
         <p className="registration-range smaller-med-heading">
           {paragraphs.inPersonRegistrationPara.content}
         </p>
