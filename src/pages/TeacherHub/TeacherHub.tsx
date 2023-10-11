@@ -1,14 +1,11 @@
 import { Location, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 //images
-import { TeacherInfluenceImg } from 'assets/images/Teacher-Hub-Images';
 //download
-import { TimesheetDownload, StaffHanbook } from 'assets/images/Forms';
 //components
 import StyledTeacherHub from './StyledTeacherHub';
 import { StyledContentSection } from 'components/ContentSection';
 import LoadingScreen from 'components/LoadingScreen';
-
 //utils
 import { pageNavigationHandler } from 'pages/pages-utils';
 //hooks
@@ -89,11 +86,11 @@ export default function TeacherHub() {
             target="_blank"
             rel="noreferrer"
             download="per-session-timesheet"
-            href={buttons.sessionButton.file}
+            href={'https://' + buttons.sessionButton.file}
           >
             <p>{buttons.sessionButton.buttonText}</p>
           </a>
-          <a className="navlink" target="_blank" download={'per-session-timesheet'} rel="noreferrer" href={buttons.handbookButton.file}>
+          <a className="navlink" target="_blank" download={'per-session-timesheet'} rel="noreferrer" href={'https://' + buttons.handbookButton.file}>
             <p>{buttons.handbookButton.buttonText}</p>
           </a>
           <a
