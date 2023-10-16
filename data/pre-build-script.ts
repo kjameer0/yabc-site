@@ -36,17 +36,17 @@ async function writeBannerText() {
     errorGenerator(error);
   }
 }
-async function fetchDataWithStream(url, outputPath) {
-  try {
-    const response = await axios.get(url, {
-      responseType: 'stream', // Specify 'stream' as the response type
-    });
-    if(!response.ok)
+// async function fetchDataWithStream(url, outputPath) {
+//   try {
+//     const response = await axios.get(url, {
+//       responseType: 'stream', // Specify 'stream' as the response type
+//     });
+//     if(!response.ok)
 
-  } catch (error) {
-    throw error;
-  }
-}
+//   } catch (error) {
+//     throw error;
+//   }
+// }
 
 // Example usage:
 const apiUrl = 'https://example.com/large-file.zip'; // Replace with your streaming API endpoint
