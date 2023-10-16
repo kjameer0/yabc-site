@@ -1,6 +1,7 @@
 import { getBannerText } from './contentful-client.js';
 import { writeFile } from 'node:fs';
 import path from 'path';
+import axios from 'axios';
 import { errorGenerator } from '../src/utils/error.js';
 // console.log(
 //   (async () => {
@@ -35,4 +36,21 @@ async function writeBannerText() {
     errorGenerator(error);
   }
 }
+async function fetchDataWithStream(url, outputPath) {
+  try {
+    const response = await axios.get(url, {
+      responseType: 'stream', // Specify 'stream' as the response type
+    });
+    if(!response.ok)
+
+  } catch (error) {
+    throw error;
+  }
+}
+
+// Example usage:
+const apiUrl = 'https://example.com/large-file.zip'; // Replace with your streaming API endpoint
+const outputPath = 'output.zip';
+
+
 await writeBannerText();
