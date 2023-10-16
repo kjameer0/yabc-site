@@ -1,11 +1,13 @@
 {
   "compilerOptions": {
     "composite": true,
-    "module": "ESNext",
+    "module": "CommonJS",
     "moduleResolution": "Node",
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": true,
+    
   },
   "include": [
-    "vite.config.ts"
+    "vite.config.ts", "./data"
   ]
 }

@@ -9,5 +9,5 @@ import EnvironmentPlugin from 'vite-plugin-environment';
 export default defineConfig({
   base: '/',
   envDir: './env',
-  plugins: [react(), tsconfigPaths(), svgrPlugin(), EnvironmentPlugin('all')],
+  plugins: [react(), tsconfigPaths({loose: true}), svgrPlugin(), EnvironmentPlugin('all')],
 });
