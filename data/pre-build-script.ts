@@ -1,34 +1,27 @@
-import { getBannerText } from './contentful-client.js';
-import { writeFile } from 'node:fs';
+import { getBannerText } from './contentful-api-functions/bannerText.js';
+import { getSinglePageData } from './contentful-api-functions/pageContent.js';
+import { writeFile, createWriteStream } from 'node:fs';
 import path from 'path';
+import { fileURLToPath } from 'url';
 import axios from 'axios';
 import { errorGenerator } from '../src/utils/error.js';
-// console.log(
-//   (async () => {
-//     getBannerText().then((data) => {
-//       const pathName = './bannerData.json';
-//       const file = createWriteStream(pathName);
-//       const dataObj = JSON.stringify({ text: data || '' });
-//       writeFile('data/bannerData.json', dataObj, (err) => {
-//         if (err) {
-//           console.error(err);
-//         }
-//         // file written successfully
-//       });
-//     });
-//     //write data to file
-//   })()
-// );
+import * as imageDownloader from 'image-downloader';
+import { dir } from 'node:console';
+
+const filename = fileURLToPath(import.meta.url);
+const dirname = path.dirname(filename);
+const DATA_DIRECTORY = 'src/pageData';
+
 
 //function that grabs banner text and awaits completion
 async function writeBannerText() {
   try {
     const bannerData = await getBannerText();
     const bannerTextStringified = JSON.stringify({ bannerText: bannerData || '' });
-    const pathName = 'src/pageData/bannerData.json';
+    const pathName = path.join(DATA_DIRECTORY, 'bannerData.json');
     writeFile(pathName, bannerTextStringified, (err) => {
       if (err) {
-        console.error(err);
+        throw new Error('Banner file writing failed');
       }
     });
     return bannerData;
@@ -36,6 +29,30 @@ async function writeBannerText() {
     errorGenerator(error);
   }
 }
+
+async function writePageData(contentfulId: string, fileName: string) {
+  try {
+    const pageData = await getSinglePageData(contentfulId);
+    if (!pageData) {
+      throw new ReferenceError('No Page Data.');
+    }
+    const stringifiedPageData = JSON.stringify(pageData);
+    const pathName = path.join(DATA_DIRECTORY, fileName) + '.json';
+    writeFile(pathName, stringifiedPageData, (err) => {
+      if (err) {
+        throw new Error('Page Data failed in' + fileName);
+      }
+    });
+  } catch (error) {
+    errorGenerator(error);
+  }
+}
+const imagePath = path.resolve(dirname, '../', 'src/pageData')
+imageDownloader.image({
+  url: 'https://images.ctfassets.net/jhdk2rr72yfb/FEdtzQeuK0nHew2YEF7Z4/ee07cdff67ed367a68858111f823a5a8/School_Facade.webp',
+  dest: imagePath,
+  // extractFilename: false
+});
 // async function fetchDataWithStream(url, outputPath) {
 //   try {
 //     const response = await axios.get(url, {
@@ -48,9 +65,5 @@ async function writeBannerText() {
 //   }
 // }
 
-// Example usage:
-const apiUrl = 'https://example.com/large-file.zip'; // Replace with your streaming API endpoint
-const outputPath = 'output.zip';
-
-
 await writeBannerText();
+await writePageData('7yhGH9U8xAnRRgnC76CcAC', 'homeData');

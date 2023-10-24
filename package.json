@@ -14,7 +14,8 @@
     "commit": "commit",
     "format": "prettier --write --ignore-unknown .",
     "lint": "eslint --cache ./src",
-    "prepare-commit-msg": "commitlint --edit"
+    "prepare-commit-msg": "commitlint --edit",
+    "load-cms-json": "ts-node-esm data/pre-build-script.ts"
   },
   "dependencies": {
     "@contentful/rich-text-html-renderer": "^16.1.2",
@@ -29,6 +30,7 @@
     "contentful": "^10.5.2",
     "dotenv": "^16.3.1",
     "gh-pages": "^5.0.0",
+    "image-downloader": "^4.3.0",
     "install": "^0.13.0",
     "npm": "^9.7.2",
     "react": "^18.2.0",

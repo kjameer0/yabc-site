@@ -26,7 +26,7 @@ export default function HomePage() {
       <LoadingScreen />
     );
   }
-  
+
   return (
     <StyledHomePage className="home-main">
       <HeroImage id="school-facade" imgLink={imgObj.homehero} text={[]} color="white" />

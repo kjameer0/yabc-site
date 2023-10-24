@@ -10,15 +10,13 @@ import {
   StaffMemberDataType,
 } from '../../src/utils/contentfulTypeFunctions.js';
 
-export const fetchSinglePageData = async (contentfulId: string) => {
+export const getSinglePageData = async (contentfulId: string) => {
   try {
     const response = await client.withoutUnresolvableLinks.getEntry<TypePageSkeleton>(contentfulId);
     if (!response) {
       throw new ReferenceError('no page data found');
     }
-    const imgObj = generateImageObject(response) as Record<string, string>;
-    const sectionObj = generateSectionsObject(response) as sectionObjType;
-    return {imgObj, sectionObj}
+    return response;
   } catch (error) {
     errorGenerator(error);
   }
