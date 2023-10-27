@@ -41,7 +41,6 @@ export function useGetPageData(contentfulId: string) {
         setImgObj(generateImageObject(response) as Record<string, string>);
         setSectionObj(generateSectionsObject(response) as sectionObjType);
         setLoading(false);
-        console.log(window.performance.getEntriesByType("resource").length)
       } catch (error) {
         errorGenerator(error);
       }

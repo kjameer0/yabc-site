@@ -127,6 +127,14 @@ export default function StudentCorner() {
         >
           {buttons.handbookButton.buttonText}
         </a>
+        <a
+          className="navlink"
+          href={buttons.jupiterButton.link}
+          target="_blank"
+          rel="noreferrer"
+        >
+          {buttons.jupiterButton.buttonText}
+        </a>
       </StyledContentSection>
     </StyledStudentCorner>
   );
