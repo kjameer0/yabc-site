@@ -6,8 +6,8 @@ import { fileURLToPath } from 'url';
 import axios from 'axios';
 import { errorGenerator } from '../src/utils/error.js';
 import * as imageDownloader from 'image-downloader';
-import { generateImageObject } from './contentful/type-functions.js';
-const tu = generateImageObject
+import { generateImageObject, generateSectionsObject } from './contentful/type-functions.js';
+const tu = generateImageObject;
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 const DATA_DIRECTORY = 'src/page-data';
@@ -37,18 +37,27 @@ async function writePageData(
 ) {
   try {
     const pathToPipeImages = path.resolve(ASSET_DIRECTORY, pageAssetPath);
-    console.log(pathToPipeImages)
     const pageData = await getSinglePageData(contentfulId);
     if (!pageData) {
       throw new ReferenceError('No Page Data.');
     }
     //rewrite pageData to the correct image urls
-    const imgObj = generateImageObject(pageData);
-    if (!imgObj) {
-      throw new ReferenceError('no images in writePageData function');
+    const sectionObj = generateSectionsObject(pageData);
+    const contentfulImgObj = generateImageObject(pageData);
+    if (!contentfulImgObj || !sectionObj) {
+      let errorLocation = '';
+      if (!contentfulImgObj) {
+        errorLocation += ' images';
+      }
+      if (!sectionObj) {
+        errorLocation += ' sections';
+      }
+      throw new ReferenceError(
+        `writePageData function does not have the following: ${errorLocation}`
+      );
     }
-    await downloadPageImagesToAssetDirectory(pathToPipeImages, imgObj);
-    const stringifiedPageData = JSON.stringify(pageData);
+    const imgObj = await downloadPageImagesToAssetDirectory(pathToPipeImages, contentfulImgObj);
+    const stringifiedPageData = JSON.stringify({ sectionObj, imgObj });
     const pathName = path.join(DATA_DIRECTORY, pageDataFileName) + '.json';
     writeFile(pathName, stringifiedPageData, (err) => {
       if (err) {
@@ -59,12 +68,12 @@ async function writePageData(
     errorGenerator(error);
   }
 }
-async function downloadSingleImage(url: string, imageDirectory: string) {
-  const fileName = url.split(path.sep).pop() || '';
-  const finalFilePath = path.resolve(ASSET_DIRECTORY, imageDirectory, fileName);
+async function downloadSingleImage(url: string, imageDirectory: string, name: string) {
+  const fileExtension = '.' + url.split('.').pop() || '';
+  const finalFilePath = path.resolve(ASSET_DIRECTORY, imageDirectory, name+fileExtension);
   //add https: to url name if it doesnt have it
   //urls from contentful sometimes come without https:
-  url = url.slice(0,6) === 'https:' ? url : 'https:' + url
+  url = url.slice(0, 6) === 'https:' ? url : 'https:' + url;
   await imageDownloader.image({
     url: url,
     dest: finalFilePath,
@@ -78,14 +87,13 @@ async function downloadPageImagesToAssetDirectory(
 ) {
   for (const imgName in imgObj) {
     const imgUrl = imgObj[imgName];
-    const downloadedImagePath = await downloadSingleImage(imgUrl, targetDirectory);
-    imgObj[imgName] = downloadedImagePath;
+    const downloadedImagePath = await downloadSingleImage(imgUrl, targetDirectory, imgName);
+    //cut out non
+    imgObj[imgName] = 'src' + path.sep + downloadedImagePath.split(path.sep + 'src' + path.sep)[1];
   }
+  return imgObj;
 }
 
 await writeBannerText();
 await writePageData('7yhGH9U8xAnRRgnC76CcAC', 'homeData', 'home');
-await downloadSingleImage(
-  '//images.ctfassets.net/jhdk2rr72yfb/6ZA9hiZq0ltnilUlL1DBDU/98ad96898cabeab41c4e51d63b556d67/Home_Class.webp',
-  'home'
-);
+
