@@ -27,7 +27,6 @@ function App() {
       errorGenerator(error)
     }
   }, []);
-  console.log(bannerText)
   return (
     <>
       <div className="banner-wrapper">

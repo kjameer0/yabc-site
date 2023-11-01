@@ -10,14 +10,13 @@ import LoadingScreen from 'components/LoadingScreen';
 //images
 //utils
 import { pageNavigationHandler } from 'pages/pages-utils';
-import { useGetPageData, useGetSingleCarousel } from 'utils/apiHooks';
-import HomeData from '../../page-data/homeData.json'
+import { useGetPageData, useGetSingleCarousel, useImportPageImages } from 'utils/apiHooks';
+import HomeData from '../../page-data/homeData.json';
 //types
 export default function HomePage() {
   const location: Location = useLocation();
-  const loading = false;
-  const { imgObj, sectionObj } = HomeData;
-
+  const {imgObj, loading} = useImportPageImages('home');
+  const { sectionObj } = HomeData;
   const { paragraphs, headers, buttons } = sectionObj;
   const quoteCarousel = useGetSingleCarousel('6HNgzL9333zge8eEXDZV9R');
   useEffect(() => {
@@ -25,14 +24,16 @@ export default function HomePage() {
   }, [location]);
 
   if (loading) {
-    return (
-      <LoadingScreen />
-    );
+    return <LoadingScreen />;
   }
-
   return (
     <StyledHomePage className="home-main">
-      <HeroImage id="school-facade" imgLink={imgObj.homehero} text={[]} color="white" />
+      <HeroImage
+        id="school-facade"
+        imgLink={imgObj.homehero}
+        text={[]}
+        color="white"
+      />
       <h1 className="major-heading restore-margin">{headers.pageTitle.mainHeading}</h1>
       <div className="pre-reg-box info-box restore-margin">
         <h2 className="sub-heading">

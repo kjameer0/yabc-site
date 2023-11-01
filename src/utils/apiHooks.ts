@@ -152,3 +152,79 @@ export function useGetStaffImages() {
   }, []);
   return { staffObj, isStaffLoading };
 }
+
+
+
+//this function is deciding which meta glob of imports to return and returning an imgobj
+export async function createPageImgObj(pageName: string) {
+  try {
+    let pageGlob;
+    switch (pageName) {
+      case 'home':
+        pageGlob = await import.meta.glob('../assets/images/build-assets/home/*');
+        break;
+      case 'about':
+        pageGlob = await import.meta.glob('../assets/images/build-assets/about/*');
+        break;
+      case 'contact':
+        pageGlob = await import.meta.glob('../assets/images/build-assets/contact/*');
+        break;
+      case 'contactForm':
+        pageGlob = await import.meta.glob('../assets/images/build-assets/contactForm/*');
+        break;
+      case 'admissions':
+        pageGlob = await import.meta.glob('../assets/images/build-assets/admissions/*');
+        break;
+      case 'counselorCorner':
+        pageGlob = await import.meta.glob('../assets/images/build-assets/counselorCorner/*');
+        break;
+      case 'forms':
+        pageGlob = await import.meta.glob('../assets/images/build-assets/forms/*');
+        break;
+      case 'parents':
+        pageGlob = await import.meta.glob('../assets/images/build-assets/parents/*');
+        break;
+      case 'sharedAdmissions':
+        pageGlob = await import.meta.glob('../assets/images/build-assets/sharedAdmissions/*');
+        break;
+      case 'staff':
+        pageGlob = await import.meta.glob('../assets/images/build-assets/staff/*');
+        break;
+      case 'studentCorner':
+        pageGlob = await import.meta.glob('../assets/images/build-assets/studentCorner/*');
+        break;
+      case 'teacherHub':
+        pageGlob = await import.meta.glob('../assets/images/build-assets/teacherHub/*');
+        break;
+      default:
+        throw new ReferenceError('invalid page name to retrieve images');
+    }
+    return pageGlob as Record<string, () => Promise<{ default: string }>>;
+  } catch (error) {
+    errorGenerator(error);
+  }
+}
+export function useImportPageImages(pageName:string) {
+  const [imgObj, setImgObj] = useState<Record<string, string>>({});
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const fetchObj = async () => {
+      const importedGlob = await createPageImgObj(pageName);
+      const pageImgObj: Record<string, string> = {};
+      for (const path in importedGlob) {
+        const module = await importedGlob[path]();
+        pageImgObj[extractFileNameFromUrl(path)] = module.default;
+      }
+      setImgObj(pageImgObj);
+      setLoading(false);
+      return;
+    };
+    fetchObj();
+  }, []);
+  return {imgObj, loading};
+}
+export function extractFileNameFromUrl(filePath: string): string {
+  const splitFileName = filePath.split(/\.|\//);
+  splitFileName.pop();
+  return splitFileName.pop() || '';
+}
