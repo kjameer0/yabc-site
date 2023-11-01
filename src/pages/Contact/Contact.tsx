@@ -1,33 +1,40 @@
 //React
 import { useState, useEffect } from 'react';
 import { Location, useLocation } from 'react-router-dom';
-//images
-import { AdmissionsHero } from 'assets/images/Hero-Images';
-import { MapImg } from 'assets/images/Contact-Images';
 //components
 import StyledContact from './StyledContact';
 import HeroImage from 'components/HeroImage';
 import StyledMainButton from 'components/MainButton';
+import LoadingScreen from 'components/LoadingScreen';
 //utils
 import { useContactForm } from 'pages/ContactForm/ContactForm';
 import { pageNavigationHandler } from 'pages/pages-utils';
+import { useImportPageImages } from 'utils/apiHooks';
+//data
+import contactData from '../../page-data/contactData.json';
 
-const ENDPOINT = 'https://public.herotofu.com/v1/6d309f10-28c7-11ee-8058-515da3888232';
+
 export default function Contact() {
   const [isButtonActive, setIsButtonActive] = useState(true);
-  const { status, handleFormSubmit } = useContactForm(ENDPOINT, setIsButtonActive);
+  const { imgObj, loading } = useImportPageImages('contact');
+  const { sectionObj } = contactData;
+  const { headers, lists, paragraphs, buttons } = sectionObj;
+  const { status, handleFormSubmit } = useContactForm(buttons.sendMessageButton.link, setIsButtonActive);
   const location: Location = useLocation();
 
   useEffect(() => {
     pageNavigationHandler('contact-hero', location);
   }, [location]);
+
+  if (loading) {
+    return <LoadingScreen />;
+  }
   return (
     <StyledContact>
-      <HeroImage imgLink={AdmissionsHero} id="contact-hero" text={[]} color="white" />
-      <h1 className="major-heading">CONTACT US!</h1>
+      <HeroImage imgLink={imgObj.admissionshero} id="contact-hero" text={[]} color="white" />
+      <h1 className="major-heading">{headers.pageHeading.mainHeading}</h1>
       <p className="para-content">
-        Washington Irving YABC always has its doors open. Don&apos;t hesitate to get in touch with
-        any feedback or questions regarding our academics, events, students, staff or anything else.
+        {paragraphs.doorPara.content}
       </p>
       <input
         type="text"
@@ -36,7 +43,7 @@ export default function Contact() {
         autoComplete="off"
         style={{ display: 'none' }}
       />
-      <form action={ENDPOINT} method="POST" onSubmit={handleFormSubmit} acceptCharset="UTF-8">
+      <form action={buttons.sendMessageButton.link} method="POST" onSubmit={handleFormSubmit} acceptCharset="UTF-8">
         <fieldset>
           <label className="form-label" htmlFor="Name">
             <span className="form-label-text">Name*</span>
@@ -55,19 +62,18 @@ export default function Contact() {
             <textarea name="Message" required placeholder="Send a message" />
           </label>
           <StyledMainButton type="submit" disabled={!isButtonActive} className="submit-button">
-            {isButtonActive ? 'Send Message' : 'Sending...'}
+            {isButtonActive ? buttons.sendMessageButton.buttonText : 'Sending...'}
           </StyledMainButton>
-          <p className="para-content">PLEASE ALLOW AT LEAST 24 HOURS FOR A RESPONSE.</p>
+          <p className="para-content">{paragraphs.allowPara.content}</p>
         </fieldset>
       </form>
-      <div className='green-separator'></div>
-      <img className="location-img" src={MapImg} alt="Washington Irving YABC location" />
+      <div className="green-separator"></div>
+      <img className="location-img" src={imgObj.mapimg} alt="Washington Irving YABC location" />
       <p className="para-content address-p">
-        40 Irving Place NY, NY 10003
+        {paragraphs.addressPara.content}
         <br />
-        Site Administrator Cell: 929-359-3750<br/> OFFICE PH: 212-674-5000 ext 11491/11420 or
-        646-654-9671
-      </p>
+        {paragraphs.adminCellPara.content}
+        <br /> {paragraphs.officePhonePara.content}</p>
     </StyledContact>
   );
 }

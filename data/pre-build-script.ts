@@ -109,6 +109,7 @@ await writePageData('2GsVyoz0lPdUkLQKV30aW5', 'sharedAdmissionsData', 'sharedAdm
 await writePageData('4PVhqvB90jCz42mULpBZeC', 'staffData', 'staff');
 await writePageData('4uRsZsFnHcwcxbOW543PiU', 'studentCornerData', 'studentCorner');
 await writePageData('4ull73PKgAqB37xT6SkdwB', 'teacherHubData', 'teacherHub');
+await writePageData('66NBO5u9RxH1aZmxbEObDF', 'contactData', 'contact');
 
 
 

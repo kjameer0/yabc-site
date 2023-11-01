@@ -13,6 +13,7 @@ export default styled.main`
     align-items: center;
     border: 0;
   }
+
   .form-label {
     font-family: Inter-regular;
     font-size: clamp(1rem, 3vw, 1.2rem);
