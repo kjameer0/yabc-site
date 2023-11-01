@@ -72,7 +72,6 @@ async function writePageData(
 async function downloadSingleImage(url: string, imageDirectory: string, name: string) {
   const fileExtension = '.' + url.split('.').pop() || '';
   const finalFilePath = path.resolve(ASSET_DIRECTORY, imageDirectory, name+fileExtension);
-  console.log(finalFilePath)
   //add https: to url name if it doesnt have it
   //urls from contentful sometimes come without https:
   url = url.slice(0, 6) === 'https:' ? url : 'https:' + url;
@@ -103,6 +102,14 @@ async function downloadPageImagesToAssetDirectory(
 await writeBannerText();
 await writePageData('7yhGH9U8xAnRRgnC76CcAC', 'homeData', 'home');
 await writePageData('2UE2gLOJhURbCW6YffSfPQ', 'aboutData', 'about');
+await writePageData('7GJQyJLELJDKG8EWm744KA', 'admissionsData', 'admissions');
+await writePageData('7g9C5Xa1vO345Eim31HZaY', 'counselorCornerData', 'counselorCorner');
+await writePageData('4PFJseAKeaXR0SerpDod02', 'parentsData', 'parents');
+await writePageData('2GsVyoz0lPdUkLQKV30aW5', 'sharedAdmissionsData', 'sharedAdmissions');
+await writePageData('4PVhqvB90jCz42mULpBZeC', 'staffData', 'staff');
+await writePageData('4uRsZsFnHcwcxbOW543PiU', 'studentCornerData', 'studentCorner');
+await writePageData('4ull73PKgAqB37xT6SkdwB', 'teacherHubData', 'teacherHub');
+
 
 
 
