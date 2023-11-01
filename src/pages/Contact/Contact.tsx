@@ -7,9 +7,8 @@ import HeroImage from 'components/HeroImage';
 import StyledMainButton from 'components/MainButton';
 import LoadingScreen from 'components/LoadingScreen';
 //utils
-import { useContactForm } from 'pages/ContactForm/ContactForm';
 import { pageNavigationHandler } from 'pages/pages-utils';
-import { useImportPageImages } from 'utils/apiHooks';
+import { useImportPageImages, useContactForm } from 'utils/apiHooks';
 //data
 import contactData from '../../page-data/contactData.json';
 
@@ -18,7 +17,7 @@ export default function Contact() {
   const [isButtonActive, setIsButtonActive] = useState(true);
   const { imgObj, loading } = useImportPageImages('contact');
   const { sectionObj } = contactData;
-  const { headers, lists, paragraphs, buttons } = sectionObj;
+  const { headers, paragraphs, buttons } = sectionObj;
   const { status, handleFormSubmit } = useContactForm(buttons.sendMessageButton.link, setIsButtonActive);
   const location: Location = useLocation();
 
