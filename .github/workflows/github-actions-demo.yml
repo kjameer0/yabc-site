@@ -39,8 +39,8 @@ jobs:
           GCS_SA_KEY: ${{secrets.GCS_SA_KEY}}
         uses: google-github-actions/setup-gcloud@v0.2.1
         with:
-          project_id: ${{ env.GCS_PROJECT }}
-          service_account_key: ${{ env.GCS_SA_KEY }}
+          project_id: ${{ secrets.GCS_PROJECT }}
+          service_account_key: ${{ secrets.GCS_SA_KEY }}
           export_default_credentials: true
 
       - name: Upload to Cloud Storage
@@ -49,4 +49,4 @@ jobs:
           GCS_BUCKET: ${{ secrets.GCS_BUCKET }}
         with:
           path: dist
-          destination: ${{ env.GCS_BUCKET }}/test
+          destination: ${{ secrets.GCS_BUCKET }}/test
