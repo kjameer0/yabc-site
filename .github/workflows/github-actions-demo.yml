@@ -13,15 +13,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18.x'
-      - name: Cache dependencies
-        uses: actions/cache@v2
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-      - name: Check out repository code
-        uses: actions/checkout@v4
       - run: npm ci
       - run: npm run load-cms-json
       - run: npm run build
@@ -52,5 +43,5 @@ jobs:
       - name: Upload to Cloud Storage
         uses: google-github-actions/upload-cloud-storage@v1
         with:
-          path: 'yabc-site'
+          path: 'dist'
           destination: ${{ env.GCS_BUCKET }}/test
