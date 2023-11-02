@@ -18,8 +18,9 @@ export default function InfoRequestForm() {
   const location: Location = useLocation();
   const {sectionObj} = InfoRequestFormData;
   const {headers, paragraphs, buttons} = sectionObj;
+  const ENDPOINT_HERO_TOFU = buttons.submitButton.buttonText;
   const {imgObj, loading} = useImportPageImages('informationRequestForm');
-  const { status, handleFormSubmit } = useContactForm(buttons.submitButton.link, setIsButtonActive);
+  const { status, handleFormSubmit } = useContactForm(ENDPOINT_HERO_TOFU, setIsButtonActive);
 
   useEffect(() => {
     pageNavigationHandler('info-request-hero', location);
@@ -40,7 +41,7 @@ export default function InfoRequestForm() {
         autoComplete="off"
         style={{ display: 'none' }}
       />
-      <form action={buttons.submitButton.link} method="POST" onSubmit={handleFormSubmit} acceptCharset="UTF-8">
+      <form action={ENDPOINT_HERO_TOFU} method="POST" onSubmit={handleFormSubmit} acceptCharset="UTF-8">
         <fieldset>
           <label className="form-label" htmlFor="Name">
             <p className="form-label-text">Name*</p>
