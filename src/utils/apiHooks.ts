@@ -152,3 +152,139 @@ export function useGetStaffImages() {
   }, []);
   return { staffObj, isStaffLoading };
 }
+
+export function useContactForm(
+  ENDPOINT: string,
+  setIsButtonActive: React.Dispatch<React.SetStateAction<boolean>>
+) {
+  const [status, setStatus] = useState<string>();
+  const handleFormSubmit: React.FormEventHandler = (e) => {
+    // e.preventDefault();
+    setIsButtonActive(false);
+    const form = e.currentTarget as HTMLFormElement;
+    const injectedData: Record<string, string | number> = {
+      // Here you can specify anything you need to inject dynamically, outside the form. For example:
+      // DYNAMIC_DATA_EXAMPLE: 123,
+    };
+
+    const inputs = Array.from(form.elements) as HTMLFormElement[];
+    const data = inputs
+      .filter((input) => input.name)
+      .reduce(
+        (obj, input) => Object.assign(obj, { [input.name]: input.value }),
+        {} as Record<string, string>
+      );
+    Object.assign(data, injectedData);
+    fetch(ENDPOINT, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => {
+        setIsButtonActive(true);
+        // It's likely a spam/bot submission, so bypass it to validate via captcha challenge old-school style
+        if (response.status === 422) {
+          // Append dynamically generated keys back to the form
+          Object.keys(injectedData).forEach((key) => {
+            const el = document.createElement('input');
+            el.type = 'hidden';
+            el.name = key;
+            el.value = injectedData[key].toString();
+            form.appendChild(el);
+          });
+          // Let's submit the form again and spammer/bot will be redirected to another page automatically
+          // Submitting via javascript will bypass calling this function again
+          form.setAttribute('target', '_blank');
+          form.submit();
+          throw new Error('Please finish the captcha challenge');
+        }
+        if (response.status !== 200) {
+          throw new Error(response.statusText);
+        }
+        return response.json();
+      })
+      .then(() => setStatus("We'll be in touch soon."))
+      .catch((err) => setStatus(err.toString()));
+  };
+  return { status, handleFormSubmit };
+}
+
+//this function is deciding which meta glob of imports to return and returning an imgobj
+export async function createPageImgObj(pageName: string) {
+  try {
+    let pageGlob;
+    switch (pageName) {
+      case 'home':
+        pageGlob = await import.meta.glob('../assets/images/build-assets/home/*');
+        break;
+      case 'about':
+        pageGlob = await import.meta.glob('../assets/images/build-assets/about/*');
+        break;
+      case 'contact':
+        pageGlob = await import.meta.glob('../assets/images/build-assets/contact/*');
+        break;
+      case 'contactForm':
+        pageGlob = await import.meta.glob('../assets/images/build-assets/contactForm/*');
+        break;
+      case 'informationRequestForm':
+        pageGlob = await import.meta.glob('../assets/images/build-assets/informationRequestForm/*');
+        break;
+      case 'admissions':
+        pageGlob = await import.meta.glob('../assets/images/build-assets/admissions/*');
+        break;
+      case 'counselorCorner':
+        pageGlob = await import.meta.glob('../assets/images/build-assets/counselorCorner/*');
+        break;
+      case 'forms':
+        pageGlob = await import.meta.glob('../assets/images/build-assets/forms/*');
+        break;
+      case 'parents':
+        pageGlob = await import.meta.glob('../assets/images/build-assets/parents/*');
+        break;
+      case 'sharedAdmissions':
+        pageGlob = await import.meta.glob('../assets/images/build-assets/sharedAdmissions/*');
+        break;
+      case 'staff':
+        pageGlob = await import.meta.glob('../assets/images/build-assets/staff/*');
+        break;
+      case 'studentCorner':
+        pageGlob = await import.meta.glob('../assets/images/build-assets/studentCorner/*');
+        break;
+      case 'teacherHub':
+        pageGlob = await import.meta.glob('../assets/images/build-assets/teacherHub/*');
+        break;
+      default:
+        throw new ReferenceError('invalid page name to retrieve images');
+    }
+    return pageGlob as Record<string, () => Promise<{ default: string }>>;
+  } catch (error) {
+    errorGenerator(error);
+  }
+}
+export function useImportPageImages(pageName:string) {
+  const [imgObj, setImgObj] = useState<Record<string, string>>({});
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const fetchObj = async () => {
+      const importedGlob = await createPageImgObj(pageName);
+      const pageImgObj: Record<string, string> = {};
+      for (const path in importedGlob) {
+        const module = await importedGlob[path]();
+        pageImgObj[extractFileNameFromUrl(path)] = module.default;
+      }
+      setImgObj(pageImgObj);
+      setLoading(false);
+      return;
+    };
+    fetchObj();
+  }, []);
+  return {imgObj, loading};
+}
+export function extractFileNameFromUrl(filePath: string): string {
+  const splitFileName = filePath.split(/\.|\//);
+  splitFileName.pop();
+  return splitFileName.pop() || '';
+}

@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "build-watch": "tsc && vite build --watch",
     "preview": "vite preview",
     "test": "jest --watch",
     "serve": "vite preview",
@@ -14,7 +15,8 @@
     "commit": "commit",
     "format": "prettier --write --ignore-unknown .",
     "lint": "eslint --cache ./src",
-    "prepare-commit-msg": "commitlint --edit"
+    "prepare-commit-msg": "commitlint --edit",
+    "load-cms-json": "ts-node-esm data/pre-build-script.ts"
   },
   "dependencies": {
     "@contentful/rich-text-html-renderer": "^16.1.2",
@@ -27,7 +29,9 @@
     "@mui/material": "^5.14.1",
     "axios": "^1.5.1",
     "contentful": "^10.5.2",
+    "dotenv": "^16.3.1",
     "gh-pages": "^5.0.0",
+    "image-downloader": "^4.3.0",
     "install": "^0.13.0",
     "npm": "^9.7.2",
     "react": "^18.2.0",
@@ -39,6 +43,8 @@
     "react-router-dom": "^6.11.0",
     "styled-components": "^6.0.1",
     "stylis": "^4.3.0",
+    "ts-node": "^10.9.1",
+    "vite-plugin-dynamic-import": "^1.5.0",
     "vite-plugin-svgr": "^2.4.0"
   },
   "devDependencies": {
@@ -50,7 +56,7 @@
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
     "@types/jest": "^29.5.1",
-    "@types/node": "^18.16.2",
+    "@types/node": "^18.18.5",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.1",
     "@typescript-eslint/eslint-plugin": "^5.59.1",
