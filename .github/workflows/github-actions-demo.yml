@@ -25,10 +25,6 @@ jobs:
           name: dist
           path: dist/
   upload:
-    env:
-      GCS_PROJECT: ${{ secrets.GCS_PROJECT }}
-      GCS_SA_KEY: ${{ secrets.GCS_SA_KEY }}
-      GCS_BUCKET: ${{ secrets.GCS_BUCKET }}
     needs: Rebuild-Site
     runs-on: ubuntu-latest
     steps:
