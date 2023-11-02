@@ -10,15 +10,20 @@ import { AdmissionsHero } from 'assets/images/Hero-Images';
 //utils
 import { pageNavigationHandler } from 'pages/pages-utils';
 import { useContactForm } from 'utils/apiHooks';
+//data
+import adminCounselorData from '../../page-data/adminCounselorFormData.json';
 //endpoints depend on which form is being rendered
 //see routes in main.tsx for prop passing
-const COUNSELOR_FORM_ENDPOINT =
-  'https://public.herotofu.com/v1/1bd822b0-27fe-11ee-adc8-15d0255d3cef';
-const SITE_ADMIN_FORM_ENDPOINT =
-  'https://public.herotofu.com/v1/50bf2530-2846-11ee-8058-515da3888232';
 
 export default function ContactForm({ version }: { version: 'counselor' | 'admin' }) {
   const [isButtonActive, setIsButtonActive] = useState(true);
+  const { sectionObj } = adminCounselorData;
+  const { headers, buttons, paragraphs } = sectionObj;
+  const COUNSELOR_FORM_ENDPOINT =
+    buttons.counselorSubmitButton.link;
+  const SITE_ADMIN_FORM_ENDPOINT =
+    buttons.adminSubmitButton.link;
+  const buttonMessage = version === 'counselor' ? buttons.counselorSubmitButton.buttonText : buttons.adminSubmitButton.buttonText
   const { status, handleFormSubmit } = useContactForm(
     version === 'counselor' ? COUNSELOR_FORM_ENDPOINT : SITE_ADMIN_FORM_ENDPOINT,
     setIsButtonActive
@@ -32,7 +37,7 @@ export default function ContactForm({ version }: { version: 'counselor' | 'admin
     <StyledContactForm>
       <HeroImage text={[]} color="white" imgLink={AdmissionsHero} id="counselor-contact-hero" />
       <h1 className="major-heading">
-        {version === 'counselor' ? 'COUNSELOR' : 'SITE ADMINISTRATOR'} CONTACT FORM
+        {version === 'counselor' ? headers.counselorHeading.mainHeading : headers.adminContactHeading.mainHeading}
       </h1>
       <input
         type="text"
@@ -64,9 +69,9 @@ export default function ContactForm({ version }: { version: 'counselor' | 'admin
             <span className="form-label-text form-textarea-label">Message*</span>
             <textarea name="Message" required placeholder="Send a message" />
           </label>
-          <p className="para-content">PLEASE ALLOW AT LEAST 24 HOURS FOR A RESPONSE.</p>
+          <p className="para-content">{paragraphs.allowPara.content}</p>
           <StyledMainButton type="submit" disabled={!isButtonActive} className="submit-button">
-            {isButtonActive ? 'Send Message' : 'Sending...'}
+            {isButtonActive ? buttonMessage : 'Sending...'}
           </StyledMainButton>
         </fieldset>
       </form>
