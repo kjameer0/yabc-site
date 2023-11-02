@@ -11,7 +11,6 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v4
       - run: npm ci && npm run load-cms-json && npm run build
-      - name: List files in the repository
-        run: |
-          ls ${{ github.workspace }}
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+        env:
+          API_KEY: ${{ secrets.API_KEY }}
+          SPACE_KEY: ${{ secrets.SPACE_KEY }}
