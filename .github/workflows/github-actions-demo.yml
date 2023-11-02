@@ -1,7 +1,8 @@
 name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on:
-  push
+  repository_dispatch:
+    types: [publish-event]
 jobs:
   Rebuild-Site:
     runs-on: ubuntu-latest
