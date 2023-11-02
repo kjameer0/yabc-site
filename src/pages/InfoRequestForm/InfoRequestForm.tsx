@@ -2,27 +2,37 @@
 import { useState, useEffect } from 'react';
 import { Location, useLocation } from 'react-router-dom';
 import StyledInfoRequestForm from './StyledInfoRequestForm';
-//images
-import { AdmissionsHero } from 'assets/images/Hero-Images';
 //components
 import HeroImage from 'components/HeroImage';
-//utils
-import { useContactForm } from 'pages/ContactForm/ContactForm';
-import { pageNavigationHandler } from 'pages/pages-utils';
 import StyledMainButton from 'components/MainButton';
+import LoadingScreen from 'components/LoadingScreen';
+//utils
+import { useContactForm, useImportPageImages } from 'utils/apiHooks';
+import { pageNavigationHandler } from 'pages/pages-utils';
+//data
+import InfoRequestFormData from '../../page-data/informationRequestFormData.json';
 //form is submitted to this link
-const ENDPOINT = 'https://public.herotofu.com/v1/ebe2a980-28c6-11ee-9907-0b23fd627d84';
+
 export default function InfoRequestForm() {
   const [isButtonActive, setIsButtonActive] = useState(true);
-  const { status, handleFormSubmit } = useContactForm(ENDPOINT, setIsButtonActive);
   const location: Location = useLocation();
+  const {sectionObj} = InfoRequestFormData;
+  const {headers, paragraphs, buttons} = sectionObj;
+  const {imgObj, loading} = useImportPageImages('informationRequestForm');
+  const { status, handleFormSubmit } = useContactForm(buttons.submitButton.link, setIsButtonActive);
+
   useEffect(() => {
     pageNavigationHandler('info-request-hero', location);
   }, [location]);
+
+  if(loading) {
+    return <LoadingScreen />
+  }
+
   return (
     <StyledInfoRequestForm>
-      <HeroImage imgLink={AdmissionsHero} text={[]} color="white" id="info-request-hero" />
-      <h1 className="major-heading">INFORMATION REQUEST</h1>
+      <HeroImage imgLink={imgObj.requesthero} text={[]} color="white" id="info-request-hero" />
+      <h1 className="major-heading">{headers.pageHeading.mainHeading}</h1>
       <input
         type="text"
         name="_gotcha"
@@ -30,7 +40,7 @@ export default function InfoRequestForm() {
         autoComplete="off"
         style={{ display: 'none' }}
       />
-      <form action={ENDPOINT} method="POST" onSubmit={handleFormSubmit} acceptCharset="UTF-8">
+      <form action={buttons.submitButton.link} method="POST" onSubmit={handleFormSubmit} acceptCharset="UTF-8">
         <fieldset>
           <label className="form-label" htmlFor="Name">
             <p className="form-label-text">Name*</p>
@@ -116,10 +126,10 @@ export default function InfoRequestForm() {
               <option value="Other">Other</option>
             </select>
           </label>
-          <p className="para-content">PLEASE ALLOW AT LEAST 24 HOURS FOR A RESPONSE.</p>
+          <p className="para-content">{paragraphs.allowPara.content}</p>
           {/* deactivate button during sending */}
           <StyledMainButton type="submit" disabled={!isButtonActive} className="submit-button">
-            {isButtonActive ? 'Submit' : 'Sending...'}
+            {isButtonActive ? buttons.submitButton.buttonText : 'Sending...'}
           </StyledMainButton>
         </fieldset>
       </form>

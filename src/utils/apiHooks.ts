@@ -229,6 +229,9 @@ export async function createPageImgObj(pageName: string) {
       case 'contactForm':
         pageGlob = await import.meta.glob('../assets/images/build-assets/contactForm/*');
         break;
+      case 'informationRequestForm':
+        pageGlob = await import.meta.glob('../assets/images/build-assets/informationRequestForm/*');
+        break;
       case 'admissions':
         pageGlob = await import.meta.glob('../assets/images/build-assets/admissions/*');
         break;

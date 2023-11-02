@@ -24,7 +24,6 @@ export default function Contact() {
   useEffect(() => {
     pageNavigationHandler('contact-hero', location);
   }, [location]);
-
   if (loading) {
     return <LoadingScreen />;
   }

@@ -8,9 +8,8 @@ import axios from 'axios';
 import { errorGenerator } from '../src/utils/error.js';
 import * as imageDownloader from 'image-downloader';
 import { generateImageObject, generateSectionsObject } from './contentful/type-functions.js';
-const tu = generateImageObject;
-const filename = fileURLToPath(import.meta.url);
-const dirname = path.dirname(filename);
+
+
 const DATA_DIRECTORY = 'src/page-data';
 const ASSET_DIRECTORY = 'src/assets/images/build-assets';
 
@@ -110,6 +109,7 @@ await writePageData('4PVhqvB90jCz42mULpBZeC', 'staffData', 'staff');
 await writePageData('4uRsZsFnHcwcxbOW543PiU', 'studentCornerData', 'studentCorner');
 await writePageData('4ull73PKgAqB37xT6SkdwB', 'teacherHubData', 'teacherHub');
 await writePageData('66NBO5u9RxH1aZmxbEObDF', 'contactData', 'contact');
+await writePageData('7dfBJlHAwdkBjAGwHz7dmV', 'informationRequestFormData', 'informationRequestForm');
 
 
 
