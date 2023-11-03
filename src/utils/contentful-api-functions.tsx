@@ -11,8 +11,8 @@ import { ReactNode } from 'react';
 
 import { errorGenerator } from './error';
 export const client = createClient({
-  space: import.meta.env.VITE_SPACE_KEY as string,
-  accessToken: import.meta.env.VITE_API_KEY as string,
+  space: 'jhdk2rr72yfb',
+  accessToken: 'RWz-m92fyiJr_oUdxnJhFnTIiAnSmwTsnbVcZ_otgzY',
 });
 
 export async function getBannerText() {
