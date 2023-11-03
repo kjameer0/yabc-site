@@ -40,10 +40,17 @@ jobs:
       - name: Setup Google Cloud SDK
         uses: google-github-actions/setup-gcloud@v1
 
-      - name: Upload to Cloud Storage
+      - name: Upload assets to Cloud Storage
         uses: google-github-actions/upload-cloud-storage@v1
         env:
           GCS_BUCKET: ${{ secrets.GCS_BUCKET }}
         with:
           path: dist/assets
+          destination: ${{ secrets.GCS_BUCKET }}/test
+      - name: Upload index.html to Cloud Storage
+        uses: google-github-actions/upload-cloud-storage@v1
+        env:
+          GCS_BUCKET: ${{ secrets.GCS_BUCKET }}
+        with:
+          path: dist/index.html
           destination: ${{ secrets.GCS_BUCKET }}/test
