@@ -45,5 +45,5 @@ jobs:
         env:
           GCS_BUCKET: ${{ secrets.GCS_BUCKET }}
         with:
-          path: dist
+          path: dist/assets
           destination: ${{ secrets.GCS_BUCKET }}/test
