@@ -46,7 +46,7 @@ jobs:
           GCS_BUCKET: ${{ secrets.GCS_BUCKET }}
         with:
           path: dist/assets
-          destination: ${{ secrets.GCS_BUCKET }}/test
+          destination: ${{ secrets.GCS_BUCKET }}
       - name: Upload fonts to Cloud Storage
         uses: google-github-actions/upload-cloud-storage@v1
         env:
@@ -60,4 +60,4 @@ jobs:
           GCS_BUCKET: ${{ secrets.GCS_BUCKET }}
         with:
           path: dist/index.html
-          destination: ${{ secrets.GCS_BUCKET }}/test
+          destination: ${{ secrets.GCS_BUCKET }}
