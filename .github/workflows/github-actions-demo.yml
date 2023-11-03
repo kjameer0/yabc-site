@@ -33,15 +33,12 @@ jobs:
         with:
           name: dist
           path: dist
-      - name: Setup Google Cloud SDK
-        env:
-          GCS_PROJECT: ${{secrets.GCS_PROJECT}}
-          GCS_SA_KEY: ${{secrets.GCS_SA_KEY}}
-        uses: google-github-actions/setup-gcloud@v0
+      - id: 'auth'
+        uses: 'google-github-actions/auth@v1'
         with:
-          project_id: ${{ secrets.GCS_PROJECT }}
-          service_account_key: ${{ secrets.GCS_SA_KEY }}
-          export_default_credentials: true
+          credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
+      - name: Setup Google Cloud SDK
+        uses: google-github-actions/setup-gcloud@v1
 
       - name: Upload to Cloud Storage
         uses: google-github-actions/upload-cloud-storage@v1
