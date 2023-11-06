@@ -17,8 +17,8 @@ jobs:
       - run: npm run load-cms-json
       - run: npm run build
         env:
-          API_KEY: ${{ env.API_KEY }}
-          SPACE_KEY: ${{ env.SPACE_KEY }}
+          API_KEY: ${{ secrets.API_KEY }}
+          SPACE_KEY: ${{ secrets.SPACE_KEY }}
       - name: Archive production artifacts
         uses: actions/upload-artifact@v2
         with:
