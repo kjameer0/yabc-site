@@ -12,6 +12,7 @@ import LoadingScreen from 'components/LoadingScreen';
 import { pageNavigationHandler } from 'pages/pages-utils';
 import { useGetSingleCarousel, useImportPageImages } from 'utils/apiHooks';
 import HomeData from '../../page-data/homeData.json';
+import quoteCarouselQuotes from '../../page-data/quoteCarouselData.json'
 //types
 export default function HomePage() {
   const location: Location = useLocation();

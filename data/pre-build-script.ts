@@ -1,14 +1,20 @@
 import { getBannerText } from './contentful-api-functions/bannerText.js';
-import { getSinglePageData, getStaffData } from './contentful-api-functions/pageContent.js';
+import {
+  getSinglePageData,
+  getStaffData,
+  getGraduateCarousel,
+} from './contentful-api-functions/pageContent.js';
 import { writeFile } from 'node:fs';
 import path from 'path';
 import { errorGenerator } from '../src/utils/error.js';
 import * as imageDownloader from 'image-downloader';
-import { StaffMemberDataType } from './contentful/type-functions.js';
+import { Entry } from 'contentful';
+import { TypeCarouselSkeleton } from './contentful/contentful-types.js';
 import {
   generateImageObject,
   generateSectionsObject,
   sectionObjType,
+  StaffMemberDataType,
 } from './contentful/type-functions.js';
 
 const DATA_DIRECTORY = 'src/page-data';
@@ -113,7 +119,6 @@ async function writeStaffImages() {
     errorGenerator(error);
   }
 }
-await writeStaffImages();
 async function downloadPageImagesToAssetDirectory(
   targetDirectory: string,
   imgObj: Record<string, string>
@@ -122,30 +127,80 @@ async function downloadPageImagesToAssetDirectory(
     const imgUrl = imgObj[imgName];
     const downloadedImagePath = await downloadSingleImage(imgUrl, targetDirectory, imgName);
     //turn absolute path into relative path for downloaded image and make it / separated. src/... is needed for vite to handle images
-    imgObj[imgName] =
-      downloadedImagePath
-        .split(path.sep + 'src' + path.sep)[1]
-        .split(path.sep)
-        .join('/');
+    imgObj[imgName] = downloadedImagePath
+      .split(path.sep + 'src' + path.sep)[1]
+      .split(path.sep)
+      .join('/');
   }
   return imgObj;
 }
 
-await writeBannerText();
-await writePageData('7yhGH9U8xAnRRgnC76CcAC', 'homeData', 'home');
-await writePageData('2UE2gLOJhURbCW6YffSfPQ', 'aboutData', 'about');
-await writePageData('7GJQyJLELJDKG8EWm744KA', 'admissionsData', 'admissions');
-await writePageData('7g9C5Xa1vO345Eim31HZaY', 'counselorCornerData', 'counselorCorner');
-await writePageData('4PFJseAKeaXR0SerpDod02', 'parentsData', 'parents');
-await writePageData('2GsVyoz0lPdUkLQKV30aW5', 'sharedAdmissionsData', 'sharedAdmissions');
-await writePageData('4PVhqvB90jCz42mULpBZeC', 'staffData', 'staff');
-await writePageData('4uRsZsFnHcwcxbOW543PiU', 'studentCornerData', 'studentCorner');
-await writePageData('4ull73PKgAqB37xT6SkdwB', 'teacherHubData', 'teacherHub');
-await writePageData('66NBO5u9RxH1aZmxbEObDF', 'contactData', 'contact');
-await writePageData('7dfBJlHAwdkBjAGwHz7dmV', 'informationRequestFormData', 'informationRequestForm');
-await writePageData('6t2NSllTkjn6ThupQQ9d9g', 'adminCounselorFormData', 'adminCounselorForm');
+async function writeGraduateCarousels(
+  carouselArray: Entry<TypeCarouselSkeleton, 'WITHOUT_UNRESOLVABLE_LINKS', string>[]
+) {
+  try {
+    const graduateCarouselBasePath = path.resolve(ASSET_DIRECTORY, 'carousels/graduateCarousels');
+    let carouselNumber = 1;
+    for (const carousel of carouselArray) {
+      const imageArray = carousel.fields.carouselImages;
+      const carouselFinalPath = path.resolve(
+        graduateCarouselBasePath,
+        `graduates${carouselNumber}`
+      );
+      for (let index = 0; index < imageArray.length; index++) {
+        // console.log(imageArray[index]?.fields.image)
+        const currentImageUrl = imageArray[index]?.fields.image?.fields.file?.url;
+        if (!currentImageUrl) {
+          throw new ReferenceError('No url for graduate image');
+        }
+        await downloadSingleImage(currentImageUrl, carouselFinalPath, `graduateImg${index}`);
+      }
+      carouselNumber++;
+    }
+  } catch (error) {
+    errorGenerator(error);
+  }
+}
+async function writeQuoteCarousel(
+  quoteCarousel: Entry<TypeCarouselSkeleton, 'WITHOUT_UNRESOLVABLE_LINKS', string> | undefined
+) {
+  const quoteCarouselBasePath = path.resolve(ASSET_DIRECTORY, 'carousels/quoteCarousel');
+  if (!quoteCarousel) {
+    throw new ReferenceError('missing Quote Carousel');
+  }
+  const imageArray = quoteCarousel.fields.carouselImages;
+  let index = 0;
+  const quoteJSON: { quotes: string[] } = {quotes: []};
+  for (const carouselImage of imageArray) {
+    const currentImageUrl = carouselImage?.fields.image?.fields.file?.url;
+    if (!currentImageUrl) {
+      throw new ReferenceError('No url for graduate image');
+    }
+    await downloadSingleImage(currentImageUrl, quoteCarouselBasePath, `quoteCarouselImg${index}`);
+    quoteJSON.quotes.push(carouselImage.fields.quoteText || '');
+    index++;
+  }
+  writeFile(path.resolve(DATA_DIRECTORY, 'quoteCarouselData.json'), JSON.stringify(quoteJSON), (err) => {
+    if (err) {
+      throw new Error('failed to write quote carousel quotes');
+    }
+  })
 
-
-
-
-
+}
+const carouselObj = await getGraduateCarousel();
+await writeGraduateCarousels(carouselObj?.graduateCarousels || []);
+await writeQuoteCarousel(carouselObj?.quoteCarousel);
+writeStaffImages();
+writeBannerText();
+writePageData('7yhGH9U8xAnRRgnC76CcAC', 'homeData', 'home');
+writePageData('2UE2gLOJhURbCW6YffSfPQ', 'aboutData', 'about');
+writePageData('7GJQyJLELJDKG8EWm744KA', 'admissionsData', 'admissions');
+writePageData('7g9C5Xa1vO345Eim31HZaY', 'counselorCornerData', 'counselorCorner');
+writePageData('4PFJseAKeaXR0SerpDod02', 'parentsData', 'parents');
+writePageData('2GsVyoz0lPdUkLQKV30aW5', 'sharedAdmissionsData', 'sharedAdmissions');
+writePageData('4PVhqvB90jCz42mULpBZeC', 'staffData', 'staff');
+writePageData('4uRsZsFnHcwcxbOW543PiU', 'studentCornerData', 'studentCorner');
+writePageData('4ull73PKgAqB37xT6SkdwB', 'teacherHubData', 'teacherHub');
+writePageData('66NBO5u9RxH1aZmxbEObDF', 'contactData', 'contact');
+writePageData('7dfBJlHAwdkBjAGwHz7dmV', 'informationRequestFormData', 'informationRequestForm');
+writePageData('6t2NSllTkjn6ThupQQ9d9g', 'adminCounselorFormData', 'adminCounselorForm');
