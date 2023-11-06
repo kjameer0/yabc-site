@@ -9,18 +9,21 @@ import LoadingScreen from 'components/LoadingScreen';
 //utils
 import { pageNavigationHandler } from 'pages/pages-utils';
 //hooks
-import { useGetStaffImages, useGetPageData } from 'utils/apiHooks';
+import { useImportStaffImagesbyRole} from 'utils/apiHooks';
+//data
+import staffPageData from '../../page-data/staffData.json'
+import staffMemberData from '../../page-data/staffMemberData.json'
 
 export default function Staff() {
   const location: Location = useLocation();
-  const { sectionObj, loading } = useGetPageData('4PVhqvB90jCz42mULpBZeC');
+  const { sectionObj } = staffPageData;
   const { headers } = sectionObj;
-  const { staffObj, isStaffLoading } = useGetStaffImages();
-
+  const staffObj = staffMemberData;
+  const {staffMemberImgObj, staffImagesLoading} = useImportStaffImagesbyRole();
   useEffect(() => {
     pageNavigationHandler('administrators', location);
-  }, [location, isStaffLoading]);
-  if (loading || isStaffLoading) {
+  }, [location, staffImagesLoading]);
+  if (staffImagesLoading) {
     return <LoadingScreen />;
   }
   return (
@@ -36,7 +39,7 @@ export default function Staff() {
                 key={admin.name}
                 name={admin.name.toUpperCase()}
                 role={admin.role || ''}
-                imgUrl={'https:' + admin.imgUrl}
+                imgUrl={staffMemberImgObj[admin.name]}
                 direction={index % 2 === 0 ? 'left' : 'right'}
               />
             );
@@ -54,7 +57,7 @@ export default function Staff() {
                 key={counselor.name}
                 name={counselor.name.toUpperCase()}
                 role={counselor.role || ''}
-                imgUrl={counselor.imgUrl}
+                imgUrl={staffMemberImgObj[counselor.name]}
                 direction={index % 2 === 0 ? 'left' : 'right'}
               />
             );
@@ -72,7 +75,7 @@ export default function Staff() {
                 key={staff.name}
                 name={staff.name.toUpperCase()}
                 role={staff.role || ''}
-                imgUrl={staff.imgUrl}
+                imgUrl={staffMemberImgObj[staff.name]}
                 direction={index % 2 === 0 ? 'left' : 'right'}
               />
             );
@@ -90,7 +93,7 @@ export default function Staff() {
                 key={staff.name}
                 name={staff.name.toUpperCase()}
                 role={staff.role || ''}
-                imgUrl={staff.imgUrl}
+                imgUrl={staffMemberImgObj[staff.name]}
                 direction={index % 2 === 0 ? 'left' : 'right'}
               />
             );
@@ -108,7 +111,7 @@ export default function Staff() {
                 key={staff.name}
                 name={staff.name.toUpperCase()}
                 role={staff.role || ''}
-                imgUrl={staff.imgUrl}
+                imgUrl={staffMemberImgObj[staff.name]}
                 direction={index % 2 === 0 ? 'left' : 'right'}
               />
             );

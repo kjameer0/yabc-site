@@ -10,7 +10,7 @@ import LoadingScreen from 'components/LoadingScreen';
 //images
 //utils
 import { pageNavigationHandler } from 'pages/pages-utils';
-import { useGetPageData, useGetSingleCarousel, useImportPageImages } from 'utils/apiHooks';
+import { useGetSingleCarousel, useImportPageImages } from 'utils/apiHooks';
 import HomeData from '../../page-data/homeData.json';
 //types
 export default function HomePage() {

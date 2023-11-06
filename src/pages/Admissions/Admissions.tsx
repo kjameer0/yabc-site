@@ -10,13 +10,18 @@ import { StyledContentSection } from 'components/ContentSection';
 //images
 //utils
 import { pageNavigationHandler } from 'pages/pages-utils';
-import { useGetPageData } from 'utils/apiHooks';
+import { useImportPageImages } from 'utils/apiHooks';
 import { richTextLinkOptions } from 'utils/contentful-api-functions';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import admissionsData from '../../page-data/admissionsData.json'
+import { Document as ContentfulDocumentType } from '@contentful/rich-text-types';
+
+
 
 export default function Admissions() {
   const location: Location = useLocation();
-  const { imgObj, sectionObj, loading } = useGetPageData('7GJQyJLELJDKG8EWm744KA');
+  const {imgObj, loading} = useImportPageImages('admissions')
+  const { sectionObj } = admissionsData;
   const { headers, paragraphs, buttons, links, lists } = sectionObj;
   useEffect(() => {
     pageNavigationHandler('admissions-hero', location);
@@ -25,7 +30,7 @@ export default function Admissions() {
   if (loading) {
     return <LoadingScreen />;
   }
-  
+
   return (
     <StyledAdmissions id="admissions-page">
       <HeroImage text={[]} color="white" imgLink={imgObj.admissionshero} id="admissions-hero" />
@@ -100,7 +105,7 @@ export default function Admissions() {
             );
           })}
         </ul>
-        {documentToReactComponents(links.studentSupportLink, richTextLinkOptions)}
+        {documentToReactComponents(links.studentSupportLink as ContentfulDocumentType, richTextLinkOptions)}
       </StyledContentSection>
       <div className="y-forms">
         <a

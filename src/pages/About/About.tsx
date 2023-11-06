@@ -14,24 +14,24 @@ import { richTextLinkOptions } from 'utils/contentful-api-functions';
 //data
 import aboutData from '../../page-data/aboutData.json'
 //hooks
-import { useGetPageData, useGetCarouselByYear } from 'utils/apiHooks';
+import { useGetCarouselByYear, useImportPageImages } from 'utils/apiHooks';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 //styles
-import 'react-responsive-carousel/lib/styles/carousel.min.css'; // Import the carousel styles
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { Document as ContentfulDocumentType } from '@contentful/rich-text-types';
 
 export default function About() {
   const [carouselYear, setCarouselYear] = useState('2023');
   const currentCarousel = useGetCarouselByYear(carouselYear);
   const [selectedCarouselItem, setSelectedCarouselItem] = useState(0);
-  //data fetching for page itself
-  const { imgObj, sectionObj, loading } = useGetPageData('2UE2gLOJhURbCW6YffSfPQ');
+  const { imgObj, loading } = useImportPageImages('about');
+  const { sectionObj } = aboutData;
   const { paragraphs, headers, links, lists } = sectionObj;
   //for SPA routing
   const location: Location = useLocation();
   useEffect(() => {
     pageNavigationHandler('students-sitting-hero', location);
   }, [location, loading]);
-
   if (loading) {
     return <LoadingScreen />;
   }
@@ -44,7 +44,9 @@ export default function About() {
         <p className="para-content">{paragraphs.registrationPara.content}</p>
         <p className="attend-info-h2">{paragraphs.orientationPara.content}</p>
         <p className="para-content">{paragraphs.registrationLocationPara.content}</p>
-        <h2 className="attend-info-h2">{documentToReactComponents(links.zoomLink, richTextLinkOptions)}</h2>
+        <h2 className="attend-info-h2">
+          {documentToReactComponents(links.zoomLink as ContentfulDocumentType, richTextLinkOptions)}
+        </h2>
         <p className="para-content">{paragraphs.inPersonRegistrationPara.content}</p>
         <h2 className="attend-info-h2">{headers.openHouseHeading.mainHeading}</h2>
         <p className="para-content">
@@ -66,7 +68,7 @@ export default function About() {
           <p className="sub-heading good-fit-header-p">{headers.fitHeading.subHeading}</p>
         </header>
         <StyledContentSection className="requirements" id="eligibility-requirements">
-          <h4 className="requirements-h4 sub-heading">To be eligible, you should:</h4>
+          <h4 className="requirements-h4 sub-heading">{headers.eligibilityHeading.mainHeading}</h4>
           <ul className="requirements-ul">
             {lists.eligibilityList.listContent.map((item: string) => {
               return (

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { client } from './contentful-api-functions';
 import {
   TypePageSkeleton,
@@ -13,7 +13,7 @@ import {
   TypeCarouselImageFields,
   TypeStaffMemberSkeleton,
   TypeStaffMemberFields,
-} from 'types/contentfulTypes';
+} from '../../data/contentful/contentful-types';
 import {
   generateImageObject,
   sectionObjType,
@@ -21,7 +21,7 @@ import {
   generateImageObjectCarousel,
   generateStaffCategoryObject,
   StaffMemberDataType,
-} from './contentfulTypeFunctions';
+} from '../../data/contentful/type-functions';
 import { errorGenerator } from './error';
 
 export function useGetPageData(contentfulId: string) {
@@ -264,7 +264,7 @@ export async function createPageImgObj(pageName: string) {
     errorGenerator(error);
   }
 }
-export function useImportPageImages(pageName:string) {
+export function useImportPageImages(pageName: string) {
   const [imgObj, setImgObj] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -281,10 +281,55 @@ export function useImportPageImages(pageName:string) {
     };
     fetchObj();
   }, []);
-  return {imgObj, loading};
+  return { imgObj, loading };
+}
+type moduleType = {default: string;};
+export function useImportStaffImagesbyRole() {
+  const [staffMemberImgObj, setStaffObjWithImports] = useState<
+    Record<string, string>
+  >({});
+  const [staffImagesLoading, setStaffImagesLoading] = useState(true);
+  useMemo(() => {
+    const adminImportPromiseList = import.meta.glob<moduleType>('../assets/images/build-assets/staff/admin/*');
+    const counselorImportPromiseList = import.meta.glob<moduleType>('../assets/images/build-assets/staff/counselor/*');
+    const facultyImportPromiseList = import.meta.glob<moduleType>('../assets/images/build-assets/staff/faculty/*');
+    const missionSocietyImportPromiseList = import.meta.glob<moduleType>('../assets/images/build-assets/staff/missionSociety/*');
+    const supportImportPromiseList = import.meta.glob<moduleType>('../assets/images/build-assets/staff/support/*');
+
+    const promiseListArray = [adminImportPromiseList, counselorImportPromiseList, facultyImportPromiseList, missionSocietyImportPromiseList, supportImportPromiseList];
+    const staffImgObj: Record<string, string> = {};
+    const importImages = async () => {
+      for(const promiseList of promiseListArray) {
+        for(const imagePromisePath in promiseList) {
+          const imgName = removeUnderScoresFromPath(extractStaffMemberNameFromPath(imagePromisePath));
+          const imageModule = await promiseList[imagePromisePath]();
+          staffImgObj[imgName] = imageModule.default;
+        }
+      }
+      setStaffObjWithImports(staffImgObj);
+      setStaffImagesLoading(false);
+    }
+    importImages();
+  }, [])
+  return {staffMemberImgObj, staffImagesLoading};
+}
+
+
+export function extractStaffMemberNameFromPath (path:string) {
+  const fileNameWithExtension = path.split('/').pop();
+  if(!fileNameWithExtension) {
+    return '';
+  }
+  const fileNameSplitbyLastPeriod = fileNameWithExtension.split(/\.(?=[^.]*$)/);
+  fileNameSplitbyLastPeriod.pop();
+  return fileNameSplitbyLastPeriod?.pop() || '';
+
 }
 export function extractFileNameFromUrl(filePath: string): string {
   const splitFileName = filePath.split(/\.|\//);
   splitFileName.pop();
   return splitFileName.pop() || '';
+}
+export function removeUnderScoresFromPath(path: string) {
+  return path.replace(/_/g, ' ');
 }
