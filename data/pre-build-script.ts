@@ -1,14 +1,15 @@
 import { getBannerText } from './contentful-api-functions/bannerText.js';
-import { getSinglePageData } from './contentful-api-functions/pageContent.js';
+import { getSinglePageData, getStaffData } from './contentful-api-functions/pageContent.js';
 import { writeFile } from 'node:fs';
 import path from 'path';
-import { fileURLToPath } from 'url';
-import { opendir } from 'node:fs/promises';
-import axios from 'axios';
 import { errorGenerator } from '../src/utils/error.js';
 import * as imageDownloader from 'image-downloader';
-import { generateImageObject, generateSectionsObject } from './contentful/type-functions.js';
-
+import { StaffMemberDataType } from './contentful/type-functions.js';
+import {
+  generateImageObject,
+  generateSectionsObject,
+  sectionObjType,
+} from './contentful/type-functions.js';
 
 const DATA_DIRECTORY = 'src/page-data';
 const ASSET_DIRECTORY = 'src/assets/images/build-assets';
@@ -29,7 +30,20 @@ async function writeBannerText() {
     errorGenerator(error);
   }
 }
-
+function addFileDownloadsFromSectionObjToImgObj(
+  sectionObj: sectionObjType,
+  imgObg: Record<string, string>
+) {
+  const { buttons } = sectionObj;
+  for (const buttonName in buttons) {
+    const file = buttons[buttonName].file;
+    if (file === undefined) {
+      continue;
+    }
+    imgObg[buttonName] = file;
+  }
+  return imgObg;
+}
 async function writePageData(
   contentfulId: string,
   pageDataFileName: string,
@@ -38,24 +52,12 @@ async function writePageData(
   try {
     const pathToPipeImages = path.resolve(ASSET_DIRECTORY, pageAssetPath);
     const pageData = await getSinglePageData(contentfulId);
-    if (!pageData) {
-      throw new ReferenceError('No Page Data.');
+    const sectionObj = pageData && generateSectionsObject(pageData);
+    const contentfulImgObj = pageData && generateImageObject(pageData);
+    if (!pageData || !sectionObj || !contentfulImgObj) {
+      throw new ReferenceError('Error retrieving page data, sectionsm or images.');
     }
-    //rewrite pageData to the correct image urls
-    const sectionObj = generateSectionsObject(pageData);
-    const contentfulImgObj = generateImageObject(pageData);
-    if (!contentfulImgObj || !sectionObj) {
-      let errorLocation = '';
-      if (!contentfulImgObj) {
-        errorLocation += ' images';
-      }
-      if (!sectionObj) {
-        errorLocation += ' sections';
-      }
-      throw new ReferenceError(
-        `writePageData function does not have the following: ${errorLocation}`
-      );
-    }
+    addFileDownloadsFromSectionObjToImgObj(sectionObj, contentfulImgObj);
     const imgObj = await downloadPageImagesToAssetDirectory(pathToPipeImages, contentfulImgObj);
     const stringifiedPageData = JSON.stringify({ sectionObj, imgObj });
     const pathName = path.join(DATA_DIRECTORY, pageDataFileName) + '.json';
@@ -70,7 +72,7 @@ async function writePageData(
 }
 async function downloadSingleImage(url: string, imageDirectory: string, name: string) {
   const fileExtension = '.' + url.split('.').pop() || '';
-  const finalFilePath = path.resolve(ASSET_DIRECTORY, imageDirectory, name+fileExtension);
+  const finalFilePath = path.resolve(ASSET_DIRECTORY, imageDirectory, name + fileExtension);
   //add https: to url name if it doesnt have it
   //urls from contentful sometimes come without https:
   url = url.slice(0, 6) === 'https:' ? url : 'https:' + url;
@@ -81,6 +83,37 @@ async function downloadSingleImage(url: string, imageDirectory: string, name: st
   });
   return finalFilePath;
 }
+
+async function writeStaffImages() {
+  try {
+    const staffData = await getStaffData();
+    const pathToPipeImages = path.resolve(ASSET_DIRECTORY, 'staff');
+    if (!staffData) {
+      throw new ReferenceError('staff data not found ');
+    }
+    for (const roleName in staffData) {
+      const staffMemberArrayByCategory: StaffMemberDataType[] = staffData[roleName];
+      const pathToCategory = path.resolve(pathToPipeImages, roleName);
+      const staffObj: Record<string, StaffMemberDataType> = {};
+      for await (const staffMemberData of staffMemberArrayByCategory) {
+        const newLocalFile = await downloadSingleImage(
+          staffMemberData.imgUrl,
+          pathToCategory,
+          staffMemberData.name.replace(/\s/g, '_')
+        );
+      }
+    }
+    const pathName = path.join(DATA_DIRECTORY, 'staffMemberData') + '.json';
+    writeFile(pathName, JSON.stringify(staffData), (err) => {
+      if (err) {
+        throw new Error('Page Data failed in' + 'StaffMem');
+      }
+    });
+  } catch (error) {
+    errorGenerator(error);
+  }
+}
+await writeStaffImages();
 async function downloadPageImagesToAssetDirectory(
   targetDirectory: string,
   imgObj: Record<string, string>
