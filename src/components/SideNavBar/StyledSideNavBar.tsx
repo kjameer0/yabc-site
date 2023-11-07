@@ -11,6 +11,12 @@ export default styled.nav`
   overflow-y: scroll;
   overflow-x: hidden;
   /* logo wrapper */
+  .down-arrow {
+    position: absolute;
+    display: none;
+    font-size: 20px;
+    text-align: right;
+  }
   .img-wrapper {
     background: black;
     margin-bottom: 5px;
@@ -39,16 +45,18 @@ export default styled.nav`
     font-size: 1.3rem;
   }
   .category button {
+    position: relative;
     cursor: pointer;
     font-family: Inter-black, sans-serif;
     height: 30px;
-    font-size: .75rem;
+    font-size: 0.75rem;
     border: 0;
     margin: 5px 0;
     width: 100%;
     color: black;
     background: var(--main-bg);
   }
+  
   .nav-anchor .link-button {
     background: #bad87f;
   }
@@ -59,7 +67,7 @@ export default styled.nav`
   }
   .address-p {
     font-family: Inter-semi-bold;
-    font-size: .75rem;
+    font-size: 0.75rem;
     margin: 0 0 0 10px;
     text-align: left;
     color: black;
