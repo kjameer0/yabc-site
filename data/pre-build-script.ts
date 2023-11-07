@@ -162,11 +162,11 @@ async function writeGraduateCarousels(
   }
 }
 async function writeQuoteCarousel(
-  quoteCarousel: Entry<TypeCarouselSkeleton, 'WITHOUT_UNRESOLVABLE_LINKS', string> | undefined
+  quoteCarousel: Entry<TypeCarouselSkeleton, 'WITHOUT_UNRESOLVABLE_LINKS', string> | undefined, directoryName:string
 ) {
-  const quoteCarouselBasePath = path.resolve(ASSET_DIRECTORY, 'carousels/quoteCarousel');
+  const carouselBasePath = path.resolve(ASSET_DIRECTORY, 'carousels/' + directoryName);
   if (!quoteCarousel) {
-    throw new ReferenceError('missing Quote Carousel');
+    throw new ReferenceError('missing' + directoryName);
   }
   const imageArray = quoteCarousel.fields.carouselImages;
   let index = 0;
@@ -176,20 +176,23 @@ async function writeQuoteCarousel(
     if (!currentImageUrl) {
       throw new ReferenceError('No url for graduate image');
     }
-    await downloadSingleImage(currentImageUrl, quoteCarouselBasePath, `quoteCarouselImg${index}`);
+    await downloadSingleImage(currentImageUrl, carouselBasePath, `${directoryName}CarouselImg${index}`);
     quoteJSON.quotes.push(carouselImage.fields.quoteText || '');
     index++;
   }
-  writeFile(path.resolve(DATA_DIRECTORY, 'quoteCarouselData.json'), JSON.stringify(quoteJSON), (err) => {
+  writeFile(path.resolve(DATA_DIRECTORY, directoryName + 'Data.json'), JSON.stringify(quoteJSON), (err) => {
     if (err) {
       throw new Error('failed to write quote carousel quotes');
     }
   })
 
 }
+
 const carouselObj = await getGraduateCarousel();
 await writeGraduateCarousels(carouselObj?.graduateCarousels || []);
-await writeQuoteCarousel(carouselObj?.quoteCarousel);
+await writeQuoteCarousel(carouselObj?.quoteCarousel, 'quoteCarousel');
+await writeQuoteCarousel(carouselObj?.studentCornerCarousel, 'studentCornerCarousel');
+await
 writeStaffImages();
 writeBannerText();
 writePageData('7yhGH9U8xAnRRgnC76CcAC', 'homeData', 'home');

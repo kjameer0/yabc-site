@@ -315,15 +315,38 @@ export function useImportStaffImagesbyRole() {
 }
 
 
-export function extractStaffMemberNameFromPath (path:string) {
+export function extractStaffMemberNameFromPath(path: string) {
   const fileNameWithExtension = path.split('/').pop();
-  if(!fileNameWithExtension) {
+  if (!fileNameWithExtension) {
     return '';
   }
   const fileNameSplitbyLastPeriod = fileNameWithExtension.split(/\.(?=[^.]*$)/);
   fileNameSplitbyLastPeriod.pop();
   return fileNameSplitbyLastPeriod?.pop() || '';
+}
 
+export async function importCarouselImages(carouselName: string) {
+  try {
+    let carouselGlob;
+    switch (carouselName) {
+      case 'quoteCarousel':
+        carouselGlob = import.meta.glob('../assets/images/build-assets/carousels');
+        break;
+      case 'graduate1':
+        carouselGlob = import.meta.glob('../assets/images/build-assets/carousels/graduateCarousels/graduates1');
+        break;
+      case 'graduate2':
+        carouselGlob = import.meta.glob('../assets/images/build-assets/carousels/graduateCarousels/graduates2');
+        break;
+      case 'graduate3':
+        carouselGlob = import.meta.glob('../assets/images/build-assets/carousels/graduateCarousels/graduates3');
+        break;
+    }
+
+    return carouselGlob;
+  } catch (error) {
+    errorGenerator(error);
+  }
 }
 export function extractFileNameFromUrl(filePath: string): string {
   const splitFileName = filePath.split(/\.|\//);
