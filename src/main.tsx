@@ -191,7 +191,7 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%;
     min-width: 375px;
-    max-width: 1440px;
+    max-width: unset;
     min-height: 667px;
     color: white;
     --main-bg: #A1D537;
@@ -210,7 +210,6 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
   main {
     margin-top: 30px;
     flex-basis: 90%;
-    max-width: 1160px;
   }
   h1 {
     margin-bottom: 25px;

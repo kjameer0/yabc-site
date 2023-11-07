@@ -6,8 +6,8 @@ export default styled.nav`
   left: 0;
   display: none;
   background-color: var(--main-bg);
-  height: 100vh;
   width: clamp(200px, 20vw, 255px);
+  min-height: 100vh;
   overflow-y: scroll;
   overflow-x: hidden;
   /* logo wrapper */
