@@ -41,7 +41,7 @@ export const getStaffData = async () => {
   }
 };
 
-export const getGraduateCarousel = async () => {
+export const getAllCarousels = async () => {
   try {
     const response = await client.withoutUnresolvableLinks.getEntries<TypeCarouselSkeleton>({
       content_type: 'carousel',

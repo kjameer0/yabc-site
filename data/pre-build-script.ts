@@ -2,7 +2,7 @@ import { getBannerText } from './contentful-api-functions/bannerText.js';
 import {
   getSinglePageData,
   getStaffData,
-  getGraduateCarousel,
+  getAllCarousels,
 } from './contentful-api-functions/pageContent.js';
 import { writeFile } from 'node:fs';
 import path from 'path';
@@ -100,9 +100,8 @@ async function writeStaffImages() {
     for (const roleName in staffData) {
       const staffMemberArrayByCategory: StaffMemberDataType[] = staffData[roleName];
       const pathToCategory = path.resolve(pathToPipeImages, roleName);
-      const staffObj: Record<string, StaffMemberDataType> = {};
       for await (const staffMemberData of staffMemberArrayByCategory) {
-        const newLocalFile = await downloadSingleImage(
+        await downloadSingleImage(
           staffMemberData.imgUrl,
           pathToCategory,
           staffMemberData.name.replace(/\s/g, '_')
@@ -141,6 +140,7 @@ async function writeGraduateCarousels(
   try {
     const graduateCarouselBasePath = path.resolve(ASSET_DIRECTORY, 'carousels/graduateCarousels');
     let carouselNumber = 1;
+    const startYear = carouselArray[0].fields.year;
     for (const carousel of carouselArray) {
       const imageArray = carousel.fields.carouselImages;
       const carouselFinalPath = path.resolve(
@@ -148,7 +148,6 @@ async function writeGraduateCarousels(
         `graduates${carouselNumber}`
       );
       for (let index = 0; index < imageArray.length; index++) {
-        // console.log(imageArray[index]?.fields.image)
         const currentImageUrl = imageArray[index]?.fields.image?.fields.file?.url;
         if (!currentImageUrl) {
           throw new ReferenceError('No url for graduate image');
@@ -157,6 +156,11 @@ async function writeGraduateCarousels(
       }
       carouselNumber++;
     }
+    writeFile(path.resolve(DATA_DIRECTORY, 'graduateCarouselsData.json'), JSON.stringify({startYear: startYear}), (err) => {
+      if (err) {
+        throw new Error('failed to write graduate carousel data');
+      }
+    })
   } catch (error) {
     errorGenerator(error);
   }
@@ -188,7 +192,7 @@ async function writeQuoteCarousel(
 
 }
 
-const carouselObj = await getGraduateCarousel();
+const carouselObj = await getAllCarousels();
 await writeGraduateCarousels(carouselObj?.graduateCarousels || []);
 await writeQuoteCarousel(carouselObj?.quoteCarousel, 'quoteCarousel');
 await writeQuoteCarousel(carouselObj?.studentCornerCarousel, 'studentCornerCarousel');
