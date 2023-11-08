@@ -12,16 +12,17 @@ import { pageNavigationHandler } from 'pages/pages-utils';
 import { generateCarouselYearList } from 'utils/date-utils';
 import { richTextLinkOptions } from 'utils/contentful-api-functions';
 //data
-import aboutData from '../../page-data/aboutData.json'
+import aboutData from '../../page-data/aboutData.json';
+import {startYear} from '../../page-data/graduateCarouselsData.json';
 //hooks
-import { useGetCarouselByYear, useImportPageImages } from 'utils/apiHooks';
+import { useGetCarouselByYear, useImportPageImages, useImportGraduateCarousels } from 'utils/apiHooks';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 //styles
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Document as ContentfulDocumentType } from '@contentful/rich-text-types';
 
 export default function About() {
-  const [carouselYear, setCarouselYear] = useState('2023');
+  const [carouselYear, setCarouselYear] = useState(startYear);
   const currentCarousel = useGetCarouselByYear(carouselYear);
   const [selectedCarouselItem, setSelectedCarouselItem] = useState(0);
   const { imgObj, loading } = useImportPageImages('about');
@@ -29,10 +30,12 @@ export default function About() {
   const { paragraphs, headers, links, lists } = sectionObj;
   //for SPA routing
   const location: Location = useLocation();
+ const {graduateCarouselsObj, carouselsLoading } = useImportGraduateCarousels()
+ console.log(graduateCarouselsObj)
   useEffect(() => {
     pageNavigationHandler('students-sitting-hero', location);
   }, [location, loading]);
-  if (loading) {
+  if (loading || carouselsLoading) {
     return <LoadingScreen />;
   }
   return (

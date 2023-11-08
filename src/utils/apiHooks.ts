@@ -330,23 +330,58 @@ export async function importCarouselImages(carouselName: string) {
     let carouselGlob;
     switch (carouselName) {
       case 'quoteCarousel':
-        carouselGlob = import.meta.glob('../assets/images/build-assets/carousels');
+        carouselGlob =  import.meta.glob<moduleType>('../assets/images/build-assets/carousels');
         break;
       case 'graduate1':
-        carouselGlob = import.meta.glob('../assets/images/build-assets/carousels/graduateCarousels/graduates1');
+        carouselGlob =  import.meta.glob<moduleType>(
+          '../assets/images/build-assets/carousels/graduateCarousels/graduates1/*'
+        );
         break;
       case 'graduate2':
-        carouselGlob = import.meta.glob('../assets/images/build-assets/carousels/graduateCarousels/graduates2');
+        carouselGlob =  import.meta.glob<moduleType>(
+          '../assets/images/build-assets/carousels/graduateCarousels/graduates2/*'
+        );
         break;
       case 'graduate3':
-        carouselGlob = import.meta.glob('../assets/images/build-assets/carousels/graduateCarousels/graduates3');
+        carouselGlob =  import.meta.glob<moduleType>(
+          '../assets/images/build-assets/carousels/graduateCarousels/graduates3/*'
+        );
         break;
     }
-
     return carouselGlob;
   } catch (error) {
     errorGenerator(error);
   }
+}
+export function useImportGraduateCarousels() {
+  const [graduateCarouselsObj, setGraduateCarouselsObj] =useState<Record<string, string[]>>({});
+  const carousels = ['graduate1', 'graduate2', 'graduate3'];
+  const [carouselsLoading, setCarouselsLoading] = useState(true)
+  useEffect(() => {
+    const importImagesAndAddToCarouselsObj = async () => {
+      const importedImageArrayObj:Record<string,string[]> = {};
+      for (const graduateCarouselDirectoryName of carousels) {
+        //the obj that contains each promise
+        const importPromises = await importCarouselImages(graduateCarouselDirectoryName);
+        if(!importPromises) {
+          throw new ReferenceError('graduate carousels failed to import')
+        }
+        console.log(importPromises)
+        const currentCarouselArrayOfImagePaths: string[] = [];
+        for(const importPathName in importPromises) {
+          const imageModule = await importPromises[importPathName]();
+          currentCarouselArrayOfImagePaths.push(imageModule.default)
+        }
+        importedImageArrayObj[graduateCarouselDirectoryName] = currentCarouselArrayOfImagePaths;
+      }
+      setGraduateCarouselsObj(importedImageArrayObj)
+      setCarouselsLoading(false)
+      return;
+    };
+    importImagesAndAddToCarouselsObj()
+  }, [])
+  return {graduateCarouselsObj, carouselsLoading}
+  //each carousel needs have each of its images awaited;
 }
 export function extractFileNameFromUrl(filePath: string): string {
   const splitFileName = filePath.split(/\.|\//);
