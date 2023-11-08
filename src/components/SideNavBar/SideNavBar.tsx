@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import NavLinkList from 'components/NavLinkList';
 // import { MissionLogo } from "assets/images/Logos";
-import DownArrow from '../../assets/images/build-assets/icons/down-arrow.svg'
+import DownArrow from '../../assets/Icons/down-arrow.svg'
 //data
 import {
   aboutPaths,
