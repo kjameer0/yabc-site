@@ -23,6 +23,7 @@ import {
   StaffMemberDataType,
 } from '../../data/contentful/type-functions';
 import { errorGenerator } from './error';
+import { startYear } from '../page-data/graduateCarouselsData.json';
 
 export function useGetPageData(contentfulId: string) {
   const [imgObj, setImgObj] = useState({} as Record<string, string>);
@@ -283,37 +284,52 @@ export function useImportPageImages(pageName: string) {
   }, []);
   return { imgObj, loading };
 }
-type moduleType = {default: string;};
+type moduleType = { default: string };
 export function useImportStaffImagesbyRole() {
-  const [staffMemberImgObj, setStaffObjWithImports] = useState<
-    Record<string, string>
-  >({});
+  const [staffMemberImgObj, setStaffObjWithImports] = useState<Record<string, string>>({});
   const [staffImagesLoading, setStaffImagesLoading] = useState(true);
   useMemo(() => {
-    const adminImportPromiseList = import.meta.glob<moduleType>('../assets/images/build-assets/staff/admin/*');
-    const counselorImportPromiseList = import.meta.glob<moduleType>('../assets/images/build-assets/staff/counselor/*');
-    const facultyImportPromiseList = import.meta.glob<moduleType>('../assets/images/build-assets/staff/faculty/*');
-    const missionSocietyImportPromiseList = import.meta.glob<moduleType>('../assets/images/build-assets/staff/missionSociety/*');
-    const supportImportPromiseList = import.meta.glob<moduleType>('../assets/images/build-assets/staff/support/*');
+    const adminImportPromiseList = import.meta.glob<moduleType>(
+      '../assets/images/build-assets/staff/admin/*'
+    );
+    const counselorImportPromiseList = import.meta.glob<moduleType>(
+      '../assets/images/build-assets/staff/counselor/*'
+    );
+    const facultyImportPromiseList = import.meta.glob<moduleType>(
+      '../assets/images/build-assets/staff/faculty/*'
+    );
+    const missionSocietyImportPromiseList = import.meta.glob<moduleType>(
+      '../assets/images/build-assets/staff/missionSociety/*'
+    );
+    const supportImportPromiseList = import.meta.glob<moduleType>(
+      '../assets/images/build-assets/staff/support/*'
+    );
 
-    const promiseListArray = [adminImportPromiseList, counselorImportPromiseList, facultyImportPromiseList, missionSocietyImportPromiseList, supportImportPromiseList];
+    const promiseListArray = [
+      adminImportPromiseList,
+      counselorImportPromiseList,
+      facultyImportPromiseList,
+      missionSocietyImportPromiseList,
+      supportImportPromiseList,
+    ];
     const staffImgObj: Record<string, string> = {};
     const importImages = async () => {
-      for(const promiseList of promiseListArray) {
-        for(const imagePromisePath in promiseList) {
-          const imgName = removeUnderScoresFromPath(extractStaffMemberNameFromPath(imagePromisePath));
+      for (const promiseList of promiseListArray) {
+        for (const imagePromisePath in promiseList) {
+          const imgName = removeUnderScoresFromPath(
+            extractStaffMemberNameFromPath(imagePromisePath)
+          );
           const imageModule = await promiseList[imagePromisePath]();
           staffImgObj[imgName] = imageModule.default;
         }
       }
       setStaffObjWithImports(staffImgObj);
       setStaffImagesLoading(false);
-    }
+    };
     importImages();
-  }, [])
-  return {staffMemberImgObj, staffImagesLoading};
+  }, []);
+  return { staffMemberImgObj, staffImagesLoading };
 }
-
 
 export function extractStaffMemberNameFromPath(path: string) {
   const fileNameWithExtension = path.split('/').pop();
@@ -330,20 +346,20 @@ export async function importCarouselImages(carouselName: string) {
     let carouselGlob;
     switch (carouselName) {
       case 'quoteCarousel':
-        carouselGlob =  import.meta.glob<moduleType>('../assets/images/build-assets/carousels');
+        carouselGlob = import.meta.glob<moduleType>('../assets/images/build-assets/carousels');
         break;
       case 'graduate1':
-        carouselGlob =  import.meta.glob<moduleType>(
+        carouselGlob = import.meta.glob<moduleType>(
           '../assets/images/build-assets/carousels/graduateCarousels/graduates1/*'
         );
         break;
       case 'graduate2':
-        carouselGlob =  import.meta.glob<moduleType>(
+        carouselGlob = import.meta.glob<moduleType>(
           '../assets/images/build-assets/carousels/graduateCarousels/graduates2/*'
         );
         break;
       case 'graduate3':
-        carouselGlob =  import.meta.glob<moduleType>(
+        carouselGlob = import.meta.glob<moduleType>(
           '../assets/images/build-assets/carousels/graduateCarousels/graduates3/*'
         );
         break;
@@ -354,33 +370,35 @@ export async function importCarouselImages(carouselName: string) {
   }
 }
 export function useImportGraduateCarousels() {
-  const [graduateCarouselsObj, setGraduateCarouselsObj] =useState<Record<string, string[]>>({});
+  const [graduateCarouselsObj, setGraduateCarouselsObj] = useState<Record<string, string[]>>({});
   const carousels = ['graduate1', 'graduate2', 'graduate3'];
-  const [carouselsLoading, setCarouselsLoading] = useState(true)
+  const [carouselsLoading, setCarouselsLoading] = useState(true);
   useEffect(() => {
     const importImagesAndAddToCarouselsObj = async () => {
-      const importedImageArrayObj:Record<string,string[]> = {};
+      const importedImageArrayObj: Record<string, string[]> = {};
+      let currentCarouselIdx = 0;
       for (const graduateCarouselDirectoryName of carousels) {
         //the obj that contains each promise
         const importPromises = await importCarouselImages(graduateCarouselDirectoryName);
-        if(!importPromises) {
-          throw new ReferenceError('graduate carousels failed to import')
+        if (!importPromises) {
+          throw new ReferenceError('graduate carousels failed to import');
         }
-        console.log(importPromises)
         const currentCarouselArrayOfImagePaths: string[] = [];
-        for(const importPathName in importPromises) {
+        for (const importPathName in importPromises) {
           const imageModule = await importPromises[importPathName]();
-          currentCarouselArrayOfImagePaths.push(imageModule.default)
+          currentCarouselArrayOfImagePaths.push(imageModule.default);
         }
-        importedImageArrayObj[graduateCarouselDirectoryName] = currentCarouselArrayOfImagePaths;
+        importedImageArrayObj[String(Number(startYear) + currentCarouselIdx)] =
+          currentCarouselArrayOfImagePaths;
+        currentCarouselIdx++;
       }
-      setGraduateCarouselsObj(importedImageArrayObj)
-      setCarouselsLoading(false)
+      setGraduateCarouselsObj(importedImageArrayObj);
+      setCarouselsLoading(false);
       return;
     };
-    importImagesAndAddToCarouselsObj()
-  }, [])
-  return {graduateCarouselsObj, carouselsLoading}
+    importImagesAndAddToCarouselsObj();
+  }, []);
+  return { graduateCarouselsObj, carouselsLoading };
   //each carousel needs have each of its images awaited;
 }
 export function extractFileNameFromUrl(filePath: string): string {

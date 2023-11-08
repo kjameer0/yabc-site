@@ -13,28 +13,32 @@ import { generateCarouselYearList } from 'utils/date-utils';
 import { richTextLinkOptions } from 'utils/contentful-api-functions';
 //data
 import aboutData from '../../page-data/aboutData.json';
-import {startYear} from '../../page-data/graduateCarouselsData.json';
+import { startYear } from '../../page-data/graduateCarouselsData.json';
 //hooks
-import { useGetCarouselByYear, useImportPageImages, useImportGraduateCarousels } from 'utils/apiHooks';
+import {
+  useGetCarouselByYear,
+  useImportPageImages,
+  useImportGraduateCarousels,
+} from 'utils/apiHooks';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 //styles
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Document as ContentfulDocumentType } from '@contentful/rich-text-types';
 
 export default function About() {
+  const location: Location = useLocation();
   const [carouselYear, setCarouselYear] = useState(startYear);
-  const currentCarousel = useGetCarouselByYear(carouselYear);
+  // const displayedCarousel;
   const [selectedCarouselItem, setSelectedCarouselItem] = useState(0);
+  const { graduateCarouselsObj, carouselsLoading } = useImportGraduateCarousels();
   const { imgObj, loading } = useImportPageImages('about');
   const { sectionObj } = aboutData;
   const { paragraphs, headers, links, lists } = sectionObj;
   //for SPA routing
-  const location: Location = useLocation();
- const {graduateCarouselsObj, carouselsLoading } = useImportGraduateCarousels()
- console.log(graduateCarouselsObj)
+  const currentCarousel = graduateCarouselsObj[carouselYear];
   useEffect(() => {
     pageNavigationHandler('students-sitting-hero', location);
-  }, [location, loading]);
+  }, [location, loading, carouselsLoading]);
   if (loading || carouselsLoading) {
     return <LoadingScreen />;
   }
@@ -100,7 +104,7 @@ export default function About() {
           onChange={(idx) => setSelectedCarouselItem(idx)}
         >
           {currentCarousel &&
-            currentCarousel.map(({ imgUrl }, idx) => {
+            currentCarousel.map((imgUrl, idx) => {
               return (
                 <div style={CarouselStyles} key={idx}>
                   <img style={CarouselImgStyles} src={imgUrl} alt="Graduation carousel" />
@@ -117,7 +121,7 @@ export default function About() {
         className="year-select"
         value={carouselYear}
       >
-        {generateCarouselYearList().map((year: number) => {
+        {Object.keys(graduateCarouselsObj).map((year: string) => {
           return (
             <option key={crypto.randomUUID()} className="year-option" value={year.toString()}>
               {year}
