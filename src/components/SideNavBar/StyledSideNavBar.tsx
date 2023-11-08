@@ -11,12 +11,7 @@ export default styled.nav`
   overflow-y: scroll;
   overflow-x: hidden;
   /* logo wrapper */
-  .down-arrow {
-    position: absolute;
-    display: none;
-    font-size: 20px;
-    text-align: right;
-  }
+
   .img-wrapper {
     background: black;
     margin-bottom: 5px;
@@ -56,7 +51,7 @@ export default styled.nav`
     color: black;
     background: var(--main-bg);
   }
-  
+
   .nav-anchor .link-button {
     background: #bad87f;
   }
@@ -83,6 +78,14 @@ export default styled.nav`
   img {
     margin-left: 5px;
     width: 140px;
+  }
+  /* height={'10px'} width={'1px'} style={{marginLeft: '-60px', position: 'absolute', marginTop: '3px'} */
+  .down-arrow {
+    position: absolute;
+    max-height: 10px;
+    height: 10px;
+    margin-top: 3px;
+    width: 14px;
   }
 
   @media screen and (min-width: 700px) {

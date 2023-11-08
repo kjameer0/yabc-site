@@ -3,7 +3,6 @@ import { MainLogo } from 'assets/images';
 import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import NavLinkList from 'components/NavLinkList';
-// import { MissionLogo } from "assets/images/Logos";
 import DownArrow from '../../assets/Icons/down-arrow.svg'
 //data
 import {
@@ -49,26 +48,26 @@ export default function SideNavBar() {
           </li>
           <li className="category">
             <button onClick={handleCategoryClick} value="about">
-              ABOUT<img src ={DownArrow} alt='down arrow' height={'10px'} width={'1px'} style={{marginLeft: '-60px', position: 'absolute', marginTop: '3px'}}/>
+              ABOUT<img src ={DownArrow} alt='down arrow' className="down-arrow"/>
             </button>
             {activeList === 'about' && <NavLinkList list={aboutPaths} />}
           </li>
           <li className="category">
             <button onClick={handleCategoryClick} value="staff">
-              STAFF<img src ={DownArrow} alt='down arrow' height={'10px'} width={'1px'} style={{marginLeft: '-60px', position: 'absolute', marginTop: '3px'}}/>
+              STAFF<img src ={DownArrow} className="down-arrow" alt='down arrow'/>
             </button>
             {activeList === 'staff' && <NavLinkList list={staffPaths} />}
           </li>
           <li className="category">
             <button onClick={handleCategoryClick} id="admissions-button" value={'admissions'}>
-              ADMISSIONS<img src ={DownArrow} alt='down arrow' height={'10px'} width={'1px'} style={{marginLeft: '-60px', position: 'absolute', marginTop: '3px'}}/>
+              ADMISSIONS<img src ={DownArrow} alt='down arrow'width={'1px'} className="down-arrow"/>
             </button>
             {/* if active list is this item, render its link */}
             {activeList === 'admissions' && <NavLinkList list={admissionsPaths} />}
           </li>
           <li className="category">
             <button onClick={handleCategoryClick} value={'student-corner'}>
-              STUDENT CORNER<img src ={DownArrow} alt='down arrow' height={'10px'} width={'1px'} style={{marginLeft: '-60px', position: 'absolute', marginTop: '3px'}}/>
+              STUDENT CORNER<img src ={DownArrow} alt='down arrow'width={'1px'} className="down-arrow"/>
             </button>
             {activeList === 'student-corner' && <NavLinkList list={studentCornerPaths} />}
           </li>
@@ -84,19 +83,19 @@ export default function SideNavBar() {
           </li>
           <li className="category">
             <button onClick={handleCategoryClick} value={'parents-families'}>
-              PARENTS/FAMILIES<img src ={DownArrow} alt='down arrow' height={'10px'} width={'1px'} style={{marginLeft: '-60px', position: 'absolute', marginTop: '3px'}}/>
+              PARENTS/FAMILIES<img src ={DownArrow} alt='down arrow'width={'1px'} className="down-arrow"/>
             </button>
             {activeList === 'parents-families' && <NavLinkList list={parentsFamiliesPaths} />}
           </li>
           <li className="category">
             <button onClick={handleCategoryClick} value={'teacher-hub'}>
-              TEACHER HUB<img src ={DownArrow} alt='down arrow' height={'10px'} width={'1px'} style={{marginLeft: '-60px', position: 'absolute', marginTop: '3px'}}/>
+              TEACHER HUB<img src ={DownArrow} alt='down arrow'width={'1px'} className="down-arrow"/>
             </button>
             {activeList === 'teacher-hub' && <NavLinkList list={teacherHubPaths} />}
           </li>
           <li className="category">
             <button onClick={handleCategoryClick} value={'student-support-activities'}>
-              STUDENT SUPPORT ACTIVITIES<img src ={DownArrow} alt='down arrow' height={'10px'} width={'1px'} style={{marginLeft: '-60px', position: 'absolute', marginTop: '3px'}}/>
+              STUDENT SUPPORT ACTIVITIES<img src ={DownArrow} alt='down arrow'width={'1px'} className="down-arrow"/>
             </button>
             {activeList === 'student-support-activities' && <NavLinkList list={studentSupportPaths} />}
           </li>
