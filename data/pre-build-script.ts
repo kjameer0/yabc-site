@@ -156,17 +156,22 @@ async function writeGraduateCarousels(
       }
       carouselNumber++;
     }
-    writeFile(path.resolve(DATA_DIRECTORY, 'graduateCarouselsData.json'), JSON.stringify({startYear: startYear}), (err) => {
-      if (err) {
-        throw new Error('failed to write graduate carousel data');
+    writeFile(
+      path.resolve(DATA_DIRECTORY, 'graduateCarouselsData.json'),
+      JSON.stringify({ startYear: startYear }),
+      (err) => {
+        if (err) {
+          throw new Error('failed to write graduate carousel data');
+        }
       }
-    })
+    );
   } catch (error) {
     errorGenerator(error);
   }
 }
 async function writeQuoteCarousel(
-  quoteCarousel: Entry<TypeCarouselSkeleton, 'WITHOUT_UNRESOLVABLE_LINKS', string> | undefined, directoryName:string
+  quoteCarousel: Entry<TypeCarouselSkeleton, 'WITHOUT_UNRESOLVABLE_LINKS', string> | undefined,
+  directoryName: string
 ) {
   const carouselBasePath = path.resolve(ASSET_DIRECTORY, 'carousels/' + directoryName);
   if (!quoteCarousel) {
@@ -174,7 +179,7 @@ async function writeQuoteCarousel(
   }
   const imageArray = quoteCarousel.fields.carouselImages;
   let index = 0;
-  const quoteJSON: { quotes: string[] } = {quotes: []};
+  const quoteJSON: { quotes: string[] } = { quotes: [] };
   for (const carouselImage of imageArray) {
     const currentImageUrl = carouselImage?.fields.image?.fields.file?.url;
     if (!currentImageUrl) {
@@ -184,20 +189,22 @@ async function writeQuoteCarousel(
     quoteJSON.quotes.push(carouselImage.fields.quoteText || '');
     index++;
   }
-  writeFile(path.resolve(DATA_DIRECTORY, directoryName + 'Data.json'), JSON.stringify(quoteJSON), (err) => {
-    if (err) {
-      throw new Error('failed to write quote carousel quotes');
+  writeFile(
+    path.resolve(DATA_DIRECTORY, directoryName + 'Data.json'),
+    JSON.stringify(quoteJSON),
+    (err) => {
+      if (err) {
+        throw new Error('failed to write quote carousel quotes');
+      }
     }
-  })
-
+  );
 }
 
 const carouselObj = await getAllCarousels();
 await writeGraduateCarousels(carouselObj?.graduateCarousels || []);
 await writeQuoteCarousel(carouselObj?.quoteCarousel, 'quoteCarousel');
 await writeQuoteCarousel(carouselObj?.studentCornerCarousel, 'studentCornerCarousel');
-await
-writeStaffImages();
+await writeStaffImages();
 writeBannerText();
 writePageData('7yhGH9U8xAnRRgnC76CcAC', 'homeData', 'home');
 writePageData('2UE2gLOJhURbCW6YffSfPQ', 'aboutData', 'about');
@@ -211,3 +218,4 @@ writePageData('4ull73PKgAqB37xT6SkdwB', 'teacherHubData', 'teacherHub');
 writePageData('66NBO5u9RxH1aZmxbEObDF', 'contactData', 'contact');
 writePageData('7dfBJlHAwdkBjAGwHz7dmV', 'informationRequestFormData', 'informationRequestForm');
 writePageData('6t2NSllTkjn6ThupQQ9d9g', 'adminCounselorFormData', 'adminCounselorForm');
+writePageData('4nugErvcvdgZUewlAhwkvg', 'studentSupportActivitiesData', 'studentSupportActivities');

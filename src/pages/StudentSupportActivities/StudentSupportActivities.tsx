@@ -10,11 +10,14 @@ import HeroImage from 'components/HeroImage';
 //utils
 import { pageNavigationHandler } from 'pages/pages-utils';
 //hooks
-import { useGetPageData } from 'utils/apiHooks';
+import { useImportPageImages } from 'utils/apiHooks';
+//text content
+import pageData from '../../page-data/studentSupportActivitiesData.json'
 
 export default function StudentSupportCenter() {
   const location: Location = useLocation();
-  const { imgObj, sectionObj, loading } = useGetPageData('4nugErvcvdgZUewlAhwkvg');
+  const {sectionObj} = pageData
+  const { imgObj, loading } = useImportPageImages('studentSupportActivities');
   const { headers, paragraphs, buttons, lists } = sectionObj;
 
   useEffect(() => {

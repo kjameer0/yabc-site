@@ -1,0 +1,112 @@
+{
+  "sectionObj": {
+    "lists": {
+      "collegeList": {
+        "listContent": [
+          "Resume and cover letter writing",
+          "Finding employment & Paid internships",
+          "On-going seminars on skill building workshops",
+          "Assistance obtaining work attire",
+          "College Exploration and visiting college campuses",
+          "Completing college application and FAFSA"
+        ]
+      },
+      "activitiesList": {
+        "listContent": [
+          "Town hall meetings",
+          "Social Gatherings",
+          "Field trips",
+          "Attending sorting events",
+          "Volunteering"
+        ]
+      },
+      "outreachList": {
+        "listContent": [
+          "Transcript review",
+          "Tutoring and coaching",
+          "Preparing students to graduate",
+          "Family intervention",
+          "Family visits and house calls for attendance",
+          "Supportive 1:1 and group counseling",
+          "Engagement",
+          "Cultural enrichment exploration(theater & arts)",
+          "Special interst groups",
+          "Life skills workshops"
+        ]
+      },
+      "studentOutreachList": {
+        "listContent": [
+          "Job experience",
+          "Paid internship",
+          "Mentorship",
+          "Help guide career goals",
+          "Create a professional network",
+          "Build a strong resume",
+          "Secure good references and recommendations"
+        ]
+      }
+    },
+    "headers": {
+      "pageTitle": { "mainHeading": "MISSION SOCIETY OF NEW YORK" },
+      "learnHeading": {
+        "mainHeading": "LEARN TO WORK  PROGRAM ",
+        "subHeading": " BY THE MISSION SOCIETY OF NEW YORK"
+      },
+      "underHeading": { "mainHeading": "UNDER AGE 18 COMPLETE THESE FORMS" },
+      "overHeading": { "mainHeading": "OVER AGE 18 COMPLETE THESE FORMS" },
+      "servicesHeading": {
+        "mainHeading": "SERVICES",
+        "subHeading": "FROM THE MISSION SOCIETY OF NEW YORK"
+      },
+      "collegeHeading": { "mainHeading": "COLLEGE AND CAREEER READINESS" },
+      "activitiesHeading": { "mainHeading": "ACTIVITIES" },
+      "outreachHeading": { "mainHeading": "ACADEMIC/FAMILY OUTREACH" },
+      "studentOutreachHeading": { "mainHeading": "STUDENT OUTREACH" }
+    },
+    "paragraphs": {
+      "partnerPara": {
+        "content": "Washington Irving YABC runs in partnership with Mission Society of NYC. Mission Society of NYC is a large not-for-profit human service organization.\nAs a partner, Mission Society of NYC holds a central role in supporting students in all aspects of school life and beyond. Mission Society of NYC provides student support services, college and career exploration, extracurricular activities, and family support and outreach.\nEach student is assigned a Mission Society Youth Advisor who will work closely with him/her to assist him/her with any needs. The Youth Advisors are committed to assisting all students in achieving their goals!"
+      }
+    },
+    "links": {},
+    "buttons": {
+      "underLtwButton": {
+        "buttonText": "LTW ENROLLMENT FORM",
+        "link": "https://docs.google.com/forms/d/e/1FAIpQLSdWHusy37m6eNV-gJ7DU0k46g7ZlDmWT_M3SD7TpTBTAZ0ceg/viewform?pli=1"
+      },
+      "underPhotoButton": {
+        "buttonText": "UNDER 18 - PHOTO-VIDEO CONSENT FORM",
+        "link": "https://docs.google.com/forms/d/e/1FAIpQLSe-SOSDeTt2AjR8i_fUF2Jl0IhzNYSq0qv7LiDYPKkUHCTJ2w/viewform"
+      },
+      "underTransferButton": {
+        "buttonText": "UNDER 18 - PARENT CONSENT FORM FOR TRANSFER SCHOOLS",
+        "link": "https://docs.google.com/forms/d/e/1FAIpQLSf3PmLbVO_IRGLl8rGyu52c4NbIpPOXukaWzqLn58gawMOfRQ/viewform"
+      },
+      "underContactButton": {
+        "buttonText": "EMERGENCY CONTACT FORM",
+        "link": "https://docs.google.com/forms/d/e/1FAIpQLSe3SIw8wNyDHyiiItj-tmiGdZeH7Oqfc0wz1d0NMumeostaNg/viewform"
+      },
+      "overLtwButton": {
+        "buttonText": "LTW ENROLLMENT FORM",
+        "link": "https://docs.google.com/forms/d/e/1FAIpQLSdWHusy37m6eNV-gJ7DU0k46g7ZlDmWT_M3SD7TpTBTAZ0ceg/viewform?pli=1"
+      },
+      "overPhotoButton": {
+        "buttonText": "OVER 18 - PHOTO-VIDEO CONSENT FORM",
+        "link": "https://docs.google.com/forms/d/e/1FAIpQLSfh5IMQvRluRxJbOAIoHAc2d3LFq4JO3ZNEUYpUiMh_jmg7xw/viewform"
+      },
+      "overTransferButton": {
+        "buttonText": "OVER 18 - PARENT CONSENT FORM FOR TRANSFER SCHOOLS",
+        "link": "https://docs.google.com/forms/d/e/1FAIpQLSd-Mp9aFGSmeBpJl8MKMFStXY4AYzeh8-JLqfos4rB_HRZDgg/viewform"
+      },
+      "overContactButton": {
+        "buttonText": "EMERGENCY CONTACT FORM",
+        "link": "https://docs.google.com/forms/d/e/1FAIpQLSe3SIw8wNyDHyiiItj-tmiGdZeH7Oqfc0wz1d0NMumeostaNg/viewform"
+      }
+    }
+  },
+  "imgObj": {
+    "missionhero": "assets/images/build-assets/studentSupportActivities/missionhero.webp",
+    "learnhero": "assets/images/build-assets/studentSupportActivities/learnhero.webp",
+    "serviceshero": "assets/images/build-assets/studentSupportActivities/serviceshero.webp"
+  }
+}

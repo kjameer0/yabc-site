@@ -1,7 +1,5 @@
 import { Location, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
-//images
-//download
 //components
 import StyledTeacherHub from './StyledTeacherHub';
 import { StyledContentSection } from 'components/ContentSection';
@@ -9,26 +7,30 @@ import LoadingScreen from 'components/LoadingScreen';
 //utils
 import { pageNavigationHandler } from 'pages/pages-utils';
 //hooks
-import { useGetPageData } from 'utils/apiHooks';
+import { useImportPageImages } from 'utils/apiHooks';
+//text cpntent
+import pageData from '../../page-data/teacherHubData.json';
 
 export default function TeacherHub() {
   const location: Location = useLocation();
-  const { imgObj, sectionObj, loading } = useGetPageData('4ull73PKgAqB37xT6SkdwB');
-  const { headers, paragraphs, buttons, links, lists } = sectionObj;
+  const { sectionObj } = pageData;
+  const { imgObj, loading } = useImportPageImages('teacherHub');
+  const { headers, paragraphs, buttons } = sectionObj;
+
   useEffect(() => {
     pageNavigationHandler('teacher-hub', location);
   }, [location, loading]);
-  if(loading) {
-    return <LoadingScreen />
+
+  if (loading) {
+    return <LoadingScreen />;
   }
+
   return (
     <StyledTeacherHub id="teacher-hub">
       <h1 className="major-heading">{headers.pageTitle.mainHeading}</h1>
       <StyledContentSection id="classroom-expectation">
         <h2 className="sub-heading">{headers.expectationHeading.mainHeading}</h2>
-        <p className="para-content bold-para">
-         {paragraphs.philosophyPara.content}
-        </p>
+        <p className="para-content bold-para">{paragraphs.philosophyPara.content}</p>
         <p className="para-content bold-para">{paragraphs.remotePara.content}</p>
         <div className="expectation-list-wrapper">
           <img
@@ -36,49 +38,27 @@ export default function TeacherHub() {
             alt="The influence of a good teacher can never be erased"
           />
           <div className="expectations-list">
-            <h3 className="para-content bold-para">{headers.teacherExpectationHeading.mainHeading}</h3>
-            <p className="para-content">
-              {paragraphs.teacherPara1.content}
-            </p>
-            <p className="para-content">
-              {paragraphs.teacherPara2.content}
-            </p>
+            <h3 className="para-content bold-para">
+              {headers.teacherExpectationHeading.mainHeading}
+            </h3>
+            <p className="para-content">{paragraphs.teacherPara1.content}</p>
+            <p className="para-content">{paragraphs.teacherPara2.content}</p>
           </div>
         </div>
       </StyledContentSection>
       <StyledContentSection id="teacher-resources" className="teacher-resources">
         <h2 className="major-heading">{headers.resourcesHeading.mainHeading}</h2>
         <div className="resource-button-wrapper">
-          <a
-            className="navlink"
-            target="_blank"
-            rel="noreferrer"
-            href={buttons.civicsButton.link}
-          >
+          <a className="navlink" target="_blank" rel="noreferrer" href={buttons.civicsButton.link}>
             <p>{buttons.civicsButton.buttonText}</p>
           </a>
-          <a
-            className="navlink"
-            target="_blank"
-            rel="noreferrer"
-            href={buttons.sesisButton.link}
-          >
+          <a className="navlink" target="_blank" rel="noreferrer" href={buttons.sesisButton.link}>
             <p>{buttons.sesisButton.buttonText}</p>
           </a>
-          <a
-            className="navlink"
-            target="_blank"
-            rel="noreferrer"
-            href={buttons.infohubButton.link}
-          >
+          <a className="navlink" target="_blank" rel="noreferrer" href={buttons.infohubButton.link}>
             <p>{buttons.infohubButton.buttonText}</p>
           </a>
-          <a
-            className="navlink"
-            target="_blank"
-            rel="noreferrer"
-            href={buttons.payrollButton.link}
-          >
+          <a className="navlink" target="_blank" rel="noreferrer" href={buttons.payrollButton.link}>
             <p>{buttons.payrollButton.buttonText}</p>
           </a>
           <a
@@ -90,15 +70,16 @@ export default function TeacherHub() {
           >
             <p>{buttons.sessionButton.buttonText}</p>
           </a>
-          <a className="navlink" target="_blank" download={'per-session-timesheet'} rel="noreferrer" href={'https://' + buttons.handbookButton.file}>
-            <p>{buttons.handbookButton.buttonText}</p>
-          </a>
           <a
             className="navlink"
             target="_blank"
+            download={'per-session-timesheet'}
             rel="noreferrer"
-            href={buttons.jupiterButton.link}
+            href={'https://' + buttons.handbookButton.file}
           >
+            <p>{buttons.handbookButton.buttonText}</p>
+          </a>
+          <a className="navlink" target="_blank" rel="noreferrer" href={buttons.jupiterButton.link}>
             <p>{buttons.jupiterButton.buttonText}</p>
           </a>
         </div>

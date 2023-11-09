@@ -8,10 +8,13 @@ import { StyledContentSection } from 'components/ContentSection';
 //utils
 import { pageNavigationHandler } from 'pages/pages-utils';
 //hooks
-import { useGetPageData } from 'utils/apiHooks';
+import { useImportPageImages } from 'utils/apiHooks';
+//text content
+import pageData from '../../page-data/counselorCornerData.json';
 export default function CounselorCorner() {
   const location: Location = useLocation();
-  const { imgObj, sectionObj, loading } = useGetPageData('7g9C5Xa1vO345Eim31HZaY');
+  const { sectionObj } = pageData;
+  const { imgObj, loading } = useImportPageImages('counselorCorner');
   const { headers, paragraphs, buttons } = sectionObj;
 
   useEffect(() => {
@@ -21,6 +24,7 @@ export default function CounselorCorner() {
   if (loading) {
     return <LoadingScreen />;
   }
+
   return (
     <StyledCounselorCorner>
       <HeroImage imgLink={imgObj.counselorhero} text={[]} color="white" id="counselor-hero" />
