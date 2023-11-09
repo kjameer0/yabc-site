@@ -11,7 +11,7 @@ import { StyledContentSection } from 'components/ContentSection';
 //utils
 import { pageNavigationHandler } from 'pages/pages-utils';
 import { useImportPageImages } from 'utils/apiHooks';
-import { richTextLinkOptions } from 'utils/contentful-api-functions';
+import { richTextLinkOptions } from 'utils/contentful-options';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import admissionsData from '../../page-data/admissionsData.json'
 import { Document as ContentfulDocumentType } from '@contentful/rich-text-types';

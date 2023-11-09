@@ -4,7 +4,6 @@ import SideNavBar from 'components/SideNavBar';
 import Footer from 'components/Footer';
 import { Outlet } from 'react-router-dom';
 //utils
-//error
 import { bannerText } from 'page-data/bannerData.json';
 
 //nav bar is for mobile view and side nav bar is for desktop/tablet

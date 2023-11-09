@@ -9,7 +9,7 @@ import { Carousel } from 'react-responsive-carousel';
 import LoadingScreen from 'components/LoadingScreen';
 //utils
 import { pageNavigationHandler } from 'pages/pages-utils';
-import { richTextLinkOptions } from 'utils/contentful-api-functions';
+import { richTextLinkOptions } from 'utils/contentful-options';
 //data
 import aboutData from '../../page-data/aboutData.json';
 import { startYear } from '../../page-data/graduateCarouselsData.json';

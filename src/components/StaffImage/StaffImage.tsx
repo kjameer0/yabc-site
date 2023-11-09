@@ -1,8 +1,10 @@
 import StyledStaffImage from "./StyledStaffImage";
 //all data associated with individual staff member
-import { StaffMemberDataType } from 'utils/contentfulTypeFunctions';
-export interface StaffImageType extends StaffMemberDataType {
+export interface StaffImageType {
   direction: 'left' | 'right';
+  imgUrl: string;
+  name: string;
+  role: string;
 }
 
 export default function StaffImage({ direction, imgUrl, name, role }: StaffImageType) {

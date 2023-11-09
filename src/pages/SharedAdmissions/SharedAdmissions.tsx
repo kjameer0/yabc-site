@@ -9,7 +9,7 @@ import { StyledContentSection } from 'components/ContentSection';
 import StyledMainButton from 'components/MainButton';
 //utils
 import { pageNavigationHandler } from 'pages/pages-utils';
-import { richTextLinkOptions } from 'utils/contentful-api-functions';
+import { richTextLinkOptions } from 'utils/contentful-options';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { Document as ContentfulDocumentType } from '@contentful/rich-text-types';
 //text content
