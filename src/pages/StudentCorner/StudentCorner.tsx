@@ -1,12 +1,6 @@
 import { useEffect } from 'react';
-import { useLocation, NavLink, Location } from 'react-router-dom';
+import { useLocation, Location } from 'react-router-dom';
 import StyledStudentCorner from './StyledStudentCorner';
-//forms
-import { StudentHandbook } from 'assets/images/Forms';
-//images
-import { RemoteLearningStudentsIcon, BabyCarriageIcon } from 'assets/Icons';
-import { StudentCornerCarouselImages } from 'assets/images/Carousel-Photos';
-import { BookshelfImg, StudentHandBookImg } from 'assets/images/Student-Corner-Images';
 //components
 import LoadingScreen from 'components/LoadingScreen';
 import { Carousel } from 'react-responsive-carousel';
@@ -14,20 +8,26 @@ import { StyledContentSection } from 'components/ContentSection';
 //utils
 import { pageNavigationHandler } from 'pages/pages-utils';
 //hooks
-import { useGetSingleCarousel, useGetPageData } from 'utils/apiHooks';
+import { useImportSingleCarousel, useImportPageImages } from 'utils/apiHooks';
+//text content
+import pageData from '../../page-data/studentCornerData.json';
+import { quotes } from '../../page-data/studentCornerCarouselData.json';
+
 export default function StudentCorner() {
   const location: Location = useLocation();
-  const { imgObj, sectionObj, loading } = useGetPageData('4uRsZsFnHcwcxbOW543PiU');
-  const carousel = useGetSingleCarousel('2hYFrTntqingK54ljvb2yZ');
+  const { imgObj, loading } = useImportPageImages('studentCorner');
+  const { sectionObj } = pageData;
+  const { carousel, isCarouselLoading } = useImportSingleCarousel('studentCornerCarousel');
   const { headers, paragraphs, buttons } = sectionObj;
 
   useEffect(() => {
     pageNavigationHandler('student-corner', location);
-  }, [location, loading]);
+  }, [location, loading, isCarouselLoading]);
 
-  if (loading) {
+  if (loading || isCarouselLoading) {
     return <LoadingScreen />;
   }
+
   return (
     <StyledStudentCorner id="student-corner">
       <h1 className="major-heading">{headers.pageTitle.mainHeading}</h1>
@@ -89,11 +89,11 @@ export default function StudentCorner() {
             infiniteLoop={true}
             width={'60%'}
           >
-            {carousel.map(({ imgUrl, quoteText }) => {
+            {carousel.map((imgUrl, index) => {
               return (
                 <div key={crypto.randomUUID()} className="img-wrapper">
-                  <img className="carousel-img" src={imgUrl} alt={quoteText} />
-                  <p>{quoteText}</p>
+                  <img className="carousel-img" src={imgUrl} alt={quotes[index]} />
+                  <p>{quotes[index]}</p>
                 </div>
               );
             })}
@@ -127,12 +127,7 @@ export default function StudentCorner() {
         >
           {buttons.handbookButton.buttonText}
         </a>
-        <a
-          className="navlink"
-          href={buttons.jupiterButton.link}
-          target="_blank"
-          rel="noreferrer"
-        >
+        <a className="navlink" href={buttons.jupiterButton.link} target="_blank" rel="noreferrer">
           {buttons.jupiterButton.buttonText}
         </a>
       </StyledContentSection>

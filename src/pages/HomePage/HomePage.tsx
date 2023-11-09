@@ -1,5 +1,5 @@
 //React
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Location, useLocation } from 'react-router-dom';
 //components
 import StyledHomePage from './StyledHomePage';
@@ -10,7 +10,7 @@ import LoadingScreen from 'components/LoadingScreen';
 //images
 //utils
 import { pageNavigationHandler } from 'pages/pages-utils';
-import { useGetSingleCarousel, useImportPageImages, useImportSingleCarousel } from 'utils/apiHooks';
+import { useImportPageImages, useImportSingleCarousel } from 'utils/apiHooks';
 import HomeData from '../../page-data/homeData.json';
 import {quotes} from '../../page-data/quoteCarouselData.json'
 //types
@@ -19,7 +19,6 @@ export default function HomePage() {
   const {imgObj, loading} = useImportPageImages('home');
   const { sectionObj } = HomeData;
   const { paragraphs, headers, buttons } = sectionObj;
-  const quoteCarousel = useGetSingleCarousel('6HNgzL9333zge8eEXDZV9R');
   const {carousel, isCarouselLoading } =useImportSingleCarousel('quoteCarousel');
   useEffect(() => {
     pageNavigationHandler('school-facade', location);
