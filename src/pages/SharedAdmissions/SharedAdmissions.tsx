@@ -1,10 +1,7 @@
 import { useEffect } from 'react';
 import { Location, useLocation } from 'react-router-dom';
-//images
-import { SharedAdmissionsHero } from 'assets/images/Hero-Images';
 //components
 import StyledSharedAdmissions from './StyledSharedAdmissions';
-import HeroImage from 'components/HeroImage';
 import { StyledContentSection } from 'components/ContentSection';
 import StyledMainButton from 'components/MainButton';
 //utils
@@ -19,18 +16,13 @@ export default function SharedAdmissions() {
   const location: Location = useLocation();
   const { sectionObj } = pageData;
   const { headers, paragraphs, lists, buttons, links } = sectionObj;
+
   useEffect(() => {
     pageNavigationHandler('shared-admissions-hero', location);
   }, [location]);
 
   return (
     <StyledSharedAdmissions>
-      <HeroImage
-        imgLink={SharedAdmissionsHero}
-        id="shared-admissions-hero"
-        text={[]}
-        color="white"
-      />
       <h1 className="major-heading">{headers.pageTitle.mainHeading}</h1>
       <StyledContentSection className="shared-elaboration-section">
         <p className="para-content">{paragraphs.instructionPara1.content} </p>

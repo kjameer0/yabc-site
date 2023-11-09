@@ -109,6 +109,9 @@ export async function createPageImgObj(pageName: string) {
       case 'studentSupportActivities':
         pageGlob = await import.meta.glob('../assets/images/build-assets/studentSupportActivities/*');
         break;
+      case 'adminCounselorForm':
+        pageGlob = await import.meta.glob('../assets/images/build-assets/adminCounselorForm/*');
+        break;
       default:
         throw new ReferenceError('invalid page name to retrieve images');
     }

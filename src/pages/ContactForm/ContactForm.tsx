@@ -4,12 +4,11 @@ import { useState, useEffect } from 'react';
 //components
 import StyledContactForm from './StyledContactForm';
 import HeroImage from 'components/HeroImage';
+import LoadingScreen from 'components/LoadingScreen';
 import StyledMainButton from 'components/MainButton';
-//images
-import { AdmissionsHero } from 'assets/images/Hero-Images';
 //utils
 import { pageNavigationHandler } from 'pages/pages-utils';
-import { useContactForm } from 'utils/apiHooks';
+import { useContactForm, useImportPageImages } from 'utils/apiHooks';
 //data
 import adminCounselorData from '../../page-data/adminCounselorFormData.json';
 //endpoints depend on which form is being rendered
@@ -18,12 +17,14 @@ import adminCounselorData from '../../page-data/adminCounselorFormData.json';
 export default function ContactForm({ version }: { version: 'counselor' | 'admin' }) {
   const [isButtonActive, setIsButtonActive] = useState(true);
   const { sectionObj } = adminCounselorData;
+  const { imgObj, loading } = useImportPageImages('adminCounselorForm');
   const { headers, buttons, paragraphs } = sectionObj;
-  const COUNSELOR_FORM_ENDPOINT =
-    buttons.counselorSubmitButton.link;
-  const SITE_ADMIN_FORM_ENDPOINT =
-    buttons.adminSubmitButton.link;
-  const buttonMessage = version === 'counselor' ? buttons.counselorSubmitButton.buttonText : buttons.adminSubmitButton.buttonText
+  const COUNSELOR_FORM_ENDPOINT = buttons.counselorSubmitButton.link;
+  const SITE_ADMIN_FORM_ENDPOINT = buttons.adminSubmitButton.link;
+  const buttonMessage =
+    version === 'counselor'
+      ? buttons.counselorSubmitButton.buttonText
+      : buttons.adminSubmitButton.buttonText;
   const { status, handleFormSubmit } = useContactForm(
     version === 'counselor' ? COUNSELOR_FORM_ENDPOINT : SITE_ADMIN_FORM_ENDPOINT,
     setIsButtonActive
@@ -33,11 +34,17 @@ export default function ContactForm({ version }: { version: 'counselor' | 'admin
     pageNavigationHandler('contact-counselor-hero', location);
   }, [location]);
 
+  if (loading) {
+    return <LoadingScreen />;
+  }
+
   return (
     <StyledContactForm>
-      <HeroImage text={[]} color="white" imgLink={AdmissionsHero} id="counselor-contact-hero" />
+      <HeroImage text={[]} color="white" imgLink={imgObj.formhero} id="counselor-contact-hero" />
       <h1 className="major-heading">
-        {version === 'counselor' ? headers.counselorHeading.mainHeading : headers.adminContactHeading.mainHeading}
+        {version === 'counselor'
+          ? headers.counselorHeading.mainHeading
+          : headers.adminContactHeading.mainHeading}
       </h1>
       <input
         type="text"

@@ -1,6 +1,4 @@
 import StyledFooter from "./StyledFooter";
-//images
-import { MissionLogo } from "assets/images/Logos";
 export default function Footer() {
   return (
     <StyledFooter>
