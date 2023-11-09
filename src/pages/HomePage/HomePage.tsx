@@ -5,21 +5,21 @@ import { Location, useLocation } from 'react-router-dom';
 import StyledHomePage from './StyledHomePage';
 import HeroImage from 'components/HeroImage';
 import { StyledContentSection } from 'components/ContentSection';
-import { Carousel, CarouselProps } from 'react-responsive-carousel';
+import { Carousel } from 'react-responsive-carousel';
 import LoadingScreen from 'components/LoadingScreen';
-//images
 //utils
 import { pageNavigationHandler } from 'pages/pages-utils';
 import { useImportPageImages, useImportSingleCarousel } from 'utils/apiHooks';
-import HomeData from '../../page-data/homeData.json';
-import {quotes} from '../../page-data/quoteCarouselData.json'
+//text content
+import pageData from '../../page-data/homeData.json';
+import { quotes } from '../../page-data/quoteCarouselData.json';
 //types
 export default function HomePage() {
   const location: Location = useLocation();
-  const {imgObj, loading} = useImportPageImages('home');
-  const { sectionObj } = HomeData;
+  const { imgObj, loading } = useImportPageImages('home');
+  const { sectionObj } = pageData;
   const { paragraphs, headers, buttons } = sectionObj;
-  const {carousel, isCarouselLoading } =useImportSingleCarousel('quoteCarousel');
+  const { carousel, isCarouselLoading } = useImportSingleCarousel('quoteCarousel');
   useEffect(() => {
     pageNavigationHandler('school-facade', location);
   }, [location, isCarouselLoading, loading]);
@@ -29,12 +29,7 @@ export default function HomePage() {
   }
   return (
     <StyledHomePage className="home-main">
-      <HeroImage
-        id="school-facade"
-        imgLink={imgObj.homehero}
-        text={[]}
-        color="white"
-      />
+      <HeroImage id="school-facade" imgLink={imgObj.homehero} text={[]} color="white" />
       <h1 className="major-heading restore-margin">{headers.pageTitle.mainHeading}</h1>
       <div className="pre-reg-box info-box restore-margin">
         <h2 className="sub-heading">
@@ -100,11 +95,7 @@ export default function HomePage() {
           {carousel.map((imagePath, index) => {
             return (
               <div key={crypto.randomUUID()} className="img-wrapper">
-                <img
-                  className="carousel-img"
-                  src={imagePath}
-                  alt={quotes[index]}
-                />
+                <img className="carousel-img" src={imagePath} alt={quotes[index]} />
                 <p>{quotes[index] || ''}</p>
               </div>
             );

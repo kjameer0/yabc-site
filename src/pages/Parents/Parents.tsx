@@ -8,12 +8,16 @@ import { useLocation, Location } from 'react-router-dom';
 //utils
 import { pageNavigationHandler } from 'pages/pages-utils';
 //hooks
-import { useGetPageData } from 'utils/apiHooks';
+import { useImportPageImages } from 'utils/apiHooks';
+//text content
+import pageData from '../../page-data/parentsData.json';
 
 export default function Parents() {
   const location: Location = useLocation();
-  const { imgObj, sectionObj, loading } = useGetPageData('4PFJseAKeaXR0SerpDod02');
+  const { sectionObj } = pageData;
+  const { imgObj, loading } = useImportPageImages('parents');
   const { headers, paragraphs, buttons, lists } = sectionObj;
+
   useEffect(() => {
     pageNavigationHandler('parents-page', location);
   }, [location, loading]);

@@ -85,7 +85,8 @@ export default styled.nav`
     max-height: 10px;
     height: 10px;
     margin-top: 3px;
-    width: 14px;
+    width: 10px;
+    margin-left: 3px;
   }
 
   @media screen and (min-width: 700px) {
