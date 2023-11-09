@@ -10,9 +10,9 @@ import LoadingScreen from 'components/LoadingScreen';
 //images
 //utils
 import { pageNavigationHandler } from 'pages/pages-utils';
-import { useGetSingleCarousel, useImportPageImages } from 'utils/apiHooks';
+import { useGetSingleCarousel, useImportPageImages, useImportSingleCarousel } from 'utils/apiHooks';
 import HomeData from '../../page-data/homeData.json';
-import quoteCarouselQuotes from '../../page-data/quoteCarouselData.json'
+import {quotes} from '../../page-data/quoteCarouselData.json'
 //types
 export default function HomePage() {
   const location: Location = useLocation();
@@ -20,11 +20,12 @@ export default function HomePage() {
   const { sectionObj } = HomeData;
   const { paragraphs, headers, buttons } = sectionObj;
   const quoteCarousel = useGetSingleCarousel('6HNgzL9333zge8eEXDZV9R');
+  const {carousel, isCarouselLoading } =useImportSingleCarousel('quoteCarousel');
   useEffect(() => {
     pageNavigationHandler('school-facade', location);
-  }, [location]);
+  }, [location, isCarouselLoading, loading]);
 
-  if (loading) {
+  if (loading || isCarouselLoading) {
     return <LoadingScreen />;
   }
   return (
@@ -97,15 +98,15 @@ export default function HomePage() {
           infiniteLoop={true}
           width={'60%'}
         >
-          {quoteCarousel.map((imageData) => {
+          {carousel.map((imagePath, index) => {
             return (
               <div key={crypto.randomUUID()} className="img-wrapper">
                 <img
                   className="carousel-img"
-                  src={imageData.imgUrl}
-                  alt={'graudates celebrating'}
+                  src={imagePath}
+                  alt={quotes[index]}
                 />
-                <p>{imageData.quoteText || ''}</p>
+                <p>{quotes[index] || ''}</p>
               </div>
             );
           })}

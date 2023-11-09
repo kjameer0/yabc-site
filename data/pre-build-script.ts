@@ -180,7 +180,7 @@ async function writeQuoteCarousel(
     if (!currentImageUrl) {
       throw new ReferenceError('No url for graduate image');
     }
-    await downloadSingleImage(currentImageUrl, carouselBasePath, `${directoryName}CarouselImg${index}`);
+    await downloadSingleImage(currentImageUrl, carouselBasePath, `${directoryName}Img${index}`);
     quoteJSON.quotes.push(carouselImage.fields.quoteText || '');
     index++;
   }

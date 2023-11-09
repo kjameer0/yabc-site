@@ -374,32 +374,79 @@ export function useImportGraduateCarousels() {
   const carousels = ['graduate1', 'graduate2', 'graduate3'];
   const [carouselsLoading, setCarouselsLoading] = useState(true);
   useEffect(() => {
-    const importImagesAndAddToCarouselsObj = async () => {
-      const importedImageArrayObj: Record<string, string[]> = {};
-      let currentCarouselIdx = 0;
-      for (const graduateCarouselDirectoryName of carousels) {
-        //the obj that contains each promise
-        const importPromises = await importCarouselImages(graduateCarouselDirectoryName);
-        if (!importPromises) {
-          throw new ReferenceError('graduate carousels failed to import');
+    try {
+      const importImagesAndAddToCarouselsObj = async () => {
+        const importedImageArrayObj: Record<string, string[]> = {};
+        let currentCarouselIdx = 0;
+        for (const graduateCarouselDirectoryName of carousels) {
+          //the obj that contains each promise
+          const importPromises = await importCarouselImages(graduateCarouselDirectoryName);
+          if (!importPromises) {
+            throw new ReferenceError('graduate carousels failed to import');
+          }
+          const currentCarouselArrayOfImagePaths: string[] = [];
+          for (const importPathName in importPromises) {
+            const imageModule = await importPromises[importPathName]();
+            currentCarouselArrayOfImagePaths.push(imageModule.default);
+          }
+          importedImageArrayObj[String(Number(startYear) + currentCarouselIdx)] =
+            currentCarouselArrayOfImagePaths;
+          currentCarouselIdx++;
         }
-        const currentCarouselArrayOfImagePaths: string[] = [];
-        for (const importPathName in importPromises) {
-          const imageModule = await importPromises[importPathName]();
-          currentCarouselArrayOfImagePaths.push(imageModule.default);
-        }
-        importedImageArrayObj[String(Number(startYear) + currentCarouselIdx)] =
-          currentCarouselArrayOfImagePaths;
-        currentCarouselIdx++;
-      }
-      setGraduateCarouselsObj(importedImageArrayObj);
-      setCarouselsLoading(false);
-      return;
-    };
-    importImagesAndAddToCarouselsObj();
+        setGraduateCarouselsObj(importedImageArrayObj);
+        setCarouselsLoading(false);
+        return;
+      };
+      importImagesAndAddToCarouselsObj();
+    } catch (error) {
+      errorGenerator(error);
+    }
   }, []);
   return { graduateCarouselsObj, carouselsLoading };
   //each carousel needs have each of its images awaited;
+}
+function chooseSingleCarouselImport(name: string) {
+  try {
+    let glob;
+    switch (name) {
+      case 'studentCornerCarousel':
+        glob = import.meta.glob<moduleType>('../assets/images/build-assets/carousels/studentCornerCarousel/*');
+        break;
+      case 'quoteCarousel':
+        glob = import.meta.glob<moduleType>('../assets/images/build-assets/carousels/quoteCarousel/*');
+        break;
+      default:
+        throw new Error('invalid carousel name');
+    }
+    return glob;
+  } catch (error) {
+    errorGenerator(error);
+  }
+}
+export function useImportSingleCarousel(carouselName: string) {
+  const [carousel, setCarousel] = useState<string[]>([]);
+  const [isCarouselLoading, setIsCarouselLoading] = useState(true);
+  useEffect(() => {
+    try {
+      const importCarousel = async () => {
+        const arrayOfImagePaths: string[] = [];
+        const glob = await chooseSingleCarouselImport(carouselName);
+        if(!glob) {
+          throw new ReferenceError('No single carousel import glob')
+        }
+        for (const imagePromise of Object.values(glob)) {
+          const imageModule = await imagePromise();
+          arrayOfImagePaths.push(imageModule.default);
+        }
+        setCarousel(arrayOfImagePaths);
+        setIsCarouselLoading(false);
+      };
+      importCarousel();
+    } catch (error) {
+      errorGenerator(error);
+    }
+  }, []);
+  return { carousel, isCarouselLoading };
 }
 export function extractFileNameFromUrl(filePath: string): string {
   const splitFileName = filePath.split(/\.|\//);

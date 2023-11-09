@@ -9,14 +9,12 @@ import { Carousel } from 'react-responsive-carousel';
 import LoadingScreen from 'components/LoadingScreen';
 //utils
 import { pageNavigationHandler } from 'pages/pages-utils';
-import { generateCarouselYearList } from 'utils/date-utils';
 import { richTextLinkOptions } from 'utils/contentful-api-functions';
 //data
 import aboutData from '../../page-data/aboutData.json';
 import { startYear } from '../../page-data/graduateCarouselsData.json';
 //hooks
 import {
-  useGetCarouselByYear,
   useImportPageImages,
   useImportGraduateCarousels,
 } from 'utils/apiHooks';
