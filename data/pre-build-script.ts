@@ -207,7 +207,7 @@ await writeGraduateCarousels(carouselObj?.graduateCarousels || []);
 await writeQuoteCarousel(carouselObj?.quoteCarousel, 'quoteCarousel');
 await writeQuoteCarousel(carouselObj?.studentCornerCarousel, 'studentCornerCarousel');
 await writeStaffImages();
-writeBannerText();
+await writeBannerText();
 await writePageData('7yhGH9U8xAnRRgnC76CcAC', 'homeData', 'home');
 await writePageData('2UE2gLOJhURbCW6YffSfPQ', 'aboutData', 'about');
 await writePageData('7GJQyJLELJDKG8EWm744KA', 'admissionsData', 'admissions');
