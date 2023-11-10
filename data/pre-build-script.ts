@@ -13,6 +13,7 @@ import { TypeCarouselSkeleton } from './contentful/contentful-types.js';
 import {
   generateImageObject,
   generateSectionsObject,
+  PageDataType,
   sectionObjType,
   StaffMemberDataType,
 } from './contentful/type-functions.js';
@@ -58,8 +59,8 @@ async function writePageData(
   try {
     const pathToPipeImages = path.resolve(ASSET_DIRECTORY, pageAssetPath);
     const pageData = await getSinglePageData(contentfulId);
-    const sectionObj = pageData && generateSectionsObject(pageData);
-    const contentfulImgObj = pageData && generateImageObject(pageData);
+    const sectionObj = pageData && generateSectionsObject(pageData as PageDataType);
+    const contentfulImgObj = pageData && generateImageObject(pageData as PageDataType);
     if (!pageData || !sectionObj || !contentfulImgObj) {
       throw new ReferenceError('Error retrieving page data, sectionsm or images.');
     }
@@ -73,6 +74,7 @@ async function writePageData(
       }
     });
   } catch (error) {
+    console.error('page')
     errorGenerator(error);
   }
 }
@@ -206,16 +208,17 @@ await writeQuoteCarousel(carouselObj?.quoteCarousel, 'quoteCarousel');
 await writeQuoteCarousel(carouselObj?.studentCornerCarousel, 'studentCornerCarousel');
 await writeStaffImages();
 writeBannerText();
-writePageData('7yhGH9U8xAnRRgnC76CcAC', 'homeData', 'home');
-writePageData('2UE2gLOJhURbCW6YffSfPQ', 'aboutData', 'about');
-writePageData('7GJQyJLELJDKG8EWm744KA', 'admissionsData', 'admissions');
-writePageData('7g9C5Xa1vO345Eim31HZaY', 'counselorCornerData', 'counselorCorner');
-writePageData('4PFJseAKeaXR0SerpDod02', 'parentsData', 'parents');
-writePageData('2GsVyoz0lPdUkLQKV30aW5', 'sharedAdmissionsData', 'sharedAdmissions');
-writePageData('4PVhqvB90jCz42mULpBZeC', 'staffData', 'staff');
-writePageData('4uRsZsFnHcwcxbOW543PiU', 'studentCornerData', 'studentCorner');
-writePageData('4ull73PKgAqB37xT6SkdwB', 'teacherHubData', 'teacherHub');
-writePageData('66NBO5u9RxH1aZmxbEObDF', 'contactData', 'contact');
-writePageData('7dfBJlHAwdkBjAGwHz7dmV', 'informationRequestFormData', 'informationRequestForm');
-writePageData('6t2NSllTkjn6ThupQQ9d9g', 'adminCounselorFormData', 'adminCounselorForm');
-writePageData('4nugErvcvdgZUewlAhwkvg', 'studentSupportActivitiesData', 'studentSupportActivities');
+await writePageData('7yhGH9U8xAnRRgnC76CcAC', 'homeData', 'home');
+await writePageData('2UE2gLOJhURbCW6YffSfPQ', 'aboutData', 'about');
+await writePageData('7GJQyJLELJDKG8EWm744KA', 'admissionsData', 'admissions');
+await writePageData('7g9C5Xa1vO345Eim31HZaY', 'counselorCornerData', 'counselorCorner');
+await writePageData('4PFJseAKeaXR0SerpDod02', 'parentsData', 'parents');
+await writePageData('2GsVyoz0lPdUkLQKV30aW5', 'sharedAdmissionsData', 'sharedAdmissions');
+await writePageData('4PVhqvB90jCz42mULpBZeC', 'staffData', 'staff');
+await writePageData('4uRsZsFnHcwcxbOW543PiU', 'studentCornerData', 'studentCorner');
+await writePageData('4ull73PKgAqB37xT6SkdwB', 'teacherHubData', 'teacherHub');
+await writePageData('66NBO5u9RxH1aZmxbEObDF', 'contactData', 'contact');
+await writePageData('7dfBJlHAwdkBjAGwHz7dmV', 'informationRequestFormData', 'informationRequestForm');
+await writePageData('6t2NSllTkjn6ThupQQ9d9g', 'adminCounselorFormData', 'adminCounselorForm');
+await writePageData('4nugErvcvdgZUewlAhwkvg', 'studentSupportActivitiesData', 'studentSupportActivities');
+

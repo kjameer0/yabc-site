@@ -1,4 +1,4 @@
-import { TypeBannerTextSkeleton } from '../../src/types/contentfulTypes.js';
+import { TypeBannerTextSkeleton } from '../contentful/contentful-types';
 import { client } from '../contentful-client.js';
 import { errorGenerator } from '../../src/utils/error.js';
 export async function getBannerText() {

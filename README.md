@@ -2,19 +2,59 @@
 This is the source code for www.washingtonirvingyabc.org. It is built with React, TypeScript, styled components, and Vite. Please contact Khalid Jameer to become a collaborator if you are assigned to work on this site.
 [![Edit in CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/github/kjameer0/yabc-site/main)
 
+## Build Pipeline
+The build pipeline for this website goes like this.
+  1. Content is updated in Contentful
+  2. A Contentful Webhook is triggered
+  3. The webhook sends a POST request to Github Actions
+  4. Github Actions rebuilds the site and uploads it to Google Cloud
+
+
 ## Contentful
-Changes made in Contentful (contact Khalid Jameer or the site administrator to become a collaborator on Contentful if you are assigned to work on this site) will trigger a Contentful web hook that will then trigger a github action that rebuilds the site and uploads it to the google cloud storage bucket associated with the website.
+Changes made in Contentful (contact Khalid Jameer or the site administrator to become a collaborator on Contentful if you are assigned to work on this site) will trigger a Contentful webhook that will then trigger a github action that rebuilds the site and uploads it to the google cloud storage bucket associated with the website.
+
+
 ## Github Actions
 Github actions allow freshly updated content from contentful to trigger a rebuild of the entire site and have that rebuild be uploaded to GCP(Google Cloud Platform).
+
+
 ### SECRETS
+The most important SECRETS are:
+  1. Contentful API KEY
+  2. Contentful SPACE KEY
+  3. GCP CREDENTIALS
+Both the Contentful API key and space key can be found on Contentful under Settings -> API keys. You can create a new one if you need to as long as it is also updated on Github Actions secrets.
+
 
 ## Google Cloud Storage Bucket
 The site administrator should have the ability to make to add new collaborators to edit content.
+
 ## HMAC key
 Google Cloud offers service accounts (https://cloud.google.com/storage/docs/authentication/hmackeys) that allow the github actions to work.
-In order to have
-## Build Pipeline
-Whenever
+Make sure you are granted sufficiently high level permissions as a collaborator. Ideally whoever maintains this site should have owner permissions.
+Service Accounts (https://cloud.google.com/iam/docs/service-account-overview) are used to programatically validate the Github action request to upload the website files to the storage bucket. There probably will not need to be an update to this service account, but if the credentials stop working and build actions fail, a newe service account can be created to get new credentials. ther credentials for GCP_CREDENTIALS will be JSON that has this format:
+`
+    {
+      "type": "service_account",
+      "project_id": "your-project-id",
+      "private_key_id": "your-private-key-id",
+      "private_key": "-----BEGIN PRIVATE KEY-----\nYourPrivateKeyHere\n-----END PRIVATE KEY-----\n",
+      "client_email": "your-service-account-email@your-project-id.iam.gserviceaccount.com",
+      "client_id": "your-client-id",
+      "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+      "token_uri": "https://accounts.google.com/o/oauth2/token",
+      "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+      "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/your-service-account-email%40your-project-id.iam.gserviceaccount.com"
+    }
+`
+
+## Build script
+In the data directory at the root of the project resides all of the code that downloads all of the JSON and images from Contentful that contain the content for the website.
+  1. contentful
+    1. contentful-types.ts -> All of the types for the contentful content models. Some of them have overrides that make them more usable so be carefule when changing them. Make sure you add this app from github to your contentful to generate new types https://github.com/marcolink/cf-content-types-generator-app
+    2. type-functions -> Contains utility functions that convert raw data form contentful to the final data format that will go into the page-data directory and the build-assets directory.
+  2. contentful-api-functions -> functions that interact with the CDA(Contentful Delivery API)
+    1. 
 ## Routing
 ## CSS
 

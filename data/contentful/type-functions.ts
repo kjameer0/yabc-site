@@ -5,11 +5,8 @@ import {
   isTypeParagraph,
   isTypeListText,
   TypeCarouselSkeleton,
-  TypeLinkTextFields,
   isTypeLinkText,
   TypeStaffMemberSkeleton,
-  TypeStaffMemberFields,
-  TypeButtonInformationFields,
   isTypeButtonInformation,
 } from './contentful-types.js';
 import { Document as ContentfulDocumentType } from '@contentful/rich-text-types';

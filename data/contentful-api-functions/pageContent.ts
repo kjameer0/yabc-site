@@ -2,7 +2,7 @@ import {
   TypePageSkeleton,
   TypeStaffMemberSkeleton,
   TypeCarouselSkeleton,
-} from '../../src/types/contentfulTypes.js';
+} from '../contentful/contentful-types';
 import { client } from '../contentful-client.js';
 import { errorGenerator } from '../../src/utils/error.js';
 import {
