@@ -1,7 +1,6 @@
 import { styled } from 'styled-components';
 
 export default styled.main`
-  position: relative;
   .reg-date {
     font-family: Inter-regular, sans-serif;
     font-size: clamp(1rem, 3vw, 2rem);
@@ -39,7 +38,7 @@ export default styled.main`
     min-width: 320px;
     min-height: 240px;
     width: 50vw;
-    height: calc(50vw * .6666);
+    height: calc(50vw * 0.6666);
   }
   /* generic wrapper for asides */
   .our-wrapper {

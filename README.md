@@ -1,6 +1,22 @@
 # Washington Irving YABC
-This is the source code for www.washingtonirvingyabc.org. It is built with React, TypeScript, styled components, and Vite.
+This is the source code for www.washingtonirvingyabc.org. It is built with React, TypeScript, styled components, and Vite. Please contact Khalid Jameer to become a collaborator if you are assigned to work on this site.
 [![Edit in CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/github/kjameer0/yabc-site/main)
+
+## Contentful
+Changes made in Contentful (contact Khalid Jameer or the site administrator to become a collaborator on Contentful if you are assigned to work on this site) will trigger a Contentful web hook that will then trigger a github action that rebuilds the site and uploads it to the google cloud storage bucket associated with the website.
+## Github Actions
+Github actions allow freshly updated content from contentful to trigger a rebuild of the entire site and have that rebuild be uploaded to GCP(Google Cloud Platform).
+### SECRETS
+
+## Google Cloud Storage Bucket
+The site administrator should have the ability to make to add new collaborators to edit content.
+## HMAC key
+Google Cloud offers service accounts (https://cloud.google.com/storage/docs/authentication/hmackeys) that allow the github actions to work.
+In order to have
+## Build Pipeline
+Whenever
+## Routing
+## CSS
 
 ## File Structure
 Every page and major component has the following directory structure:

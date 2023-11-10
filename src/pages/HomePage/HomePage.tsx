@@ -27,8 +27,9 @@ export default function HomePage() {
   if (loading || isCarouselLoading) {
     return <LoadingScreen />;
   }
+  
   return (
-    <StyledHomePage className="home-main">
+    <StyledHomePage>
       <HeroImage id="school-facade" imgLink={imgObj.homehero} text={[]} color="white" />
       <h1 className="major-heading restore-margin">{headers.pageTitle.mainHeading}</h1>
       <div className="pre-reg-box info-box restore-margin">

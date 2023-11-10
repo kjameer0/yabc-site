@@ -191,7 +191,6 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%;
     min-width: 375px;
-    max-width: unset;
     min-height: 667px;
     color: white;
     --main-bg: #A1D537;
@@ -202,6 +201,7 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
     text-align: center;
     letter-spacing: -0.05rem;
   }
+  /* keeps main content in viewport */
   #root {
     display: flex;
     flex-wrap: wrap;
@@ -217,10 +217,12 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
   a:hover {
     cursor: pointer;
   }
+  /* h1s and large headings */
   .major-heading {
     font-family: Inter-black, sans-serif;
     font-size: clamp(2rem, 5vw, 5rem);
   }
+  /* h2s and smaller */
   .sub-heading {
     font-family: Inter-bold, sans-serif;
     font-size: clamp(1rem, 3vw, 3rem);
@@ -296,6 +298,8 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
     animation-iteration-count: infinite;
     animation-fill-mode: backwards;
   }
+  /* spaces bullet points in
+  banner text*/
   .banner-bullet {
     margin: 0 5px;
   }
@@ -313,10 +317,6 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
     #root {
       justify-content: flex-start;
       overflow-x: hidden;
-    }
-    .home-main > * {
-      margin-left: 20px;
-      margin-right: 20px;
     }
     //-150px keeps main content from touching nav bar
     //left pushes it away from left side of root container
