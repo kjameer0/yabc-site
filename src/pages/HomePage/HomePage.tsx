@@ -14,6 +14,7 @@ import { useImportPageImages, useImportSingleCarousel } from 'utils/apiHooks';
 import pageData from '../../page-data/homeData.json';
 import { quotes } from '../../page-data/quoteCarouselData.json';
 //types
+
 export default function HomePage() {
   const location: Location = useLocation();
   const { imgObj, loading } = useImportPageImages('home');
@@ -27,7 +28,7 @@ export default function HomePage() {
   if (loading || isCarouselLoading) {
     return <LoadingScreen />;
   }
-  
+
   return (
     <StyledHomePage>
       <HeroImage id="school-facade" imgLink={imgObj.homehero} text={[]} color="white" />

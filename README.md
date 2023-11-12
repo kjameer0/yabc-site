@@ -54,9 +54,31 @@ In the data directory at the root of the project resides all of the code that do
     1. contentful-types.ts -> All of the types for the contentful content models. Some of them have overrides that make them more usable so be carefule when changing them. Make sure you add this app from github to your contentful to generate new types https://github.com/marcolink/cf-content-types-generator-app
     2. type-functions -> Contains utility functions that convert raw data form contentful to the final data format that will go into the page-data directory and the build-assets directory.
   2. contentful-api-functions -> functions that interact with the CDA(Contentful Delivery API)
-    1. 
+    1. bannerText.ts -> fetching banner text
+    2. pageContent.ts -> fetches all other page content(text, images, carousels)
+  3. contentful-client.ts -> initializes the connection between the script and contentful content
+  4. pre-build-script.ts -> loads all data for the website and places it into page-data and build-assets directories
 ## Routing
+This website uses React Router for SPA routing.
+The list of page names with their corresponding url names are as follows:
+  0. x page -> 'www.washingtonirvingyabc.org/x'
+  1. home page -> ''
+  2. about page -> 'about'
+  3. counselor contact form page -> 'counselor-contact-form'
+  4. site admin contact form page -> 'site-administrator-contact-form'
+  5. counselor corner page -> 'counselor-corner'
+  6. information request form page -> 'information-request-form'
+  7. student support activites page -> 'student-support-activities'
+  8. parents/families page -> 'parents-families'
+  9. shared admissions page -> 'shared-admissions'
+  10. staff directory page -> 'staff-directory'
+  11. student corner page -> 'student-corner'
+  12. teacher hub page -> 'teacher-hub'
+
+  This is here because some pages are not found directly in the nav bar, so if a change needs to be made to a page not there then it helps to know what all of the page names are and where to find them.
+
 ## CSS
+Styled-components are used for this website. src/main.tsx outlines a lot of the general styles for the whole project, and each page or component has a wrapper StyledPageName.tsx that has local styles.
 
 ## File Structure
 Every page and major component has the following directory structure:
@@ -64,27 +86,9 @@ Every page and major component has the following directory structure:
 2. Styled wrapper file - styled component wrapper that contains localized styles for component
 3. Index file - exports final component
 
-## Locations of Common Places For Time Sensitive Edits
-There are pieces of information(class start dates, registration windows) that are subject to more frequent changes than the rest pf the content. The following files contain that type of information:
-1. App.tsx:
-  - top banner text
-2. HomePage.tsx:
-  - Registration start and end dates
-  - Class begin dates
-3. About.tsx:
-  - Registration start and end dates
-  - Graduate carousel by year
-4. Admissions.tsx
-  - Who application materials are submitted to
-5. Parent.tsx
-  - Picture from latest parent night with date
-6. SharedAdmissions.tsx
-  - Who application materials are submitted to
-7. StudentCorner.tsx
-  - Activities Carousel
 
 ## Images
-The assets folder has all of the images for the project. Every page with images has its own image folder. There is a separate folder for carousel images, and each carousel should have its own folder that has an index.ts file. That file will import all of the images and export an array of those images.
+Most if not all of the images are .webp. Try to compress and minimize the size of any images as much as you can because the build process takes longer if the images are very large. Also website performance can be impacted by large files. 
 
 ## Styles
 As mentioned above, each component has its own styled component wrapper that stores the localized styles for that component.
@@ -96,7 +100,7 @@ For the most part, styles read in order of appearance on screen, and are named b
 As a general rule, pages are styled with flex layout, keeping sections centered in the main tag.
 
 ## Email
-In the contact pages and information request page, HeroTofu is used to submit messages to their proper destination. The useContactForm hook form HeroTofu in the Contact Form page accomplishes the form post action for all forms.
+In the contact pages and information request page, HeroTofu is used to submit messages to their proper destination. The useContactForm hook form HeroTofu in the Contact Form page accomplishes the form post action for all forms. The HeroTofu API endpoints are stored in Contentful.
 
 ## Navigation
 There are two nav bars, changes to navigation/routing should be reflected in both. Make sure that the JSX from one matches the other in structure for the routes, because they are not generalized. Adjustments have to be transported deliberately. So creating a new pages means:
