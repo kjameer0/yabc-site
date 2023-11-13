@@ -7,11 +7,12 @@ The build pipeline for this website goes like this.
   1. Content is updated in Contentful
   2. A Contentful Webhook is triggered
   3. The webhook sends a POST request to Github Actions
-  4. Github Actions rebuilds the site and uploads it to Google Cloud
+  4. Github Actions rebuilds the site and uploads it to the Google Cloud Storage Bucket
 
 
 ## Contentful
-Changes made in Contentful (contact Khalid Jameer or the site administrator to become a collaborator on Contentful if you are assigned to work on this site) will trigger a Contentful webhook that will then trigger a github action that rebuilds the site and uploads it to the google cloud storage bucket associated with the website.
+Changes made in Contentful (contact Khalid Jameer or the site administrator to become a collaborator on Contentful if you are assigned to work on this site) will trigger a Contentful webhook(Found on Contentful under Settings -> Webhooks) that will then trigger a github action that rebuilds the site and uploads it to the google cloud storage bucket associated with the website.
+
 
 
 ## Github Actions
@@ -27,9 +28,9 @@ Both the Contentful API key and space key can be found on Contentful under Setti
 
 
 ## Google Cloud Storage Bucket
-The site administrator should have the ability to make to add new collaborators to edit content.
+The site administrator should have the ability to add new collaborators to edit content.
 
-## HMAC key
+## HMAC key and service accounts
 Google Cloud offers service accounts (https://cloud.google.com/storage/docs/authentication/hmackeys) that allow the github actions to work.
 Make sure you are granted sufficiently high level permissions as a collaborator. Ideally whoever maintains this site should have owner permissions.
 Service Accounts (https://cloud.google.com/iam/docs/service-account-overview) are used to programatically validate the Github action request to upload the website files to the storage bucket. There probably will not need to be an update to this service account, but if the credentials stop working and build actions fail, a newe service account can be created to get new credentials. ther credentials for GCP_CREDENTIALS will be JSON that has this format:
@@ -48,6 +49,7 @@ Service Accounts (https://cloud.google.com/iam/docs/service-account-overview) ar
     }
 `
 
+
 ## Build script
 In the data directory at the root of the project resides all of the code that downloads all of the JSON and images from Contentful that contain the content for the website.
   1. contentful
@@ -58,6 +60,8 @@ In the data directory at the root of the project resides all of the code that do
     2. pageContent.ts -> fetches all other page content(text, images, carousels)
   3. contentful-client.ts -> initializes the connection between the script and contentful content
   4. pre-build-script.ts -> loads all data for the website and places it into page-data and build-assets directories
+
+
 ## Routing
 This website uses React Router for SPA routing.
 The list of page names with their corresponding url names are as follows:
@@ -88,7 +92,7 @@ Every page and major component has the following directory structure:
 
 
 ## Images
-Most if not all of the images are .webp. Try to compress and minimize the size of any images as much as you can because the build process takes longer if the images are very large. Also website performance can be impacted by large files. 
+Most if not all of the images are .webp. Try to compress and minimize the size of any images as much as you can because the build process takes longer if the images are very large. Also, website performance can be impacted by large files.
 
 ## Styles
 As mentioned above, each component has its own styled component wrapper that stores the localized styles for that component.
@@ -100,14 +104,32 @@ For the most part, styles read in order of appearance on screen, and are named b
 As a general rule, pages are styled with flex layout, keeping sections centered in the main tag.
 
 ## Email
-In the contact pages and information request page, HeroTofu is used to submit messages to their proper destination. The useContactForm hook form HeroTofu in the Contact Form page accomplishes the form post action for all forms. The HeroTofu API endpoints are stored in Contentful.
+In the contact pages and information request page, HeroTofu is used to submit messages to their proper destination. The useContactForm hook form HeroTofu in the Contact Form page accomplishes the form post action for all forms. The HeroTofu API endpoints are stored in Contentful. The site admin should have a HeroTofu login info. If not a new account cna be made and the endpoints can be changed on Contentful to send forms to the intended email address.
 
 ## Navigation
-There are two nav bars, changes to navigation/routing should be reflected in both. Make sure that the JSX from one matches the other in structure for the routes, because they are not generalized. Adjustments have to be transported deliberately. So creating a new pages means:
+There are two nav bars, changes to navigation/routing should be reflected in both. Make sure that the JSX from one matches the other in structure for the routes, because they are not generalized. Adjustments have to be transported deliberately.
+
+## Adjusting content
+
+### Pages
+Creating a new pages means:
 1. Creating component with index.ts, PageName.tsx, StyledPageName.tsx
 2. Adding route to router in main.tsx
 3. Adding route where it's supposed to go in both Drawer.tsx and SideNavBar.tsx
 4. add sub anchors to utils-NavBar.tsx
+5. Creating an instance of a Page on Contentful.
+6. Filling in page with content and copying it's entry id after publishing it.
+7. Adding a new folder in assets/build-assets with the pages name in camelCase
+8. going to data/prebuild-script.ts and using the writePageData function to pass it's text data to <pageName>Data and its assets to its build-asset sub-folder
+9. Running npm load-cms-json to download assets and images
+10. Going into utils/apiHooks and adding the name of the assets folder for the page and its route into the switch statement in createPageImgObj
+11. Importing .json text content
+12. Importing useImportImages and using the folder name where the images reside as the parameter when you call the function
+13. The sectionObj can be destructured from the json import
+14. The imgOb and loading state can be destructured from the useImportImages call
+15. make sure you add the new page to the readme list of pages with its URL
+
+
 
 
 
