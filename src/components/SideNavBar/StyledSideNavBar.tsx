@@ -6,12 +6,14 @@ export default styled.nav`
   left: 0;
   display: none;
   background-color: var(--main-bg);
-  width: clamp(200px, 20vw, 255px);
-  min-height: 100vh;
+  width: clamp(200px, 21vw, 255px);
+  height: 100% !important;
   overflow-y: scroll;
   overflow-x: hidden;
   /* logo wrapper */
-
+nav {
+  width: 100%;
+}
   .img-wrapper {
     background: black;
     margin-bottom: 5px;
@@ -46,8 +48,8 @@ export default styled.nav`
     height: 30px;
     font-size: 0.75rem;
     border: 0;
-    margin: 5px 0;
     width: 100%;
+    margin: 5px 0;
     color: black;
     background: var(--main-bg);
   }
@@ -63,7 +65,7 @@ export default styled.nav`
   .address-p {
     font-family: Inter-semi-bold;
     font-size: 0.75rem;
-    margin: 0 0 0 10px;
+    margin: 0 0 20px 5px;
     text-align: left;
     color: black;
     flex-basis: 100%;

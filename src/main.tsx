@@ -324,8 +324,8 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; $blackBackground?
       position: relative;
       margin-top: 35px;
       margin-left: 10px;
-      flex-basis: calc(90% - 150px);
-      left: clamp(200px, 20vw, 255px);
+      flex-basis: calc(90% - 160px);
+      left: clamp(200px, 21vw, 255px);
     }
   }
 `;
