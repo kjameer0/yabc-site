@@ -9,23 +9,21 @@ import LoadingScreen from 'components/LoadingScreen';
 //utils
 import { pageNavigationHandler } from 'pages/pages-utils';
 //hooks
-import { useImportStaffImagesbyRole} from 'utils/apiHooks';
+import { useImportStaffImagesbyRole } from 'utils/apiHooks';
 //data
-import staffPageData from '../../page-data/staffData.json'
-import staffMemberData from '../../page-data/staffMemberData.json'
+import staffPageData from '../../page-data/staffData.json';
+import staffMemberData from '../../page-data/staffMemberData.json';
+import TeacherIcon from 'assets/images/build-assets/Teacher_Icon.webp';
 
 export default function Staff() {
   const location: Location = useLocation();
   const { sectionObj } = staffPageData;
   const { headers } = sectionObj;
   const staffObj = staffMemberData;
-  const {staffMemberImgObj, staffImagesLoading} = useImportStaffImagesbyRole();
+  const { staffMemberImgObj, staffImagesLoading } = useImportStaffImagesbyRole();
   useEffect(() => {
     pageNavigationHandler('administrators', location);
   }, [location, staffImagesLoading]);
-  if (staffImagesLoading) {
-    return <LoadingScreen />;
-  }
   return (
     <StyledStaff className="staff-main">
       <h1 className="major-heading" id="administrators">
@@ -34,12 +32,13 @@ export default function Staff() {
       <StyledContentSection className="staff-section">
         <div className="staff-flex-wrapper">
           {staffObj.admin.map((admin, index) => {
+            const imageUrl = staffImagesLoading ? TeacherIcon : staffMemberImgObj[admin.name];
             return (
               <StaffImage
                 key={admin.name}
                 name={admin.name.toUpperCase()}
                 role={admin.role || ''}
-                imgUrl={staffMemberImgObj[admin.name]}
+                imgUrl={imageUrl}
                 direction={index % 2 === 0 ? 'left' : 'right'}
               />
             );
@@ -48,16 +47,19 @@ export default function Staff() {
       </StyledContentSection>
       <StyledContentSection className="staff-section" id="school-counselors">
         <div className="white-line-long"></div>
-        <h2 className="major-heading counselor-heading">{headers.schoolCounselorHeading.mainHeading}</h2>
+        <h2 className="major-heading counselor-heading">
+          {headers.schoolCounselorHeading.mainHeading}
+        </h2>
         <div className="white-line-short"></div>
         <div className="staff-flex-wrapper">
           {staffObj.counselor.map((counselor, index) => {
+            const imageUrl = staffImagesLoading ? TeacherIcon : staffMemberImgObj[counselor.name];
             return (
               <StaffImage
                 key={counselor.name}
                 name={counselor.name.toUpperCase()}
                 role={counselor.role || ''}
-                imgUrl={staffMemberImgObj[counselor.name]}
+                imgUrl={imageUrl}
                 direction={index % 2 === 0 ? 'left' : 'right'}
               />
             );
@@ -66,16 +68,19 @@ export default function Staff() {
       </StyledContentSection>
       <StyledContentSection className="staff-section" id="mission-society-of-new-york">
         <div className="white-line-long"></div>
-        <h2 className="major-heading counselor-heading">{headers.missionSocietyHeading.mainHeading}</h2>
+        <h2 className="major-heading counselor-heading">
+          {headers.missionSocietyHeading.mainHeading}
+        </h2>
         <div className="white-line-short"></div>
         <div className="staff-flex-wrapper">
           {staffObj.missionSociety.map((staff, index) => {
+            const imageUrl = staffImagesLoading ? TeacherIcon : staffMemberImgObj[staff.name];
             return (
               <StaffImage
                 key={staff.name}
                 name={staff.name.toUpperCase()}
                 role={staff.role || ''}
-                imgUrl={staffMemberImgObj[staff.name]}
+                imgUrl={imageUrl}
                 direction={index % 2 === 0 ? 'left' : 'right'}
               />
             );
@@ -88,12 +93,13 @@ export default function Staff() {
         <div className="white-line-short"></div>
         <div className="staff-flex-wrapper">
           {staffObj.faculty.map((staff, index) => {
+            const imageUrl = staffImagesLoading ? TeacherIcon : staffMemberImgObj[staff.name];
             return (
               <StaffImage
                 key={staff.name}
                 name={staff.name.toUpperCase()}
                 role={staff.role || ''}
-                imgUrl={staffMemberImgObj[staff.name]}
+                imgUrl={imageUrl}
                 direction={index % 2 === 0 ? 'left' : 'right'}
               />
             );
@@ -106,12 +112,14 @@ export default function Staff() {
         <div className="white-line-short"></div>
         <div className="staff-flex-wrapper">
           {staffObj.support.map((staff, index) => {
+            const imageUrl = staffImagesLoading ? TeacherIcon : staffMemberImgObj[staff.name];
+
             return (
               <StaffImage
                 key={staff.name}
                 name={staff.name.toUpperCase()}
                 role={staff.role || ''}
-                imgUrl={staffMemberImgObj[staff.name]}
+                imgUrl={imageUrl}
                 direction={index % 2 === 0 ? 'left' : 'right'}
               />
             );

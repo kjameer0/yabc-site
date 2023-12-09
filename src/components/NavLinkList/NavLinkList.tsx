@@ -8,7 +8,13 @@ export default function NavLinkList({ list }: { list: NavListItemType[] }) {
       {list.map((anchor) => {
         return (
           <li key={anchor.path} className="nav-anchor">
-            <button onClick={() => navigate(anchor.path)} className="link-button">
+            <button
+              onClick={() => {
+                debugger;
+                navigate(anchor.path);
+              }}
+              className="link-button"
+            >
               {anchor.label}
             </button>
           </li>

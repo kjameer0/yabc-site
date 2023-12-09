@@ -105,7 +105,7 @@ export default function About() {
             currentCarousel.map((imgUrl, idx) => {
               return (
                 <div style={CarouselStyles} key={idx}>
-                  <img style={CarouselImgStyles} src={imgUrl} alt="Graduation carousel" />
+                  <img style={CarouselImgStyles} loading='lazy' src={imgUrl} alt="Graduation carousel" />
                 </div>
               );
             })}

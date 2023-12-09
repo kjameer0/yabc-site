@@ -93,6 +93,7 @@ Every page and major component has the following directory structure:
 
 ## Images
 Most if not all of the images are .webp. Try to compress and minimize the size of any images as much as you can because the build process takes longer if the images are very large. Also, website performance can be impacted by large files.
+Note: All images come from Contentful, but the default teacher icon is stored locally in build assets in case an image does not come through.
 
 ## Styles
 As mentioned above, each component has its own styled component wrapper that stores the localized styles for that component.

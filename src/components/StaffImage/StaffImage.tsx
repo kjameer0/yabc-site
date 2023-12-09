@@ -11,7 +11,7 @@ export default function StaffImage({ direction, imgUrl, name, role }: StaffImage
   return (
     <StyledStaffImage $direction={direction}>
       <div className="img-wrapper">
-        <img src={imgUrl} alt={name} className="staff-img" />
+        <img loading="lazy" src={imgUrl} alt={name} className="staff-img" />
       </div>
       <div className="staff-info">
         <ul className="staff-info-ul">
