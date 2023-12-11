@@ -10,7 +10,6 @@ export default function NavLinkList({ list }: { list: NavListItemType[] }) {
           <li key={anchor.path} className="nav-anchor">
             <button
               onClick={() => {
-                debugger;
                 navigate(anchor.path);
               }}
               className="link-button"
